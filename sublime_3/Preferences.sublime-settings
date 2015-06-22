@@ -1,0 +1,30 @@
+{
+	"theme": "Material-Theme-Darker.sublime-theme",
+	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
+	"ensure_newline_at_eof_on_save": true,
+	"find_selected_text": true,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+	],
+	"margin": 2,
+	"rulers":
+	[
+	120
+	],
+	"scroll_past_end": true,
+	"shift_tab_unindent": true,
+	"translate_tabs_to_spaces": true,
+	"vintage_start_in_command_mode": true,
+
+	"overlay_scroll_bars": "enabled",
+	"line_padding_top": 3,
+	"line_padding_bottom": 3,
+	// On retina Mac
+	"font_options": [ "gray_antialias" ],
+	"always_show_minimap_viewport": true,
+	"bold_folder_labels": true,
+	// Highlight active indent
+	"indent_guide_options": [ "draw_normal", "draw_active" ]
+}
