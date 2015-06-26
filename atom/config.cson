@@ -1,0 +1,16 @@
+"*":
+  editor:
+    invisibles: {}
+    fontSize: 13
+  core:
+    themes: [
+      "one-dark-ui"
+      "atom-dark-syntax"
+    ]
+    destroyEmptyPanes: false
+  "exception-reporting":
+    userId: "ff311298-d385-4643-bcfb-e92ef9c15714"
+  welcome:
+    showOnStartup: false
+  linter: {}
+  whitespace: {}
