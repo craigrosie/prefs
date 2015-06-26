@@ -15,6 +15,7 @@
 		"SublimeCodeIntel",
 		"SublimeLinter",
 		"SublimeLinter-jshint",
+		"SublimeLinter-pylint",
 		"SublimeREPL",
 		"TrailingSpaces"
 	]
