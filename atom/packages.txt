@@ -1,0 +1,13 @@
+atom-handlebars@0.5.0
+atom-jinja2@0.5.0
+dash@1.2.1
+emmet@2.3.10
+linter@1.0.6
+linter-handlebars@2.0.0
+linter-jshint@0.1.7
+linter-jsonlint@0.1.4
+linter-pylint@0.2.2
+linter-scss-lint@1.0.5
+material@2.1.4
+vim-mode@0.54.0
+
