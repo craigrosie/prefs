@@ -2,6 +2,9 @@
   editor:
     invisibles: {}
     fontSize: 13
+    tabLength: 4
+    preferredLineLength: 120
+    scrollPastEnd: true
   core:
     themes: [
       "one-dark-ui"
