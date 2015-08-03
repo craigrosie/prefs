@@ -1,0 +1,37 @@
+[alias]
+	# View abbreviated SHA, description and history graphy of the latest 20 commits
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+	# View the current working tree status using the short format
+	s = status -s
+
+	# Show the diff between the latest commit and the current state
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+
+	# Commit
+	c = commit
+
+	# Default push origin master
+	pom = push origin master
+	
+	# Show verbose output about tags, branches, or remotes
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
+[core]
+	# Make git rebase safe on osx
+	# See http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
+	trustctime = false
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red
+	new = green
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = cyan
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
