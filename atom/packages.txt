@@ -13,6 +13,7 @@ linter-jsonlint@0.1.4
 linter-pylint@0.2.2
 linter-scss-lint@2.0.0
 merge-conflicts@1.3.5
+oceanic-next@0.1.2
 pigments@0.9.3
 project-manager@1.15.11
 save-session@0.15.7

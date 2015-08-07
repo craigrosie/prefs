@@ -8,7 +8,7 @@
   core:
     themes: [
       "one-dark-ui"
-      "atom-dark-syntax"
+      "oceanic-next"
     ]
     destroyEmptyPanes: false
   "exception-reporting":
