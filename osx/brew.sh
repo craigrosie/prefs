@@ -17,10 +17,6 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade --all
 
-# Install Python
-brew install python
-brew install python3
-
 # Install more recent versions of some OSX defaults
 brew install vim --override-system-vi
 brew install homebrew/dupes/grep
