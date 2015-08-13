@@ -52,3 +52,6 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # Enable pyenv-virtualenv auto-activation
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# Enable rbenv shims & autocomplete
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

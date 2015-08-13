@@ -21,6 +21,10 @@ brew upgrade --all
 brew install pyenv
 brew install pyenv-virtualenv
 
+# rbenv for managing ruby versions
+brew install rbenv
+brew install ruby-build
+
 # Install more recent versions of some OSX defaults
 brew install vim --override-system-vi
 brew install homebrew/dupes/grep
