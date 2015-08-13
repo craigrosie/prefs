@@ -8,6 +8,8 @@ alias gh="cd ~/github"
 alias prefs="cd ~/github/prefs"
 alias g="git"
 
+alias cls="clear"
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
     colourflag="--color"
