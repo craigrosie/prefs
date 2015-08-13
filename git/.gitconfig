@@ -11,6 +11,12 @@
 	# Commit
 	c = commit
 
+	# Add (verbose mode to show added files)
+	a = add -v
+
+	# Add all modified files in working tree (verbose mode)
+	aa = add -v -u
+
 	# Default push origin master
 	pom = push origin master
 	
