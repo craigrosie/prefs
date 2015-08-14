@@ -48,6 +48,7 @@ brew cask install --appdir="/Applications" haroopad
 brew cask install --appdir="/Applications" imageoptim
 brew cask install --appdir="/Applications" iterm2
 brew cask install --appdir="/Applications" lastpass
+brew cask install --appdir="/Applications" pgadmin3
 brew cask install --appdir="/Applications" scroll-reverser
 brew cask install --appdir="/Applications" skype
 brew cask install --appdir="/Applications" slack
