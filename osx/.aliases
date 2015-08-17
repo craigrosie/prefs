@@ -5,7 +5,7 @@ alias ....="cd ../../.."
 
 alias drop="cd ~/Dropbox"
 alias gh="cd ~/github"
-alias prefs="cd ~/github/prefs"
+alias dl="cd ~/Downloads"
 alias g="git"
 
 alias cls="clear"
