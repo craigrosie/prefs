@@ -7,6 +7,7 @@ alias drop="cd ~/Dropbox"
 alias gh="cd ~/github"
 alias dl="cd ~/Downloads"
 alias g="git"
+alias v="vim"
 
 alias cls="clear"
 
