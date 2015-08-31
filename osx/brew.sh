@@ -25,6 +25,9 @@ brew install pyenv-virtualenv
 brew install rbenv
 brew install ruby-build
 
+# icu4c (https://github.com/Homebrew/homebrew/blob/master/Library/Formula/icu4c.rb) for gem installs
+brew install icu4c
+
 # Install more recent versions of some OSX defaults
 brew install vim --override-system-vi
 brew install homebrew/dupes/grep
