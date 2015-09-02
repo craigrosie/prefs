@@ -25,6 +25,9 @@ brew install pyenv-virtualenv
 brew install rbenv
 brew install ruby-build
 
+# jenv for managing java versions
+brew install jenv
+
 # Install postgres
 brew install postgres
 # Initialise db
