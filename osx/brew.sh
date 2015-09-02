@@ -25,6 +25,16 @@ brew install pyenv-virtualenv
 brew install rbenv
 brew install ruby-build
 
+# Install postgres
+brew install postgres
+# Initialise db
+initdb /usr/local/var/postgres -E utf8
+# Install AdminPack
+psql postgres -c 'CREATE EXTENSION "adminpack";'
+# Configure postgres to run on startup
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+
 # icu4c (https://github.com/Homebrew/homebrew/blob/master/Library/Formula/icu4c.rb) for gem installs
 brew install icu4c
 
