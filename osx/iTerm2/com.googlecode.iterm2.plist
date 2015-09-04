@@ -93,11 +93,13 @@
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
 	<key>NSWindow Frame Preferences</key>
-	<string>551 252 924 485 0 0 1680 1027 </string>
+	<string>-418 1372 924 485 -1144 1050 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>812 285 865 706 0 0 1680 1027 </string>
+	<string>616 252 865 706 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>975 326 570 451 0 0 1680 1027 </string>
+	<string>792 1221 865 706 776 1050 1920 1177 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>974 1281 865 706 776 1050 1920 1177 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -663,7 +665,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>0</integer>
 			<key>Scrollback With Status Bar</key>
 			<false/>
 			<key>Scrollback in Alternate Screen</key>
@@ -807,7 +809,7 @@
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
-			<false/>
+			<true/>
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
@@ -826,10 +828,12 @@
 			<string>/Users/craigrosie</string>
 		</dict>
 	</array>
+	<key>NoSyncNeverRemindPrefsChangesLost</key>
+	<true/>
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>459334096.34303802</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>461156473.45889199</real>
+	<real>462961974.75143701</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -892,7 +896,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-08-13T11:01:06Z</date>
+	<date>2015-09-04T09:19:26Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
