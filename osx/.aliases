@@ -8,6 +8,7 @@ alias gh="cd ~/github"
 alias dl="cd ~/Downloads"
 alias g="git"
 alias v="vim"
+alias p="ping -c 4"
 
 alias cls="clear"
 
