@@ -53,5 +53,5 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 alias pg="ping -c 4 www.google.com"
 
 # Update brew and brew-cask
-brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
+alias brewup="brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup"
 
