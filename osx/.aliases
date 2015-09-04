@@ -55,3 +55,5 @@ alias pg="ping -c 4 www.google.com"
 # Update brew and brew-cask
 alias brewup="brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup"
 
+# Refresh all the dotfiles!
+alias rebash="source ~/.bashrc; echo '.dotfiles have been refreshed!'"
