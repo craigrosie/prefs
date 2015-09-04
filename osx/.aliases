@@ -57,3 +57,6 @@ alias brewup="brew update && brew upgrade brew-cask && brew cleanup && brew cask
 
 # Refresh all the dotfiles!
 alias rebash="source ~/.bashrc; echo '.dotfiles have been refreshed!'"
+
+# Upgrade pip
+alias pipup="pip install --upgrade pip"
