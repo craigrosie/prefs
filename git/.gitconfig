@@ -19,6 +19,9 @@
 
 	# Default push origin master
 	pom = push origin master
+
+	# Default pull origin master
+	plom = pull --rebase origin master
 	
 	# Show verbose output about tags, branches, or remotes
 	tags = tag -l
