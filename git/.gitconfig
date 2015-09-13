@@ -11,6 +11,9 @@
 	# Commit
 	c = commit
 
+	# Checkout
+	ch = checkout
+
 	# Add (verbose mode to show added files)
 	a = add -v
 
