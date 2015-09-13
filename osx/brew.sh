@@ -17,6 +17,9 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade --all
 
+# Advanced bash completion
+brew install bash-completion
+
 # pyenv for managing python versions
 brew install pyenv
 brew install pyenv-virtualenv
