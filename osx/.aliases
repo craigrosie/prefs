@@ -66,3 +66,9 @@ alias showfiles="defaults write com.apple.finder AppleShowAllFiles YES; killall 
 
 # Hide hidden files in Finder
 alias hidefiles="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app"
+
+# Show desktop icons
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder /System/Library/CoreServices/Finder.app"
+
+# Hide desktop icons
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder /System/Library/CoreServices/Finder.app"
