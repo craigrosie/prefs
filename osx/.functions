@@ -234,3 +234,28 @@ function o() {
 function tre() {
     tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+# creating a new python project
+# create dir, cd, create pyenv virtualenv, run pipup (alias), pylint, requirements.txt
+function pynew() {
+    echo "[INFO]: creating directory (if required) ${1}..." &&
+    mkdir -p "$1" && cd "$1" &&
+    echo "[INFO]: created directory ${1}" &&
+    echo "[INFO]: creating pyenv virtualenv ${2} ${1}-${2}..." &&
+    pyenv virtualenv "$2" "$1"-"$2" &&
+    echo "[INFO]: created pyenv virtualenv ${1}-${2}" &&
+    echo "[INFO]: setting pyenv local ${1}-${2}..." &&
+    pyenv local "$1"-"$2" &&
+    echo "[INFO]: set local pyenv to ${1}-${2}" &&
+    echo "[INFO]: running pipup..." &&
+    pipup &&
+    echo "[INFO]: pipup complete - pip updated" &&
+    echo "[INFO]: installing pylint..." &&
+    pip install pylint &&
+    echo "[INFO]: installed pylint" &&
+    echo "[INFO]: checking if requirements.txt exists..." &&
+    [ -e "requirements.txt" ] &&
+    echo "[INFO]: requirements.txt exists - installing..." &&
+    pip install -r requirements.txt &&
+    echo "[INFO]: installed requirements.txt";
+}
