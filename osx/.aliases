@@ -60,3 +60,9 @@ alias rebash="source ~/.bashrc; echo '.dotfiles have been refreshed!'"
 
 # Upgrade pip
 alias pipup="pip install --upgrade pip"
+
+# Show hidden files in Finder
+alias showfiles="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
+
+# Hide hidden files in Finder
+alias hidefiles="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app"
