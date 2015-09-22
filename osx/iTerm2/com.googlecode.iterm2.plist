@@ -92,12 +92,29 @@
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
+	<key>NSTableView Columns KeyBingingTable</key>
+	<array>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
+		hAErATCG
+		</data>
+		<string>198</string>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
+		hAErATGG
+		</data>
+		<string>302</string>
+	</array>
+	<key>NSTableView Hidden Columns KeyBingingTable</key>
+	<array/>
+	<key>NSTableView Sort Ordering KeyBingingTable</key>
+	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>-418 1372 924 485 -1144 1050 1920 1177 </string>
+	<string>418 337 924 485 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>616 252 865 706 0 0 1680 1027 </string>
+	<string>372 185 865 706 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>792 1221 865 706 776 1050 1920 1177 </string>
+	<string>-1022 1130 850 706 -1144 1050 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>974 1281 865 706 776 1050 1920 1177 </string>
 	<key>New Bookmarks</key>
@@ -833,7 +850,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>459334096.34303802</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>462961974.75143701</real>
+	<real>464518860.19602603</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -896,7 +913,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-09-04T09:19:26Z</date>
+	<date>2015-09-21T08:57:16Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -906,7 +923,7 @@
 	<key>SmartPlacement</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.40000000596046448</real>
+	<real>0.23333333432674408</real>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
