@@ -82,5 +82,8 @@ brew cask install --appdir="/Applications" the-unarchiver
 brew tap yudai/gotty
 brew install gotty
 
+# Install htop
+brew install htop-osx
+
 # Cleanup
 brew cleanup
