@@ -259,3 +259,9 @@ function pynew() {
     pip install -r requirements.txt &&
     echo "[INFO]: installed requirements.txt";
 }
+
+# create a backup of a file
+function bak() {
+	cp ${1}{,.bak}
+	echo "Created ${1}.bak"
+}
