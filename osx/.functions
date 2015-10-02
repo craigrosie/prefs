@@ -265,3 +265,9 @@ function bak() {
 	cp ${1}{,.bak}
 	echo "Created ${1}.bak"
 }
+
+# find common lines in multiple files (arg must be wrapped in " ")
+function commlines() {
+	sort $1 | uniq -c | sort -n
+	echo "COMMAND: sort ${1} | uniq -c | sort -n"
+}
