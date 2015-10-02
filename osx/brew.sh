@@ -85,5 +85,8 @@ brew install gotty
 # Install htop
 brew install htop-osx
 
+# Install jq for json manipulation
+brew install jq
+
 # Cleanup
 brew cleanup
