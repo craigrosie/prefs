@@ -58,3 +58,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Enable jenv shims & autocomplete
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
+# Ignore dups in history
+export HISTCONTROL=ignoredups
