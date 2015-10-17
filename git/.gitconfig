@@ -23,8 +23,14 @@
 	# Default push origin master
 	pom = push origin master
 
+	# Default push origin develop
+	pod = push origin develop
+
 	# Default pull origin master
 	plom = pull --rebase origin master
+
+	# Default pull origin develop
+	plod = pull --rebase origin develop
 	
 	# Show verbose output about tags, branches, or remotes
 	tags = tag -l
