@@ -1,21 +1,25 @@
 {
+	"bootstrapped": true,
 	"in_process_packages":
 	[
 	],
 	"installed_packages":
 	[
-		"Better Coffeescript",
+		"Better CoffeeScript",
 		"DashDoc",
 		"Emmet",
 		"GitGutter",
 		"Handlebars",
 		"Jinja2",
+		"Markdown Preview",
+		"Material Theme",
 		"Oceanic Next Color Scheme",
 		"Package Control",
 		"Sass",
 		"SublimeCodeIntel",
 		"SublimeLinter",
 		"SublimeLinter-jshint",
+		"SublimeLinter-json",
 		"SublimeLinter-pylint",
 		"SublimeREPL",
 		"Theme - Broceanic",
