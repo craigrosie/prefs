@@ -88,5 +88,8 @@ brew install htop-osx
 # Install jq for json manipulation
 brew install jq
 
+# Install GNU versions of command line tools
+brew install coreutils
+
 # Cleanup
 brew cleanup

@@ -61,3 +61,9 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 # Ignore dups in history
 export HISTCONTROL=ignoredups
+
+# Enable normal names for coreutils tools
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH";
+
+# Enable normal man pages for coreutils tools
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH";
