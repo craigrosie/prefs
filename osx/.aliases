@@ -75,3 +75,6 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 
 # Always sudo htop
 alias htop="sudo htop"
+
+# List files/directories by human readable size (requires coreutils)
+alias sizes="du -sh * | sort -h"
