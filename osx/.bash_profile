@@ -67,3 +67,7 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH";
 
 # Enable normal man pages for coreutils tools
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH";
+
+# Increase bash history size
+export HISTSIZE=1000000;
+export HISTFILESIZE=1000000000;
