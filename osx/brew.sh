@@ -91,5 +91,8 @@ brew install jq
 # Install GNU versions of command line tools
 brew install coreutils
 
+# Install cheat (https://github.com/chrisallenlane/cheat)
+brew install cheat
+
 # Cleanup
 brew cleanup
