@@ -53,3 +53,8 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[merge]
+	tool = p4merge
+[mergetool]
+	keepTemporaries = false
+	prompt = false
