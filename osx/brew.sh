@@ -95,5 +95,8 @@ brew install coreutils
 # Install cheat (https://github.com/chrisallenlane/cheat)
 brew install cheat
 
+# Install docker toolbox
+brew cask install dockertoolbox
+
 # Cleanup
 brew cleanup
