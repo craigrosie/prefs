@@ -69,6 +69,7 @@ brew cask install --appdir="/Applications" iterm2
 brew cask install --appdir="/Applications" itsycal
 brew cask install --appdir="/Applications" java
 brew cask install --appdir="/Applications" lastpass
+brew cask install --appdir="/Applications" p4merge
 brew cask install --appdir="/Applications" pgadmin3
 brew cask install --appdir="/Applications" scroll-reverser
 brew cask install --appdir="/Applications" skype
