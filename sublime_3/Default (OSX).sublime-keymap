@@ -6,5 +6,11 @@
                 { "key": "setting.command_mode", "operand": false },
                 { "key": "setting.is_widget", "operand": false }
             ]
+    },
+    {
+        "keys": ["super+["], "command": "focus_group", "args": { "group": 0 },
+    },
+    {
+        "keys": ["super+]"], "command": "focus_group", "args": { "group": 1 }
     }
 ]
