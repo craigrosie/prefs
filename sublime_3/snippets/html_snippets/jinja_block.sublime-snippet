@@ -1,6 +1,8 @@
 <snippet>
     <content><![CDATA[
-{% block ${1:blockname} %}{% endblock %}
+{% block ${1:blockname} %}
+    ${2:block content}
+{% endblock %}
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>jblock</tabTrigger>
