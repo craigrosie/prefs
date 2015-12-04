@@ -95,6 +95,9 @@ brew install coreutils
 # Install cheat (https://github.com/chrisallenlane/cheat)
 brew install cheat
 
+# Install gnu-sed over mac sed
+brew install gnu-sed --with-default-names
+
 # Install docker toolbox
 brew cask install dockertoolbox
 
