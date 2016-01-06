@@ -72,6 +72,7 @@ brew cask install --appdir="/Applications" lastpass
 brew cask install --appdir="/Applications" p4merge
 brew cask install --appdir="/Applications" pgadmin3
 brew cask install --appdir="/Applications" scroll-reverser
+brew cask install --appdir="/Applications" skitch
 brew cask install --appdir="/Applications" skype
 brew cask install --appdir="/Applications" slack
 brew cask install --appdir="/Applications" sourcetree
