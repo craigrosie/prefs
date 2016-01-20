@@ -20,6 +20,12 @@
 	# Add all modified files in working tree (verbose mode)
 	aa = add -v -u
 
+	# Shortcut for push
+	p = push
+
+	# Shortcut for pull
+	pl = pull --rebase
+
 	# Default push origin master
 	pom = push origin master
 
