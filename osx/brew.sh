@@ -56,7 +56,6 @@ brew tap caskroom/versions
 
 # Install casks
 brew cask install --appdir="/Applications" atom
-brew cask install --appdir="/Applications" bettertouchtool
 brew cask install --appdir="/Applications" caffeine
 brew cask install --appdir="/Applications" dash
 brew cask install --appdir="/Applications" dropbox
@@ -76,6 +75,7 @@ brew cask install --appdir="/Applications" skitch
 brew cask install --appdir="/Applications" skype
 brew cask install --appdir="/Applications" slack
 brew cask install --appdir="/Applications" sourcetree
+brew cask install --appdir="/Applications" spectacle
 brew cask install --appdir="/Applications" spotify
 brew cask install --appdir="/Applications" sublime-text3
 brew cask install --appdir="/Applications" the-unarchiver
