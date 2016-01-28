@@ -1,0 +1,4 @@
+{
+    "anaconda_gutter_theme": "hard",
+    "test_command": "py.test --cov"
+}

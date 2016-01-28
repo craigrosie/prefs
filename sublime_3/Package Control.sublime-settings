@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"Anaconda",
 		"Better CoffeeScript",
 		"DashDoc",
 		"Emmet",
@@ -20,11 +21,8 @@
 		"Package Control",
 		"Sass",
 		"SmartMarkdown",
-		"SublimeCodeIntel",
 		"SublimeLinter",
-		"SublimeLinter-jshint",
 		"SublimeLinter-json",
-		"SublimeLinter-pylint",
 		"SublimeREPL",
 		"Theme - Broceanic",
 		"TrailingSpaces"

@@ -12,5 +12,8 @@
     },
     {
         "keys": ["super+]"], "command": "focus_group", "args": { "group": 1 }
-    }
+    },
+    {"command": "anaconda_goto", "keys": ["super+shift+g"]},
+    {"command": "anaconda_find_usages", "keys": ["super+shift+u"]},
+    {"command": "anaconda_doc", "keys": ["super+shift+d"]},
 ]
