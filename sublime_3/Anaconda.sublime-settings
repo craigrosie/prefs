@@ -1,4 +1,5 @@
 {
     "anaconda_gutter_theme": "hard",
-    "test_command": "py.test --cov"
+    "test_command": "py.test --cov",
+    "pep8_rcfile": "~/.pep8rc"
 }
