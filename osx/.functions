@@ -271,3 +271,8 @@ function commlines() {
 	sort $1 | uniq -c | sort -n
 	echo "COMMAND: sort ${1} | uniq -c | sort -n"
 }
+
+# export docker-machine env variables for supplied machine
+function denv() {
+	eval $(docker-machine env ${1})
+}

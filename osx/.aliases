@@ -78,3 +78,12 @@ alias htop="sudo htop"
 
 # List files/directories by human readable size (requires coreutils)
 alias sizes="du -sh * | sort -h"
+
+# Shorten docker
+alias d="docker"
+
+# Shorten docker-machine
+alias dm="docker-machine"
+
+# Shorten docker-compose
+alias dc="docker-compose"
