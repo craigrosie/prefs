@@ -4,19 +4,10 @@ export PATH="$HOME/bin:$PATH";
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+for file in ~/.{sensible,path,bash_prompt,exports,aliases,functions,extra}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
-
-# Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob;
-
-# Append to the Bash history file, rather than overwriting it
-shopt -s histappend;
-
-# Autocorrect typos in path names when using `cd`
-shopt -s cdspell;
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
@@ -59,15 +50,9 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Enable jenv shims & autocomplete
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
-# Ignore dups in history
-export HISTCONTROL=ignoredups
-
 # Enable normal names for coreutils tools
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH";
 
 # Enable normal man pages for coreutils tools
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH";
 
-# Increase bash history size
-export HISTSIZE=1000000;
-export HISTFILESIZE=1000000000;
