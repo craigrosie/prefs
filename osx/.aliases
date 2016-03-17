@@ -87,3 +87,6 @@ alias dm="docker-machine"
 
 # Shorten docker-compose
 alias dc="docker-compose"
+
+# Alias to delete all docker containers
+alias drac="docker rm -f \$(docker ps -aq)"
