@@ -107,5 +107,8 @@ brew cask install dockertoolbox
 # Install diff-so-fancy
 brew install diff-so-fancy
 
+# Install graphviz for pyreverse
+brew install graphviz
+
 # Cleanup
 brew cleanup
