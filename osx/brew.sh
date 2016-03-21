@@ -107,6 +107,9 @@ brew cask install dockertoolbox
 # Install diff-so-fancy
 brew install diff-so-fancy
 
+# Install gs for pdf compression
+brew install gs
+
 # Install graphviz for pyreverse
 brew install graphviz
 

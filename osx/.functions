@@ -276,3 +276,7 @@ function commlines() {
 function denv() {
 	eval $(docker-machine env ${1})
 }
+
+function compresspdf() {
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${2} ${1}
+}
