@@ -90,3 +90,6 @@ alias dc="docker-compose"
 
 # Alias to delete all docker containers
 alias drac="docker rm -f \$(docker ps -aq)"
+
+# Alias to delete all docker images
+alias drai="docker rmi \$(docker images -q)"
