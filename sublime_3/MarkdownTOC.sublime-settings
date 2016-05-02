@@ -1,0 +1,11 @@
+{
+  "default_autolink": true,
+  "default_bracket": "round",
+  "default_depth": 5,
+  "id_replacements": {
+    "-": " ",
+    "" : ["!","#","$","&","'","(",")","*","+",",","/",":",";","=","?","@","[","]","`","\"", ".","<",">","{","}","™","®","©"]
+  },
+  "default_autoanchor": false,
+  "default_style": "unordered"
+}
