@@ -8,5 +8,13 @@
             "start_msg": "Starting pull (rebase)...",
             "complete_msg": "Pull complete."
         }
+    },
+    {
+        "caption": "git: version",
+        "command": "gs_custom",
+        "args": {
+            "output_to_panel": true,
+            "args": ["--version"],
+        }
     }
 ]
