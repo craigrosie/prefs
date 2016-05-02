@@ -16,6 +16,7 @@
 		"Handlebars",
 		"Jinja2",
 		"MarkdownEditing",
+		"MarkdownTOC",
 		"Material Theme",
 		"Oceanic Next Color Scheme",
 		"OmniMarkupPreviewer",
@@ -23,9 +24,11 @@
 		"Sass",
 		"SideBarEnhancements",
 		"SmartMarkdown",
+		"Strapdown Markdown Preview",
 		"SublimeLinter",
 		"SublimeLinter-json",
 		"SublimeREPL",
+		"Table Editor",
 		"Theme - Broceanic",
 		"TrailingSpaces"
 	]
