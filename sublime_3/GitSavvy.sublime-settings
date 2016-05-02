@@ -2,5 +2,6 @@
     "show_commit_diff": true,
     "inline_diff_auto_scroll": true,
     "show_remotes_in_branch_dashboard": true,
-    "show_remotes_in_tags_dashboard": true
+    "show_remotes_in_tags_dashboard": true,
+    "git_path": "/usr/local/bin/git",
 }
