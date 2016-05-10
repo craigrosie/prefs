@@ -113,5 +113,9 @@ brew install gs
 # Install graphviz for pyreverse
 brew install graphviz
 
+# Install Source Code Pro font
+brew tap caskroom/fonts
+brew cask install font-source-code-pro
+
 # Cleanup
 brew cleanup
