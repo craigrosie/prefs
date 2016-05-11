@@ -112,9 +112,9 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>1169 110 445 435 0 0 1680 1050 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>142 356 924 485 0 0 1680 1027 </string>
+	<string>142 356 924 485 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>830 18 850 694 0 0 1680 1027 </string>
+	<string>2 356 850 666 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>95 58 850 706 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -668,11 +668,11 @@
 			<key>Name</key>
 			<string>iTerm2</string>
 			<key>Non Ascii Font</key>
-			<string>SourceCodePro-Regular 12</string>
+			<string>SourceCodePro-Regular 13</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SourceCodePro-Regular 12</string>
+			<string>SourceCodePro-Regular 13</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -854,7 +854,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>477575322.21420699</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>484562351.74429798</real>
+	<real>484662230.08504802</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -917,7 +917,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-05-10T08:37:59Z</date>
+	<date>2016-05-11T12:15:26Z</date>
 	<key>SUSkippedVersion</key>
 	<string>2.1.4</string>
 	<key>SavePasteHistory</key>
