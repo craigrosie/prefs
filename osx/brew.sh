@@ -113,6 +113,9 @@ brew install gs
 # Install graphviz for pyreverse
 brew install graphviz
 
+# Install Postman (https://www.getpostman.com/)
+brew cask install postman
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
