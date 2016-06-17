@@ -1,5 +1,6 @@
 {
 	"bold_folder_labels": true,
+	"close_windows_when_empty": true,
 	"color_scheme": "Packages/User/SublimeLinter/Oceanic Next (SL).tmTheme",
 	"disable_tab_abbreviations_on_auto_complete": false,
 	"ensure_newline_at_eof_on_save": true,
@@ -13,7 +14,7 @@
 		"__pycache__"
 	],
 	"font_face": "Source Code Pro",
-	"font_size": 12,
+	"font_size": 13,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
