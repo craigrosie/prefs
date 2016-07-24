@@ -123,7 +123,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>530 477 620 392 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2 49 970 707 0 0 1680 1027 </string>
+	<string>2 100 970 707 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1775 388 970 706 1680 330 1200 1897 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -863,7 +863,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>1C425A5C-F3AE-41C1-80F2-A8C8681A302F</string>
 	<key>NoSyncLastTipTime</key>
-	<real>487761776.92820603</real>
+	<real>491008700.55526501</real>
 	<key>NoSyncNeverRemindPrefsChangesLost</key>
 	<true/>
 	<key>NoSyncPermissionToShowTip</key>
@@ -881,6 +881,35 @@
 		<string>0001</string>
 		<string>0002</string>
 		<string>0003</string>
+		<string>0004</string>
+		<string>0005</string>
+		<string>0006</string>
+		<string>0007</string>
+		<string>0008</string>
+		<string>0009</string>
+		<string>0010</string>
+		<string>0011</string>
+		<string>0012</string>
+		<string>0013</string>
+		<string>0014</string>
+		<string>0015</string>
+		<string>0016</string>
+		<string>0017</string>
+		<string>0018</string>
+		<string>0019</string>
+		<string>0020</string>
+		<string>0021</string>
+		<string>0022</string>
+		<string>0023</string>
+		<string>0024</string>
+		<string>0025</string>
+		<string>0026</string>
+		<string>0027</string>
+		<string>0028</string>
+		<string>0029</string>
+		<string>0030</string>
+		<string>0031</string>
+		<string>0032</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -946,7 +975,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-06-16T09:43:51Z</date>
+	<date>2016-07-21T09:40:52Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -987,7 +1016,11 @@
 	<integer>0</integer>
 	<key>WordCharacters</key>
 	<string>d</string>
+	<key>findIgnoreCase_iTerm</key>
+	<true/>
+	<key>findRegex_iTerm</key>
+	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.2</string>
+	<string>3.0.4</string>
 </dict>
 </plist>
