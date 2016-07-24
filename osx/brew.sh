@@ -101,9 +101,6 @@ brew install cheat
 # Install gnu-sed over mac sed
 brew install gnu-sed --with-default-names
 
-# Install docker toolbox
-brew cask install dockertoolbox
-
 # Install diff-so-fancy
 brew install diff-so-fancy
 
