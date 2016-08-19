@@ -19,7 +19,8 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Markdown"
+		"Markdown",
+		"Python"
 	],
 	"indent_guide_options":
 	[

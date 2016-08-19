@@ -17,6 +17,7 @@
 		"Handlebars",
 		"INI",
 		"Jinja2",
+		"MagicPython",
 		"MarkdownEditing",
 		"MarkdownTOC",
 		"OmniMarkupPreviewer",
