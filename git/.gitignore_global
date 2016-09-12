@@ -43,3 +43,8 @@ Thumbs.db
 # Sublime Text #
 ################
 *.sublime-*
+
+# Python #
+##########
+*.pyc
+__pycache__/
