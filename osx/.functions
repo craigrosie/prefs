@@ -275,3 +275,9 @@ function commlines() {
 function compresspdf() {
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${2} ${1}
 }
+
+# exec straight into container without docker ps nonsense
+function dbash() {
+	echo "COMMAND: docker exec -it $(docker ps -q -f name=${1}) bash"
+	docker exec -it $(docker ps -q -f name=${1}) bash
+}
