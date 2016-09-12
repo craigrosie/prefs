@@ -97,5 +97,8 @@ alias drai="docker rmi \$(docker images -q)"
 # Alias to show docker stats by container name
 alias dscn="docker stats \$(docker ps --format \"{{.Names}}\")"
 
+# More readable docker ps
+alias dps="docker ps --format \"table {{.ID}}\t{{.Names}}\t{{.Image}}\""
+
 # Always show line numbers and highlight matches in grep
 alias grep="grep -n --colour=auto"
