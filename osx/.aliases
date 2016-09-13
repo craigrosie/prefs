@@ -95,7 +95,7 @@ alias drac="docker rm -f \$(docker ps -q -f status=exited)"
 alias drai="docker rmi \$(docker images -q)"
 
 # Alias to show docker stats by container name
-alias dscn="docker stats \$(docker ps --format \"{{.Names}}\")"
+alias dstats="docker stats \$(docker ps --format \"{{.Names}}\")"
 
 # More readable docker ps
 alias dps="docker ps --format \"table {{.ID}}\t{{.Names}}\t{{.Image}}\""
