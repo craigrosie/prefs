@@ -23,14 +23,20 @@
 	# Shortcut for push
 	p = push
 
-	# Shortcut for pull
-	pl = pull --rebase
-
 	# Default push origin master
 	pom = push origin master
 
 	# Default push origin develop
 	pod = push origin develop
+
+	# Push specific tag
+	pt = push origin
+
+	# Push all tags
+	pat = push origin --tags
+
+	# Shortcut for pull
+	pl = pull --rebase
 
 	# Default pull origin master
 	plom = pull --rebase origin master
