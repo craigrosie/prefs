@@ -6,7 +6,7 @@
 	s = status -s
 
 	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+	d = !"clear; git diff"
 
 	# Commit
 	c = commit
@@ -53,6 +53,7 @@
 	# See http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
 	trustctime = false
 	excludesfile = ~/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [color "diff"]
 	meta = yellow bold
 	frag = magenta bold
@@ -76,3 +77,8 @@
 	show = diff-so-fancy | less --tabs=1,5 -RFX
 [user]
 	useconfigonly = true
+[color "diff-highlight"]
+	oldNormal = red
+	oldHighlight = red bold 52
+	newNormal = green
+	newHighlight = green bold 22
