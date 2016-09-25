@@ -11,7 +11,8 @@
 		".git",
 		".hg",
 		"CVS",
-		"__pycache__"
+		"__pycache__",
+		".cache"
 	],
 	"font_face": "Source Code Pro",
 	"font_size": 13,
