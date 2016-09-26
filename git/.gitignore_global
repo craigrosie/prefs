@@ -48,3 +48,7 @@ Thumbs.db
 ##########
 *.pyc
 __pycache__/
+
+# Python coverage #
+###################
+.coverage
