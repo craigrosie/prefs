@@ -253,6 +253,9 @@ function pynew() {
     echo "[INFO]: installing pylint..." &&
     pip install pylint &&
     echo "[INFO]: installed pylint" &&
+    echo "[INFO]: installing pip-tools..." &&
+    pip install pip-tools &&
+    echo "[INFO]: installed pip-tools" &&
     echo "[INFO]: checking if requirements.txt exists..." &&
     [ -e "requirements.txt" ] &&
     echo "[INFO]: requirements.txt exists - installing..." &&
