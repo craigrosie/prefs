@@ -1,5 +1,5 @@
 {
     "anaconda_gutter_theme": "hard",
-    "test_command": "py.test --cov",
+    "test_command": "make test",
     "pep8_max_line_length": 100
 }
