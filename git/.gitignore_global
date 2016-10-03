@@ -52,3 +52,7 @@ __pycache__/
 # Python coverage #
 ###################
 .coverage
+
+# Flake8 #
+##########
+.cache/
