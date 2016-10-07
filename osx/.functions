@@ -284,3 +284,9 @@ function dbash() {
 	echo "COMMAND: docker exec -it $(docker ps -q -f name=${1}) bash"
 	docker exec -it $(docker ps -q -f name=${1}) bash
 }
+
+# stream logs for container without docker ps nonsense
+function dlogs() {
+	echo "COMMAND: docker logs -f $(docker ps -q -f name=${1})"
+	docker logs -f $(docker ps -q -f name=${1})
+}
