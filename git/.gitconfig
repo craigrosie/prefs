@@ -9,7 +9,7 @@
 	d = !"clear; git diff"
 
 	# Commit
-	c = commit
+	c = commit --verbose
 
 	# Checkout
 	ch = checkout
