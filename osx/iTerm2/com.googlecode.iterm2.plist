@@ -123,9 +123,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>530 477 620 392 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 144 918 512 0 0 1680 1050 </string>
+	<string>269 395 918 498 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>3 294 970 728 0 0 1680 1027 </string>
+	<string>843 9 834 1013 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1775 388 970 706 1680 330 1200 1897 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -835,7 +835,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.19498197734355927</real>
+			<real>0.0</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
@@ -869,7 +869,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>1C425A5C-F3AE-41C1-80F2-A8C8681A302F</string>
 	<key>NoSyncLastTipTime</key>
-	<real>494801994.03947401</real>
+	<real>495457825.89334798</real>
 	<key>NoSyncNeverRemindPrefsChangesLost</key>
 	<true/>
 	<key>NoSyncPermissionToShowTip</key>
@@ -945,6 +945,10 @@
 		<string>0059</string>
 		<string>0060</string>
 		<string>0061</string>
+		<string>0062</string>
+		<string>0063</string>
+		<string>0064</string>
+		<string>0065</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -1012,7 +1016,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-09-03T13:06:05Z</date>
+	<date>2016-10-15T13:24:12Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1029,6 +1033,8 @@
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
 	<integer>6</integer>
+	<key>TabStyle</key>
+	<integer>1</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>ThreeFingerEmulates</key>
@@ -1060,6 +1066,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.7</string>
+	<string>3.0.10</string>
 </dict>
 </plist>
