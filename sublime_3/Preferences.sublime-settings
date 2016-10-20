@@ -21,7 +21,7 @@
 	"ignored_packages":
 	[
 		"Markdown",
-		"Python"
+		"MagicPython"
 	],
 	"indent_guide_options":
 	[
