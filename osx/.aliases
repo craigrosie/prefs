@@ -102,3 +102,6 @@ alias dps="docker ps --format \"table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Ports}
 
 # Always show line numbers and highlight matches in grep
 alias grep="grep -n --colour=auto"
+
+# Typing make is hard
+alias m="make"
