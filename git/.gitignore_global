@@ -48,6 +48,7 @@ Thumbs.db
 ##########
 *.pyc
 __pycache__/
+*.egg-info/
 
 # Python coverage #
 ###################
