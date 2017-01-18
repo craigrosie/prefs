@@ -105,3 +105,6 @@ alias grep="grep -n --colour=auto"
 
 # Typing make is hard
 alias m="make"
+
+# Install common Python utils
+alias pyhelp="pip install ptpython ipython pudb"
