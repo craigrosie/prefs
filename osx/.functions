@@ -256,6 +256,9 @@ function pynew() {
     echo "[INFO]: installing pip-tools..." &&
     pip install pip-tools &&
     echo "[INFO]: installed pip-tools" &&
+    echo "[INFO]: installing ipython, ptpython & pudb..." &&
+	pip install ipython ptpython pdb &&
+    echo "[INFO]: installed pip-tools" &&
     echo "[INFO]: checking if requirements.txt exists..." &&
     [ -e "requirements.txt" ] &&
     echo "[INFO]: requirements.txt exists - installing..." &&
