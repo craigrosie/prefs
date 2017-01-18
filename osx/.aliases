@@ -108,3 +108,12 @@ alias m="make"
 
 # Install common Python utils
 alias pyhelp="pip install ptpython ipython pudb"
+
+# IPython alias
+alias ipy="ipython"
+
+# ptpython alias
+alias ptp="ptpython"
+
+# ptipython alias
+alias pti="ptipython"
