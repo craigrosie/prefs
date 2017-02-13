@@ -110,6 +110,9 @@ brew install gs
 # Install graphviz for pyreverse
 brew install graphviz
 
+# Install thefuck
+brew install thefuck
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 

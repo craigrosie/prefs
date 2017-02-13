@@ -50,6 +50,9 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Enable jenv shims & autocomplete
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
+# Enable thefuck alias
+eval "$(thefuck --alias)"
+
 # Enable normal names for coreutils tools
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH";
 
@@ -58,3 +61,4 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH";
 
 # Keep brew casks in old location for now
 export HOMEBREW_CASK_OPTS="--caskroom=/opt/homebrew-cask/Caskroom"
+
