@@ -85,9 +85,13 @@
 	<key>NSFontPanelAttributes</key>
 	<string>1, 6</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/github</string>
+	<string>~/github/prefs/osx/iTerm2</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
+	<key>NSNavPanelExpandedSizeForSaveMode</key>
+	<string>{712, 521}</string>
+	<key>NSNavPanelExpandedStateForSaveMode</key>
+	<true/>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -125,9 +129,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>530 477 620 392 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 443 918 495 0 0 1680 1027 </string>
+	<string>503 544 796 473 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>3 313 970 707 0 0 1680 1050 </string>
+	<string>229 216 970 707 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1775 388 970 706 1680 330 1200 1897 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -152,12 +156,16 @@
 			</dict>
 			<key>Ansi 1 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.093626871705055237</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.1324627548456192</real>
 				<key>Red Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.827323317527771</real>
 			</dict>
 			<key>Ansi 10 Color</key>
 			<dict>
@@ -233,12 +241,16 @@
 			</dict>
 			<key>Ansi 4 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.73388034105300903</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.69551318883895874</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.091381572186946869</real>
 			</dict>
 			<key>Ansi 5 Color</key>
 			<dict>
@@ -1022,7 +1034,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-01-16T14:43:52Z</date>
+	<date>2017-02-25T14:51:27Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1072,6 +1084,10 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.13</string>
+	<string>3.0.14</string>
+	<key>kCPKSelectionViewPreferredModeKey</key>
+	<integer>0</integer>
+	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
+	<false/>
 </dict>
 </plist>
