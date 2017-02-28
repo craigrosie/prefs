@@ -131,6 +131,9 @@ brew install the_silver_searcher
 # Install shpotify (https://github.com/hnarayanan/shpotify)
 brew install shpotify
 
+# Install yank (https://github.com/mptre/yank)
+brew install yank
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
