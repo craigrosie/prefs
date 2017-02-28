@@ -1,0 +1,10 @@
+{
+    "Prompt": ">",
+    "Style": {
+        "Basic": ["on_default", "default"],
+        "SavedSelection": ["bold", "on_black", "red"],
+        "Selected": ["bold", "on_cyan", "black"],
+        "Query": ["white", "bold"],
+        "Matched": ["cyan", "on_black"]
+    }
+}
