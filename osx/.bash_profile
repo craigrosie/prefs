@@ -56,6 +56,9 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 # Enable thefuck alias
 eval "$(thefuck --alias)"
 
+# Enable fasd
+eval "$(fasd --init auto)"
+
 # Enable normal names for coreutils tools
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH";
 
