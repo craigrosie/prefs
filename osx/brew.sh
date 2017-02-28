@@ -116,6 +116,9 @@ brew install thefuck
 # Install lnav (http://lnav.org/)
 brew install lnav
 
+# Install peco (https://github.com/peco/peco)
+brew install peco
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
