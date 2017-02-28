@@ -68,3 +68,5 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH";
 # Keep brew casks in old location for now
 export HOMEBREW_CASK_OPTS="--caskroom=/opt/homebrew-cask/Caskroom"
 
+# Enable fzf auto-completion & key bindings
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
