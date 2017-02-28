@@ -134,6 +134,9 @@ brew install shpotify
 # Install yank (https://github.com/mptre/yank)
 brew install yank
 
+# Install fasd (https://github.com/clvv/fasd)
+brew install fasd
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
