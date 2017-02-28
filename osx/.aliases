@@ -120,3 +120,6 @@ alias pti="ptipython"
 
 # spotify (shpotify) alias
 alias sp="spotify"
+
+# peco alias
+alias p="peco"
