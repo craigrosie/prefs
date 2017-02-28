@@ -137,6 +137,9 @@ brew install yank
 # Install fasd (https://github.com/clvv/fasd)
 brew install fasd
 
+# Install fzf (https://github.com/junegunn/fzf)
+brew install fzf
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
