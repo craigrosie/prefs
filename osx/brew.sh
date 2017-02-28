@@ -125,6 +125,9 @@ brew install tig
 # Install ranger (https://github.com/ranger/ranger)
 brew install ranger
 
+# Install The Silver Search (ag) (https://github.com/ggreer/the_silver_searcher)
+brew install the_silver_searcher
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
