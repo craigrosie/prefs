@@ -119,6 +119,9 @@ brew install lnav
 # Install peco (https://github.com/peco/peco)
 brew install peco
 
+# Install tig (https://github.com/jonas/tig)
+brew install tig
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
