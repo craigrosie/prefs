@@ -128,6 +128,9 @@ brew install ranger
 # Install The Silver Search (ag) (https://github.com/ggreer/the_silver_searcher)
 brew install the_silver_searcher
 
+# Install shpotify (https://github.com/hnarayanan/shpotify)
+brew install shpotify
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
