@@ -113,6 +113,9 @@ brew install graphviz
 # Install thefuck
 brew install thefuck
 
+# Install lnav (http://lnav.org/)
+brew install lnav
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
