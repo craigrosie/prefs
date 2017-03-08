@@ -7,6 +7,9 @@
 	# View the current working tree status using the short format
 	s = status -s -uall
 
+	# Branch
+	b = branch
+
 	# Show the diff between the latest commit and the current state
 	d = !"clear; git diff"
 
