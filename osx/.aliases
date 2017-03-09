@@ -124,3 +124,6 @@ alias p="peco"
 
 # Use ag & fzf to search files contents in current dir
 alias fif="ag --nobreak --nonumbers --noheading . | fzf"
+
+# Add ff alias for fzf because z is hard to type :(
+alias ff="fzf"
