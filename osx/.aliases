@@ -124,3 +124,6 @@ alias sp="spotify"
 
 # peco alias
 alias p="peco"
+
+# Set fasd jump alias to be c instead of z
+alias c="fasd_cd -d"
