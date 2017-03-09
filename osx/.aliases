@@ -122,3 +122,5 @@ alias sp="spotify"
 # peco alias
 alias p="peco"
 
+# Use ag & fzf to search files contents in current dir
+alias fif="ag --nobreak --nonumbers --noheading . | fzf"
