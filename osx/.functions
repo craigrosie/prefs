@@ -279,3 +279,9 @@ function dlogs() {
 	echo "COMMAND: docker logs -f $(docker ps -q -f name=${1})"
 	docker logs -f $(docker ps -q -f name=${1})
 }
+
+# combine fasd & fzf for ultimate directory changing!
+function c() {
+  local dir
+  dir="$(fasd -Rdl "$1" | fzf -1 -0 --no-sort +m)" && cd "${dir}" || return 1
+}
