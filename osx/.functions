@@ -280,6 +280,15 @@ function dlogs() {
 	docker logs -f $(docker ps -q -f name=${1})
 }
 
+# use fzf to checkout git branches
+function fbr() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
 # combine fasd & fzf for ultimate directory changing!
 function c() {
   local dir
