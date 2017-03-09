@@ -74,4 +74,8 @@ export HOMEBREW_CASK_OPTS="--caskroom=/opt/homebrew-cask/Caskroom"
 # Setting ag as the default source for fzf
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
+# Also use ag for the fzf ctrl+T command
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Set default options for fzf
+export FZF_DEFAULT_OPTS="--height 30% --reverse --cycle"
