@@ -78,7 +78,7 @@ alias htop="sudo htop"
 alias sizes="du -ahd1 | sort -h"
 
 # Shorten docker
-alias d="docker"
+alias dk="docker"
 
 # Shorten docker-machine
 alias dm="docker-machine"
