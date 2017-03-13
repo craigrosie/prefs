@@ -140,6 +140,9 @@ brew install fasd
 # Install fzf (https://github.com/junegunn/fzf)
 brew install fzf
 
+# Install ncdu (https://dev.yorhel.nl/ncdu)
+brew install ncdu
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
