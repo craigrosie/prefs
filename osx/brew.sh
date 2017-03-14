@@ -143,6 +143,9 @@ brew install fzf
 # Install ncdu (https://dev.yorhel.nl/ncdu)
 brew install ncdu
 
+# Install pgcli (https://github.com/dbcli/pgcli)
+brew install pgcli
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
