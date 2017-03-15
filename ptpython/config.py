@@ -117,7 +117,7 @@ def configure(repl):
     @repl.add_key_binding(Keys.ControlB)
     def _(event):
         ' Pressing Control-B will insert "pdb.set_trace()" '
-        event.cli.current_buffer.insert_text('\nimport pdb; pdb.set_trace()\n')
+        event.cli.current_buffer.insert_text('\nimport pudb; pudb.set_trace()\n')
 
     # Typing ControlE twice should also execute the current command.
     # (Alternative for Meta-Enter.)
