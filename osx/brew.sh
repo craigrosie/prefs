@@ -82,6 +82,9 @@ brew cask install --appdir="/Applications" spotify
 brew cask install --appdir="/Applications" sublime-text3
 brew cask install --appdir="/Applications" the-unarchiver
 
+# Install tree
+brew install tree
+
 # Install GoTTY (https://github.com/yudai/gotty)
 brew tap yudai/gotty
 brew install gotty
