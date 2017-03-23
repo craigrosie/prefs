@@ -149,6 +149,9 @@ brew install ncdu
 # Install pgcli (https://github.com/dbcli/pgcli)
 brew install pgcli
 
+# Install git-standup (https://github.com/kamranahmedse/git-standup)
+brew install git-standup
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
