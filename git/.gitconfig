@@ -48,6 +48,9 @@
 
 	# Default pull origin develop
 	plod = pull --rebase origin develop
+
+	# Checkout MRs
+	mr = !sh -c 'git fetch origin merge-requests/$1/head:mr-origin-$1 && git checkout mr-origin-$1' -
 	
 	# Show verbose output about tags, branches, or remotes
 	tags = tag -l
