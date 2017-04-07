@@ -152,6 +152,9 @@ brew install pgcli
 # Install git-standup (https://github.com/kamranahmedse/git-standup)
 brew install git-standup
 
+# Install figlet (http://www.figlet.org/)
+brew install figlet
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
