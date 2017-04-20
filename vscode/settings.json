@@ -54,5 +54,14 @@
     ],
     "python.pythonPath": "${env.VIRTUAL_ENV}/bin/python",
     "python.linting.flake8Args": [],
-    "terminal.external.osxExec": "iTerm.app"
+    "terminal.external.osxExec": "iTerm.app",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/__pycache": true
+    }
 }
