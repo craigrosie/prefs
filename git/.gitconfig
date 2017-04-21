@@ -30,6 +30,12 @@
 	# Shortcut for push
 	p = push
 
+	# Shortcut for push --force
+	pf = push --force
+
+	# Shortcut for push --force-with-lease
+	pfl = push --force-with-lease	
+
 	# Default push origin master
 	pom = push origin master
 
