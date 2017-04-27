@@ -36,5 +36,21 @@
         "key": "alt+f12",
         "command": "-editor.action.previewDeclaration",
         "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "cmd+]",
+        "command": "workbench.action.focusNextGroup"
+    },
+    {
+        "key": "cmd+k cmd+right",
+        "command": "-workbench.action.focusNextGroup"
+    },
+    {
+        "key": "cmd+[",
+        "command": "workbench.action.focusPreviousGroup"
+    },
+    {
+        "key": "cmd+k cmd+left",
+        "command": "-workbench.action.focusPreviousGroup"
     }
 ]
