@@ -1,10 +1,14 @@
+DavidAnson.vscode-markdownlint
 PeterJausovec.vscode-docker
 alefragnani.project-manager
 christian-kohler.path-intellisense
+djabraham.vscode-yaml-validation
 donjayamanne.python
 formulahendry.code-runner
 lei.theme-chromodynamics
+lextudio.restructuredtext
 magicstack.MagicPython
 robertohuertasm.vscode-icons
 tokoph.ghosttext
 vscodevim.vim
+yzane.markdown-pdf
