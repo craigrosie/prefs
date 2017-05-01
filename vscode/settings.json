@@ -64,7 +64,8 @@
         "**/__pycache__": true,
         "**/.cache": true,
         "**/.coverage": true,
-        "**/*sublime-*": true
+        "**/*sublime-*": true,
+        "**/.python-version": true
     },
     "editor.cursorStyle": "underline",
     "window.zoomLevel": 0,
