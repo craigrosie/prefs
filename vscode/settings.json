@@ -65,7 +65,8 @@
         "**/.cache": true,
         "**/.coverage": true,
         "**/*sublime-*": true,
-        "**/.python-version": true
+        "**/.python-version": true,
+        "**/*.egg-info": true
     },
     "editor.cursorStyle": "underline",
     "window.zoomLevel": 0,
