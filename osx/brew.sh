@@ -158,6 +158,9 @@ brew install figlet
 # Install grip (https://github.com/joeyespo/grip)
 brew install grip
 
+# Install redis (https://redis.io/)
+brew install redis
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
