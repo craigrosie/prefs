@@ -155,6 +155,9 @@ brew install git-standup
 # Install figlet (http://www.figlet.org/)
 brew install figlet
 
+# Install grip (https://github.com/joeyespo/grip)
+brew install grip
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
