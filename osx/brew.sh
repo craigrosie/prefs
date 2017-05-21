@@ -161,6 +161,9 @@ brew install grip
 # Install redis (https://redis.io/)
 brew install redis
 
+# Install ctop (https://github.com/bcicen/ctop)
+brew install ctop
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
