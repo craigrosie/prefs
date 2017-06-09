@@ -73,5 +73,7 @@
     "window.zoomLevel": 0,
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
-    "editor.cursorBlinking": "phase"
+    "editor.cursorBlinking": "phase",
+    "files.trimTrailingWhitespace": true,
+    "editor.minimap.enabled": false
 }
