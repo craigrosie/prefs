@@ -167,6 +167,9 @@ brew install ctop
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
+# Install muzzle (https://muzzleapp.com/)
+brew cask install muzzle
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
