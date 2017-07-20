@@ -82,6 +82,9 @@ brew cask install --appdir="/Applications" spotify
 brew cask install --appdir="/Applications" sublime-text3
 brew cask install --appdir="/Applications" the-unarchiver
 
+# Install gcc
+brew install gcc
+
 # Install tree
 brew install tree
 
@@ -151,6 +154,9 @@ brew install pgcli
 
 # Install git-standup (https://github.com/kamranahmedse/git-standup)
 brew install git-standup
+
+# Install icdiff (http://www.jefftk.com/icdiff)
+brew install icdiff
 
 # Install figlet (http://www.figlet.org/)
 brew install figlet
