@@ -116,6 +116,9 @@ alias ptp="ptpython"
 # ptipython alias
 alias pti="ptipython"
 
+# pip install alias
+alias pi="pip install -U"
+
 # spotify (shpotify) alias
 alias sp="spotify"
 
