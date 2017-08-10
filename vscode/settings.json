@@ -67,7 +67,8 @@
         "**/*sublime-*": true,
         "**/.python-version": true,
         "**/*.egg-info": true,
-        "**/*.class": true
+        "**/*.class": true,
+        "**/venv": true
     },
     "editor.cursorStyle": "underline",
     "window.zoomLevel": 0,
