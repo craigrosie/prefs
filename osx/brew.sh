@@ -179,6 +179,9 @@ brew cask install postman
 # Install muzzle (https://muzzleapp.com/)
 brew cask install muzzle
 
+# Install kap (https://github.com/wulkano/kap)
+brew cask install kap
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
