@@ -130,3 +130,6 @@ alias fif="ag --nobreak --nonumbers --noheading . | fzf"
 
 # Add ff alias for fzf because z is hard to type :(
 alias ff="fzf"
+
+# Alias ccat to cat
+alias cat="ccat"

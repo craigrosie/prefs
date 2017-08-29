@@ -170,6 +170,9 @@ brew install redis
 # Install ctop (https://github.com/bcicen/ctop)
 brew install ctop
 
+# Install ccat (https://github.com/jingweno/ccat)
+brew install ccat
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
