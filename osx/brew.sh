@@ -182,6 +182,9 @@ brew cask install muzzle
 # Install kap (https://github.com/wulkano/kap)
 brew cask install kap
 
+# Install karabiner (https://pqrs.org/osx/karabiner/)
+brew cask install karabiner
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
