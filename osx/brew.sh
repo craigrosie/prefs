@@ -185,6 +185,9 @@ brew cask install kap
 # Install karabiner (https://pqrs.org/osx/karabiner/)
 brew cask install karabiner
 
+# Install seil (https://pqrs.org/osx/karabiner/seil.html.en)
+brew cask install seil
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
