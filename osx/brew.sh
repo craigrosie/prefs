@@ -173,6 +173,9 @@ brew install ctop
 # Install ccat (https://github.com/jingweno/ccat)
 brew install ccat
 
+# Install fd (https://github.com/sharkdp/fd)
+brew install fd
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
