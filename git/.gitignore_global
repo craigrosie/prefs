@@ -70,4 +70,5 @@ venv/
 # SonarLint #
 #############
 .sonarlint
+build/
 
