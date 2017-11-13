@@ -176,6 +176,9 @@ brew install ccat
 # Install fd (https://github.com/sharkdp/fd)
 brew install fd
 
+# Install gron (https://github.com/tomnomnom/gron)
+brew install gron
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
