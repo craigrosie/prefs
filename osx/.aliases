@@ -134,5 +134,8 @@ alias ff="fzf"
 # Alias ccat to cat
 alias cat="ccat"
 
+# Alias xmllint --format
+alias xf="xmllint --format"
+
 # Alias gron --ungron
 alias ungron="gron --ungron"
