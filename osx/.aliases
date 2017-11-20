@@ -139,3 +139,6 @@ alias xf="xmllint --format"
 
 # Alias gron --ungron
 alias ungron="gron --ungron"
+
+# Default ctop to only show running containers
+alias ctop="ctop -a"
