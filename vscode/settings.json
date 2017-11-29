@@ -76,5 +76,10 @@
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "editor.cursorBlinking": "phase",
     "files.trimTrailingWhitespace": true,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "editor.lineNumbers": "relative",
+    "files.associations": {
+        "*.bq": "sql",
+        "*.in": "pip-requirements"
+    }
 }
