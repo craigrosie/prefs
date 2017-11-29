@@ -3,8 +3,14 @@
     "Style": {
         "Basic": ["on_default", "default"],
         "SavedSelection": ["bold", "on_black", "red"],
-        "Selected": ["bold", "on_cyan", "black"],
-        "Query": ["white", "bold"],
-        "Matched": ["cyan", "on_black"]
-    }
+        "Selected": ["bold", "on_white", "black"],
+        "Query": ["magenta", "bold"],
+        "Matched": ["green", "on_black", "bold"]
+    },
+	"KeyMap": {
+		"C-j": "peco.SelectDown",
+		"C-k": "peco.SelectUp",
+		"M-h": "peco.ScrollLeft",
+		"M-l": "peco.ScrollRight"
+	}
 }
