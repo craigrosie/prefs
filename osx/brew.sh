@@ -179,6 +179,9 @@ brew install fd
 # Install gron (https://github.com/tomnomnom/gron)
 brew install gron
 
+# Install tmux (https://github.com/tmux/tmux)
+brew install tmux
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
