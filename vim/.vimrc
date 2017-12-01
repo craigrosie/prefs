@@ -112,7 +112,7 @@ let mapleader=" "
 map <leader>r :source ~/.vimrc<CR>
 
 " Key combination for toggling NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeFocus<CR>
 
 " Cancel a search with Esc
 nnoremap <leader><space> :nohlsearch<CR>
