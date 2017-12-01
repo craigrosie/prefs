@@ -100,6 +100,12 @@ set smartcase
 " Always show hidden files in NERDTree
 let NERDTreeShowHidden=1
 
+" Disable display of Bookmarks label and help text in NERDTree
+let NERDTreeMinimalUI=1
+
+" Highlight current cursor line in NERDTree
+let NERDTreeHighlightCursorline=1
+
 " Enable larger preview window (e.g. for fugitive's Gstatus)
 set previewheight=30
 
