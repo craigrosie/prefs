@@ -98,6 +98,9 @@ set directory=~/.vim/swaps
 set ignorecase
 set smartcase
 
+" Enable larger preview window (e.g. for fugitive's Gstatus)
+set previewheight=30
+
 " Always show hidden files in NERDTree
 let NERDTreeShowHidden=1
 
