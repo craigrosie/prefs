@@ -136,6 +136,12 @@ nmap <leader>f :Ack! <C-W> <CR>
 " Shortcut for searching files with fzf
 nmap <leader>p :Files<CR>
 
+" Shortcut for :Gstatus
+nmap <leader>gs :Gstatus<CR>
+
+" Shortcut for :Gdiff
+nmap <leader>gd :Gdiff<CR>
+
 " Open help in a vertical split
 cabbrev h vert h
 
