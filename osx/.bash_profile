@@ -79,3 +79,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Set default options for fzf
 export FZF_DEFAULT_OPTS="--height 30% --reverse --cycle"
+
+# Don't record jrnl entries in bash history
+HISTIGNORE="$HISTIGNORE:jrnl *"

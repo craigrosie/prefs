@@ -182,6 +182,9 @@ brew install gron
 # Install tmux (https://github.com/tmux/tmux)
 brew install tmux
 
+# Install jrnl (https://github.com/maebert/jrnl)
+brew install jrnl
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
