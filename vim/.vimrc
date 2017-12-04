@@ -21,6 +21,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 "Plugin '/usr/local/opt/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'mileszs/ack.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -106,8 +107,8 @@ let NERDTreeMinimalUI=1
 " Highlight current cursor line in NERDTree
 let NERDTreeHighlightCursorline=1
 
-" Enable larger preview window (e.g. for fugitive's Gstatus)
-set previewheight=30
+" Use ag for ack.vim
+let g:ackprg = 'ag --vimgrep'
 
 " MAPPINGS & ABBREVIATIONS
 
@@ -123,8 +124,17 @@ map <C-n> :NERDTreeFocus<CR>
 " Cancel a search with Esc
 nnoremap <leader><space> :nohlsearch<CR>
 
+" Don't jump to first result when searching with ack.vim
+nnoremap <leader>a :Ack!<Space>
+
+" Search for word under cursor with ack.vim
+nmap <leader>f :Ack! <C-W> <CR>
+
 " Open help in a vertical split
 cabbrev h vert h
+
+" Don't jump to first result when searching with ack.vim
+cnoreabbrev Ack Ack!
 
 " AUTOCMD
 
