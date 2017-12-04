@@ -143,7 +143,10 @@ nmap <leader>gs :Gstatus<CR>
 nmap <leader>gd :Gdiff<CR>
 
 " Shortcut for git push
-nmap <leader>gp :Git push<space>
+nmap <leader>gp :Gpush<space>
+
+" Shortcut for git push with --force-with-lease
+nmap <leader>gpfl :Gpush --force-with-lease<space>
 
 " Vertical visual movement when lines are wrapped
 nmap j gj
