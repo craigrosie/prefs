@@ -133,6 +133,9 @@ nnoremap <leader>a :Ack!<Space>
 " Search for word under cursor with ack.vim
 nmap <leader>f :Ack! <C-W> <CR>
 
+" Shortcut for searching files with fzf
+nmap <leader>p :Files<CR>
+
 " Open help in a vertical split
 cabbrev h vert h
 
