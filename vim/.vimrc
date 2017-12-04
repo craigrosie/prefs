@@ -181,3 +181,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Enable spellcheck in commit msg editor, markdown files, .txt files
 autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_gb
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.txt set spell spelllang=en_gb
+
+" Enable red fg highlighting for spellcheck errors to work with cursorline
+hi clear SpellBad
+hi SpellBad ctermfg=red
