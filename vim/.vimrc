@@ -142,6 +142,13 @@ nmap <leader>gs :Gstatus<CR>
 " Shortcut for :Gdiff
 nmap <leader>gd :Gdiff<CR>
 
+" Shortcut for git push
+nmap <leader>gp :Git push<space>
+
+" Vertical visual movement when lines are wrapped
+nmap j gj
+nmap k gk
+
 " Open help in a vertical split
 cabbrev h vert h
 
@@ -170,3 +177,7 @@ endif
 " Open NERDTree automatically if no files were specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Enable spellcheck in commit msg editor, markdown files, .txt files
+autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_gb
+autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.txt set spell spelllang=en_gb
