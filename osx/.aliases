@@ -142,3 +142,6 @@ alias ungron="gron --ungron"
 
 # Default ctop to only show running containers
 alias ctop="ctop -a"
+
+# Uninstall all pip packages
+alias pipclean="pip freeze | xargs pip uninstall -y"
