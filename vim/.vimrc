@@ -101,6 +101,9 @@ set smartcase
 " Enable larger preview window (e.g. for fugitive's Gstatus)
 set previewheight=30
 
+" Enable hidden buffers
+set hidden
+
 " Always show hidden files in NERDTree
 let NERDTreeShowHidden=1
 
