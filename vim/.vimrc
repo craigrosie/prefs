@@ -110,6 +110,21 @@ let NERDTreeMinimalUI=1
 " Highlight current cursor line in NERDTree
 let NERDTreeHighlightCursorline=1
 
+" Hide certain files in NERDTree
+let NERDTreeIgnore = [
+    \'\.pyc$',
+    \'\.vim$',
+    \'\.git$',
+    \'\.vscode$',
+    \'__pycache__$',
+    \'\.cache$',
+    \'\.gitlab$',
+    \'\.sonarlint',
+    \'\.ipynb_checkpoints$',
+    \'\.egg-info',
+    \'\.DS_Store',
+    \]
+
 " Use ag for ack.vim
 let g:ackprg = 'ag --vimgrep'
 
