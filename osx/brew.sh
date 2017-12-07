@@ -185,6 +185,9 @@ brew install tmux
 # Install jrnl (https://github.com/maebert/jrnl)
 brew install jrnl
 
+# Install exuberant ctags (https://ctags.sourceforge.io/)
+brew install ctags-exuberant
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
