@@ -39,8 +39,9 @@ colorscheme Tomorrow-Night-Bright
 
 " SETS
 
-" Enable line numbers
+" Enable (relative) line numbers
 set number
+set relativenumber
 
 " Add coloured columns to indicate optimal line-width
 set colorcolumn=80,100
