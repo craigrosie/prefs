@@ -71,3 +71,6 @@ venv/
 .sonarlint
 build/
 
+# Vim #
+#######
+*~
