@@ -25,6 +25,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-commentary'
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -134,6 +135,15 @@ let NERDTreeIgnore = [
 
 " Use ag for ack.vim
 let g:ackprg = 'ag --vimgrep'
+
+" ALE customisation
+let g:ale_sign_error='✘'
+let g:ale_sign_warning='▲'
+let g:ale_echo_msg_format = '%severity% %linter%: [%code%] %s'
+let g:ale_echo_msg_error_str = '✘'
+let g:ale_echo_msg_warning_str = '▲'
+highlight ALEErrorSign ctermbg=None ctermfg=Red
+highlight ALEWarningSign ctermbg=None ctermfg=Yellow
 
 " MAPPINGS & ABBREVIATIONS
 
