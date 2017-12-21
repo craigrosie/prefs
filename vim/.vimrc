@@ -156,7 +156,7 @@ highlight ALEWarningSign ctermbg=None ctermfg=Yellow
 let mapleader=" "
 
 " Allow vim config reload without restart
-map <leader>r :source ~/.vimrc<CR>
+map <leader>sv :source ~/.vimrc<CR>
 
 " Key combination for toggling NERDTree
 map <C-n> :NERDTreeFocus<CR>
@@ -175,6 +175,9 @@ nmap <leader>f :Ack! <C-W> <CR>
 
 " Shortcut for searching files with fzf
 nmap <leader>p :Files<CR>
+
+" Shortcut for ctags (in the current buffer) with fzf
+nmap <leader>r :BTags<CR>
 
 " Shortcut for :Gstatus
 nmap <leader>gs :Gstatus<CR>
