@@ -161,6 +161,9 @@ map <leader>r :source ~/.vimrc<CR>
 " Key combination for toggling NERDTree
 map <C-n> :NERDTreeFocus<CR>
 
+" Shortcut for regenerating ctags
+map <leader>ct :Silent ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./.git/tags $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))") > /dev/null 2>&1<CR>
+
 " Cancel a search with Esc
 nnoremap <leader><space> :nohlsearch<CR>
 
