@@ -185,8 +185,9 @@ brew install tmux
 # Install jrnl (https://github.com/maebert/jrnl)
 brew install jrnl
 
-# Install exuberant ctags (https://ctags.sourceforge.io/)
-brew install ctags-exuberant
+# Install universal ctags (https://github.com/universal-ctags/ctags)
+# NOTE: check if this is still valid install mechanism
+brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
