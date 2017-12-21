@@ -41,6 +41,11 @@ syntax on
 " Enable Tomorrow Night colourscheme
 colorscheme Tomorrow-Night-Bright
 
+" COMMANDS
+
+" Define Silent command to effectively run shell commands in the background
+:command! -nargs=1 Silent execute ':silent !'.<q-args> | execute ':redraw!'
+
 " SETS
 
 " Enable (relative) line numbers
