@@ -114,6 +114,9 @@ set previewheight=30
 " Enable hidden buffers
 set hidden
 
+" Use vertical splits when running :Gdiff
+set diffopt+=vertical
+
 " Always show hidden files in NERDTree
 let NERDTreeShowHidden=1
 
