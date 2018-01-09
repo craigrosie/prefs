@@ -59,7 +59,10 @@
 
 	# Checkout MRs
 	mr = !sh -c 'git fetch origin merge-requests/$1/head:mr-origin-$1 && git checkout mr-origin-$1' -
-	
+
+    # Use fzf to help delete multiple branches
+    db = !"git branch -D $(git branch | fzf -m)"
+
 	# Show verbose output about tags, branches, or remotes
 	tags = tag -l
 	branches = branch -a
