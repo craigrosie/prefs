@@ -26,7 +26,6 @@ Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-commentary'
 Plugin 'w0rp/ale'
-Plugin 'tpope/vim-surround'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
