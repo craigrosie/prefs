@@ -118,6 +118,9 @@ set hidden
 " Use vertical splits when running :Gdiff
 set diffopt+=vertical
 
+" Set ctags location
+set tags=./tags,tags,./.git/tags;
+
 " Always show hidden files in NERDTree
 let NERDTreeShowHidden=1
 
