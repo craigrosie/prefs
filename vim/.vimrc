@@ -146,7 +146,7 @@ let NERDTreeIgnore = [
     \]
 
 " Use ag for ack.vim
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'ag --vimgrep --hidden'
 
 " ALE customisation
 let g:ale_sign_error='✘'
@@ -175,7 +175,7 @@ map <leader>ct :Silent ctags -R --fields=+l --languages=python --python-kinds=-i
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Don't jump to first result when searching with ack.vim
-nnoremap <leader>a :Ack!<Space>
+nnoremap <leader>a :Ack! -Q<Space>
 
 " Search for word under cursor with ack.vim
 nmap <leader>f :Ack! <C-W> <CR>
