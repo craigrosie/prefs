@@ -63,6 +63,9 @@
     # Use fzf to help delete multiple branches
     db = !"git branch -D $(git branch | fzf -m)"
 
+    # Use fzf to help delete multiple tags
+    dt = !"git tag -d $(git tags | fzf -m)"
+
 	# Show verbose output about tags, branches, or remotes
 	tags = tag -l
 	branches = branch -a
