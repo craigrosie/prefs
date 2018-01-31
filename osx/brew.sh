@@ -189,6 +189,9 @@ brew install jrnl
 # NOTE: check if this is still valid install mechanism
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
+# Install golang (https://golang.org/)
+brew install golang
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 

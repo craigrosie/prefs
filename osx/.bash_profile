@@ -79,3 +79,10 @@ export FZF_DEFAULT_OPTS="--height 30% --reverse --cycle"
 
 # Don't record jrnl entries in bash history
 HISTIGNORE="$HISTIGNORE:jrnl *"
+
+# Set up golang env
+export GOPATH=~/github/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
