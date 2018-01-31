@@ -105,7 +105,7 @@ alias grep="grep -n --colour=auto"
 alias m="make"
 
 # Install common Python utils
-alias pyhelp="pip install flake8 ipdb ptpython ipython pudb pdir2 show"
+alias pyhelp="pip install flake8 ipdb ipython jupyter pdir2 ptpython pudb show"
 
 # IPython alias
 alias ipy="ipython"
