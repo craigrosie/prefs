@@ -145,3 +145,6 @@ alias ctop="ctop -a"
 
 # Uninstall all pip packages
 alias pipclean="pip freeze | xargs pip uninstall -y"
+
+# emojify is just too long to type
+alias emo="emojify"

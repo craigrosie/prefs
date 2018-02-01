@@ -192,6 +192,9 @@ brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 # Install golang (https://golang.org/)
 brew install golang
 
+# Install emojify (https://github.com/mrowa44/emojify)
+brew install emojify
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
