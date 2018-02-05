@@ -29,6 +29,7 @@ Plugin 'w0rp/ale'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -122,6 +123,9 @@ set diffopt+=vertical
 
 " Set ctags location
 set tags=./tags,tags,./.git/tags;
+
+" Disable tmux navigator when zooming the vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
 
 " Always show hidden files in NERDTree
 let NERDTreeShowHidden=1
