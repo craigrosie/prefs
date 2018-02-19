@@ -31,6 +31,7 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'fatih/vim-go'
+Plugin 'fatih/molokai'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -43,8 +44,10 @@ filetype on
 " Enable syntax highlighting
 syntax on
 
-" Enable Tomorrow Night colourscheme
-colorscheme Tomorrow-Night-Bright
+" Enable modified molokai colourscheme
+let g:rehash256 = 1
+let g:molokai_original = 1
+colorscheme molokai
 
 " COMMANDS
 
