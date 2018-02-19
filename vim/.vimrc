@@ -33,6 +33,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'fatih/vim-go'
 Plugin 'fatih/molokai'
 Plugin 'SirVer/ultisnips'
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -190,6 +191,9 @@ let g:go_highlight_function_arguments = 1
 let g:go_highlight_function_calls = 1
 let g:go_metalinter_autosave = 1
 let g:go_auto_type_info = 1
+
+" YCM
+let g:ycm_python_binary_path='python'
 
 " Set leader key to space
 let mapleader=" "
