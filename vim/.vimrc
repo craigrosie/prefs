@@ -35,7 +35,7 @@ Plugin 'fatih/molokai'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 
-" All of your Plugins must be added before the following line
+"All of your Plugins must be added before the following line
 call vundle#end()            " required
 " Enable file type based indentation
 filetype plugin indent on    " required
@@ -169,7 +169,6 @@ let g:ale_echo_msg_warning_str = '▲'
 highlight ALEErrorSign ctermbg=None ctermfg=Red
 highlight ALEWarningSign ctermbg=None ctermfg=Yellow
 
-" MAPPINGS & ABBREVIATIONS
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -194,6 +193,10 @@ let g:go_auto_type_info = 1
 
 " YCM
 let g:ycm_python_binary_path='python'
+
+" ENDSETS
+
+" MAPPINGS
 
 " Set leader key to space
 let mapleader=" "
@@ -238,11 +241,17 @@ nmap <leader>gpfl :Gpush --force-with-lease<space>
 nmap j gj
 nmap k gk
 
+" ENDMAPPINGS
+
+"" ABBREV
+
 " Open help in a vertical split
 cabbrev h vert h
 
 " Don't jump to first result when searching with ack.vim
 cnoreabbrev Ack Ack!
+
+" ENDABBREV
 
 " AUTOCMD
 
@@ -254,6 +263,18 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+" Open NERDTree automatically if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Enable spellcheck in commit msg editor, markdown files, .txt files
+autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_gb
+autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.txt setlocal spell spelllang=en_gb wrap linebreak nolist
+
+" ENDAUTOCMD
+
+" MISC
+
 " Allows cursor change in tmux mode (to vertical bar)
 if exists('$TMUX')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -263,14 +284,8 @@ else
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-" Open NERDTree automatically if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" Enable spellcheck in commit msg editor, markdown files, .txt files
-autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_gb
-autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.txt setlocal spell spelllang=en_gb wrap linebreak nolist
-
 " Enable red fg highlighting for spellcheck errors to work with cursorline
 hi clear SpellBad
 hi SpellBad ctermfg=red
+
+" ENDMISC
