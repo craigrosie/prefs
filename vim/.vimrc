@@ -30,6 +30,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -164,6 +165,20 @@ highlight ALEErrorSign ctermbg=None ctermfg=Red
 highlight ALEWarningSign ctermbg=None ctermfg=Yellow
 
 " MAPPINGS & ABBREVIATIONS
+
+" vim-go
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_function_arguments = 1
+let g:go_highlight_function_calls = 1
+let g:go_metalinter_autosave = 1
+let g:go_auto_type_info = 1
 
 " Set leader key to space
 let mapleader=" "
