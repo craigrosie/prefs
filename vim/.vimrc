@@ -32,6 +32,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'fatih/vim-go'
 Plugin 'fatih/molokai'
+Plugin 'SirVer/ultisnips'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -168,6 +169,13 @@ highlight ALEErrorSign ctermbg=None ctermfg=Red
 highlight ALEWarningSign ctermbg=None ctermfg=Yellow
 
 " MAPPINGS & ABBREVIATIONS
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsSnippetsDir="~/github/prefs/vim/ultisnips"
+let g:UltiSnipsSnippetDirectories=["Ultisnips", "custom_snippets"]
+let g:UltiSnipsExpandTrigger="<c-j>"
 
 " vim-go
 let g:go_fmt_command = "goimports"
