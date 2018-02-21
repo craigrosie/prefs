@@ -174,12 +174,11 @@ highlight ALEErrorSign ctermbg=None ctermfg=Red
 highlight ALEWarningSign ctermbg=None ctermfg=Yellow
 
 " Ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsSnippetsDir="~/github/prefs/vim/ultisnips"
 let g:UltiSnipsSnippetDirectories=["Ultisnips", "custom_snippets"]
-let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsExpandTrigger="<c-e>"
 
 " vim-go
 let g:go_fmt_command = "goimports"
