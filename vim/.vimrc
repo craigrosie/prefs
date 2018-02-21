@@ -130,6 +130,10 @@ set diffopt+=vertical
 " Set ctags location
 set tags=./tags,tags,./.git/tags;
 
+" More intuitive splits
+set splitright
+set splitbelow
+
 " Disable tmux navigator when zooming the vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
 
