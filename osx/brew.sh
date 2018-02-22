@@ -195,6 +195,9 @@ brew install golang
 # Install emojify (https://github.com/mrowa44/emojify)
 brew install emojify
 
+# Install cmake (https://cmake.org/)
+brew install cmake
+
 # Install grv (https://github.com/rgburke/grv)
 brew install grv
 
