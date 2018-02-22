@@ -195,6 +195,9 @@ brew install golang
 # Install emojify (https://github.com/mrowa44/emojify)
 brew install emojify
 
+# Install grv (https://github.com/rgburke/grv)
+brew install grv
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
