@@ -201,6 +201,9 @@ brew install cmake
 # Install grv (https://github.com/rgburke/grv)
 brew install grv
 
+# Install markdown (https://daringfireball.net/projects/markdown/)
+brew install markdown
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
