@@ -34,6 +34,7 @@ Plugin 'fatih/vim-go'
 Plugin 'fatih/molokai'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -196,6 +197,10 @@ let g:go_auto_type_info = 1
 
 " YCM
 let g:ycm_python_binary_path='python'
+
+" Vim Markdown Preview (https://github.com/JamshedVesuna/vim-markdown-preview)
+let vim_markdown_preview_hotkey='<leader>m'
+let vim_markdown_preview_browser='Google Chrome'
 
 " ENDSETS
 
