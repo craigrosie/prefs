@@ -219,6 +219,9 @@ brew cask install karabiner
 # Install seil (https://pqrs.org/osx/karabiner/seil.html.en)
 brew cask install seil
 
+# Install tableplus (https://tableplus.io/)
+brew cask install tableplus
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
