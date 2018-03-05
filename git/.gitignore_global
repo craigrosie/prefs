@@ -53,6 +53,7 @@ Thumbs.db
 __pycache__/
 *.egg-info/
 venv/
+.mypy_cache/
 
 # Python coverage #
 ###################
