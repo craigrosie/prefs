@@ -57,6 +57,7 @@ __pycache__/
 *.egg-info/
 venv/
 .ipynb_checkpoints/
+.mypy_cache/
 
 # Python coverage #
 ###################
