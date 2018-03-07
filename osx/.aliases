@@ -148,3 +148,9 @@ alias pipclean="pip freeze | xargs pip uninstall -y"
 
 # emojify is just too long to type
 alias emo="emojify"
+
+# Everybody loves ¯\_(ツ)_/¯
+alias shrug="echo \"¯\_(ツ)_/¯\" | pbcopy"
+
+# Everybody loves ¯\_(ツ)_/¯ (escaped)
+alias eshrug="echo \"¯\\\\\_(ツ)\_/¯\" | pbcopy"
