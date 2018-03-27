@@ -80,3 +80,7 @@ build/
 # Redis dump #
 ##############
 *.rdb
+
+# Misc files #
+##############
+misc/
