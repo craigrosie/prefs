@@ -75,3 +75,7 @@ build/
 # Vim #
 #######
 *~
+
+# Misc files #
+##############
+misc/
