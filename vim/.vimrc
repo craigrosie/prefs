@@ -197,6 +197,7 @@ let g:go_auto_type_info = 1
 
 " YCM
 let g:ycm_python_binary_path='python'
+let g:ycm_max_num_candidates = 10
 
 " Vim Markdown Preview (https://github.com/JamshedVesuna/vim-markdown-preview)
 let vim_markdown_preview_hotkey='<leader>m'
