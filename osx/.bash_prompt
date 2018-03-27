@@ -161,7 +161,7 @@ set_prompts() {
     PS1+="\$(prompt_git \"$white on $purple\" \"$cyan\")"   # git repository details
     PS1+=" $red\[$(prompt_venv)\]"                          # pyenv virtualenv details
     PS1+="\n"
-    PS1+="\[$reset$white\]⚡  \[$reset\]"
+    PS1+="\[$reset$white\]🐍  \[$reset\]"
 
     export PS1
 
