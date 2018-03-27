@@ -35,6 +35,7 @@ Plugin 'fatih/molokai'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'janko-m/vim-test'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -51,6 +52,9 @@ syntax on
 let g:rehash256 = 1
 let g:molokai_original = 1
 colorscheme molokai
+
+" VIM-TEST
+let test#python#pytest#executable = 'python -m pytest --flake8 --cov=.'
 
 " COMMANDS
 
