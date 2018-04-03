@@ -225,6 +225,9 @@ brew cask install tableplus
 # Install crunch (https://github.com/chrissimpkins/Crunch)
 brew cask install crunch
 
+# Install vanilla (http://matthewpalmer.net/vanilla/)
+brew cask install vanilla
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
