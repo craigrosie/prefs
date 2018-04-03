@@ -228,6 +228,9 @@ brew cask install crunch
 # Install vanilla (http://matthewpalmer.net/vanilla/)
 brew cask install vanilla
 
+# Install spotmenu (https://github.com/kmikiy/SpotMenu)
+brew cask install spotmenu
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
