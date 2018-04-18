@@ -289,6 +289,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_gb
 autocmd BufRead *.extra setlocal syntax=sh
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.txt setlocal spell spelllang=en_gb wrap linebreak nolist
+autocmd BufNewFile,BufRead *.yaml,*.yml setlocal tabstop=2 shiftwidth=2
 
 " ENDAUTOCMD
 
