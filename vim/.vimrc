@@ -287,6 +287,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Enable spellcheck in commit msg editor, markdown files, .txt files
 autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_gb
+autocmd BufRead *.extra setlocal syntax=sh
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.txt setlocal spell spelllang=en_gb wrap linebreak nolist
 
 " ENDAUTOCMD
