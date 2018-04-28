@@ -7,7 +7,7 @@ set show-all-if-ambiguous on
 # Ignore case
 set completion-ignore-case on
 
-# on menu-complete, first display the common prefix, then cycle through the 
+# on menu-complete, first display the common prefix, then cycle through the
 # options when hitting TAB
 set menu-complete-display-prefix on
 
@@ -20,7 +20,7 @@ $if mode=vi
 		# which start with the prefix you've entered, rather than just cycling through
 		# the last entered commands.
 		# In OS X's Terminal.app preferences, I have 'Use option as meta key' off, and
-		# have mapped "option cursor up" to "\033\033[A" and "option cursor down" to 
+		# have mapped "option cursor up" to "\033\033[A" and "option cursor down" to
 		# "\033\033[B".
 		# Feel free to bind to whatever you want. Delete the first '\e' in the keymap
 		# to set plain up/down to do a history search by default.
@@ -32,7 +32,7 @@ $if mode=vi
 		# Keymaps for insert mode
 		set keymap vi-insert
 
-		# Pressing tab will list all completions & select the first one. Pressing it 
+		# Pressing tab will list all completions & select the first one. Pressing it
 		# again will cycle through available completions.
 		TAB: menu-complete
 
@@ -42,7 +42,4 @@ $if mode=vi
 		# Option-up/option-down should also apply to insert mode
 		"\e[A": history-search-backward
 		"\e[B": history-search-forward
-
-		# Use double-tap , to escape to command mode
-		",,": vi-movement-mode
 $endif
