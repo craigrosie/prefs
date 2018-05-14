@@ -169,6 +169,7 @@ let NERDTreeIgnore = [
     \'\.ipynb_checkpoints$',
     \'\.egg-info',
     \'\.DS_Store',
+    \'\.eggs',
     \]
 
 " Use ag for ack.vim
