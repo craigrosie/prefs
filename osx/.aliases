@@ -154,3 +154,6 @@ alias shrug="echo \"¯\_(ツ)_/¯\" | pbcopy"
 
 # Everybody loves ¯\_(ツ)_/¯ (escaped)
 alias eshrug="echo \"¯\\\\\_(ツ)\_/¯\" | pbcopy"
+
+# Copy .ignore file to current dir
+alias cpignore="cp ~/github/prefs/osx/.ignore ."
