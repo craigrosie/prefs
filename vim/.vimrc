@@ -138,6 +138,10 @@ set tags=./tags,tags,./.git/tags;
 set splitright
 set splitbelow
 
+" Fix bash here{doc,string} syntax highlighting
+" https://stackoverflow.com/a/42640338
+let g:is_bash=1
+
 " Disable tmux navigator when zooming the vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
 
