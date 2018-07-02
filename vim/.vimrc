@@ -275,9 +275,11 @@ cnoreabbrev Ack Ack!
 " Remove trailing whitespace on file save
 autocmd BufWritePre * %s/\s\+$//e
 
-" Make Vim jump to the last position when reopening a file
+" Make Vim jump to the last position when reopening a file, except for commit
+" messages. https://stackoverflow.com/a/16728794
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") && &filetype != "gitcommit"
+    \| exe "normal! g'\"" | endif
 endif
 
 " Open NERDTree automatically if no files were specified
