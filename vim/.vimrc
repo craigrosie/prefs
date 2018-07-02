@@ -52,7 +52,7 @@ let g:molokai_original = 1
 colorscheme molokai
 
 " VIM-TEST
-let test#python#pytest#executable = 'python -m pytest --flake8 --cov=.'
+let test#python#pytest#executable = 'python -m pytest -v --flake8 --cov=.'
 nmap <silent> <leader>tn :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
