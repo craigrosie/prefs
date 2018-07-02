@@ -68,7 +68,6 @@ nmap <silent> <leader>tg :TestVisit<CR>
 
 " Enable (relative) line numbers
 set number
-set relativenumber
 
 " Add coloured columns to indicate optimal line-width
 set colorcolumn=80,100
@@ -102,9 +101,6 @@ set incsearch
 
 " Highlight matching parenthesis
 set showmatch
-
-" Highlight current line
-set cursorline
 
 " Enable backspace in insert mode
 set backspace=indent,eol,start
