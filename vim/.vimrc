@@ -288,9 +288,11 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Enable spellcheck in commit msg editor, markdown files, .txt files
 autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_gb
-autocmd BufRead *.extra setlocal syntax=sh
+autocmd BufRead *.aliases,*.extra,*.functions setlocal syntax=sh
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.txt setlocal spell spelllang=en_gb wrap linebreak nolist
 autocmd BufNewFile,BufRead *.yaml,*.yml setlocal tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufRead *.cs setlocal tabstop=8 shiftwidth=8 noexpandtab autoindent
+autocmd BufNewFile,BufRead *.bq setlocal syntax=sql
 
 " ENDAUTOCMD
 
