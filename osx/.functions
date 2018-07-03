@@ -295,6 +295,7 @@ function c() {
   dir="$(fasd -Rdl "$1" | fzf -1 -0 --no-sort +m)" && cd "${dir}" || return 1
 }
 
+# open the git host homepage for a repo
 function og() {
     origin_ssh_url=$(git config --get remote.origin.url)
     host=$(echo $origin_ssh_url | sed 's/^.*@//g;s/:.*$//g')
