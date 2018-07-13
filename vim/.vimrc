@@ -293,6 +293,7 @@ autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.txt setlocal spell spelllang=
 autocmd BufNewFile,BufRead *.yaml,*.yml setlocal tabstop=2 shiftwidth=2
 autocmd BufNewFile,BufRead *.cs setlocal tabstop=8 shiftwidth=8 noexpandtab autoindent
 autocmd BufNewFile,BufRead *.bq setlocal syntax=sql
+autocmd BufNewFile,BufRead *Dockerfile* setlocal syntax=dockerfile
 
 " ENDAUTOCMD
 
