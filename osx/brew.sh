@@ -207,6 +207,8 @@ brew install markdown
 # Install youtube-dl (https://github.com/rg3/youtube-dl/)
 brew install youtube-dl
 
+brew cask install ngrok
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
