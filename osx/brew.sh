@@ -204,6 +204,9 @@ brew install grv
 # Install markdown (https://daringfireball.net/projects/markdown/)
 brew install markdown
 
+# Install youtube-dl (https://github.com/rg3/youtube-dl/)
+brew install youtube-dl
+
 # Install Postman (https://www.getpostman.com/)
 brew cask install postman
 
