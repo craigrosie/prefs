@@ -207,6 +207,9 @@ brew install markdown
 # Install youtube-dl (https://github.com/rg3/youtube-dl/)
 brew install youtube-dl
 
+# Install aws-shell (replacement for saws) (https://github.com/awslabs/aws-shell)
+brew install aws-shell
+
 brew cask install ngrok
 
 # Install Postman (https://www.getpostman.com/)
