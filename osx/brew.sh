@@ -210,6 +210,9 @@ brew install youtube-dl
 # Install aws-shell (replacement for saws) (https://github.com/awslabs/aws-shell)
 brew install aws-shell
 
+# Install noti (https://github.com/variadico/noti)
+brew install noti
+
 brew cask install ngrok
 
 # Install Postman (https://www.getpostman.com/)
