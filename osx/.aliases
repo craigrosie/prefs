@@ -160,3 +160,9 @@ alias cpignore="cp ~/github/prefs/osx/.ignore ."
 
 # Better PATH printing
 alias pathy="env | grep path | sed 's/:/\n/g' | sort | uniq"
+# Better less
+# -F: quit if one screen
+# -R: preserve colour
+# -X: don't clear the screen
+alias less="less -FRX"
+
