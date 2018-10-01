@@ -213,6 +213,9 @@ brew install aws-shell
 # Install noti (https://github.com/variadico/noti)
 brew install noti
 
+# Install tldr (https://github.com/tldr-pages/tldr)
+brew install tldr
+
 brew cask install ngrok
 
 # Install Postman (https://www.getpostman.com/)
