@@ -216,6 +216,9 @@ brew install noti
 # Install tldr (https://github.com/tldr-pages/tldr)
 brew install tldr
 
+# Install record (https://github.com/pinard/Recode)
+brew install recode
+
 brew cask install ngrok
 
 # Install Postman (https://www.getpostman.com/)
