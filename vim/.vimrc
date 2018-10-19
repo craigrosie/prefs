@@ -254,6 +254,9 @@ nmap <leader>gp :Gpush<space>
 " Shortcut for git push with --force-with-lease
 nmap <leader>gpfl :Gpush --force-with-lease<space>
 
+" Shortcut for refreshing current buffer
+nmap <leader>e :e!<CR>
+
 " Vertical visual movement when lines are wrapped
 nmap j gj
 nmap k gk
