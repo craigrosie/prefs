@@ -34,7 +34,7 @@
 	pf = push --force
 
 	# Shortcut for push --force-with-lease
-	pfl = push --force-with-lease	
+	pfl = push --force-with-lease
 
 	# Default push origin master
 	pom = push origin master
@@ -65,6 +65,9 @@
 
     # Use fzf to help delete multiple tags
     dt = !"git tag -d $(git tags | fzf -m)"
+
+    # Un-commit last commit
+    undo = reset --soft HEAD~1
 
 	# Show verbose output about tags, branches, or remotes
 	tags = tag -l
