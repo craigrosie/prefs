@@ -219,6 +219,7 @@ brew install tldr
 # Install record (https://github.com/pinard/Recode)
 brew install recode
 
+# Install ngrok (https://ngrok.com/)
 brew cask install ngrok
 
 # Install Postman (https://www.getpostman.com/)
@@ -251,6 +252,10 @@ brew cask install spotmenu
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
+
+# Install dive (https://github.com/wagoodman/dive)
+brew tap wagoodman/dive
+brew install dive
 
 # Cleanup
 brew cleanup
