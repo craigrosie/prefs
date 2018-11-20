@@ -297,7 +297,7 @@ function c() {
 
 # open the git host homepage for a repo
 function og() {
-    origin_ssh_url=$(git config --get remote.origin.url)
+    origin_ssh_url=$(git config --get remote.${1-origin}.url)
     host=$(echo $origin_ssh_url | sed 's/^.*@//g;s/:.*$//g')
     repo_name=$(echo $origin_ssh_url | sed 's/^.*://g;s/.git//g')
     open "https://$host/$repo_name"
