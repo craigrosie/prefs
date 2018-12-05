@@ -66,7 +66,7 @@ nmap <silent> <leader>tg :TestVisit<CR>
 
 " SETS
 
-" Enable (relative) line numbers
+" Enable line numbers
 set number
 
 " Add coloured columns to indicate optimal line-width
@@ -166,7 +166,7 @@ let NERDTreeIgnore = [
     \'\.sonarlint',
     \'\.ipynb_checkpoints$',
     \'\.egg-info',
-    \'\.DS_Store',
+    \'\.ds_store',
     \'\.eggs',
     \]
 
@@ -228,7 +228,7 @@ map <C-n> :NERDTreeFocus<CR>
 " Shortcut for regenerating ctags
 map <leader>ct :Silent ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./.git/tags $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))") > /dev/null 2>&1<CR>
 
-" Cancel a search with Esc
+" Cancel a search with space
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Don't jump to first result when searching with ack.vim
