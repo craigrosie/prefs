@@ -239,13 +239,15 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>142 559 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>650 607 620 392 0 0 1920 1200 </string>
+	<string>650 517 620 392 0 0 1920 1080 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>269 126 606 469 0 0 1920 1200 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>640 728 1018 447 0 0 1920 1200 </string>
+	<string>492 515 1016 512 0 0 1920 1200 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>91 110 985 667 0 0 1920 1177 </string>
+	<string>68 110 985 667 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 70 985 667 0 0 1920 1080 </string>
+	<string>0 65 985 667 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>974 1281 865 706 776 1050 1920 1177 </string>
 	<key>New Bookmarks</key>
@@ -825,7 +827,7 @@
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
 			<key>Right Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Rows</key>
 			<integer>40</integer>
 			<key>Screen</key>
@@ -1163,7 +1165,9 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-04-24T09:00:07Z</date>
+	<date>2018-07-27T04:08:35Z</date>
+	<key>SUSkippedVersion</key>
+	<string>3.1.7</string>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
