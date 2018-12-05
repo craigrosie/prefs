@@ -103,7 +103,7 @@ set main-options		= -n 100	# User-defined options for `tig` (git-log)
 #set mailmap			= yes		# Use .mailmap to show canonical name and email address
 
 # Misc
-set refresh-mode		= auto		# Enum: manual, auto, after-command, periodic
+set refresh-mode		= periodic		# Enum: manual, auto, after-command, periodic
 set refresh-interval		= 10		# Interval in seconds between refreshes
 set ignore-case			= no		# Ignore case when searching?
 set wrap-search			= yes		# Wrap around to top/bottom of view when searching
