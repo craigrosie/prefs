@@ -119,6 +119,9 @@ alias pti="ptipython"
 # pip install alias
 alias pi="pip install -U"
 
+# Search pip installed packages
+alias pipgrep="pip freeze | grep"
+
 # spotify (shpotify) alias
 alias sp="spotify"
 
