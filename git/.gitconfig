@@ -107,3 +107,5 @@
 	oldHighlight = red bold 52
 	newNormal = green
 	newHighlight = green bold 22
+[pull]
+	rebase = true
