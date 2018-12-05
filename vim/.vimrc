@@ -210,6 +210,7 @@ let g:ycm_max_num_candidates = 10
 " Vim Markdown Preview (https://github.com/JamshedVesuna/vim-markdown-preview)
 let vim_markdown_preview_hotkey='<leader>m'
 let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_github=1
 
 " ENDSETS
 
