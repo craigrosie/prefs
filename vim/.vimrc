@@ -34,6 +34,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'janko-m/vim-test'
+Plugin 'ambv/black'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -257,6 +258,9 @@ nmap <leader>gpfl :Gpush --force-with-lease<space>
 
 " Shortcut for refreshing current buffer
 nmap <leader>e :e!<CR>
+
+" Shortcut for running Black Python code formatter
+nmap <leader>b :Black<CR>
 
 " Vertical visual movement when lines are wrapped
 nmap j gj
