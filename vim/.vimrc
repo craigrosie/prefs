@@ -144,6 +144,13 @@ set scrolloff=2
 " keep x columns off the edges of the screen when scrolling horizontally
 set sidescrolloff=2
 
+if v:version >= 730
+    " keep a persistent backup file
+    " (see http://stevelosh.com/blog/2010/09/coming-home-to-vim/#important-vimrc-lines)
+    set undofile
+    set undodir=~/.vim/.undo,~/tmp,/tmp
+endif
+
 " Fix bash here{doc,string} syntax highlighting
 " https://stackoverflow.com/a/42640338
 let g:is_bash=1
