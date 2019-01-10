@@ -139,6 +139,11 @@ set tags=./tags,tags,./.git/tags;
 set splitright
 set splitbelow
 
+" keep x lines off the edges of the screen when scrolling vertically
+set scrolloff=2
+" keep x columns off the edges of the screen when scrolling horizontally
+set sidescrolloff=2
+
 " Fix bash here{doc,string} syntax highlighting
 " https://stackoverflow.com/a/42640338
 let g:is_bash=1
