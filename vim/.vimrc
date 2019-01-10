@@ -278,6 +278,10 @@ nmap <leader>b :Black<CR>
 nmap j gj
 nmap k gk
 
+" use <tab> to move between matching brackets
+nnoremap <tab> %
+vnoremap <tab> %
+
 " ENDMAPPINGS
 
 "" ABBREV
