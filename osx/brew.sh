@@ -249,6 +249,9 @@ brew cask install vanilla
 # Install spotmenu (https://github.com/kmikiy/SpotMenu)
 brew cask install spotmenu
 
+# Install karabiner-elements (https://github.com/tekezo/Karabiner-Elements)
+brew cask install karabiner-elements
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
