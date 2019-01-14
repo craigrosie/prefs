@@ -326,6 +326,9 @@ autocmd BufNewFile,BufRead *Dockerfile* setlocal syntax=dockerfile
 " the tests inside vim without having to save all files first.
 au FocusLost,WinLeave * :silent! wa
 
+" Trigger autoread when changing buffers or coming back to vim.
+au FocusGained,BufEnter * :silent! !
+
 " ENDAUTOCMD
 
 " MISC
