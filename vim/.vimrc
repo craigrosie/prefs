@@ -322,6 +322,10 @@ autocmd BufNewFile,BufRead *.cs setlocal tabstop=8 shiftwidth=8 noexpandtab auto
 autocmd BufNewFile,BufRead *.bq setlocal syntax=sql
 autocmd BufNewFile,BufRead *Dockerfile* setlocal syntax=dockerfile
 
+" Save whenever switching windows or leaving vim. This is useful when running
+" the tests inside vim without having to save all files first.
+au FocusLost,WinLeave * :silent! wa
+
 " ENDAUTOCMD
 
 " MISC
