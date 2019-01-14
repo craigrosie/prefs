@@ -282,6 +282,9 @@ nmap k gk
 nnoremap <tab> %
 vnoremap <tab> %
 
+" Adjust viewports to the same size
+map <Leader>= <C-w>=
+
 " ENDMAPPINGS
 
 "" ABBREV
