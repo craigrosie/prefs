@@ -252,6 +252,9 @@ brew cask install spotmenu
 # Install karabiner-elements (https://github.com/tekezo/Karabiner-Elements)
 brew cask install karabiner-elements
 
+# Install quicklook-json (http://www.sagtau.com/quicklookjson.html)
+brew cask install quicklook-json
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
