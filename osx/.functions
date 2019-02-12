@@ -306,7 +306,7 @@ function git-url() {
 
 # open the git host homepage for a repo
 function og() {
-    open $(git-url)
+    open $(git-url $1)
 }
 
 # open the "New PR" page for a repo and the current branch (github only)
