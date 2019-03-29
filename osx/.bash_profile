@@ -85,3 +85,4 @@ export PATH=$PATH:$GOROOT/bin
 
 export EDITOR=`command -v vim`
 
+echo "System online ✔︎"
