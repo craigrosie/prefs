@@ -54,7 +54,7 @@ alias pg="ping -c 4 www.google.com"
 alias brewup="brew update && brew upgrade && brew cleanup"
 
 # Refresh all the dotfiles!
-alias rebash="source ~/.bashrc; echo '.dotfiles have been refreshed!'"
+alias rebash="source ~/.bashrc"
 
 # Upgrade pip
 alias pipup="pip install --upgrade pip"
