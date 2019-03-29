@@ -135,7 +135,7 @@ alias fif="ag --nobreak --nonumbers --noheading . | fzf"
 alias ff="fzf"
 
 # Alias ccat to cat
-alias cat="ccat"
+alias cat="bat"
 
 # Alias xmllint --format
 alias xf="xmllint --format"
