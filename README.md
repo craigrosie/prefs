@@ -1,7 +1,5 @@
 # Prefs
 
-A small repository to keep track of my preferences files. Feel free to clone/fork etc.
+A collection of dotfiles for setting up a productive dev environment.
 
-Heavily, heavily inspired by [donnemartin/dev-setup](https://github.com/donnemartin/dev-setup)
-
-Change
+As of 2019, I used Vim exclusively as my IDE, so the `atom`, `sublime_3` and `vscode` folders have become a bit stale.
