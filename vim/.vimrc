@@ -276,7 +276,7 @@ nmap <leader>gpfl :Gpush --force-with-lease<space>
 nmap <leader>e :e!<CR>
 
 " Shortcut for running Black Python code formatter
-nmap <leader>b :Black<CR>
+nmap <leader>b :w <CR>:Black<CR>
 
 " Vertical visual movement when lines are wrapped
 nmap j gj
