@@ -51,6 +51,9 @@
 	# Shortcut for pull
 	pl = pull --rebase
 
+    # Shortcut to stash changes, pull, then pop from stash
+    pls = !"git stash && git pull --rebase && git stash pop"
+
 	# Default pull origin master
 	plom = pull --rebase origin master
 
