@@ -292,6 +292,9 @@ map <Leader>= <C-w>=
 " Wordcount in visual mode
 xnoremap <leader>wc <esc>:'<,'>:w !wc<CR>
 
+" Sort in visual mode
+xnoremap <leader>wc <esc>:'<,'>:w !wc<CR>
+
 " ENDMAPPINGS
 
 "" ABBREV
