@@ -181,6 +181,10 @@ let NERDTreeIgnore = [
     \'\.egg-info',
     \'\.ds_store',
     \'\.eggs',
+    \'\.pytest_cache',
+    \'\.mypy_cache',
+    \'\.coverage',
+    \'\.DS_Store',
     \]
 
 " Use ag for ack.vim
