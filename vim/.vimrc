@@ -289,6 +289,9 @@ vnoremap <tab> %
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
 
+" Wordcount in visual mode
+xnoremap <leader>wc <esc>:'<,'>:w !wc<CR>
+
 " ENDMAPPINGS
 
 "" ABBREV
