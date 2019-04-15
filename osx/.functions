@@ -313,7 +313,7 @@ function og() {
 function og-pr() {
     local url
     url=$(git-url)
-    open "$url/pull/new/$(basename `git symbolic-ref HEAD`)"
+    open "$url/pull/new/$(git symbolic-ref HEAD | sed 's/refs\/heads\///g')"
 }
 
 function asciify-url() {
