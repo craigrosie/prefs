@@ -293,7 +293,7 @@ map <Leader>= <C-w>=
 xnoremap <leader>wc <esc>:'<,'>:w !wc<CR>
 
 " Sort in visual mode
-xnoremap <leader>wc <esc>:'<,'>:w !wc<CR>
+xnoremap <leader>so <esc>:'<,'>!sort<CR>
 
 " ENDMAPPINGS
 
