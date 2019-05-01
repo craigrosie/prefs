@@ -35,6 +35,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'janko-m/vim-test'
 Plugin 'ambv/black'
+Plugin 'raimon49/requirements.txt.vim'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -331,6 +332,7 @@ autocmd BufNewFile,BufRead *.yaml,*.yml setlocal tabstop=2 shiftwidth=2
 autocmd BufNewFile,BufRead *.cs setlocal tabstop=8 shiftwidth=8 noexpandtab autoindent
 autocmd BufNewFile,BufRead *.bq setlocal syntax=sql
 autocmd BufNewFile,BufRead *Dockerfile* setlocal syntax=dockerfile
+autocmd BufNewFile,BufRead *requirements.* setlocal nospell
 
 " Save whenever switching windows or leaving vim. This is useful when running
 " the tests inside vim without having to save all files first.
