@@ -114,7 +114,7 @@ alias ipy="ipython"
 alias ptp="ptpython"
 
 # ptipython alias
-alias pti="ptipython"
+alias pti="ptipython --vi"
 
 # pip install alias
 alias pi="pip install -U"
