@@ -140,6 +140,11 @@ set tags=./tags,tags,./.git/tags;
 set splitright
 set splitbelow
 
+" Faster vim
+" (https://nickjanetakis.com/blog/vim-is-saving-me-hours-of-work-when-writing-books-and-courses)
+set lazyredraw
+set regexpengine=1
+
 " keep x lines off the edges of the screen when scrolling vertically
 set scrolloff=2
 " keep x columns off the edges of the screen when scrolling horizontally
