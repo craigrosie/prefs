@@ -267,16 +267,22 @@ nmap <leader>p :Files<CR>
 nmap <leader>r :BTags<CR>
 
 " Shortcut for :Gstatus
-nmap <leader>gs :Gstatus<CR>
+nmap <leader>fs :Gstatus<CR>
 
 " Shortcut for :Gdiff
-nmap <leader>gd :Gdiff<CR>
+nmap <leader>fd :Gdiff<CR>
 
 " Shortcut for git push
-nmap <leader>gp :Gpush<space>
+nmap <leader>fp :Gpush<space>
 
 " Shortcut for git push with --force-with-lease
-nmap <leader>gpfl :Gpush --force-with-lease<space>
+nmap <leader>fpfl :Gpush --force-with-lease<space>
+
+" Shortcut for git commit --verbose
+nmap <leader>fc :Gcommit --verbose<CR>
+
+nmap <leader>fdg :diffget<CR>
+nmap <leader>fdp :diffput<CR>
 
 " Shortcut for refreshing current buffer
 nmap <leader>e :e!<CR>
