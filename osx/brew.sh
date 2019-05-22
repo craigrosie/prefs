@@ -24,13 +24,6 @@ brew install bash-completion
 brew install pyenv
 brew install pyenv-virtualenv
 
-# rbenv for managing ruby versions
-brew install rbenv
-brew install ruby-build
-
-# jenv for managing java versions
-brew install jenv
-
 # Install postgres
 brew install postgres
 # Initialise db
@@ -44,53 +37,33 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 # icu4c (https://github.com/Homebrew/homebrew/blob/master/Library/Formula/icu4c.rb) for gem installs
 brew install icu4c
 
-# Install more recent versions of some OSX defaults
-brew install vim --override-system-vi
-brew install homebrew/dupes/grep
-
-# Install Cask
-brew install caskroom/cask/brew-cask
+# Install more recent versions vim
+brew install vim
 
 # Tap versions so we can get Sublime3
 brew tap caskroom/versions
 
 # Install casks
-brew cask install --appdir="/Applications" atom
-brew cask install --appdir="/Applications" caffeine
-brew cask install --appdir="/Applications" dash
-brew cask install --appdir="/Applications" dropbox
-brew cask install --appdir="/Applications" evernote
-brew cask install --appdir="/Applications" flux
-brew cask install --appdir="/Applications" google-chrome
-brew cask install --appdir="/Applications" haroopad
-brew cask install --appdir="/Applications" imageoptim
-brew cask install --appdir="/Applications" iterm2
-brew cask install --appdir="/Applications" itsycal
-brew cask install --appdir="/Applications" hyperswitch
-brew cask install --appdir="/Applications" java
-brew cask install --appdir="/Applications" lastpass
-brew cask install --appdir="/Applications" noizio
-brew cask install --appdir="/Applications" p4merge
-brew cask install --appdir="/Applications" pgadmin3
-brew cask install --appdir="/Applications" scroll-reverser
-brew cask install --appdir="/Applications" skitch
-brew cask install --appdir="/Applications" skype
-brew cask install --appdir="/Applications" slack
-brew cask install --appdir="/Applications" sourcetree
-brew cask install --appdir="/Applications" spectacle
-brew cask install --appdir="/Applications" spotify
-brew cask install --appdir="/Applications" sublime-text3
-brew cask install --appdir="/Applications" the-unarchiver
+brew cask install caffeine
+brew cask install dropbox
+brew cask install evernote
+brew cask install flux
+brew cask install google-chrome
+brew cask install imageoptim
+brew cask install iterm2
+brew cask install itsycal
+brew cask install hyperswitch
+brew cask install lastpass
+brew cask install slack
+brew cask install spectacle
+brew cask install spotify
+brew cask install the-unarchiver
 
 # Install gcc
 brew install gcc
 
 # Install tree
 brew install tree
-
-# Install GoTTY (https://github.com/yudai/gotty)
-brew tap yudai/gotty
-brew install gotty
 
 # Install htop
 brew install htop-osx
@@ -101,17 +74,11 @@ brew install jq
 # Install GNU versions of command line tools
 brew install coreutils
 
-# Install cheat (https://github.com/chrisallenlane/cheat)
-brew install cheat
-
 # Install gnu-sed over mac sed
 brew install gnu-sed --with-default-names
 
 # Install diff-so-fancy
 brew install diff-so-fancy
-
-# Install gs for pdf compression
-brew install gs
 
 # Install graphviz for pyreverse
 brew install graphviz
@@ -119,26 +86,11 @@ brew install graphviz
 # Install thefuck
 brew install thefuck
 
-# Install lnav (http://lnav.org/)
-brew install lnav
-
-# Install peco (https://github.com/peco/peco)
-brew install peco
-
 # Install tig (https://github.com/jonas/tig)
 brew install tig
 
-# Install ranger (https://github.com/ranger/ranger)
-brew install ranger
-
 # Install The Silver Search (ag) (https://github.com/ggreer/the_silver_searcher)
 brew install the_silver_searcher
-
-# Install shpotify (https://github.com/hnarayanan/shpotify)
-brew install shpotify
-
-# Install yank (https://github.com/mptre/yank)
-brew install yank
 
 # Install fasd (https://github.com/clvv/fasd)
 brew install fasd
@@ -161,17 +113,11 @@ brew install icdiff
 # Install figlet (http://www.figlet.org/)
 brew install figlet
 
-# Install grip (https://github.com/joeyespo/grip)
-brew install grip
-
 # Install redis (https://redis.io/)
 brew install redis
 
 # Install ctop (https://github.com/bcicen/ctop)
 brew install ctop
-
-# Install ccat (https://github.com/jingweno/ccat)
-brew install ccat
 
 # Install fd (https://github.com/sharkdp/fd)
 brew install fd
@@ -181,9 +127,6 @@ brew install gron
 
 # Install tmux (https://github.com/tmux/tmux)
 brew install tmux
-
-# Install jrnl (https://github.com/maebert/jrnl)
-brew install jrnl
 
 # Install universal ctags (https://github.com/universal-ctags/ctags)
 # NOTE: check if this is still valid install mechanism
@@ -197,9 +140,6 @@ brew install emojify
 
 # Install cmake (https://cmake.org/)
 brew install cmake
-
-# Install grv (https://github.com/rgburke/grv)
-brew install grv
 
 # Install markdown (https://daringfireball.net/projects/markdown/)
 brew install markdown
@@ -231,37 +171,15 @@ brew cask install muzzle
 # Install kap (https://github.com/wulkano/kap)
 brew cask install kap
 
-# Install karabiner (https://pqrs.org/osx/karabiner/)
-brew cask install karabiner
-
-# Install seil (https://pqrs.org/osx/karabiner/seil.html.en)
-brew cask install seil
-
-# Install tableplus (https://tableplus.io/)
-brew cask install tableplus
-
-# Install crunch (https://github.com/chrissimpkins/Crunch)
-brew cask install crunch
-
-# Install vanilla (http://matthewpalmer.net/vanilla/)
-brew cask install vanilla
-
-# Install spotmenu (https://github.com/kmikiy/SpotMenu)
-brew cask install spotmenu
-
 # Install karabiner-elements (https://github.com/tekezo/Karabiner-Elements)
 brew cask install karabiner-elements
 
-# Install quicklook-json (http://www.sagtau.com/quicklookjson.html)
-brew cask install quicklook-json
+# Install bat (https://github.com/sharkdp/bat)
+brew install bat
 
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
-
-# Install dive (https://github.com/wagoodman/dive)
-brew tap wagoodman/dive
-brew install dive
 
 # Cleanup
 brew cleanup
