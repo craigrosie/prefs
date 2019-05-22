@@ -177,6 +177,9 @@ brew cask install karabiner-elements
 # Install bat (https://github.com/sharkdp/bat)
 brew install bat
 
+# Install zlib (https://zlib.net/) - required for pyenv installs
+brew install zlib
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
