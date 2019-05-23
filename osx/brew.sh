@@ -186,6 +186,9 @@ brew install cfn-lint
 # Install shellcheck (https://github.com/koalaman/shellcheck)
 brew install shellcheck
 
+# Install yamllint (https://github.com/adrienverge/yamllint)
+brew install yamllint
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
