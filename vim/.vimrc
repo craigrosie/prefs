@@ -7,6 +7,8 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 " add fzf to the runtime path
 set rtp+=/usr/local/opt/fzf
+" add prefs/vim to runtime path to enable Ultisnips to find snippets
+set rtp+=~/github/prefs/vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
