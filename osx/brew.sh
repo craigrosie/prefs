@@ -183,6 +183,9 @@ brew install zlib
 # Install cfn-python-lint (https://github.com/aws-cloudformation/cfn-python-lint)
 brew install cfn-lint
 
+# Install shellcheck (https://github.com/koalaman/shellcheck)
+brew install shellcheck
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
