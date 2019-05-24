@@ -189,6 +189,9 @@ brew install shellcheck
 # Install yamllint (https://github.com/adrienverge/yamllint)
 brew install yamllint
 
+# Install hadolint (https://github.com/hadolint/hadolint)
+brew install hadolint
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
