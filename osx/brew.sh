@@ -192,6 +192,9 @@ brew install yamllint
 # Install hadolint (https://github.com/hadolint/hadolint)
 brew install hadolint
 
+# Install proselint (https://github.com/amperser/proselint)
+brew install proselint
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
