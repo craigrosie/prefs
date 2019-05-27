@@ -195,6 +195,9 @@ brew install hadolint
 # Install proselint (https://github.com/amperser/proselint)
 brew install proselint
 
+# Install grip (https://github.com/joeyespo/grip) - requiremd for vim-markdown-preview
+brew install grip
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
