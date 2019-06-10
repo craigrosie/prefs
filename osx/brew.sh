@@ -17,6 +17,16 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade --all
 
+# Upgrade bash
+brew install bash
+# Then run:
+#  sudo vim /etc/shells
+#  Add /usr/local/bin/bash
+#  Run chsh -s /usr/local/bin/bash - set shell for current user
+#  Run sudo chsh -s /usr/local/bin/bash - set shell for root
+#  tmux kill-server
+#  Restart iTerm2
+
 # Advanced bash completion
 brew install bash-completion
 
