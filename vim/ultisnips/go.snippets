@@ -113,3 +113,18 @@ if err != nil {
 	log.${1:Fatal}(err)
 }
 endsnippet
+
+# custom snippets
+
+snippet subtest "Create a subtest" b
+t.Run("${1:name}", func(t *testing.T) {
+	${0:${VISUAL}}
+})
+endsnippet
+
+snippet testhelper "Create a test helper" b
+func ${1:TestHelper}(${2:params})${3/(.+)/ /}${3:type} {
+	t.Helper()
+	${0:${VISUAL}}
+}
+endsnippet
