@@ -102,6 +102,14 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 
 #############################
+# Bluetooth audio			#
+#############################
+
+# Enable better bluetooth audio codecs
+defaults write bluetoothaudiod "Enable AptX codec" -bool true
+defaults write bluetoothaudiod "Enable AAC codec" -bool true
+
+#############################
 # Kill affected apps		#
 #############################
 
