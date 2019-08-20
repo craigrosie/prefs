@@ -289,6 +289,9 @@ nmap <leader>fpfl :Gpush --force-with-lease<space>
 " Shortcut for git commit --verbose
 nmap <leader>fc :Gcommit --verbose<CR>
 
+" Shortcut for git commit --amend --verbose
+nmap <leader>fca :Gcommit --amend --verbose<CR>
+
 nmap <leader>fdg :diffget<CR>
 nmap <leader>fdp :diffput<CR>
 
