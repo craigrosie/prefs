@@ -208,6 +208,9 @@ brew install proselint
 # Install grip (https://github.com/joeyespo/grip) - requiremd for vim-markdown-preview
 brew install grip
 
+# Install hugo (https://gohugo.io)
+brew install hugo
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
