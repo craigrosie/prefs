@@ -356,6 +356,8 @@ autocmd BufNewFile,BufRead *.cs setlocal tabstop=8 shiftwidth=8 noexpandtab auto
 autocmd BufNewFile,BufRead *.bq setlocal syntax=sql
 autocmd BufNewFile,BufRead *Dockerfile* setlocal syntax=dockerfile
 autocmd BufNewFile,BufRead *requirements.* setlocal nospell
+autocmd FileType go nmap <leader>tf  <Plug>(go-test)
+autocmd FileType go nmap <leader>tn  <Plug>(go-test-func)
 
 " Save whenever switching windows or leaving vim. This is useful when running
 " the tests inside vim without having to save all files first.
