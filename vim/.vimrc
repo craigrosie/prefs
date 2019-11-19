@@ -40,6 +40,7 @@ Plugin 'ambv/black'
 Plugin 'raimon49/requirements.txt.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'kristijanhusak/vim-carbon-now-sh'
+Plugin 'psliwka/vim-smoothie'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
