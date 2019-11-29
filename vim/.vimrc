@@ -304,6 +304,9 @@ nmap <leader>e :e!<CR>
 " Shortcut for running Black Python code formatter
 nmap <leader>b :w <CR>:Black<CR>
 
+" Shortcut to yank whole file to clipboard
+nmap <leader>yf :%y+<CR>
+
 " Vertical visual movement when lines are wrapped
 nmap j gj
 nmap k gk
