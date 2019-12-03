@@ -42,6 +42,9 @@
 	# Default push origin develop
 	pod = push origin develop
 
+    # Push current branch
+    pcb = !sh -c 'git push -u origin $(git rev-parse --abbrev-ref HEAD)'
+
 	# Push specific tag
 	pt = push origin
 
