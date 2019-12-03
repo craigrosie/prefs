@@ -87,9 +87,6 @@ brew install coreutils
 # Install gnu-sed over mac sed
 brew install gnu-sed --with-default-names
 
-# Install diff-so-fancy
-brew install diff-so-fancy
-
 # Install graphviz for pyreverse
 brew install graphviz
 
