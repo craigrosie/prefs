@@ -211,6 +211,10 @@ brew install grip
 # Install hugo (https://gohugo.io)
 brew install hugo
 
+# Install delta (https://github.com/dandavison/delta)
+brew tap dandavison/delta https://github.com/dandavison/delta
+brew install dandavison/delta/git-delta
+
 # Install Source Code Pro font
 brew tap caskroom/fonts
 brew cask install font-source-code-pro
