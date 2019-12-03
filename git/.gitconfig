@@ -86,8 +86,8 @@
 	# Make git rebase safe on osx
 	# See http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
 	trustctime = false
-	excludesfile = ~/.gitignore_global
-	pager = diff-so-fancy | less --tabs=4 -RFX
+    excludesfile = /Users/craigrosie/.gitignore_global
+    pager = delta --theme=\"Monokai Extended Origin\"
 [color "diff"]
 	meta = yellow bold
 	frag = magenta bold
@@ -107,9 +107,6 @@
 [mergetool]
 	keepTemporaries = false
 	prompt = false
-[pager]
-	diff = diff-so-fancy | less --tabs=1,5 -RFX
-	show = diff-so-fancy | less --tabs=1,5 -RFX
 [user]
 	useconfigonly = true
 [color "diff-highlight"]
