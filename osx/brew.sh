@@ -181,6 +181,9 @@ brew cask install kap
 # Install karabiner-elements (https://github.com/tekezo/Karabiner-Elements)
 brew cask install karabiner-elements
 
+# Install Dozer (https://github.com/Mortennn/Dozer)
+brew cask install dozer
+
 # Install bat (https://github.com/sharkdp/bat)
 brew install bat
 
