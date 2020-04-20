@@ -175,3 +175,5 @@ alias less="less -FRX"
 
 alias help="tldr"
 
+# Format json in clipboard
+alias jf="pbpaste | jq | pbcopy"
