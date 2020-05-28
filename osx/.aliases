@@ -59,6 +59,9 @@ alias rebash="source ~/.bashrc"
 # Upgrade pip
 alias pipup="pip install --upgrade pip"
 
+# Upgrade pip package
+alias pipu="pip install -U"
+
 # Show hidden files in Finder
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
 
