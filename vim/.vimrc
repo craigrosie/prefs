@@ -41,6 +41,8 @@ Plugin 'raimon49/requirements.txt.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'kristijanhusak/vim-carbon-now-sh'
 Plugin 'psliwka/vim-smoothie'
+Plugin 'mattn/calendar-vim'
+Plugin 'vimwiki/vimwiki'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -248,6 +250,26 @@ let vim_markdown_preview_hotkey='<leader>m'
 let vim_markdown_preview_browser='Google Chrome'
 let vim_markdown_preview_github=1
 
+" Vimwiki
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/wiki'}]
+let g:vimwiki_ext = '.md' " set extension to .md
+let g:vimwiki_global_ext = 0 " make sure vimwiki doesn't own all .md files
+
+au BufRead,BufNewFile *.wiki set filetype=vimwiki
+function! ToggleCalendar()
+  execute ":Calendar"
+  if exists("g:calendar_open")
+    if g:calendar_open == 1
+      execute "q"
+      unlet g:calendar_open
+    else
+      g:calendar_open = 1
+    end
+  else
+    let g:calendar_open = 1
+  end
+endfunction
+:autocmd FileType vimwiki map <leader>c :call ToggleCalendar()<CR>
 " ENDSETS
 
 " MAPPINGS
