@@ -43,6 +43,7 @@ Plugin 'kristijanhusak/vim-carbon-now-sh'
 Plugin 'psliwka/vim-smoothie'
 Plugin 'mattn/calendar-vim'
 Plugin 'vimwiki/vimwiki'
+Plugin 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -270,6 +271,13 @@ function! ToggleCalendar()
   end
 endfunction
 :autocmd FileType vimwiki map <leader>c :call ToggleCalendar()<CR>
+
+" vim-pydocstring
+let g:pydocstring_formatter = 'google'
+" By default, vim-pydocstring sets up a <C-l> mapping which breaks
+" vim and tmux navigation
+let g:pydocstring_enable_mapping = 0
+
 " ENDSETS
 
 " MAPPINGS
@@ -347,6 +355,9 @@ xnoremap <leader>wc <esc>:'<,'>:w !wc<CR>
 
 " Sort in visual mode
 xnoremap <leader>so <esc>:'<,'>!sort<CR>
+
+" Shortcut for vim-pydocstring
+nmap <leader>- :Pydocstring<CR>
 
 " ENDMAPPINGS
 
