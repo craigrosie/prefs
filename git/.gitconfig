@@ -18,6 +18,9 @@
 	# Commit
 	c = commit --verbose
 
+    # Commit amend
+	ca = commit --verbose --amend
+
 	# Checkout
 	ch = checkout
 
