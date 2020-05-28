@@ -36,7 +36,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'janko-m/vim-test'
-Plugin 'ambv/black'
+Plugin 'psf/black'
 Plugin 'raimon49/requirements.txt.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'kristijanhusak/vim-carbon-now-sh'
@@ -171,6 +171,8 @@ let g:is_bash=1
 
 " Disable tmux navigator when zooming the vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
+
+let g:black_virtualenv = "~/.vim/black"
 
 " Always show hidden files in NERDTree
 let NERDTreeShowHidden=1
