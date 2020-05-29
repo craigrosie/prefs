@@ -12,6 +12,9 @@
 	# Branch
 	b = branch
 
+    # Branch name
+    bn = rev-parse --abbrev-ref HEAD
+
 	# Show the diff between the latest commit and the current state
 	d = !"clear; git diff"
 
