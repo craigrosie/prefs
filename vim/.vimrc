@@ -359,6 +359,9 @@ xnoremap <leader>so <esc>:'<,'>!sort<CR>
 " Shortcut for vim-pydocstring
 nmap <leader>- :Pydocstring<CR>
 
+" Custom mapping for jumping forward in the jumplist
+nnoremap <C-m> <C-i>
+
 " ENDMAPPINGS
 
 "" ABBREV
