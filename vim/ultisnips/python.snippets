@@ -743,4 +743,26 @@ snippet deft "def test_" b
 def test_${1}(${2}):
 	${3}
 endsnippet
+
+snippet fixture "@pytest.fixture" b
+@pytest.fixture
+def ${1}(${2}):
+	${3}
+	return ${4}
+endsnippet
+
+snippet param "@pytest.mark.parametrize" b
+@pytest.mark.parametrize(
+	"${1}",
+	[
+		(${2}),
+	]
+)
+endsnippet
+
+snippet dataclass "@dataclass" b
+@dataclass
+class ${1}:
+	${2}
+endsnippet
 # vim:ft=snippets:
