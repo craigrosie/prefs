@@ -2,6 +2,20 @@ snippet jira "JIRA commit template" b
 ${1:LIS-}$2: $0
 endsnippet
 
+snippet jiral "JIRA long commit template" b
+${1:LIS-}$2: ${3:Summarize the change in less than 50 characters}
+
+${4:Because:
+- Explain the reasons you made this change
+- Make a new bullet for each reason
+- Each line should be under 72 characters}
+
+${5:Explain exactly what was done in this commit with more depth than the
+50 character subject line. Remember to wrap at 72 characters!}
+
+${6:Include any additional notes, relevant links, or co-authors.}
+endsnippet
+
 snippet nojira "Commit/PR with no JIRA card" b
 NO-JIRA: $1
 endsnippet
