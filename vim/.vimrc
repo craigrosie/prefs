@@ -44,6 +44,7 @@ Plugin 'psliwka/vim-smoothie'
 Plugin 'mattn/calendar-vim'
 Plugin 'vimwiki/vimwiki'
 Plugin 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+Plugin 'mattn/emmet-vim'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -277,6 +278,9 @@ let g:pydocstring_formatter = 'google'
 " By default, vim-pydocstring sets up a <C-l> mapping which breaks
 " vim and tmux navigation
 let g:pydocstring_enable_mapping = 0
+
+" vim-emmet
+let g:user_emmet_leader_key='<C-y>'
 
 " ENDSETS
 
