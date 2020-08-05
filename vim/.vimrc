@@ -45,6 +45,7 @@ Plugin 'mattn/calendar-vim'
 Plugin 'vimwiki/vimwiki'
 Plugin 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 Plugin 'mattn/emmet-vim'
+Plugin 'AndrewRadev/sideways.vim'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -365,6 +366,10 @@ nmap <leader>- :Pydocstring<CR>
 
 " Custom mapping for jumping forward in the jumplist
 nnoremap <C-m> <C-i>
+
+" Convenient mappings for sideways.vim
+nnoremap <leader>, :SidewaysLeft<cr>
+nnoremap <leader>. :SidewaysRight<cr>
 
 " ENDMAPPINGS
 
