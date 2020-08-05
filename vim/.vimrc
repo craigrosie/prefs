@@ -226,6 +226,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsSnippetsDir="~/github/prefs/vim/ultisnips"
 let g:UltiSnipsSnippetDirectories=["Ultisnips", "custom_snippets"]
 let g:UltiSnipsExpandTrigger="<c-e>"
+let g:ultisnips_python_style="google"
 
 " vim-go
 let g:go_fmt_command = "goimports"
