@@ -46,6 +46,7 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 Plugin 'mattn/emmet-vim'
 Plugin 'AndrewRadev/sideways.vim'
+Plugin 'pechorin/any-jump.vim'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
