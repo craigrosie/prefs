@@ -83,4 +83,7 @@ export PATH=$PATH:$GOROOT/bin
 
 export EDITOR=`command -v vim`
 
+# Enable github cli autocompletion
+eval "$(gh completion -s bash)"
+
 echo "System online ✔︎"
