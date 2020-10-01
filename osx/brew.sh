@@ -218,9 +218,9 @@ brew install kube-ps1
 brew tap dandavison/delta https://github.com/dandavison/delta
 brew install dandavison/delta/git-delta
 
-# Install Source Code Pro font
-brew tap caskroom/fonts
-brew cask install font-source-code-pro
+# Install Fira Code font
+brew tap homebrew/cask-fonts
+brew cask install font-fira-code
 
 # Cleanup
 brew cleanup
