@@ -86,4 +86,10 @@ export EDITOR=`command -v vim`
 # Enable github cli autocompletion
 eval "$(gh completion -s bash)"
 
+# Enable kube-ps1 (https://github.com/jonmosco/kube-ps1)
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+export KUBE_PS1_SYMBOL_ENABLE=false
+export KUBE_PS1_CTX_COLOR=26  # blue
+export KUBE_PS1_NS_COLOR=172  # orange
+
 echo "System online ✔︎"

@@ -211,6 +211,9 @@ brew install grip
 # Install hugo (https://gohugo.io)
 brew install hugo
 
+# Install kube-ps1 (https://github.com/jonmosco/kube-ps1)
+brew install kube-ps1
+
 # Install delta (https://github.com/dandavison/delta)
 brew tap dandavison/delta https://github.com/dandavison/delta
 brew install dandavison/delta/git-delta

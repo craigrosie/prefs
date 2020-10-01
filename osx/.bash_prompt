@@ -83,9 +83,9 @@ set_prompts() {
         if test -z "$VIRTUAL_ENV" ; then
             venvName=""
         else
-            venvName="(`basename \"$VIRTUAL_ENV\"`)"
+            venvName=" (`basename \"$VIRTUAL_ENV\"`)"
         fi
-        echo $venvName ""
+        echo $venvName " "
     }
 
 
@@ -159,7 +159,8 @@ set_prompts() {
 	PS1+="\[$(usernamehost)\]"
     PS1+="\[$green\]\w"                                     # working directory
     PS1+="\$(prompt_git \"$white on $purple\" \"$cyan\")"   # git repository details
-    PS1+=" $red\[$(prompt_venv)\]"                          # pyenv virtualenv details
+    PS1+="$red\[$(prompt_venv)\]$white"                     # pyenv virtualenv details
+    PS1+="$(kube_ps1)"                                      # k8s ctx & ns details
     PS1+="\n"
     PS1+="\[$reset$white\]🐍 \[$reset\]"
 
