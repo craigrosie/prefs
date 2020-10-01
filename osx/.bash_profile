@@ -86,6 +86,11 @@ export EDITOR=`command -v vim`
 # Enable github cli autocompletion
 eval "$(gh completion -s bash)"
 
+# Enable kubectl autocompletion
+source <(kubectl completion bash)
+# Enable it for k alias
+complete -F __start_kubectl k
+
 # Enable kube-ps1 (https://github.com/jonmosco/kube-ps1)
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 export KUBE_PS1_SYMBOL_ENABLE=false
