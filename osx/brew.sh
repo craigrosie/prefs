@@ -217,6 +217,9 @@ brew install kube-ps1
 # Install lens (https://github.com/lensapp/lens)
 brew cask install lens
 
+# Install github-markdown-toc (https://github.com/ekalinin/github-markdown-toc.go)
+brew install github-markdown-toc
+
 # Install delta (https://github.com/dandavison/delta)
 brew tap dandavison/delta https://github.com/dandavison/delta
 brew install dandavison/delta/git-delta
