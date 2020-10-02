@@ -214,6 +214,9 @@ brew install hugo
 # Install kube-ps1 (https://github.com/jonmosco/kube-ps1)
 brew install kube-ps1
 
+# Install lens (https://github.com/lensapp/lens)
+brew cask install lens
+
 # Install delta (https://github.com/dandavison/delta)
 brew tap dandavison/delta https://github.com/dandavison/delta
 brew install dandavison/delta/git-delta
