@@ -220,6 +220,9 @@ brew cask install lens
 # Install github-markdown-toc (https://github.com/ekalinin/github-markdown-toc.go)
 brew install github-markdown-toc
 
+# Install gitup (https://gitup.co/)
+brew cask install gitup
+
 # Install delta (https://github.com/dandavison/delta)
 brew tap dandavison/delta https://github.com/dandavison/delta
 brew install dandavison/delta/git-delta
