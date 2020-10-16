@@ -214,6 +214,10 @@ let NERDTreeIgnore = [
 
 " Use ag for ack.vim
 let g:ackprg = 'ag --vimgrep --hidden'
+" https://github.com/mileszs/ack.vim/pull/142
+let g:ack_mappings = {
+      \ "v": "<C-W><CR>:exe 'wincmd ' (&splitright ? 'L' : 'H')<CR><C-W>p<C-W>J<C-W>p =",
+      \ "gv": "<C-W><CR>:exe 'wincmd ' (&splitright ? 'L' : 'H')<CR><C-W>p<C-W>J" }
 
 " ALE customisation
 let g:ale_sign_error='✘'
