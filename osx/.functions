@@ -300,6 +300,9 @@ function git-url() {
     local origin_ssh_url host repo_name
     origin_ssh_url=$(git config --get remote.${1-origin}.url)
     host=$(echo $origin_ssh_url | sed 's/^.*@//g;s/:.*$//g')
+    if [ "$host" = "gh" ]; then
+        host="github.com"
+    fi
     repo_name=$(echo $origin_ssh_url | sed 's/^.*://g;s/\.git//g')
     echo "https://$host/$repo_name"
 }
