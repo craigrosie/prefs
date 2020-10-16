@@ -288,6 +288,10 @@ let g:pydocstring_enable_mapping = 0
 " vim-emmet
 let g:user_emmet_leader_key='<C-y>'
 
+" any-jump.vim
+" done to prevent <leader>a clash with ack.vim
+let g:any_jump_disable_default_keybindings = 1
+
 " ENDSETS
 
 " MAPPINGS
@@ -375,6 +379,11 @@ nnoremap <C-m> <C-i>
 " Convenient mappings for sideways.vim
 nnoremap <leader>, :SidewaysLeft<cr>
 nnoremap <leader>. :SidewaysRight<cr>
+
+" Remap only used shortcuts for any-jump.vim
+nnoremap <leader>j :AnyJump<CR>
+xnoremap <leader>j :AnyJumpVisual<CR>
+nnoremap <leader>x :AnyJumpLastResults<CR>
 
 " ENDMAPPINGS
 
