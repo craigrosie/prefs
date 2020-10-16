@@ -27,7 +27,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-commentary'
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 Plugin 'tpope/vim-surround'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'fatih/vim-go'
