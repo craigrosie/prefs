@@ -181,3 +181,6 @@ alias ktx="kubectx"
 
 # Format json in clipboard
 alias jf="pbpaste | jq | pbcopy"
+
+# I'm always typing vim wrong
+alias ivm="vim"
