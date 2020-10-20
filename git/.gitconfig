@@ -1,76 +1,76 @@
 [alias]
-	# View abbreviated SHA, description and history graphy of the latest 20 commits
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit --decorate
+    # View abbreviated SHA, description and history graphy of the latest 20 commits
+    l = log --pretty=oneline -n 20 --graph --abbrev-commit --decorate
 
-	ll = log --pretty=format:\"%C(yellow)%h%Cred %ad %Cgreen|%Creset %s%d %Cblue[%an]\" --graph --date=format:\"%Y-%m-%d\" -n 20
+    ll = log --pretty=format:\"%C(yellow)%h%Cred %ad %Cgreen|%Creset %s%d %Cblue[%an]\" --graph --date=format:\"%Y-%m-%d\" -n 20
 
-	lll = log --pretty=format:\"%C(yellow)%h%Cred %ad %Cgreen|%Creset %s%d %Cblue[%an]%n%b\" --graph --date=format:\"%Y-%m-%d %H:%M\" -n 20
+    lll = log --pretty=format:\"%C(yellow)%h%Cred %ad %Cgreen|%Creset %s%d %Cblue[%an]%n%b\" --graph --date=format:\"%Y-%m-%d %H:%M\" -n 20
 
-	# View the current working tree status using the short format
-	s = status -s -uall
+    # View the current working tree status using the short format
+    s = status -s -uall
 
-	# Branch
-	b = branch
+    # Branch
+    b = branch
 
     # Branch name
     bn = rev-parse --abbrev-ref HEAD
 
-	# Show the diff between the latest commit and the current state
-	d = !"clear; git diff"
+    # Show the diff between the latest commit and the current state
+    d = !"clear; git diff"
 
-	# Commit
-	c = commit --verbose
+    # Commit
+    c = commit --verbose
 
     # Commit amend
-	ca = commit --verbose --amend
+    ca = commit --verbose --amend
 
-	# Checkout
-	ch = checkout
+    # Checkout
+    ch = checkout
 
-	# Add (verbose mode to show added files)
-	a = add -v
+    # Add (verbose mode to show added files)
+    a = add -v
 
-	# Add all modified files in working tree (verbose mode)
-	aa = add -v -u
+    # Add all modified files in working tree (verbose mode)
+    aa = add -v -u
 
-	# Shortcut for push
-	p = push
+    # Shortcut for push
+    p = push
 
-	# Shortcut for push --force
-	pf = push --force
+    # Shortcut for push --force
+    pf = push --force
 
-	# Shortcut for push --force-with-lease
-	pfl = push --force-with-lease
+    # Shortcut for push --force-with-lease
+    pfl = push --force-with-lease
 
-	# Default push origin master
-	pom = push origin master
+    # Default push origin master
+    pom = push origin master
 
-	# Default push origin develop
-	pod = push origin develop
+    # Default push origin develop
+    pod = push origin develop
 
     # Push current branch
     pcb = !sh -c 'git push -u origin $(git rev-parse --abbrev-ref HEAD)'
 
-	# Push specific tag
-	pt = push origin
+    # Push specific tag
+    pt = push origin
 
-	# Push all tags
-	pat = push origin --tags
+    # Push all tags
+    pat = push origin --tags
 
-	# Shortcut for pull
-	pl = pull --rebase
+    # Shortcut for pull
+    pl = pull --rebase
 
     # Shortcut to stash changes, pull, then pop from stash
     pls = !"git stash && git pull --rebase && git stash pop"
 
-	# Default pull origin master
-	plom = pull --rebase origin master
+    # Default pull origin master
+    plom = pull --rebase origin master
 
-	# Default pull origin develop
-	plod = pull --rebase origin develop
+    # Default pull origin develop
+    plod = pull --rebase origin develop
 
-	# Checkout MRs
-	mr = !sh -c 'git fetch origin merge-requests/$1/head:mr-origin-$1 && git checkout mr-origin-$1' -
+    # Checkout MRs
+    mr = !sh -c 'git fetch origin merge-requests/$1/head:mr-origin-$1 && git checkout mr-origin-$1' -
 
     # Use fzf to help delete multiple branches
     db = !"git branch -D $(git branch | fzf -m)"
@@ -89,41 +89,45 @@
     # then triggers an interactive rebase
     rewrite-branch = !sh -c 'git rebase -i $(git merge-base master $(git rev-parse --abbrev-ref HEAD))'
 
-	# Show verbose output about tags, branches, or remotes
-	tags = tag -l
-	branches = branch -a
-	remotes = remote -v
+    # Shortcut to checkout main branch, pull latest changes, re-checkout branch,
+    # rebase on top of main branch
+    remain = !sh -c 'git stash && git checkout ${1:-master} && git pull --rebase && git checkout - && git rebase ${1:-master} && git stash pop'
+
+    # Show verbose output about tags, branches, or remotes
+    tags = tag -l
+    branches = branch -a
+    remotes = remote -v
 [core]
-	# Make git rebase safe on osx
-	# See http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
-	trustctime = false
+    # Make git rebase safe on osx
+    # See http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
+    trustctime = false
     excludesfile = ~/.gitignore_global
     pager = delta --theme=\"Monokai Extended Origin\"
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red
-	new = green
+    meta = yellow bold
+    frag = magenta bold
+    old = red
+    new = green
 [color "status"]
-	added = green
-	changed = yellow
-	untracked = cyan
+    added = green
+    changed = yellow
+    untracked = cyan
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    required = true
+    process = git-lfs filter-process
 [merge]
-	tool = p4merge
+    tool = p4merge
 [mergetool]
-	keepTemporaries = false
-	prompt = false
+    keepTemporaries = false
+    prompt = false
 [user]
-	useconfigonly = true
+    useconfigonly = true
 [color "diff-highlight"]
-	oldNormal = red
-	oldHighlight = red bold 52
-	newNormal = green
-	newHighlight = green bold 22
+    oldNormal = red
+    oldHighlight = red bold 52
+    newNormal = green
+    newHighlight = green bold 22
 [pull]
-	rebase = true
+    rebase = true
