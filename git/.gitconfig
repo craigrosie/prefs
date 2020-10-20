@@ -84,6 +84,11 @@
     # Check out PR to local branch - useful for PRs from forks
     co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
 
+    # Shortcut to rewrite history of current branch
+    # Finds commit that the current branch shares with master,
+    # then triggers an interactive rebase
+    rewrite-branch = !sh -c 'git rebase -i $(git merge-base master $(git rev-parse --abbrev-ref HEAD))'
+
 	# Show verbose output about tags, branches, or remotes
 	tags = tag -l
 	branches = branch -a
