@@ -92,7 +92,7 @@
 	# Make git rebase safe on osx
 	# See http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
 	trustctime = false
-    excludesfile = /Users/craigrosie/.gitignore_global
+    excludesfile = ~/.gitignore_global
     pager = delta --theme=\"Monokai Extended Origin\"
 [color "diff"]
 	meta = yellow bold
