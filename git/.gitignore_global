@@ -78,6 +78,7 @@ build/
 # Vim #
 #######
 *~
+*.vimlocal
 
 # Misc files #
 ##############
