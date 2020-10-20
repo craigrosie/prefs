@@ -424,6 +424,7 @@ autocmd BufNewFile,BufRead *.cs setlocal tabstop=8 shiftwidth=8 noexpandtab auto
 autocmd BufNewFile,BufRead *.bq setlocal syntax=sql
 autocmd BufNewFile,BufRead *Dockerfile* setlocal syntax=dockerfile
 autocmd BufNewFile,BufRead *requirements.* setlocal nospell
+autocmd BufNewFile,BufRead .vimlocal setlocal ft=vim
 autocmd FileType go nmap <leader>tf  <Plug>(go-test)
 autocmd FileType go nmap <leader>tn  <Plug>(go-test-func)
 
@@ -456,3 +457,10 @@ hi clear SpellBad
 hi SpellBad ctermfg=red
 
 " ENDMISC
+
+" PER_PROJECT VIM SETTINGS
+
+" Sources a .vimlocal file in the directory from which Vim is launched
+" silent! means it doesn't error if no .vimlocal file exists
+" https://vim.fandom.com/wiki/Project_specific_settings
+silent! so .vimlocal
