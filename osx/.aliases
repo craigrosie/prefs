@@ -179,6 +179,8 @@ alias help="tldr"
 
 alias ktx="kubectx"
 
+alias kns="kubens"
+
 # Format json in clipboard
 alias jf="pbpaste | jq | pbcopy"
 
