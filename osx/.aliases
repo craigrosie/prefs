@@ -164,7 +164,7 @@ alias eshrug="echo \"¯\\\\\_(ツ)\_/¯\" | pbcopy"
 alias cpignore="cp ~/github/prefs/osx/.ignore ."
 
 # Better PATH printing
-alias pathy="env | grep path | sed 's/:/\n/g' | sort | uniq"
+alias pathy="env | grep -E "^PATH=" | sed 's/PATH=//g' | tr : '\n' | sort | uniq"
 
 # I'm tired of typing ps aux | grep <blah>
 alias psgrep="ps aux | grep -v grep | grep"
