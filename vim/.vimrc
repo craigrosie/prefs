@@ -48,6 +48,7 @@ Plugin 'pechorin/any-jump.vim'
 Plugin 'hashivim/vim-terraform'
 Plugin 'sophacles/vim-bundle-mako'
 Plugin 'wellle/context.vim'
+Plugin 'rhysd/clever-f.vim'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
