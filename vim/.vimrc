@@ -246,6 +246,7 @@ let g:go_highlight_function_parameters = 1
 let g:go_highlight_function_calls = 1
 let g:go_metalinter_autosave = 1
 let g:go_auto_type_info = 1
+let g:go_jump_to_error = 0
 
 " Vim Markdown Preview (https://github.com/JamshedVesuna/vim-markdown-preview)
 let vim_markdown_preview_hotkey='<leader>m'
