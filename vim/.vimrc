@@ -52,6 +52,7 @@ Plugin 'sophacles/vim-bundle-mako'
 Plugin 'wellle/context.vim'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'rhysd/clever-f.vim'
+Plugin 'ruanyl/vim-gh-line'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
