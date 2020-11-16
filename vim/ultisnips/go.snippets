@@ -123,7 +123,7 @@ t.Run("${1:name}", func(t *testing.T) {
 endsnippet
 
 snippet testhelper "Create a test helper" b
-func ${1:TestHelper}(${2:params})${3/(.+)/ /}${3:type} {
+func ${1:TestHelper}(t *testing.T${2/(.+)/, /}${2:params})${3/(.+)/ /}${3:type} {
 	t.Helper()
 	${0:${VISUAL}}
 }
