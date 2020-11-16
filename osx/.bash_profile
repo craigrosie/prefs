@@ -76,7 +76,7 @@ export FZF_DEFAULT_OPTS="--height 30% --reverse --cycle"
 HISTIGNORE="$HISTIGNORE:jrnl *"
 
 # Set up golang env
-export GOPATH=~/github/golang
+export GOPATH=~/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
