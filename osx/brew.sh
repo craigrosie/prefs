@@ -223,6 +223,9 @@ brew install github-markdown-toc
 # Install gitup (https://gitup.co/)
 brew cask install gitup
 
+# Install kindle (https://www.amazon.com/gp/digital/fiona/kcp-landing-page)
+brew install kindle
+
 # Install delta (https://github.com/dandavison/delta)
 brew tap dandavison/delta https://github.com/dandavison/delta
 brew install dandavison/delta/git-delta
