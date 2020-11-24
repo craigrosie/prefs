@@ -53,6 +53,7 @@ Plugin 'wellle/context.vim'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'rhysd/clever-f.vim'
 Plugin 'ruanyl/vim-gh-line'
+Plugin 'jiangmiao/auto-pairs'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
