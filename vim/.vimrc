@@ -288,6 +288,8 @@ let g:user_emmet_leader_key='<C-y>'
 " any-jump.vim
 " done to prevent <leader>a clash with ack.vim
 let g:any_jump_disable_default_keybindings = 1
+let g:any_jump_preview_lines_count = 10
+let g:any_jump_max_search_results = 20
 
 " ENDSETS
 
