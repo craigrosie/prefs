@@ -384,6 +384,9 @@ nnoremap <leader>j :AnyJump<CR>
 xnoremap <leader>j :AnyJumpVisual<CR>
 nnoremap <leader>x :AnyJumpLastResults<CR>
 
+" Reload Ultisnips snippets
+nmap <leader>u :call UltiSnips#RefreshSnippets()<CR>
+
 " ENDMAPPINGS
 
 "" ABBREV
