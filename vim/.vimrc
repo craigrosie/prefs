@@ -207,7 +207,7 @@ let NERDTreeIgnore = [
     \'\.eggs',
     \'\.pytest_cache',
     \'\.mypy_cache',
-    \'\.coverage',
+    \'\.coverage$',
     \'\.DS_Store',
     \]
 
