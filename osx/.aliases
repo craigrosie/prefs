@@ -186,3 +186,6 @@ alias jf="pbpaste | jq | pbcopy"
 
 # I'm always typing vim wrong
 alias ivm="vim"
+
+# Wrap lines in "",
+alias stringify="sed 's/.*/\"&\",/'"
