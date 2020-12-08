@@ -487,6 +487,7 @@ hi SpellBad ctermfg=red
 
 " COC
 
+let g:coc_global_extensions = ['coc-sh', 'coc-snippets', 'coc-python']
 " Some servers have issues with backup files, see #649.
 " set nobackup
 " set nowritebackup
