@@ -54,6 +54,8 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'rhysd/clever-f.vim'
 Plugin 'ruanyl/vim-gh-line'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'voldikss/fzf-floaterm'
+Plugin 'voldikss/vim-floaterm'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -387,6 +389,29 @@ nnoremap <leader>x :AnyJumpLastResults<CR>
 " Reload Ultisnips snippets
 nmap <leader>u :call UltiSnips#RefreshSnippets()<CR>
 
+" vim-floaterm
+" List floaterms using fzf
+nmap <leader>i :Floaterms<CR>
+" Open new floaterm with hardcoded (iterm) name
+nmap <leader>q :FloatermNew --wintype=normal --height=1.0 --width=0.5 --name=iterm --position=right --autoclose=0<CR>
+" Allow specifying the name of the floaterm before opening
+nmap <leader>qn :FloatermNew --wintype=normal --height=1.0 --width=0.5 --position=right --autoclose=0 --name=
+" Shortcut to hide all floaterms
+nmap <leader>qt :FloatermHide!<CR>
+" Shortcut for killing a floaterm - allows a floaterm name to be entered
+" before killing
+nmap <leader>qk :FloatermKill
+" Allow normal window-switching mappings from floaterm
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+" Allow escape to go to normal mode in floaterm
+" (Don't use any existing mappings here because it breaks the equivalent
+" mapping in vim in floaterm)
+tnoremap <C-f>qq <C-\><C-n>
+tnoremap <C-f>qt <C-\><C-n>:FloatermHide!<CR>
+
 " ENDMAPPINGS
 
 "" ABBREV
@@ -444,7 +469,9 @@ au FocusLost * :redraw!
 " MISC
 
 " Allows cursor change in tmux mode (to vertical bar)
-if exists('$TMUX')
+" (Don't set these up in vim in floaterm because it breaks insert mode,
+" where 50;CursorShape=1 gets inserted everywhere)
+if exists('$TMUX') && !exists('$VIM_TERMINAL')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 else
