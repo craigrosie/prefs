@@ -79,6 +79,7 @@ build/
 #######
 *~
 *.vimlocal
+.vim/.ropeproject/
 
 # Misc files #
 ##############
