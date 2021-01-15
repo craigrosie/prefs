@@ -56,6 +56,7 @@ Plugin 'ruanyl/vim-gh-line'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'voldikss/fzf-floaterm'
 Plugin 'voldikss/vim-floaterm'
+Plugin 'mzlogin/vim-markdown-toc'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
