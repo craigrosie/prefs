@@ -15,8 +15,8 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
 # Expand print panel by default
-defaults writer NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
-defaults writer NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
 # Disable the "Are you sure you want to open this?" dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
