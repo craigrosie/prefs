@@ -54,20 +54,20 @@ brew install vim
 brew tap caskroom/versions
 
 # Install casks
-brew cask install caffeine
-brew cask install dropbox
-brew cask install evernote
-brew cask install flux
-brew cask install google-chrome
-brew cask install imageoptim
-brew cask install iterm2
-brew cask install itsycal
-brew cask install hyperswitch
-brew cask install lastpass
-brew cask install slack
-brew cask install spectacle
-brew cask install spotify
-brew cask install the-unarchiver
+brew install --cask caffeine
+brew install --cask dropbox
+brew install --cask evernote
+brew install --cask flux
+brew install --cask google-chrome
+brew install --cask imageoptim
+brew install --cask iterm2
+brew install --cask itsycal
+brew install --cask hyperswitch
+brew install --cask lastpass
+brew install --cask slack
+brew install --cask spectacle
+brew install --cask spotify
+brew install --cask the-unarchiver
 
 # Install gcc
 brew install gcc
@@ -167,22 +167,22 @@ brew install tldr
 brew install recode
 
 # Install ngrok (https://ngrok.com/)
-brew cask install ngrok
+brew install --cask ngrok
 
 # Install Postman (https://www.getpostman.com/)
-brew cask install postman
+brew install --cask postman
 
 # Install muzzle (https://muzzleapp.com/)
-brew cask install muzzle
+brew install --cask muzzle
 
 # Install kap (https://github.com/wulkano/kap)
-brew cask install kap
+brew install --cask kap
 
 # Install karabiner-elements (https://github.com/tekezo/Karabiner-Elements)
-brew cask install karabiner-elements
+brew install --cask karabiner-elements
 
 # Install Dozer (https://github.com/Mortennn/Dozer)
-brew cask install dozer
+brew install --cask dozer
 
 # Install bat (https://github.com/sharkdp/bat)
 brew install bat
@@ -215,13 +215,13 @@ brew install hugo
 brew install kube-ps1
 
 # Install lens (https://github.com/lensapp/lens)
-brew cask install lens
+brew install --cask lens
 
 # Install github-markdown-toc (https://github.com/ekalinin/github-markdown-toc.go)
 brew install github-markdown-toc
 
 # Install gitup (https://gitup.co/)
-brew cask install gitup
+brew install --cask gitup
 
 # Install kindle (https://www.amazon.com/gp/digital/fiona/kcp-landing-page)
 brew install kindle
@@ -232,7 +232,7 @@ brew install dandavison/delta/git-delta
 
 # Install Fira Code font
 brew tap homebrew/cask-fonts
-brew cask install font-fira-code
+brew install --cask font-fira-code
 
 # Cleanup
 brew cleanup
