@@ -322,3 +322,14 @@ function og-pr() {
 function asciify-url() {
     echo $1 | recode html..ascii
 }
+
+# Show ssh keys added to ssh agent with filename
+# https://unix.stackexchange.com/a/566474
+function ssh-add-wf() {
+    while read -r line; do
+        for file in ~/.ssh/*.pub;
+        do
+            printf "%s %s\n" "$(ssh-keygen -lf "$file" | awk '{$1=""}1')" "$file";
+        done | column -t | grep --color=auto "$line" || echo "$line";
+    done < <(ssh-add -l | awk '{print $2}')
+}
