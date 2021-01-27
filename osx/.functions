@@ -231,7 +231,8 @@ function pynew() {
     pyenv virtualenv "$2" "$1"-"$2" &&
     echo "[INFO]: created pyenv virtualenv ${1}-${2}" &&
     echo "[INFO]: setting pyenv local ${1}-${2}..." &&
-    pyenv local "$1"-"$2" &&
+    # make globaltools env available for things like ipython, rich, etc
+    pyenv local "$1"-"$2" globaltools &&
     echo "[INFO]: set local pyenv to ${1}-${2}" &&
     echo "[INFO]: running pipup..." &&
     pipup &&
@@ -242,9 +243,6 @@ function pynew() {
     echo "[INFO]: installing pip-tools..." &&
     pip install pip-tools &&
     echo "[INFO]: installed pip-tools" &&
-    echo "[INFO]: installing pyhelp packages..." &&
-	pyhelp &&
-    echo "[INFO]: installed pyhelp packages" &&
     echo "[INFO]: checking if requirements.txt exists..." &&
     [ -e "requirements.txt" ] &&
     echo "[INFO]: requirements.txt exists - installing..." &&
