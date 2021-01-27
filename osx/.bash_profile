@@ -97,4 +97,8 @@ export KUBE_PS1_SYMBOL_ENABLE=false
 export KUBE_PS1_CTX_COLOR=26  # blue
 export KUBE_PS1_NS_COLOR=172  # orange
 
+# Prevent pip from installing packages outside of a virtualenv
+# https://switowski.com/blog/disable-pip-outside-of-virtual-environments
+export PIP_REQUIRE_VIRTUALENV=true
+
 echo "System online ✔︎"
