@@ -80,12 +80,14 @@ set_prompts() {
 
 
     function prompt_venv() {
-        if test -z "$VIRTUAL_ENV" ; then
-            venvName=""
-        else
+        if test ! -z "$VIRTUAL_ENV" ; then
             venvName=" (`basename \"$VIRTUAL_ENV\"`)"
+        elif test -f ".python-version"; then
+            venvName=" ($(head -n1 .python-version))"
+        else
+            venvName=""
         fi
-        echo $venvName " "
+        echo $venvName ""
     }
 
 
