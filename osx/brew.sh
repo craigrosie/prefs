@@ -233,6 +233,9 @@ brew install dandavison/delta/git-delta
 # Install git-peek (https://github.com/Jarred-Sumner/git-peek)
 brew install jarred-sumner/git-peek/git-peek
 
+# Install Stats (https://github.com/exelban/stats)
+brew install --cask stats
+
 # Install Fira Code font
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
