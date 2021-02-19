@@ -230,6 +230,9 @@ brew install kindle
 brew tap dandavison/delta https://github.com/dandavison/delta
 brew install dandavison/delta/git-delta
 
+# Install git-peek (https://github.com/Jarred-Sumner/git-peek)
+brew install jarred-sumner/git-peek/git-peek
+
 # Install Fira Code font
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
