@@ -8,10 +8,10 @@ gui:
   theme:
     lightTheme: false # For terminals with a light background
     activeBorderColor:
-      - white
+      - green
       - bold
     inactiveBorderColor:
-      - green
+      - white
     optionsTextColor:
       - blue
     selectedLineBgColor:
