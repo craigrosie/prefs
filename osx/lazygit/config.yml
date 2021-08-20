@@ -180,4 +180,8 @@ keybinding:
     init: 'i'
     update: 'u'
     bulkMenu: 'b'
-
+customCommands:
+  - key: '<c-p>'
+    command: 'git push --force-with-lease'
+    context: 'localBranches'
+    description: 'force push with lease'
