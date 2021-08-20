@@ -189,3 +189,6 @@ alias ivm="vim"
 
 # Wrap lines in "",
 alias stringify="sed 's/.*/\"&\",/'"
+
+# I'm too lazy to type lazygit
+alias lg="lazygit"
