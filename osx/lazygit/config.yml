@@ -63,7 +63,7 @@ disableStartupPopups: false
 notARepository: 'prompt' # one of: 'prompt' | 'create' | 'skip'
 keybinding:
   universal:
-    quit: 'q'
+    quit: '<c-e>'
     quit-alt1: '<c-c>' # alternative/alias of quit
     return: '<esc>' # return to previous menu, will quit if there's nowhere to return
     quitWithoutChangingDirectory: 'Q'
