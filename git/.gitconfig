@@ -105,7 +105,7 @@
     # See http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
     trustctime = false
     excludesfile = ~/.gitignore_global
-    pager = delta --theme=\"Monokai Extended Origin\"
+    pager = delta --syntax-theme=\"Monokai Extended Origin\"
 [color "diff"]
     meta = yellow bold
     frag = magenta bold
