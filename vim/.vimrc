@@ -57,6 +57,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'voldikss/fzf-floaterm'
 Plugin 'voldikss/vim-floaterm'
 Plugin 'mzlogin/vim-markdown-toc'
+Plugin 'vim-python/python-syntax'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -175,6 +176,9 @@ if v:version >= 730
     set undofile
     set undodir=~/.vim/.undo,~/tmp,/tmp
 endif
+
+" Enable extended Python syntax highlighting (vim-python/python-syntax)
+let g:python_highlight_all = 1
 
 " Fix bash here{doc,string} syntax highlighting
 " https://stackoverflow.com/a/42640338
