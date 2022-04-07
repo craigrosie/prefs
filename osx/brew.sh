@@ -236,6 +236,9 @@ brew install jarred-sumner/git-peek/git-peek
 # Install Stats (https://github.com/exelban/stats)
 brew install --cask stats
 
+# Install bluesnooze (https://github.com/odlp/bluesnooze)
+brew install bluesnooze
+
 # Install k9s (https://github.com/derailed/k9s)
 brew install derailed/k9s/k9s
 
