@@ -1,6 +1,6 @@
 # Snippets for Go
 
-priority -50
+priority 500
 
 # when to abbriviate and when not?
 # b doesn't work here, because it ignores whitespace
@@ -70,8 +70,8 @@ func (${1:receiver} ${2:type}) ${3:name}(${4:params})${5/(.+)/ /}${5:type} {
 }
 endsnippet
 
-snippet func "Function" b
-func ${1:name}(${2:params})${3/(.+)/ /}${3:type} {
+snippet fu "Function"
+func ${1:name}(${2})${3/(.+)/ /}${3:type} {
 	${0:${VISUAL}}
 }
 endsnippet
@@ -116,15 +116,71 @@ endsnippet
 
 # custom snippets
 
-snippet subtest "Create a subtest" b
+snippet sub "Create a subtest" b
 t.Run("${1:name}", func(t *testing.T) {
 	${0:${VISUAL}}
 })
 endsnippet
 
-snippet testhelper "Create a test helper" b
+snippet th "Create a test helper inner function" b
 ${1:funcNamefunc} := func(t *testing.T${2/(.+)/, /}${2:params})${3/(.+)/ /}${3:type} {
 	t.Helper()
 	${0:${VISUAL}}
+}
+endsnippet
+
+snippet thf "Create a test helper function" b
+func ${1:name}(t *testing.T${2/(.+)/, /}${2}) {
+	t.Helper()
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet ifgw "If got want check"
+if ${1:got} != ${2:want} {
+	t.${3:Errorf}("got %${4:v} want %${5:v}", $1, $2)
+}
+endsnippet
+
+snippet gaf "Anonymous goroutine"
+go func(${1}) {
+	${0:${VISUAL}}
+}(${2})
+endsnippet
+
+snippet sel "Better select"
+select {
+case ${1}:
+	${2}
+}
+endsnippet
+
+snippet case "Case statement"
+case ${1}:
+	${2}
+${0:${VISUAL}}
+endsnippet
+
+snippet ttest "Table based test"
+${1:cases} := []struct{
+	${2:Name} string
+	${3:Input} ${4:interface{}}
+}{
+	{
+		"${5:first test}",
+		${6:"input"},
+	},
+}
+
+for _, test := range $1 {
+	t.Run(test.$2, func(t *testing.T) {
+		${0:${VISUAL}}
+	})
+}
+endsnippet
+
+snippet rde "reflect.DeepEqual" i
+reflect.DeepEqual(${1:got}, ${2:want}) {
+	t.Errorf("got ${3:%v} want ${4:%v}", $1, $2)
 }
 endsnippet
