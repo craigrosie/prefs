@@ -149,7 +149,7 @@ alias ungron="gron --ungron"
 alias ctop="ctop -a"
 
 # Uninstall all pip packages
-alias pipclean="pip freeze | grep -v \"github\" | xargs pip uninstall -y"
+alias pipclean="pip freeze | grep -v \"github\" | grep -v '@' | grep -v '#' | xargs pip uninstall -y"
 
 # emojify is just too long to type
 alias emo="emojify"
