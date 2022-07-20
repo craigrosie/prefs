@@ -87,7 +87,7 @@
     # Shortcut to rewrite history of current branch
     # Finds commit that the current branch shares with master,
     # then triggers an interactive rebase
-    rewrite-branch = !sh -c 'git rebase -i $(git merge-base master $(git rev-parse --abbrev-ref HEAD))'
+    rewrite-branch = !sh -c 'git rebase -i $(git merge-base ${1:-master} $(git rev-parse --abbrev-ref HEAD))'
 
     # Shortcut to checkout main branch, pull latest changes, re-checkout branch,
     # rebase on top of main branch
