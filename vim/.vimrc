@@ -406,11 +406,14 @@ nmap <leader>u :call UltiSnips#RefreshSnippets()<CR>
 
 " vim-floaterm
 " List floaterms using fzf
-nmap <leader>i :Floaterms<CR>
+" <C-l> hack to ensure floaterm always opens in right split
+nmap <leader>i <C-k><C-l><C-l><C-l>:Floaterms<CR>
 " Open new floaterm with hardcoded (iterm) name
-nmap <leader>q :FloatermNew --wintype=vsplit --height=1.0 --width=0.5 --title=iterm --position=right --autoclose=0<CR>
+" nmap <leader>q :FloatermNew --wintype=vsplit --height=1.0 --width=0.33 --title=iterm --position=right --autoclose=0<CR>
+nmap <leader>q <C-l><C-l><C-l>:FloatermNew --wintype=vsplit --height=1.0 --width=120 --title=iterm --position=right --autoclose=0<CR>
 " Allow specifying the name of the floaterm before opening
-nmap <leader>qn :FloatermNew --wintype=vsplit --height=1.0 --width=0.5 --position=right --autoclose=0 --title=
+" nmap <leader>qn :FloatermNew --wintype=vsplit --height=1.0 --width=0.33 --position=right --autoclose=0 --title=
+nmap <leader>qn <C-l><C-l><C-l>:FloatermNew --wintype=vsplit --height=1.0 --width=120 --position=right --autoclose=0 --title=
 " Shortcut to hide all floaterms
 nmap <leader>qt :FloatermHide!<CR>
 " Shortcut for killing a floaterm - allows a floaterm name to be entered
