@@ -471,7 +471,7 @@ autocmd BufNewFile,BufRead .vimlocal setlocal ft=vim
 autocmd FileType go nmap <leader>tf  <Plug>(go-test)
 autocmd FileType go nmap <leader>tn  <Plug>(go-test-func)
 " Enable coc completion on - separated words
-autocmd FileType * let b:coc_additional_keywords = ["-"]
+autocmd FileType * let b:coc_additional_keywords = ["-", ".", "+"]
 
 " Save whenever switching windows or leaving vim. This is useful when running
 " the tests inside vim without having to save all files first.
