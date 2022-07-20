@@ -328,7 +328,40 @@ function git-url() {
 
 # open the git host homepage for a repo
 function og() {
-    open $(git-url $1)
+    local arg remote
+    if [ "$#" -eq 1 ]; then
+        remote="origin"
+        arg=$1
+    else
+        remote=$1
+        arg=$2
+    fi
+
+    case "$arg" in
+        branch)
+            open $(git-url $remote)/tree/$(git branch --show-current)
+            ;;
+        pulls)
+            open $(git-url $remote)/pulls
+            ;;
+        me)
+            open $(git-url $remote)/pulls/$(git config github.user)
+            ;;
+        releases)
+            open $(git-url $remote)/releases
+            ;;
+        latest)
+            open $(git-url $remote)/releases/latest
+            ;;
+        commits)
+            open $(git-url $remote)/commits
+            ;;
+        pr)
+            open $(git-url $remote)/pull/new/$(git symbolic-ref HEAD | sed 's/refs\/heads\///g')
+            ;;
+        *)
+            open $(git-url $remote)
+    esac
 }
 
 # open the "New PR" page for a repo and the current branch (github only)
