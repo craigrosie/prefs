@@ -383,6 +383,9 @@ xnoremap <leader>wc <esc>:'<,'>:w !wc<CR>
 " Sort in visual mode
 xnoremap <leader>so <esc>:'<,'>!sort<CR>
 
+" Get unstuck from blocked popup window
+map <leader>quit :call popup_close(win_getid())<CR>
+
 " Shortcut for vim-pydocstring
 nmap <leader>- :Pydocstring<CR>
 
