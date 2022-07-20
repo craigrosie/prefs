@@ -336,24 +336,20 @@ nmap <leader>p :Files<CR>
 " Shortcut for ctags (in the current buffer) with fzf
 nmap <leader>r :BTags<CR>
 
+" vim-fugitive
 " Shortcut for :Gstatus
 nmap <leader>fs :Gstatus<CR>
-
 " Shortcut for :Gdiff
 nmap <leader>fd :Gdiff<CR>
-
 " Shortcut for git push
 nmap <leader>fp :Gpush<space>
-
 " Shortcut for git push with --force-with-lease
 nmap <leader>fpfl :Gpush --force-with-lease<space>
-
 " Shortcut for git commit --verbose
 nmap <leader>fc :Gcommit --verbose<CR>
-
 " Shortcut for git commit --amend --verbose
 nmap <leader>fca :Gcommit --amend --verbose<CR>
-
+" Shortcuts for dealing with diffs
 nmap <leader>fdg :diffget<CR>
 nmap <leader>fdp :diffput<CR>
 
