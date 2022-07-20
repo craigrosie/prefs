@@ -1,0 +1,40 @@
+{
+    "python.jediEnabled": true,
+    "python.jediPath": "/Users/craig.rosie/.pyenv/versions/coc-vim-3.8.5/lib/python3.8/site-packages",
+    "python.venvFolders": [
+        "envs",
+        ".pyenv"
+    ],
+    "json.enable": true,
+    "json.format.enable": true,
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": [
+                "go.mod",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "filetypes": [
+                "go"
+            ],
+            "initializationOptions": {
+                "usePlaceholders": true
+            }
+        }
+    },
+    "pairs.enableBackspace": true,
+    "yank.enableCompletion": false,
+    "diagnostic.displayByAle": true,
+    "diagnostic.enable": false,
+    "diagnostic.virtualText": false,
+    "suggest.autoTrigger": "always",
+    "list.nextKeymap": "<C-n>",
+    "list.previousKeymap": "<C-p>",
+    "list.maxHeight": 15,
+    "list.insertMappings": {
+        "<C-c>": "do:exit"
+    },
+    "coc.source.floaterm.enable": false
+}
