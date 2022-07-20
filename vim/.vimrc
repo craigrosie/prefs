@@ -309,6 +309,9 @@ let g:terraform_align=1
 " Set leader key to space
 let mapleader=" "
 
+" Copy to system clipboard
+xnoremap <leader>y "*y<CR>
+
 " Allow vim config reload without restart
 map <leader>sv :source ~/.vimrc<CR>
 
