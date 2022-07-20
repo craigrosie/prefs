@@ -89,6 +89,10 @@ export PATH=$PATH:$GOROOT/bin
 
 export EDITOR=`command -v vim`
 
+# Automate ssh-agent startup
+# https://superuser.com/questions/1152833/save-identities-added-by-ssh-add-so-they-persist
+[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
+
 # Enable github cli autocompletion
 eval "$(gh completion -s bash)"
 
