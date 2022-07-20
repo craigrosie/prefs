@@ -455,8 +455,8 @@ if has("autocmd")
 endif
 
 " Open NERDTree automatically if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Enable spellcheck in commit msg editor, markdown files, .txt files
 autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_gb
