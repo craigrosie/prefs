@@ -373,6 +373,10 @@ vnoremap <tab> %
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
 
+" Adjust split size
+map <leader>] :vertical resize +10<CR>
+map <leader>[ :vertical resize -10<CR>
+
 " Wordcount in visual mode
 xnoremap <leader>wc <esc>:'<,'>:w !wc<CR>
 
