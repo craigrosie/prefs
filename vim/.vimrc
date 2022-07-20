@@ -387,7 +387,7 @@ xnoremap <leader>so <esc>:'<,'>!sort<CR>
 map <leader>quit :call popup_close(win_getid())<CR>
 
 " Shortcut for vim-pydocstring
-nmap <leader>- :Pydocstring<CR>
+nmap <leader>pd :Pydocstring<CR>
 
 " Custom mapping for jumping forward in the jumplist
 nnoremap <C-m> <C-i>
