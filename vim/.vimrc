@@ -589,6 +589,10 @@ augroup cocgroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
+" Set Python interpreter to pyenv one for current directory
+" https://github.com/neoclide/coc-python/issues/55#issuecomment-664764641
+call coc#config('python', {'pythonPath': $PYENV_VIRTUAL_ENV})
+
 " END COC
 
 " PER_PROJECT VIM SETTINGS
