@@ -96,6 +96,9 @@
     # Checkout a new branch starting with `whoami`/
     pb = "!f() { git checkout -b `whoami`/${1:-tmp}; }; f"
 
+    # Use fzf to checkout (reset) multiple files
+    fch = !sh -c 'git checkout $(git status -s -uno | cut -d\" \" -f3 | fzf -m)'
+
     # Show verbose output about tags, branches, or remotes
     tags = tag -l
     branches = branch -a
