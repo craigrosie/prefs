@@ -58,6 +58,11 @@ eval "$(fasd --init auto)"
 # Enable normal names for coreutils tools
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH";
 
+export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+
+# Enable gnu get-opt
+export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
+
 # Enable normal man pages for coreutils tools
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH";
 
