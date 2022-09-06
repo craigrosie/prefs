@@ -138,4 +138,5 @@
 [pull]
     rebase = true
 [push]
+	default = current
 	autoSetupRemote = true
