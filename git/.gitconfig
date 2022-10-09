@@ -140,3 +140,5 @@
 [push]
 	default = current
 	autoSetupRemote = true
+[rebase]
+	updateRefs = true
