@@ -53,7 +53,6 @@ Plugin 'wellle/context.vim'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'rhysd/clever-f.vim'
 Plugin 'ruanyl/vim-gh-line'
-Plugin 'jiangmiao/auto-pairs'
 Plugin 'voldikss/fzf-floaterm'
 Plugin 'voldikss/vim-floaterm'
 Plugin 'mzlogin/vim-markdown-toc'
@@ -507,7 +506,7 @@ hi SpellBad ctermfg=red
 
 " COC
 
-let g:coc_global_extensions = ['coc-sh', 'coc-snippets', 'coc-pyright']
+let g:coc_global_extensions = ['coc-sh', 'coc-snippets', 'coc-pyright', 'coc-pairs']
 " Some servers have issues with backup files, see #649.
 " set nobackup
 " set nowritebackup
