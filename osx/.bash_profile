@@ -114,4 +114,8 @@ export KUBE_PS1_NS_COLOR=172  # orange
 # https://switowski.com/blog/disable-pip-outside-of-virtual-environments
 export PIP_REQUIRE_VIRTUALENV=true
 
+# ASDF (https://github.com/asdf-vm/asdf)
+. $(brew --prefix asdf)/libexec/asdf.sh
+. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+
 echo "System online ✔︎"
