@@ -17,10 +17,10 @@ for option in autocd globstar; do
 done;
 
 # Enable bash completion
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 # Enable tab completion for `g` by marking it as an alias for `git`
-if type __git_wrap__git_main &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+if type __git_wrap__git_main &> /dev/null && [ -f /opt/homebrew/etc/bash_completion.d/git-completion.bash ]; then
     complete -o default -o nospace -F __git_wrap__git_main g
 fi;
 
@@ -33,6 +33,9 @@ complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+# Add homebrew location to path
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
 # Enable pyenv shims & autocomplete
 export PYENV_ROOT="$HOME/.pyenv"
@@ -56,15 +59,15 @@ eval "$(thefuck --alias)"
 eval "$(fasd --init auto)"
 
 # Enable normal names for coreutils tools
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH";
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
-export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew//opt/gnu-tar/libexec/gnubin:$PATH"
 
 # Enable gnu get-opt
-export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
+export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
 
 # Enable normal man pages for coreutils tools
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH";
+export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH";
 
 # Enable fzf auto-completion & key bindings
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -102,7 +105,7 @@ source <(kubectl completion bash)
 complete -F __start_kubectl k
 
 # Enable kube-ps1 (https://github.com/jonmosco/kube-ps1)
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
 export KUBE_PS1_SYMBOL_ENABLE=false
 export KUBE_PS1_CTX_COLOR=26  # blue
 export KUBE_PS1_NS_COLOR=172  # orange
