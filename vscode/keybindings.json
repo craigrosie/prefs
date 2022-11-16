@@ -1,100 +1,35 @@
+// Place your key bindings in this file to override the defaults
 [
     {
-        "key": "cmd+r",
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.navigateDown"
+    },
+    {
+        "key": "cmd+p",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "cmd+p",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "shift+cmd+o",
         "command": "workbench.action.gotoSymbol"
     },
     {
         "key": "shift+cmd+o",
         "command": "-workbench.action.gotoSymbol"
-    },
-    {
-        "key": "shift+cmd+g",
-        "command": "editor.action.goToDeclaration",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-    },
-    {
-        "key": "f12",
-        "command": "-editor.action.goToDeclaration",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-    },
-    {
-        "key": "cmd+k g",
-        "command": "editor.action.openDeclarationToTheSide",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-    },
-    {
-        "key": "cmd+k f12",
-        "command": "-editor.action.openDeclarationToTheSide",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-    },
-    {
-        "key": "shift+cmd+k g",
-        "command": "editor.action.previewDeclaration",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
-    },
-    {
-        "key": "alt+f12",
-        "command": "-editor.action.previewDeclaration",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
-    },
-    {
-        "key": "cmd+]",
-        "command": "workbench.action.focusNextGroup"
-    },
-    {
-        "key": "cmd+[",
-        "command": "workbench.action.focusPreviousGroup"
-    },
-    {
-        "key": "cmd+k cmd+left",
-        "command": "-workbench.action.focusPreviousGroup"
-    },
-    {
-        "key": "ctrl+\\",
-        "command": "workbench.action.terminal.focus"
-    },
-    {
-        "key": "cmd+k right",
-        "command": "workbench.action.moveEditorToNextGroup"
-    },
-    {
-        "key": "cmd+k left",
-        "command": "workbench.action.moveEditorToPreviousGroup"
-    },
-    {
-        "key": "tab",
-        "command": "selectNextSuggestion",
-        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "-selectNextSuggestion",
-        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-    },
-    {
-        "key": "shift+tab",
-        "command": "selectPrevSuggestion",
-        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-    },
-    {
-        "key": "ctrl+p",
-        "command": "-selectPrevSuggestion",
-        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-    },
-    {
-        "key": "cmd+k h",
-        "command": "workbench.action.moveActiveEditorGroupLeft"
-    },
-    {
-        "key": "cmd+k left",
-        "command": "-workbench.action.moveActiveEditorGroupLeft"
-    },
-    {
-        "key": "cmd+k l",
-        "command": "workbench.action.moveActiveEditorGroupRight"
-    },
-    {
-        "key": "cmd+k right",
-        "command": "-workbench.action.moveActiveEditorGroupRight"
     }
 ]
