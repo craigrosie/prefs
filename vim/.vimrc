@@ -24,7 +24,7 @@ Plugin 'VundleVim/Vundle.vim'
 " https://github.com/scrooloose/nerdtree
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
-"Plugin '/usr/local/opt/fzf'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
