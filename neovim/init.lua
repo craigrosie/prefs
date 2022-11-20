@@ -298,12 +298,14 @@ vim.api.nvim_set_keymap('n', '<leader>p', "<cmd>lua require('fzf-lua').files()<C
 vim.api.nvim_set_keymap('n', '<leader>r', "<cmd>lua require('fzf-lua').btags()<CR>", { noremap = true, silent = true })
 
 -- neotest
+-- https://alpha2phi.medium.com/neovim-for-beginners-testing-part-2-10d4aa8f25d6
 vim.keymap.set('n', '<leader>tf', ":lua require('neotest').run.run({vim.fn.expand('%')})<cr>")  -- run file
 vim.keymap.set('n', '<leader>tn', ":lua require('neotest').run.run()<cr>")  -- run nearest
 vim.keymap.set('n', '<leader>td', ":lua require('neotest').run.run({strategy = 'dap'})<cr>")  -- debug nearest
 vim.keymap.set('n', '<leader>to', ":lua require('neotest').output.open({ enter = true })<cr>")  -- show test output
 
 -- dap
+-- https://davelage.com/posts/nvim-dap-getting-started/
 vim.keymap.set('n', '<leader>db', ":lua require('dap').toggle_breakpoint()<cr>")  -- toggle breakpoint
 vim.keymap.set('n', '<leader>dc', ":lua require('dap').continue()<cr>")  -- continue
 vim.keymap.set('n', '<leader>do', ":lua require('dap').step_over()<cr>")  -- step_over
