@@ -68,4 +68,6 @@ return require('packer').startup(function(use)
   use { 'tpope/vim-commentary' }
   use { 'mileszs/ack.vim' }
   use { 'tpope/vim-surround' }
+  use { 'simrat39/symbols-outline.nvim' }
+   
 end)
