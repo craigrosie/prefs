@@ -60,6 +60,10 @@ return require('packer').startup(function(use)
       "nvim-neotest/neotest-python",
     }
   }
+  -- https://github.com/junegunn/fzf.vim/issues/1388#issuecomment-1114371227
+  use { 'junegunn/fzf', run = ":call fzf#install()" }
+  use { 'junegunn/fzf.vim' }
+  use { 'voldikss/fzf-floaterm' }
   use { 'voldikss/vim-floaterm' }
   use { 'tpope/vim-commentary' }
   use { 'mileszs/ack.vim' }
