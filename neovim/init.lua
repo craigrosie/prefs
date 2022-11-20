@@ -337,3 +337,13 @@ vim.keymap.set('n', '<leader>a', ":Ack! -Q<Space>")
 -- Search for word under cursor with ack.vim
 vim.keymap.set('n', '<leader>f', ":Ack! <C-W> <CR>")
 
+-- UltiSnips
+vim.g.UltiSnipsSnippetDirectories = {"UltiSnips", "custom_snippets"}
+-- trigger snippet expansion
+vim.g.UltiSnipsExpandTrigger='<c-e>'
+-- shortcut to go to next position
+vim.g.UltiSnipsJumpForwardTrigger='<c-j>'
+-- shortcut to go to previous position
+vim.g.UltiSnipsJumpBackwardTrigger='<c-k>'
+vim.keymap.set('n', '<leader>u', ":call UltiSnips#RefreshSnippets()<CR>")
+
