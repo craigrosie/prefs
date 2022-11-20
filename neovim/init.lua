@@ -275,8 +275,8 @@ vim.keymap.set('n', 'k', 'gk')
 vim.keymap.set('n', '<leader>=', '<C-w>=')
 
 -- Adjust split size
-vim.keymap.set('n', '<leader>]', ':vertical resize +10')
-vim.keymap.set('n', '<leader>[', ':vertical resize -10')
+vim.keymap.set('n', '<leader>]', ':vertical resize +10<CR>')
+vim.keymap.set('n', '<leader>[', ':vertical resize -10<CR>')
 
 -- Get unstuck from blocked popup window
 vim.keymap.set('n', '<leader>quit', ':call popup_close(win_getid())<CR>')
