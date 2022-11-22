@@ -12,6 +12,7 @@ require('onedark').setup({
   style = 'warmer',
   highlights = {
     ["@comment"] = {fg = "#232326", bg = "#888888"},
+    ["@preproc"] = {fg = "#232326", bg = "#888888"},
     ["@field"] = {fg = "#dddddd"},
     ["@variable"] = {fg = "#dddddd"},
     ["@number"] = {fg = "#bb70d2"},
