@@ -298,6 +298,7 @@ vim.keymap.set('n', '<leader><space>', ':noh <CR>')
 
 -- fzf-lua
 vim.api.nvim_set_keymap('n', '<leader>p', "<cmd>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>g', "<cmd>lua require('fzf-lua').git_files()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>r', "<cmd>lua require('fzf-lua').btags()<CR>", { noremap = true, silent = true })
 
 -- neotest
