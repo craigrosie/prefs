@@ -32,7 +32,6 @@ require('onedark').setup({
     ["@conditional"] = {fg = "#FF0000", fmt = 'bold'},
     ["@include"] = {fg = "#FF0000", fmt = 'bold'},
     ["@parameter"] = {fg = "#e88f29"},
-
   }
 })
 require('onedark').load()
@@ -75,7 +74,7 @@ vim.opt.sidescrolloff=3
 -- Disable line numbers in terminal
 vim.api.nvim_create_autocmd(
     { "TermOpen", "TermEnter" },
-    { pattern = { "*" }, command = "setlocal nonumber" }
+    { pattern = { "*" }, command = "setlocal nonumber | setlocal signcolumn=no" }
 )
 
 -- ==================================================================================================
