@@ -70,6 +70,15 @@ vim.opt.scrolloff = 3
 vim.opt.sidescrolloff=3
 
 -- ==================================================================================================
+-- Autocmds
+
+-- Disable line numbers in terminal
+vim.api.nvim_create_autocmd(
+    { "TermOpen", "TermEnter" },
+    { pattern = { "*" }, command = "setlocal nonumber" }
+)
+
+-- ==================================================================================================
 
 -- PLUGIN SETUP
 
