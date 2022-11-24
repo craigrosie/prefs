@@ -7,11 +7,11 @@ vim.g.python3_host_prog = "/Users/craigrosie/.pyenv/versions/neovim-3.11.0/bin/p
 
 require('plugins')
 
--- Set custom colours for colourschme
+-- Set custom colours for colourscheme
 require('onedark').setup({
   style = 'warmer',
   highlights = {
-    ["@comment"] = {fg = "#232326", bg = "#888888"},
+    ["@comment"] = {fg = "#232326", bg = "#222222"},
     ["@preproc"] = {fg = "#232326", bg = "#888888"},
     ["@field"] = {fg = "#dddddd"},
     ["@variable"] = {fg = "#dddddd"},
