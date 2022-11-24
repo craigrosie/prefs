@@ -765,4 +765,10 @@ snippet dataclass "@dataclass" b
 class ${1}:
 	${2}
 endsnippet
+
+snippet cmatch "match case" b
+match ${1:variable}:
+	case ${2:case}:
+		$0
+endsnippet
 # vim:ft=snippets:
