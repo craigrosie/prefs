@@ -370,3 +370,5 @@ vim.g.UltiSnipsJumpForwardTrigger='<c-j>'
 vim.g.UltiSnipsJumpBackwardTrigger='<c-k>'
 vim.keymap.set('n', '<leader>u', ":call UltiSnips#RefreshSnippets()<CR>")
 
+-- lua
+vim.keymap.set('n', '<leader>lf', ":luafile %<CR>")
