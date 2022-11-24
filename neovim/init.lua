@@ -77,6 +77,12 @@ vim.api.nvim_create_autocmd(
     { pattern = { "*" }, command = "setlocal nonumber | setlocal signcolumn=no" }
 )
 
+-- Strip trailing whitespace on save
+vim.api.nvim_create_autocmd(
+    { "BufWritePre" },
+    { pattern = { "*" }, command = [[%s/\s\+$//e]]}
+)
+
 -- ==================================================================================================
 
 -- PLUGIN SETUP
