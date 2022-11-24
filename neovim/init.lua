@@ -295,6 +295,13 @@ require("octo").setup({
   }
 })
 
+-- todo-comments
+require("todo-comments").setup({
+  highlight = {
+    keyword="wide_fg",
+  }
+})
+
 -- =================================================================================================
 
 -- KEY MAPPINGS
