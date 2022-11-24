@@ -275,6 +275,13 @@ null_ls.setup({
 -- gitsigns
 require('gitsigns').setup()
 
+-- symbols-outline.nvim
+require("symbols-outline").setup({
+  width = 20,
+  autofold_depth = 1,
+})
+vim.keymap.set('n', '<leader>so', ":SymbolsOutline<CR>")
+
 -- =================================================================================================
 
 -- KEY MAPPINGS
@@ -362,9 +369,3 @@ vim.g.UltiSnipsJumpForwardTrigger='<c-j>'
 vim.g.UltiSnipsJumpBackwardTrigger='<c-k>'
 vim.keymap.set('n', '<leader>u', ":call UltiSnips#RefreshSnippets()<CR>")
 
--- symbols-outline.nvim
-require("symbols-outline").setup({
-  width = 20,
-  autofold_depth = 1,
-})
-vim.keymap.set('n', '<leader>so', ":SymbolsOutline<CR>")
