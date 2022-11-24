@@ -364,7 +364,7 @@ vim.keymap.set('t', '<C-l>', "<C-\\><C-n><C-w>l")
 -- Don't jump to first result when searching with ack.vim
 vim.keymap.set('n', '<leader>a', ":Ack! -Q<Space>")
 -- Search for word under cursor with ack.vim
-vim.keymap.set('n', '<leader>f', ":Ack! <C-W> <CR>")
+vim.keymap.set('n', '<leader>af', ":Ack! <C-W> <CR>")
 
 -- UltiSnips
 vim.g.UltiSnipsSnippetDirectories = {"UltiSnips", "custom_snippets"}
