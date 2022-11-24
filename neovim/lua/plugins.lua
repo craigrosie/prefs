@@ -70,5 +70,12 @@ return require('packer').startup(function(use)
   use { 'tpope/vim-surround' }
   use { 'simrat39/symbols-outline.nvim' }
   use { 'lewis6991/gitsigns.nvim' }
-   
+  use {
+    'pwntester/octo.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'kyazdani42/nvim-web-devicons',
+    },
+  }
 end)

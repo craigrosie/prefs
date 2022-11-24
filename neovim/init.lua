@@ -288,6 +288,13 @@ require("symbols-outline").setup({
 })
 vim.keymap.set('n', '<leader>so', ":SymbolsOutline<CR>")
 
+-- octo
+require("octo").setup({
+  ssh_aliases = {
+    ["github.com-craigrosie"] = "github.com"
+  }
+})
+
 -- =================================================================================================
 
 -- KEY MAPPINGS
