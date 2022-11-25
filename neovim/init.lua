@@ -306,6 +306,9 @@ require("todo-comments").setup({
 -- openingh.vim
 vim.keymap.set('n', '<leader>gh', ':OpenInGHFile<CR>')
 
+-- vim-gutentags
+vim.g.gutentags_ctags_exclude = {"*node_modules/*"}
+
 -- =================================================================================================
 
 -- KEY MAPPINGS
