@@ -356,6 +356,11 @@ vim.api.nvim_set_keymap('n', '<leader>fr', "<cmd>lua require('fzf-lua').btags()<
 vim.api.nvim_set_keymap('n', '<leader>ft', "<cmd>lua require('fzf-lua').tags()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fg', "<cmd>lua require('fzf-lua').grep_project()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fm', "<cmd>lua require('fzf-lua').resume()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fq', "<cmd>lua require('fzf-lua').quickfix()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fl', "<cmd>lua require('fzf-lua').loclist()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>flr', "<cmd>lua require('fzf-lua').lsp_references()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fli', "<cmd>lua require('fzf-lua').lsp_incoming_calls()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fld', "<cmd>lua require('fzf-lua').lsp_definitions()<CR>", { noremap = true, silent = true })
 
 -- neotest
 -- https://alpha2phi.medium.com/neovim-for-beginners-testing-part-2-10d4aa8f25d6
