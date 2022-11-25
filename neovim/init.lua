@@ -303,6 +303,9 @@ require("todo-comments").setup({
   }
 })
 
+-- openingh.vim
+vim.keymap.set('n', '<leader>gh', ':OpenInGHFile<CR>')
+
 -- =================================================================================================
 
 -- KEY MAPPINGS
