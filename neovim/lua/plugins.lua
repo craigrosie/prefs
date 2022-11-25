@@ -83,5 +83,6 @@ return require('packer').startup(function(use)
     requires = "nvim-lua/plenary.nvim",
   }
   use { "almo7aya/openingh.nvim" }
+  use { 'ludovicchabant/vim-gutentags' }
 
 end)
