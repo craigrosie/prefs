@@ -84,5 +84,6 @@ return require('packer').startup(function(use)
   }
   use { "almo7aya/openingh.nvim" }
   use { 'ludovicchabant/vim-gutentags' }
+  use { 'yssl/QFEnter' }
 
 end)
