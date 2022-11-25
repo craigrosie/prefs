@@ -67,6 +67,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff=3
+vim.opt.cursorline = true
 
 -- ==================================================================================================
 -- Autocmds
