@@ -345,6 +345,11 @@ vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<leader><space>', ':noh <CR>')
 
 -- fzf-lua
+require("fzf-lua").setup({
+  lsp = {
+    async_or_timeout = true,
+  }
+})
 vim.api.nvim_set_keymap('n', '<leader>fp', "<cmd>lua require('fzf-lua').git_files()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ff', "<cmd>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fr', "<cmd>lua require('fzf-lua').btags()<CR>", { noremap = true, silent = true })
