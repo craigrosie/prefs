@@ -41,33 +41,35 @@ require('onedark').load()
 vim.g.mapleader = ' '
 
 -- Some sensible defaults
-vim.o.termguicolors = true
-vim.o.syntax = 'on'
-vim.o.errorbells = false
-vim.o.smartcase = true
-vim.o.showmode = false
-vim.bo.swapfile = false
 vim.o.backup = false
+vim.o.completeopt='menuone,noinsert,noselect'
+vim.o.errorbells = false
+vim.o.expandtab = true
+vim.o.hidden = true
+vim.o.incsearch = true
+vim.o.shiftwidth = 2
+vim.o.showmode = false
+vim.o.smartcase = true
+vim.o.softtabstop = 2
+vim.o.syntax = 'on'
+vim.o.tabstop = 2
+vim.o.termguicolors = true
 vim.o.undodir = vim.fn.stdpath('config') .. '/undodir'
 vim.o.undofile = true
-vim.o.incsearch = true
-vim.o.hidden = true
-vim.o.completeopt='menuone,noinsert,noselect'
 vim.bo.autoindent = true
 vim.bo.smartindent = true
-vim.o.tabstop = 2
-vim.o.softtabstop = 2
-vim.o.shiftwidth = 2
-vim.o.expandtab = true
+vim.bo.swapfile = false
 vim.wo.number = true
 vim.wo.signcolumn = 'yes'
 vim.wo.wrap = false
 vim.opt.colorcolumn="80,100"
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.opt.cursorline = true
+vim.opt.ignorecase = true
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff=3
-vim.opt.cursorline = true
+vim.opt.smartcase = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 -- ==================================================================================================
 -- Autocmds
