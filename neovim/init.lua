@@ -128,9 +128,10 @@ require'nvim-treesitter.configs'.setup {
 }
 
 -- Mason
+local language_servers = { "sumneko_lua", "pyright", "tsserver", "cmake" }
 require('mason').setup()
 require('mason-lspconfig').setup({
-  ensure_installed = { "sumneko_lua", "pyright" }
+  ensure_installed = language_servers
 })
 
 
@@ -173,10 +174,13 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
-require('lspconfig')['pyright'].setup{
+for i in pairs(language_servers) do
+  local server = language_servers[i]
+  require('lspconfig')[server].setup({
     on_attach = on_attach,
     flags = lsp_flags,
-}
+  })
+end
 
 -- nvm-cmp
 -- from: https://raw.githubusercontent.com/jdhao/nvim-config/master/lua/config/nvim-cmp.lua
