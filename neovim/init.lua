@@ -326,6 +326,7 @@ require("goto-preview").setup({
   height = 25; -- Height of the floating window
 })
 vim.api.nvim_set_keymap("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "gpq", "<cmd>lua require('goto-preview').close_all_win()<CR>", {noremap=true})
 
 -- =================================================================================================
 
