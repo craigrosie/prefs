@@ -25,9 +25,9 @@ return require('packer').startup(function(use)
     },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
-  use { 
+  use {
     'ibhagwan/fzf-lua',
-    requires = { 
+    requires = {
       'kyazdani42/nvim-web-devicons' -- optional, for file icons
     }
   }
