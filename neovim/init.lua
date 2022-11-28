@@ -308,6 +308,11 @@ require("todo-comments").setup({
   }
 })
 
+-- barbecue
+require("barbecue").setup({
+  create_autocmd = true
+})
+
 -- openingh.vim
 vim.keymap.set('n', '<leader>gh', ':OpenInGHFile<CR>')
 

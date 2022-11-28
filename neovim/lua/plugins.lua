@@ -82,6 +82,14 @@ return require('packer').startup(function(use)
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
   }
+  use {
+    "utilyre/barbecue.nvim",
+    requires = {
+      "neovim/nvim-lspconfig",
+      "smiteshp/nvim-navic",
+      "kyazdani42/nvim-web-devicons", -- optional
+    },
+  }
   use { "almo7aya/openingh.nvim" }
   use { 'ludovicchabant/vim-gutentags' }
   use { 'yssl/QFEnter' }
