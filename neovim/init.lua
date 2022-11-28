@@ -320,6 +320,13 @@ vim.keymap.set('n', '<leader>gh', ':OpenInGHFile<CR>')
 vim.g.gutentags_ctags_exclude = {"*node_modules/*", ".venv/*", "www/*",}
 vim.g.gutentags_define_advanced_commands = 1
 
+-- goto-preview
+require("goto-preview").setup({
+  width = 150; -- Width of the floating window
+  height = 25; -- Height of the floating window
+})
+vim.api.nvim_set_keymap("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", {noremap=true})
+
 -- =================================================================================================
 
 -- KEY MAPPINGS
