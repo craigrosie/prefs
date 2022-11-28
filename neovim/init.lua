@@ -367,7 +367,7 @@ require("fzf-lua").setup({
 })
 vim.api.nvim_set_keymap('n', '<leader>fp', "<cmd>lua require('fzf-lua').git_files()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ff', "<cmd>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fr', "<cmd>lua require('fzf-lua').btags()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fr', "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ft', "<cmd>lua require('fzf-lua').tags()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fg', "<cmd>lua require('fzf-lua').grep_project()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fm', "<cmd>lua require('fzf-lua').resume()<CR>", { noremap = true, silent = true })
