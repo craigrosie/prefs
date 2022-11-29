@@ -99,7 +99,22 @@ require("nvim-tree").setup()
 -- treesitter
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "python", "lua"},
+  ensure_installed = {
+    "bash",
+    "cmake",
+    "dockerfile",
+    "javascript",
+    "json",
+    "lua",
+    "make",
+    "markdown",
+    "markdown_inline",
+    "python",
+    "toml",
+    "tsx",
+    "typescript",
+    "yaml",
+  },
 
   highlight = {
     -- `false` will disable the whole extension
