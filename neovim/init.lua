@@ -428,6 +428,7 @@ vim.keymap.set('n', '<leader>to', ":lua require('neotest').output.open({ enter =
 -- dap
 -- https://davelage.com/posts/nvim-dap-getting-started/
 vim.keymap.set('n', '<leader>db', ":lua require('dap').toggle_breakpoint()<cr>")  -- toggle breakpoint
+vim.keymap.set('n', '<leader>dx', ":lua require('dap').clear_breakpoints()<cr>")  -- toggle breakpoint
 vim.keymap.set('n', '<leader>dc', ":lua require('dap').continue()<cr>")  -- continue
 vim.keymap.set('n', '<leader>do', ":lua require('dap').step_over()<cr>")  -- step_over
 vim.keymap.set('n', '<leader>di', ":lua require('dap').step_into()<cr>")  -- step into
