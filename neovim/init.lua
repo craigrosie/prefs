@@ -419,6 +419,7 @@ vim.api.nvim_set_keymap('n', '<leader>fld', "<cmd>lua require('fzf-lua').lsp_def
 vim.keymap.set('n', '<leader>tf', ":lua require('neotest').run.run({vim.fn.expand('%')})<cr>")  -- run file
 vim.keymap.set('n', '<leader>tn', ":lua require('neotest').run.run()<cr>")  -- run nearest
 vim.keymap.set('n', '<leader>ta', ":lua require('neotest').run.attach()<cr>")  -- attach to nearest nearest
+vim.keymap.set('n', '<leader>ts', ":lua require('neotest').run.stop()<cr>")  -- stop nearest nearest
 vim.keymap.set('n', '<leader>td', ":lua require('neotest').run.run({strategy = 'dap'})<cr>")  -- debug nearest
 vim.keymap.set('n', '<leader>to', ":lua require('neotest').output.open({ enter = true })<cr>")  -- show test output
 
