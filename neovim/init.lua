@@ -285,7 +285,9 @@ require("lsp_signature").setup()
 -- neotest
 require("neotest").setup({
   adapters = {
-    require("neotest-python")
+    require("neotest-python")({
+      dap = { justMyCode = false },
+    })
   }
 })
 
