@@ -266,7 +266,6 @@ cmp.setup {
 
 -- Setup lspkind with nvim-cmp
 -- from: https://github.com/onsails/lspkind.nvim
-local lspkind = require('lspkind')
 cmp.setup {
   formatting = {
     format = lspkind.cmp_format({
