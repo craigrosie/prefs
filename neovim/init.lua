@@ -426,6 +426,8 @@ vim.keymap.set('n', '<leader>ta', ":lua require('neotest').run.attach()<cr>")  -
 vim.keymap.set('n', '<leader>ts', ":lua require('neotest').run.stop()<cr>")  -- stop nearest nearest
 vim.keymap.set('n', '<leader>td', ":lua require('neotest').run.run({strategy = 'dap'})<cr>")  -- debug nearest
 vim.keymap.set('n', '<leader>to', ":lua require('neotest').output.open({ enter = true })<cr>")  -- show test output
+vim.keymap.set('n', '<leader>tp', ":lua require('neotest').output_panel.toggle()<cr>")  -- toggle output panel
+vim.keymap.set('n', '<leader>tt', ":lua require('neotest').summary.toggle()<cr>")  -- toggle test summary
 
 -- dap
 -- https://davelage.com/posts/nvim-dap-getting-started/
