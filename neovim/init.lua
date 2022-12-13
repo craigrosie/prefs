@@ -259,6 +259,9 @@ cmp.setup {
       },
     },
   },
+  experimental = {
+    ghost_text=true,
+  },
 }
 
 -- Setup lspkind with nvim-cmp
