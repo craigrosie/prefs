@@ -362,7 +362,7 @@ require("barbecue").setup({
 })
 
 -- openingh.vim
-vim.keymap.set('n', '<leader>gh', ':OpenInGHFile<CR>')
+vim.keymap.set({'n', 'v'}, '<leader>gh', ':OpenInGHFile<CR>')
 
 -- goto-preview
 require("goto-preview").setup({
