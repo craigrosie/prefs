@@ -358,10 +358,6 @@ require("barbecue").setup({
 -- openingh.vim
 vim.keymap.set('n', '<leader>gh', ':OpenInGHFile<CR>')
 
--- vim-gutentags
-vim.g.gutentags_ctags_exclude = {"*node_modules/*", ".venv/*", "www/*",}
-vim.g.gutentags_define_advanced_commands = 1
-
 -- goto-preview
 require("goto-preview").setup({
   width = 150; -- Width of the floating window
