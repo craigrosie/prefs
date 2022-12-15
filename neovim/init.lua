@@ -35,6 +35,8 @@ require('onedark').setup({
     ["@conditional"] = {fg = "#FF0000", fmt = 'bold'},
     ["@include"] = {fg = "#FF0000", fmt = 'bold'},
     ["@parameter"] = {fg = "#e88f29"},
+    ["@text.diff.add"] = {fg = "#08BE14"},
+    ["@text.diff.delete"] = {fg = "#E20505"},
   }
 })
 require('onedark').load()
