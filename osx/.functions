@@ -385,3 +385,15 @@ function ssh-add-wf() {
         done | column -t | grep --color=auto "$line" || echo "$line";
     done < <(ssh-add -l | awk '{print $2}')
 }
+
+# Ensures that a virtualenv is activated before starting nvim (if one exists)
+# https://vi.stackexchange.com/a/34996
+function nvimvenv {
+    if [[ -e "$VIRTUAL_ENV" && -f "$VIRTUAL_ENV/bin/activate" ]]; then
+        source "$VIRTUAL_ENV/bin/activate"
+        command nvim "$@"
+        deactivate
+    else
+      command nvim "$@"
+    fi
+}

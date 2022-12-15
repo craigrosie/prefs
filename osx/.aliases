@@ -192,3 +192,9 @@ alias stringify="sed 's/.*/\"&\",/'"
 
 # I'm too lazy to type lazygit
 alias lg="lazygit"
+
+alias vim="nvimenv"
+
+alias oldvim="command vim"
+
+alias nvim="nvimenv"
