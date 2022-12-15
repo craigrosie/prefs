@@ -91,6 +91,12 @@ vim.api.nvim_create_autocmd(
     { pattern = { "*" }, command = [[%s/\s\+$//e]]}
 )
 
+-- Enable proper syntax highlighting for custom dotfiles
+vim.api.nvim_create_autocmd(
+    { "BufRead" },
+    { pattern = { ".aliases", ".extra", ".functions" }, command = "setlocal syntax=sh ft=sh" }
+)
+
 -- ==================================================================================================
 
 -- PLUGIN SETUP
