@@ -572,5 +572,10 @@ vim.g.UltiSnipsJumpForwardTrigger='<c-j>'
 vim.g.UltiSnipsJumpBackwardTrigger='<c-k>'
 vim.keymap.set('n', '<leader>u', ":call UltiSnips#RefreshSnippets()<CR>")
 
+-- nvim-osc52
+vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, {expr = true})
+vim.keymap.set('n', '<leader>cc', '<leader>c_', {remap = true})
+vim.keymap.set('x', '<leader>c', require('osc52').copy_visual)
+
 -- lua
 vim.keymap.set('n', '<leader>lf', ":luafile %<CR>")

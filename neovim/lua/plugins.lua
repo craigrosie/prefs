@@ -93,5 +93,6 @@ return require('packer').startup(function(use)
   use { "almo7aya/openingh.nvim" }
   use { 'yssl/QFEnter' }
   use { 'rmagatti/goto-preview' }
+  use { 'ojroques/nvim-osc52' }
 
 end)
