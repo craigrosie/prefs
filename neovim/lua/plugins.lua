@@ -95,5 +95,6 @@ return require('packer').startup(function(use)
   use { 'rmagatti/goto-preview' }
   use { 'ojroques/nvim-osc52' }
   use { 'karb94/neoscroll.nvim' }
+  use { 'stevearc/dressing.nvim' }
 
 end)
