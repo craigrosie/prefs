@@ -96,5 +96,6 @@ return require('packer').startup(function(use)
   use { 'ojroques/nvim-osc52' }
   use { 'karb94/neoscroll.nvim' }
   use { 'stevearc/dressing.nvim' }
+  use { "lukas-reineke/indent-blankline.nvim" }
 
 end)
