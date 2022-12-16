@@ -465,6 +465,8 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
+-- neoscroll
+require('neoscroll').setup()
 
 -- =================================================================================================
 

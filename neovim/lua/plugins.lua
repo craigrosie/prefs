@@ -94,5 +94,6 @@ return require('packer').startup(function(use)
   use { 'yssl/QFEnter' }
   use { 'rmagatti/goto-preview' }
   use { 'ojroques/nvim-osc52' }
+  use { 'karb94/neoscroll.nvim' }
 
 end)
