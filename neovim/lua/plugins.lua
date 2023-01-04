@@ -97,5 +97,6 @@ return require('packer').startup(function(use)
   use { 'karb94/neoscroll.nvim' }
   use { 'stevearc/dressing.nvim' }
   use { "lukas-reineke/indent-blankline.nvim" }
+  use { "ofirgall/cmp-lspkind-priority" }
 
 end)

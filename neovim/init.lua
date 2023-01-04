@@ -210,6 +210,40 @@ end
 local cmp = require("cmp")
 local lspkind = require("lspkind")
 
+local lspkind_priority = require('cmp-lspkind-priority')
+lspkind_priority.setup {
+    -- Default priority by nvim-cmp
+    priority = {
+        'Snippet',
+        'Method',
+        'Function',
+        'Constructor',
+        'Field',
+        'Variable',
+        'Class',
+        'Interface',
+        'Module',
+        'Property',
+        'Unit',
+        'Value',
+        'Enum',
+        'Keyword',
+        'Color',
+        'File',
+        'Reference',
+        'Folder',
+        'EnumMember',
+        'Constant',
+        'Struct',
+        'Event',
+        'Operator',
+        'TypeParameter',
+        'Text',
+    }
+}
+
+local compare = require('cmp.config.compare')
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -265,6 +299,20 @@ cmp.setup {
         emoji = "[Emoji]",
         omni = "[Omni]",
       },
+    },
+  },
+  sorting = {
+    comparators = {
+      lspkind_priority.compare, -- Replaces `compare.kind` + first comparator
+      compare.offset,
+      compare.exact,
+      -- compare.scopes,
+      compare.score,
+      compare.recently_used,
+      compare.locality,
+      compare.sort_text,
+      compare.length,
+      compare.order,
     },
   },
   experimental = {
