@@ -215,11 +215,11 @@ lspkind_priority.setup {
     -- Default priority by nvim-cmp
     priority = {
         'Snippet',
+        'Field',
+        'Variable',
         'Method',
         'Function',
         'Constructor',
-        'Field',
-        'Variable',
         'Class',
         'Interface',
         'Module',
