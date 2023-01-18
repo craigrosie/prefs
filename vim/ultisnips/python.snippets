@@ -775,4 +775,18 @@ endsnippet
 snippet todo "todo comment" b
 # TODO: $0
 endsnippet
+
+snippet factory "fixture factory" b
+@pytest.fixture
+def ${1:my}_factory(${2}) -> Callable[..., ${3}]:
+	def _make_$1(
+		${4}
+	) -> $3:
+		$0
+		return ${5:$3.objects.create(
+			${6}
+		)}
+
+	return _make_$1
+endsnippet
 # vim:ft=snippets:
