@@ -565,6 +565,7 @@ vim.api.nvim_set_keymap('n', '<leader>ff', "<cmd>lua require('fzf-lua').files()<
 vim.api.nvim_set_keymap('n', '<leader>fr', "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ft', "<cmd>lua require('fzf-lua').tags()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fg', "<cmd>lua require('fzf-lua').grep_project()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fv', "<cmd>lua require('fzf-lua').grep_visual()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fm', "<cmd>lua require('fzf-lua').resume()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fq', "<cmd>lua require('fzf-lua').quickfix()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fl', "<cmd>lua require('fzf-lua').loclist()<CR>", { noremap = true, silent = true })
