@@ -522,6 +522,9 @@ require("indent_blankline").setup {
   show_current_context_start = true,
 }
 
+-- nvim-pytrize
+require("pytrize").setup()
+
 -- =================================================================================================
 
 -- KEY MAPPINGS
@@ -634,6 +637,9 @@ vim.keymap.set('n', '<leader>u', ":call UltiSnips#RefreshSnippets()<CR>")
 vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, {expr = true})
 vim.keymap.set('n', '<leader>cc', '<leader>c_', {remap = true})
 vim.keymap.set('x', '<leader>c', require('osc52').copy_visual)
+
+-- nvim-pytrize
+vim.keymap.set('n', 'gf', ":PytrizeJumpFixture<cr>", { noremap = true, silent = true })
 
 -- lua
 vim.keymap.set('n', '<leader>lf', ":luafile %<CR>")

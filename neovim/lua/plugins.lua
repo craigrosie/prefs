@@ -98,5 +98,6 @@ return require('packer').startup(function(use)
   use { 'stevearc/dressing.nvim' }
   use { "lukas-reineke/indent-blankline.nvim" }
   use { "ofirgall/cmp-lspkind-priority" }
+  use { 'AckslD/nvim-pytrize.lua' }
 
 end)
