@@ -789,4 +789,8 @@ def ${1:my}_factory(${2}) -> Callable[..., ${3}]:
 
 	return _make_$1
 endsnippet
+
+snippet tkw "typed kwarg" b
+${1:name}: ${2:type} = ${3:"${4:value}"}${5:,}$0
+endsnippet
 # vim:ft=snippets:
