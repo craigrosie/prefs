@@ -572,6 +572,7 @@ vim.api.nvim_set_keymap('n', '<leader>fl', "<cmd>lua require('fzf-lua').loclist(
 vim.api.nvim_set_keymap('n', '<leader>flr', "<cmd>lua require('fzf-lua').lsp_references()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fli', "<cmd>lua require('fzf-lua').lsp_incoming_calls()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fld', "<cmd>lua require('fzf-lua').lsp_definitions()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fk', "<cmd>lua require('fzf-lua').keymaps()<CR>", { noremap = true, silent = true })
 
 -- neotest
 -- https://alpha2phi.medium.com/neovim-for-beginners-testing-part-2-10d4aa8f25d6
