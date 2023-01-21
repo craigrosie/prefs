@@ -99,5 +99,6 @@ return require('packer').startup(function(use)
   use { "lukas-reineke/indent-blankline.nvim" }
   use { "ofirgall/cmp-lspkind-priority" }
   use { 'AckslD/nvim-pytrize.lua' }
+  use { 'echasnovski/mini.nvim', branch = 'stable' }
 
 end)
