@@ -540,6 +540,9 @@ require('session_manager').setup({
 -- nvim-dap-virtual-text
 require("nvim-dap-virtual-text").setup()
 
+-- nvim-treesitter-context
+require'treesitter-context'.setup()
+
 -- =================================================================================================
 
 -- KEY MAPPINGS
