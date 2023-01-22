@@ -101,4 +101,5 @@ return require('packer').startup(function(use)
   use { 'echasnovski/mini.nvim', branch = 'stable' }
   use { 'Shatur/neovim-session-manager' }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use { 'theHamsta/nvim-dap-virtual-text' }
 end)
