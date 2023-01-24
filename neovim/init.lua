@@ -536,7 +536,7 @@ require('mini.surround').setup()
 require("nvim-dap-virtual-text").setup()
 
 -- nvim-treesitter-context
-require'treesitter-context'.setup()
+require('treesitter-context').setup()
 
 -- =================================================================================================
 
