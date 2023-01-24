@@ -532,11 +532,6 @@ require('mini.pairs').setup()
 require('mini.statusline').setup()
 require('mini.surround').setup()
 
--- neovim-session-manager
-require('session_manager').setup({
-  autoload_mode = require('session_manager.config').AutoloadMode.CurrentDir
-})
-
 -- nvim-dap-virtual-text
 require("nvim-dap-virtual-text").setup()
 
