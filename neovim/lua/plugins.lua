@@ -66,7 +66,6 @@ return require('packer').startup(function(use)
   use { 'junegunn/fzf.vim' }
   use { 'voldikss/fzf-floaterm' }
   use { 'voldikss/vim-floaterm' }
-  use { 'mileszs/ack.vim' }
   use { 'tpope/vim-surround' }
   use { 'simrat39/symbols-outline.nvim' }
   use { 'lewis6991/gitsigns.nvim' }
