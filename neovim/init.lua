@@ -61,6 +61,7 @@ vim.o.tabstop = 2
 vim.o.termguicolors = true
 vim.o.undodir = vim.fn.stdpath('config') .. '/undodir'
 vim.o.undofile = true
+vim.o.updatetime = 350
 vim.bo.autoindent = true
 vim.bo.smartindent = true
 vim.bo.swapfile = false
@@ -534,6 +535,8 @@ require("nvim-dap-virtual-text").setup()
 -- nvim-treesitter-context
 require('treesitter-context').setup()
 
+-- local-highlight
+require('local-highlight').setup({})
 -- =================================================================================================
 
 -- KEY MAPPINGS
