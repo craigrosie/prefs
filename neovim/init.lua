@@ -539,6 +539,11 @@ require('treesitter-context').setup()
 require('local-highlight').setup({})
 
 -- lualine
+
+local function min_window_width(width)
+  return function() return vim.fn.winwidth(0) > width end
+end
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -565,7 +570,11 @@ require('lualine').setup {
         fmt = function(str) return str:sub(1,3) end,
       }
     },
-    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_b = {
+      { 'branch', cond = min_window_width(80) },
+      'diff',
+      'diagnostics',
+    },
     lualine_c = {
       {
         'filename',
