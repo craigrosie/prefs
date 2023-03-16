@@ -152,7 +152,7 @@ require'nvim-treesitter.configs'.setup {
 }
 
 -- Mason
-local language_servers = { "sumneko_lua", "pyright", "tsserver", "cmake" }
+local language_servers = { "lua_ls", "pyright", "tsserver", "cmake" }
 require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = language_servers
