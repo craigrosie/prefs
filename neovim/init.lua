@@ -348,6 +348,9 @@ require("neotest").setup({
       dap = { justMyCode = false },
       args = { "-vv" }
     })
+  },
+  quickfix = {
+    enabled = false
   }
 })
 
