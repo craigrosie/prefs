@@ -610,7 +610,7 @@ require('lualine').setup {
 }
 
 -- lsp-lens
-require('lsp-lens').setup({})
+-- require('lsp-lens').setup({})
 
 -- glance
 require('glance').setup({
