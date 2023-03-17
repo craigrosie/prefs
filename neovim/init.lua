@@ -37,6 +37,8 @@ require('onedark').setup({
     ["@parameter"] = {fg = "#e88f29"},
     ["@text.diff.add"] = {fg = "#08BE14"},
     ["@text.diff.delete"] = {fg = "#E20505"},
+    ["GlancePreviewMatch"] = {fg = '#dcd7ba', bg = '#2d4f67'},
+    ["GlanceListMatch"] = {fg = '#dcd7ba', bg = '#2d4f67'},
   }
 })
 require('onedark').load()
@@ -609,6 +611,14 @@ require('lualine').setup {
 
 -- lsp-lens
 require('lsp-lens').setup({})
+
+-- glance
+require('glance').setup({
+  height = 25
+})
+vim.keymap.set('n', '<leader>gr', ':Glance references<CR>')
+vim.keymap.set('n', '<leader>gd', ':Glance definitions<CR>')
+vim.keymap.set('n', '<leader>gt', ':Glance type_definitions<CR>')
 
 -- =================================================================================================
 
