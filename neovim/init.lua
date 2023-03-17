@@ -606,6 +606,10 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {'fzf', 'nvim-dap-ui', 'nvim-tree', 'symbols-outline', 'toggleterm'}
 }
+
+-- lsp-lens
+require('lsp-lens').setup({})
+
 -- =================================================================================================
 
 -- KEY MAPPINGS
