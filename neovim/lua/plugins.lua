@@ -83,6 +83,8 @@ return require('packer').startup(function(use)
   }
   use {
     "utilyre/barbecue.nvim",
+    -- https://github.com/utilyre/barbecue.nvim/issues/61
+    branch = "fix/E36",
     requires = {
       "neovim/nvim-lspconfig",
       "smiteshp/nvim-navic",
