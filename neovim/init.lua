@@ -620,6 +620,10 @@ vim.keymap.set('n', '<leader>gr', ':Glance references<CR>')
 vim.keymap.set('n', '<leader>gd', ':Glance definitions<CR>')
 vim.keymap.set('n', '<leader>gt', ':Glance type_definitions<CR>')
 
+-- nvim-scrollbar
+require("scrollbar.handlers.gitsigns").setup()
+require("scrollbar").setup()
+
 -- =================================================================================================
 
 -- KEY MAPPINGS
