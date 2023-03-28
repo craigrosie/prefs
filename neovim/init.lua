@@ -734,7 +734,7 @@ vim.keymap.set('n', '<leader>dc', ":lua require('dap').continue()<cr>")  -- cont
 vim.keymap.set('n', '<leader>do', ":lua require('dap').step_over()<cr>")  -- step_over
 vim.keymap.set('n', '<leader>di', ":lua require('dap').step_into()<cr>")  -- step into
 vim.keymap.set('n', '<leader>du', ":lua require('dap').step_out()<cr>")  -- step_out
-vim.keymap.set('n', '<leader>dr', ":lua require('dap').repl.open()<cr>")  -- open repl
+vim.keymap.set('n', '<leader>dr', ":lua require('dap').run_to_cursor()<cr>")  -- open repl
 vim.keymap.set('n', '<leader>dt', ":lua require('dapui').toggle()<cr>")  -- toggle dap-ui
 
 -- vim-floaterm
