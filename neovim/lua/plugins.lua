@@ -111,4 +111,5 @@ return require('packer').startup(function(use)
   -- use { 'VidocqH/lsp-lens.nvim' }
   use { 'dnlhc/glance.nvim' }
   use { 'petertriho/nvim-scrollbar' }
+  use { 'ethanholz/nvim-lastplace' }
 end)

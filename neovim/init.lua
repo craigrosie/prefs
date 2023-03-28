@@ -657,6 +657,12 @@ vim.keymap.set('n', '<leader>gt', ':Glance type_definitions<CR>')
 require("scrollbar.handlers.gitsigns").setup()
 require("scrollbar").setup()
 
+-- nvim-lastplace
+require('nvim-lastplace').setup {
+  lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
+  lastplace_ignore_filetype = {"gitcommit", "gitrebase"},
+}
+
 -- =================================================================================================
 
 -- KEY MAPPINGS
