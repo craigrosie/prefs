@@ -359,6 +359,39 @@ require("neotest").setup({
 -- dap-python
 require('dap-python').setup('~/.pyenv/versions/debugpy-3.11.0/bin/python')
 require('dap-python').test_runner = 'pytest'
+local dap = require('dap')
+
+-- Enable if more detailed debug logs are needed
+-- Logs available at lua print(vim.fn.stdpath('cache'))
+-- dap.set_log_level('trace')
+
+dap.configurations.python = {
+  {
+    type = 'python';
+    request = 'launch';
+    name = "Django";
+
+    program = '${workspaceFolder}/manage.py';
+    justMyCode = false;
+    django = true;
+    args = {"start", "--frontend=none", "--noreload"};
+    console = "integratedTerminal";
+    pythonPath = function()
+      return os.getenv("VIRTUAL_ENV") .. "/bin/python"
+    end;
+  },
+  {
+    type = 'python';
+    request = 'launch';
+    name = "Python";
+
+    program = '${file}';
+    justMyCode = false;
+    pythonPath = function()
+      return os.getenv("VIRTUAL_ENV") .. "/bin/python"
+    end;
+  },
+}
 
 -- null-ls
 local null_ls = require("null-ls")
