@@ -37,8 +37,8 @@ require('onedark').setup({
     ["@parameter"] = {fg = "#e88f29"},
     ["@text.diff.add"] = {fg = "#08BE14"},
     ["@text.diff.delete"] = {fg = "#E20505"},
-    ["GlancePreviewMatch"] = {fg = '#dcd7ba', bg = '#2d4f67'},
-    ["GlanceListMatch"] = {fg = '#dcd7ba', bg = '#2d4f67'},
+    ["GlancePreviewMatch"] = {fg = '#dcd7ba', bg = '#484e52'},
+    ["GlanceListMatch"] = {fg = '#dcd7ba', bg = '#484e52'},
   }
 })
 require('onedark').load()
@@ -649,7 +649,17 @@ require('lualine').setup {
 
 -- glance
 require('glance').setup({
-  height = 25
+  height = 25,
+  border = {
+    enable = false, -- Show window borders. Only horizontal borders allowed
+    top_char = '―',
+    bottom_char = '―',
+  },
+  theme = { -- This feature might not work properly in nvim-0.7.2
+    enable = true, -- Will generate colors for the plugin based on your current colorscheme
+    mode = 'darken', -- 'brighten'|'darken'|'auto', 'auto' will set mode based on the brightness of your colorscheme
+  },
+  detached = true,
 })
 vim.keymap.set('n', '<leader>gr', ':Glance references<CR>')
 vim.keymap.set('n', '<leader>gd', ':Glance definitions<CR>')
