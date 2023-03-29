@@ -281,6 +281,7 @@ cmp.setup {
     { name = "path" }, -- for path completion
     { name = "buffer", keyword_length = 2 }, -- for buffer word completion
     { name = "omni" },
+    { name = 'treesitter' },
     { name = "emoji", insert = true }, -- emoji completion
   },
   completion = {

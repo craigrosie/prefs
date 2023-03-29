@@ -112,4 +112,5 @@ return require('packer').startup(function(use)
   use { 'dnlhc/glance.nvim' }
   use { 'petertriho/nvim-scrollbar' }
   use { 'ethanholz/nvim-lastplace' }
+  use { 'ray-x/cmp-treesitter' }
 end)
