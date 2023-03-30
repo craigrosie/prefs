@@ -260,7 +260,6 @@ endglobal
 
 snippet class "class with docstrings" b
 class ${1:MyClass}(${2:object}):
-
 	`!p snip.rv = triple_quotes(snip)`${3:Docstring for $1. }`!p snip.rv = triple_quotes(snip)`
 
 	def __init__(self$4):
@@ -740,6 +739,12 @@ f"${1}"
 endsnippet
 
 snippet deft "def test_" b
+def test_${1}(${2}):
+	${3}
+endsnippet
+
+snippet dtest "django test" b
+@pytest.mark.django_db
 def test_${1}(${2}):
 	${3}
 endsnippet
