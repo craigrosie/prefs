@@ -142,3 +142,5 @@
 	autoSetupRemote = true
 [rebase]
 	updateRefs = true
+[commit]
+	verbose = true
