@@ -763,6 +763,8 @@ vim.keymap.set('n', '<leader>qn', "<C-w>l<C-w>l<C-w>l:FloatermNew --wintype=vspl
 vim.keymap.set('n', '<leader>qt', ":FloatermHide!<CR>")
 -- Shortcut for killing a floaterm - allows a floaterm name to be entered before killing
 vim.keymap.set('n', '<leader>qk', ":FloatermKill")
+-- Shortcut to open lazygit in a floaterm
+vim.keymap.set('n', '<leader>qg', ":FloatermNew --title=lazygit --width=0.75 --height=0.9 lazygit<CR>")
 -- Allow normal window-switching mappings from floaterm
 vim.keymap.set('t', '<C-h>', "<C-\\><C-n><C-w>h")
 vim.keymap.set('t', '<C-j>', "<C-\\><C-n><C-w>j")
