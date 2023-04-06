@@ -11,34 +11,34 @@ require('plugins')
 require('onedark').setup({
   style = 'warmer',
   highlights = {
-    ["@comment"] = {fg = "#232326", bg = "#222222"},
-    ["@preproc"] = {fg = "#232326", bg = "#888888"},
-    ["@field"] = {fg = "#dddddd"},
-    ["@variable"] = {fg = "#dddddd"},
-    ["@number"] = {fg = "#bb70d2"},
-    ["@constant.builtin"] = {fg = "#bb70d2"},
-    ["@boolean"] = {fg = "#bb70d2"},
-    ["@constant"] = {fg = "#bb70d2"},
-    ["@string"] = {fg = "$yellow"},
-    ["@punctuation.bracket"] = {fg = "$yellow"},
-    ["@function"] = {fg = "#A6E22E"},
-    ["@function.builtin"] = {fg = "#4DF6E8"},
-    ["@function.call"] = {fg = "#A6E22E"},
-    ["@method"] = {fg = "#A6E22E"},
-    ["@constructor"] = {fg = "#A6E22E"},
-    ["@method.call"] = {fg = "#A6E22E"},
-    ["@type"] = {fg = "#618b82"},
-    ["@keyword.function"] = {fg = "#FF0000", fmt = 'bold'},
-    ["@keyword.return"] = {fg = "#FF0000", fmt = 'bold'},
-    ["@keyword.operator"] = {fg = "#FF0000", fmt = 'bold'},
-    ["@repeat"] = {fg = "#FF0000", fmt = 'bold'},
-    ["@conditional"] = {fg = "#FF0000", fmt = 'bold'},
-    ["@include"] = {fg = "#FF0000", fmt = 'bold'},
-    ["@parameter"] = {fg = "#e88f29"},
-    ["@text.diff.add"] = {fg = "#08BE14"},
-    ["@text.diff.delete"] = {fg = "#E20505"},
-    ["GlancePreviewMatch"] = {fg = '#dcd7ba', bg = '#484e52'},
-    ["GlanceListMatch"] = {fg = '#dcd7ba', bg = '#484e52'},
+    ["@comment"] = { fg = "#232326", bg = "#222222" },
+    ["@preproc"] = { fg = "#232326", bg = "#888888" },
+    ["@field"] = { fg = "#dddddd" },
+    ["@variable"] = { fg = "#dddddd" },
+    ["@number"] = { fg = "#bb70d2" },
+    ["@constant.builtin"] = { fg = "#bb70d2" },
+    ["@boolean"] = { fg = "#bb70d2" },
+    ["@constant"] = { fg = "#bb70d2" },
+    ["@string"] = { fg = "$yellow" },
+    ["@punctuation.bracket"] = { fg = "$yellow" },
+    ["@function"] = { fg = "#A6E22E" },
+    ["@function.builtin"] = { fg = "#4DF6E8" },
+    ["@function.call"] = { fg = "#A6E22E" },
+    ["@method"] = { fg = "#A6E22E" },
+    ["@constructor"] = { fg = "#A6E22E" },
+    ["@method.call"] = { fg = "#A6E22E" },
+    ["@type"] = { fg = "#618b82" },
+    ["@keyword.function"] = { fg = "#FF0000", fmt = 'bold' },
+    ["@keyword.return"] = { fg = "#FF0000", fmt = 'bold' },
+    ["@keyword.operator"] = { fg = "#FF0000", fmt = 'bold' },
+    ["@repeat"] = { fg = "#FF0000", fmt = 'bold' },
+    ["@conditional"] = { fg = "#FF0000", fmt = 'bold' },
+    ["@include"] = { fg = "#FF0000", fmt = 'bold' },
+    ["@parameter"] = { fg = "#e88f29" },
+    ["@text.diff.add"] = { fg = "#08BE14" },
+    ["@text.diff.delete"] = { fg = "#E20505" },
+    ["GlancePreviewMatch"] = { fg = '#dcd7ba', bg = '#484e52' },
+    ["GlanceListMatch"] = { fg = '#dcd7ba', bg = '#484e52' },
   }
 })
 require('onedark').load()
@@ -49,7 +49,7 @@ vim.g.mapleader = ' '
 
 -- Some sensible defaults
 vim.o.backup = false
-vim.o.completeopt='menuone,noinsert,noselect'
+vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.errorbells = false
 vim.o.expandtab = true
 vim.o.hidden = true
@@ -70,34 +70,33 @@ vim.bo.swapfile = false
 vim.wo.number = true
 vim.wo.signcolumn = 'yes'
 vim.wo.wrap = false
-vim.opt.colorcolumn="80,120"
+vim.opt.colorcolumn = "80,120"
 vim.opt.cursorline = true
 vim.opt.ignorecase = true
 vim.opt.scrolloff = 3
-vim.opt.sidescrolloff=3
+vim.opt.sidescrolloff = 3
 vim.opt.smartcase = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-
 -- ==================================================================================================
 -- Autocmds
 
 -- Disable line numbers in terminal
 vim.api.nvim_create_autocmd(
-    { "TermOpen", "TermEnter" },
-    { pattern = { "*" }, command = "setlocal nonumber | setlocal signcolumn=no" }
+  { "TermOpen", "TermEnter" },
+  { pattern = { "*" }, command = "setlocal nonumber | setlocal signcolumn=no" }
 )
 
 -- Strip trailing whitespace on save
 vim.api.nvim_create_autocmd(
-    { "BufWritePre" },
-    { pattern = { "*" }, command = [[%s/\s\+$//e]]}
+  { "BufWritePre" },
+  { pattern = { "*" }, command = [[%s/\s\+$//e]] }
 )
 
 -- Enable proper syntax highlighting for custom dotfiles
 vim.api.nvim_create_autocmd(
-    { "BufRead" },
-    { pattern = { ".aliases", ".extra", ".functions" }, command = "setlocal syntax=sh ft=sh" }
+  { "BufRead" },
+  { pattern = { ".aliases", ".extra", ".functions" }, command = "setlocal syntax=sh ft=sh" }
 )
 
 -- ==================================================================================================
@@ -108,7 +107,7 @@ vim.api.nvim_create_autocmd(
 require("nvim-tree").setup()
 
 -- treesitter
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
   ensure_installed = {
     "bash",
@@ -175,7 +174,7 @@ require('mason-lspconfig').setup({
 -- LSP
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -189,7 +188,7 @@ local on_attach = function(client, bufnr)
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -226,34 +225,34 @@ local lspkind = require("lspkind")
 
 local lspkind_priority = require('cmp-lspkind-priority')
 lspkind_priority.setup {
-    -- Default priority by nvim-cmp
-    priority = {
-        'Snippet',
-        'Field',
-        'Variable',
-        'Method',
-        'Function',
-        'Constructor',
-        'Class',
-        'Interface',
-        'Module',
-        'Property',
-        'Unit',
-        'Value',
-        'Enum',
-        'Keyword',
-        'Color',
-        'File',
-        'Reference',
-        'Folder',
-        'EnumMember',
-        'Constant',
-        'Struct',
-        'Event',
-        'Operator',
-        'TypeParameter',
-        'Text',
-    }
+  -- Default priority by nvim-cmp
+  priority = {
+    'Snippet',
+    'Field',
+    'Variable',
+    'Method',
+    'Function',
+    'Constructor',
+    'Class',
+    'Interface',
+    'Module',
+    'Property',
+    'Unit',
+    'Value',
+    'Enum',
+    'Keyword',
+    'Color',
+    'File',
+    'Reference',
+    'Folder',
+    'EnumMember',
+    'Constant',
+    'Struct',
+    'Event',
+    'Operator',
+    'TypeParameter',
+    'Text',
+  }
 }
 
 local compare = require('cmp.config.compare')
@@ -331,7 +330,7 @@ cmp.setup {
     },
   },
   experimental = {
-    ghost_text=true,
+    ghost_text = true,
   },
 }
 
@@ -346,7 +345,7 @@ cmp.setup {
 
       -- The function below will be called before any actual modifications from lspkind
       -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-      before = function (entry, vim_item)
+      before = function(entry, vim_item)
         return vim_item
       end
     })
@@ -386,7 +385,7 @@ dap.configurations.python = {
     program = '${workspaceFolder}/manage.py';
     justMyCode = false;
     django = true;
-    args = {"start", "--frontend=none", "--noreload"};
+    args = { "start", "--frontend=none", "--noreload" };
     console = "integratedTerminal";
     pythonPath = function()
       return os.getenv("VIRTUAL_ENV") .. "/bin/python"
@@ -457,7 +456,7 @@ require("octo").setup({
 -- todo-comments
 require("todo-comments").setup({
   highlight = {
-    keyword="wide_fg",
+    keyword = "wide_fg",
   }
 })
 
@@ -467,15 +466,15 @@ require("barbecue").setup({
 })
 
 -- openingh.vim
-vim.keymap.set({'n', 'v'}, '<leader>gh', ':OpenInGHFile<CR>')
+vim.keymap.set({ 'n', 'v' }, '<leader>gh', ':OpenInGHFile<CR>')
 
 -- goto-preview
 require("goto-preview").setup({
   width = 150; -- Width of the floating window
   height = 25; -- Height of the floating window
 })
-vim.api.nvim_set_keymap("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", {noremap=true})
-vim.api.nvim_set_keymap("n", "gpq", "<cmd>lua require('goto-preview').close_all_win()<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "gpq", "<cmd>lua require('goto-preview').close_all_win()<CR>", { noremap = true })
 
 -- dap-ui
 require("dapui").setup({
@@ -510,7 +509,7 @@ require("dapui").setup({
   layouts = {
     {
       elements = {
-      -- Elements can be strings or table with id and size keys.
+        -- Elements can be strings or table with id and size keys.
         "scopes",
         "breakpoints",
         "stacks",
@@ -608,8 +607,8 @@ require('lualine').setup {
   options = {
     icons_enabled = true,
     theme = 'codedark',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     disabled_filetypes = {
       statusline = {},
       winbar = {},
@@ -627,7 +626,7 @@ require('lualine').setup {
     lualine_a = {
       {
         'mode',
-        fmt = function(str) return str:sub(1,3) end,
+        fmt = function(str) return str:sub(1, 3) end,
       }
     },
     lualine_b = {
@@ -641,9 +640,9 @@ require('lualine').setup {
         path = 1,
       }
     },
-    lualine_x = {'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_x = { 'filetype' },
+    lualine_y = { 'progress' },
+    lualine_z = { 'location' }
   },
   inactive_sections = {
     lualine_a = {},
@@ -654,14 +653,14 @@ require('lualine').setup {
         path = 1,
       }
     },
-    lualine_x = {'location'},
+    lualine_x = { 'location' },
     lualine_y = {},
     lualine_z = {}
   },
   tabline = {},
   winbar = {},
   inactive_winbar = {},
-  extensions = {'fzf', 'nvim-dap-ui', 'nvim-tree', 'symbols-outline', 'toggleterm'}
+  extensions = { 'fzf', 'nvim-dap-ui', 'nvim-tree', 'symbols-outline', 'toggleterm' }
 }
 
 -- lsp-lens
@@ -691,8 +690,8 @@ require("scrollbar").setup()
 
 -- nvim-lastplace
 require('nvim-lastplace').setup {
-  lastplace_ignore_buftype = {"quickfix", "nofile", "help", "terminal"},
-  lastplace_ignore_filetype = {"gitcommit", "gitrebase", "fzf"},
+  lastplace_ignore_buftype = { "quickfix", "nofile", "help", "terminal" },
+  lastplace_ignore_filetype = { "gitcommit", "gitrebase", "fzf" },
 }
 
 -- =================================================================================================
@@ -733,52 +732,62 @@ require("fzf-lua").setup({
     async_or_timeout = true,
   }
 })
-vim.api.nvim_set_keymap('n', '<leader>fp', "<cmd>lua require('fzf-lua').git_files()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fp', "<cmd>lua require('fzf-lua').git_files()<CR>",
+  { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ff', "<cmd>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fr', "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fr', "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>",
+  { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ft', "<cmd>lua require('fzf-lua').tabs()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fg', "<cmd>lua require('fzf-lua').grep_project()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fv', "<cmd>lua require('fzf-lua').grep_visual()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fg', "<cmd>lua require('fzf-lua').grep_project()<CR>",
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fv', "<cmd>lua require('fzf-lua').grep_visual()<CR>",
+  { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fm', "<cmd>lua require('fzf-lua').resume()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fq', "<cmd>lua require('fzf-lua').quickfix()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fq', "<cmd>lua require('fzf-lua').quickfix()<CR>",
+  { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fl', "<cmd>lua require('fzf-lua').loclist()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>flr', "<cmd>lua require('fzf-lua').lsp_references()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fli', "<cmd>lua require('fzf-lua').lsp_incoming_calls()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fld', "<cmd>lua require('fzf-lua').lsp_definitions()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>flr', "<cmd>lua require('fzf-lua').lsp_references()<CR>",
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fli', "<cmd>lua require('fzf-lua').lsp_incoming_calls()<CR>",
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fld', "<cmd>lua require('fzf-lua').lsp_definitions()<CR>",
+  { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fk', "<cmd>lua require('fzf-lua').keymaps()<CR>", { noremap = true, silent = true })
 
 -- neotest
 -- https://alpha2phi.medium.com/neovim-for-beginners-testing-part-2-10d4aa8f25d6
-vim.keymap.set('n', '<leader>tf', ":lua require('neotest').run.run({vim.fn.expand('%')})<cr>")  -- run file
-vim.keymap.set('n', '<leader>tn', ":lua require('neotest').run.run()<cr>")  -- run nearest
-vim.keymap.set('n', '<leader>ta', ":lua require('neotest').run.attach()<cr>")  -- attach to nearest nearest
-vim.keymap.set('n', '<leader>ts', ":lua require('neotest').run.stop()<cr>")  -- stop nearest nearest
-vim.keymap.set('n', '<leader>td', ":lua require('neotest').run.run({strategy = 'dap'})<cr>")  -- debug nearest
-vim.keymap.set('n', '<leader>to', ":lua require('neotest').output.open({ enter = true })<cr>")  -- show test output
-vim.keymap.set('n', '<leader>tp', ":lua require('neotest').output_panel.toggle()<cr>")  -- toggle output panel
-vim.keymap.set('n', '<leader>tt', ":lua require('neotest').summary.toggle()<cr>")  -- toggle test summary
+vim.keymap.set('n', '<leader>tf', ":lua require('neotest').run.run({vim.fn.expand('%')})<cr>") -- run file
+vim.keymap.set('n', '<leader>tn', ":lua require('neotest').run.run()<cr>") -- run nearest
+vim.keymap.set('n', '<leader>ta', ":lua require('neotest').run.attach()<cr>") -- attach to nearest nearest
+vim.keymap.set('n', '<leader>ts', ":lua require('neotest').run.stop()<cr>") -- stop nearest nearest
+vim.keymap.set('n', '<leader>td', ":lua require('neotest').run.run({strategy = 'dap'})<cr>") -- debug nearest
+vim.keymap.set('n', '<leader>to', ":lua require('neotest').output.open({ enter = true })<cr>") -- show test output
+vim.keymap.set('n', '<leader>tp', ":lua require('neotest').output_panel.toggle()<cr>") -- toggle output panel
+vim.keymap.set('n', '<leader>tt', ":lua require('neotest').summary.toggle()<cr>") -- toggle test summary
 
 -- dap & dap-ui
 -- https://davelage.com/posts/nvim-dap-getting-started/
-vim.keymap.set('n', '<leader>db', ":lua require('dap').toggle_breakpoint()<cr>")  -- toggle breakpoint
-vim.keymap.set('n', '<leader>dx', ":lua require('dap').clear_breakpoints()<cr>")  -- toggle breakpoint
-vim.keymap.set('n', '<leader>dc', ":lua require('dap').continue()<cr>")  -- continue
-vim.keymap.set('n', '<leader>do', ":lua require('dap').step_over()<cr>")  -- step_over
-vim.keymap.set('n', '<leader>di', ":lua require('dap').step_into()<cr>")  -- step into
-vim.keymap.set('n', '<leader>du', ":lua require('dap').step_out()<cr>")  -- step_out
-vim.keymap.set('n', '<leader>d[', ":lua require('dap').up()<cr>")  -- go up in stacktrace without stepping
-vim.keymap.set('n', '<leader>d]', ":lua require('dap').down()<cr>")  -- go down in stacktrace without stepping
-vim.keymap.set('n', '<leader>dr', ":lua require('dap').run_to_cursor()<cr>")  -- open repl
-vim.keymap.set('n', '<leader>dt', ":lua require('dapui').toggle()<cr>")  -- toggle dap-ui
+vim.keymap.set('n', '<leader>db', ":lua require('dap').toggle_breakpoint()<cr>") -- toggle breakpoint
+vim.keymap.set('n', '<leader>dx', ":lua require('dap').clear_breakpoints()<cr>") -- toggle breakpoint
+vim.keymap.set('n', '<leader>dc', ":lua require('dap').continue()<cr>") -- continue
+vim.keymap.set('n', '<leader>do', ":lua require('dap').step_over()<cr>") -- step_over
+vim.keymap.set('n', '<leader>di', ":lua require('dap').step_into()<cr>") -- step into
+vim.keymap.set('n', '<leader>du', ":lua require('dap').step_out()<cr>") -- step_out
+vim.keymap.set('n', '<leader>d[', ":lua require('dap').up()<cr>") -- go up in stacktrace without stepping
+vim.keymap.set('n', '<leader>d]', ":lua require('dap').down()<cr>") -- go down in stacktrace without stepping
+vim.keymap.set('n', '<leader>dr', ":lua require('dap').run_to_cursor()<cr>") -- open repl
+vim.keymap.set('n', '<leader>dt', ":lua require('dapui').toggle()<cr>") -- toggle dap-ui
 
 -- vim-floaterm
 -- List floaterms using fzf
 -- <C-w>l hack to ensure floaterm always opens in right split
 vim.keymap.set('n', '<leader>i', "<C-w>l<C-w>l<C-w>l:Floaterms<CR>")
 -- Open new floaterm with hardcoded (iterm) name
-vim.keymap.set('n', '<leader>q', "<C-w>l<C-w>l<C-w>l:FloatermNew --wintype=vsplit --height=1.0 --width=0.33 --title=iterm --position=right --autoclose=0<CR>")
+vim.keymap.set('n', '<leader>q',
+  "<C-w>l<C-w>l<C-w>l:FloatermNew --wintype=vsplit --height=1.0 --width=0.33 --title=iterm --position=right --autoclose=0<CR>")
 -- Allow specifying the name of the floaterm before opening
-vim.keymap.set('n', '<leader>qn', "<C-w>l<C-w>l<C-w>l:FloatermNew --wintype=vsplit --height=1.0 --width=0.33 --position=right --autoclose=0 --title=")
+vim.keymap.set('n', '<leader>qn',
+  "<C-w>l<C-w>l<C-w>l:FloatermNew --wintype=vsplit --height=1.0 --width=0.33 --position=right --autoclose=0 --title=")
 -- Shortcut to hide all floaterms
 vim.keymap.set('n', '<leader>qt', ":FloatermHide!<CR>")
 -- Shortcut for killing a floaterm - allows a floaterm name to be entered before killing
@@ -792,18 +801,18 @@ vim.keymap.set('t', '<C-k>', "<C-\\><C-n><C-w>k")
 vim.keymap.set('t', '<C-l>', "<C-\\><C-n><C-w>l")
 
 -- UltiSnips
-vim.g.UltiSnipsSnippetDirectories = {"UltiSnips", "custom_snippets"}
+vim.g.UltiSnipsSnippetDirectories = { "UltiSnips", "custom_snippets" }
 -- trigger snippet expansion
-vim.g.UltiSnipsExpandTrigger='<c-e>'
+vim.g.UltiSnipsExpandTrigger = '<c-e>'
 -- shortcut to go to next position
-vim.g.UltiSnipsJumpForwardTrigger='<c-j>'
+vim.g.UltiSnipsJumpForwardTrigger = '<c-j>'
 -- shortcut to go to previous position
-vim.g.UltiSnipsJumpBackwardTrigger='<c-k>'
+vim.g.UltiSnipsJumpBackwardTrigger = '<c-k>'
 vim.keymap.set('n', '<leader>u', ":call UltiSnips#RefreshSnippets()<CR>")
 
 -- nvim-osc52
-vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, {expr = true})
-vim.keymap.set('n', '<leader>cc', '<leader>c_', {remap = true})
+vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, { expr = true })
+vim.keymap.set('n', '<leader>cc', '<leader>c_', { remap = true })
 vim.keymap.set('x', '<leader>c', require('osc52').copy_visual)
 
 -- lua
