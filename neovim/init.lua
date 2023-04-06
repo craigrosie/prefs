@@ -154,7 +154,18 @@ require'nvim-treesitter.configs'.setup {
 }
 
 -- Mason
-local language_servers = { "lua_ls", "pyright", "tsserver", "cmake" }
+local language_servers = {
+  "bashls",
+  "cmake",
+  "dockerls",
+  "docker_compose_language_service",
+  "jsonls",
+  "lua_ls",
+  "pyright",
+  "taplo",
+  "tsserver",
+  "yamlls",
+}
 require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = language_servers
