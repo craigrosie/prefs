@@ -10,9 +10,9 @@ return require('packer').startup(function(use)
   use { 'navarasu/onedark.nvim' }
 
   use {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "neovim/nvim-lspconfig",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
   }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-treesitter/playground' }
@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
   use { 'SirVer/ultisnips' }
   use { "ray-x/lsp_signature.nvim" }
   use { "mfussenegger/nvim-dap" }
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   use { 'mfussenegger/nvim-dap-python' }
   use {
     "nvim-neotest/neotest",
@@ -113,4 +113,12 @@ return require('packer').startup(function(use)
   use { 'petertriho/nvim-scrollbar' }
   use { 'ethanholz/nvim-lastplace' }
   use { 'ray-x/cmp-treesitter' }
+  -- https://github.com/ray-x/guihua.lua/issues/16
+  -- use({
+  --   'ray-x/navigator.lua',
+  --   requires = {
+  --       { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+  --       { 'neovim/nvim-lspconfig' },
+  --   },
+  -- })
 end)
