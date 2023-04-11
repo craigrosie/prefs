@@ -78,6 +78,9 @@ vim.opt.sidescrolloff = 3
 vim.opt.smartcase = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+-- Completely disable editorconfig integration, as the max_line_length field
+-- sets `textwidth` which is never what I want
+vim.g.editorconfig = false
 -- ==================================================================================================
 -- Autocmds
 
