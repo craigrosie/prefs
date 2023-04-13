@@ -1,5 +1,11 @@
 gui:
   # stuff relating to the UI
+  authorColors:
+    '*': '#59158a'
+    'Craig Rosie': 'green'
+  branchColors:
+    'cr': 'green'
+    'main': 'blue' # use a light blue for branches beginning with 'docs/'
   commandLogSize: 8
   commitLength:
     show: true
