@@ -734,6 +734,18 @@ snippet glog "getLogger" b
 log = logging.getLogger(${1:__name__})
 endsnippet
 
+snippet info "logger.info()" b
+logger.info(f"${1}")${0}
+endsnippet
+
+snippet warn "logger.warning()" b
+logger.warning(f"${1}")${0}
+endsnippet
+
+snippet err "logger.error()" b
+logger.error(f"${1}")${0}
+endsnippet
+
 snippet fs "f-string" b
 f"${1}"
 endsnippet
