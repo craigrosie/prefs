@@ -109,12 +109,18 @@ vim.api.nvim_create_autocmd(
 -- nvim-tree
 require("nvim-tree").setup()
 
+-- nvim-dap-repl-highlights
+-- NOTE: This must be setup before nvim-treesitter.configs, otherwise
+-- ensure_installed won't find the dap_repl parser won't be found
+require('nvim-dap-repl-highlights').setup()
+
 -- treesitter
 require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
   ensure_installed = {
     "bash",
     "cmake",
+    "dap_repl",
     "dockerfile",
     "javascript",
     "json",

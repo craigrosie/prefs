@@ -119,4 +119,5 @@ return require('packer').startup(function(use)
   --       { 'neovim/nvim-lspconfig' },
   --   },
   -- })
+  use { 'LiadOz/nvim-dap-repl-highlights' }
 end)
