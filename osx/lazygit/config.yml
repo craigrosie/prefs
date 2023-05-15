@@ -57,8 +57,8 @@ git:
     mode: 'auto' # one of 'auto' | 'merge' | 'rebase' | 'ff-only', auto reads from git configuration
   skipHookPrefix: WIP
 os:
-  editCommand: 'vim' # see 'Configuring File Editing' section
-  openCommand: 'open {{filename}}'
+  edit: 'vim' # see 'Configuring File Editing' section
+  open: 'open {{filename}}'
 refresher:
   fetchInterval: 60 # re-fetch interval in seconds
   refreshInterval: 10 # file/submodule refresh interval in seconds
