@@ -703,6 +703,12 @@ require('nvim-lastplace').setup {
   lastplace_ignore_filetype = { "gitcommit", "gitrebase", "fzf" },
 }
 
+-- close-buffers.nvim
+require('close_buffers').setup({
+  preserve_window_layout = { 'this' }
+})
+vim.keymap.set('n', '<leader>cb', ":lua require('close_buffers').delete({type = 'hidden'})<CR>")
+
 -- =================================================================================================
 
 -- KEY MAPPINGS
