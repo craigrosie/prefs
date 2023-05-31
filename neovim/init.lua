@@ -227,10 +227,24 @@ for i in pairs(language_servers) do
   })
 end
 
+-- NOTE: Copilot needs to be set up before cmp
+require("copilot").setup({
+  suggestion = { enabled = false },
+  panel = { enabled = false },
+})
+
+-- copilot-cmp
+require("copilot_cmp").setup()
+
 -- nvm-cmp
 -- from: https://raw.githubusercontent.com/jdhao/nvim-config/master/lua/config/nvim-cmp.lua
 local cmp = require("cmp")
 local lspkind = require("lspkind")
+lspkind.init({
+  symbol_map = {
+    Copilot = "",
+  },
+})
 
 local lspkind_priority = require('cmp-lspkind-priority')
 lspkind_priority.setup {
@@ -266,6 +280,12 @@ lspkind_priority.setup {
 
 local compare = require('cmp.config.compare')
 
+-- Required for copilot <tab> handling
+local has_words_before = function()
+  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
+end
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -275,8 +295,8 @@ cmp.setup {
   },
   mapping = cmp.mapping.preset.insert {
     ["<Tab>"] = function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
+      if cmp.visible() and has_words_before() then
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
       else
         fallback()
       end
@@ -296,9 +316,10 @@ cmp.setup {
   },
   sources = {
     { name = "ultisnips" }, -- For ultisnips user.
+    { name = "copilot", group_index = 2 }, -- For github copilot
     { name = "nvim_lsp" }, -- For nvim-lsp
-    { name = "path" }, -- for path completion
-    { name = "buffer", keyword_length = 2 }, -- for buffer word completion
+    { name = "path" }, -- For path completion
+    { name = "buffer", keyword_length = 2 }, -- For buffer word completion
     { name = "omni" },
     { name = 'treesitter' },
     { name = "emoji", insert = true }, -- emoji completion
@@ -329,6 +350,7 @@ cmp.setup {
       lspkind_priority.compare, -- Replaces `compare.kind` + first comparator
       compare.offset,
       compare.exact,
+      require("copilot_cmp.comparators").prioritize,
       -- compare.scopes,
       compare.score,
       compare.recently_used,

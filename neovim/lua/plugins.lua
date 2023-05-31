@@ -123,4 +123,10 @@ return require('packer').startup(function(use)
   -- })
   use { 'LiadOz/nvim-dap-repl-highlights' }
   use { 'kazhala/close-buffers.nvim' }
+  use {
+    "zbirenbaum/copilot.lua",
+  }
+  use {
+    "zbirenbaum/copilot-cmp",
+  }
 end)
