@@ -513,6 +513,17 @@ vim.keymap.set({ 'n', 'v' }, '<leader>gh', ':OpenInGHFile<CR>')
 require("goto-preview").setup({
   width = 150; -- Width of the floating window
   height = 25; -- Height of the floating window
+  post_open_hook = function(buf_handle, win_handle)
+    vim.cmd("normal zt")
+    -- Set a keymap that will close the floating window
+    vim.api.nvim_buf_set_keymap(
+      buf_handle,
+      "n",
+      "<Esc>",
+      ("<Cmd>call nvim_win_close(%d, v:false)<CR>"):format(win_handle),
+      { noremap = true }
+    )
+  end,
 })
 vim.api.nvim_set_keymap("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<tab>", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
