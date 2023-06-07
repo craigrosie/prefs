@@ -743,6 +743,9 @@ vim.keymap.set('n', '<leader>cb', ":lua require('close_buffers').delete({type = 
 -- =================================================================================================
 
 -- KEY MAPPINGS
+
+vim.keymap.set("n", "<Enter>", "ciw")
+
 -- Open nvim-tree
 vim.keymap.set('n', '<C-n>', ':NvimTreeFocus <CR>')
 
