@@ -526,7 +526,8 @@ require("goto-preview").setup({
   end,
 })
 vim.api.nvim_set_keymap("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<tab>", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<c-g>", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
+  { noremap = true })
 vim.api.nvim_set_keymap("n", "gpq", "<cmd>lua require('goto-preview').close_all_win()<CR>", { noremap = true })
 
 -- dap-ui
