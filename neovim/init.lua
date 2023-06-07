@@ -305,7 +305,8 @@ cmp.setup {
   mapping = cmp.mapping.preset.insert {
     ["<Tab>"] = function(fallback)
       if cmp.visible() and has_words_before() then
-        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+        -- cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+        cmp.select_next_item()
       else
         fallback()
       end
