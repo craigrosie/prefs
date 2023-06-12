@@ -129,4 +129,5 @@ return require('packer').startup(function(use)
   use {
     "zbirenbaum/copilot-cmp",
   }
+  use { 'm-demare/hlargs.nvim' }
 end)

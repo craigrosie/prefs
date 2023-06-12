@@ -754,6 +754,18 @@ require('close_buffers').setup({
 })
 vim.keymap.set('n', '<leader>cb', ":lua require('close_buffers').delete({type = 'hidden'})<CR>")
 
+-- hlargs.nvim
+require('hlargs').setup {
+  color = '#e88f29', -- same as @parameter
+  excluded_argnames = {
+    declarations = {},
+    usages = {
+      python = { 'self', 'cls' },
+      lua = { 'self' }
+    }
+  },
+}
+
 -- =================================================================================================
 
 -- KEY MAPPINGS
