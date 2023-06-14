@@ -771,6 +771,7 @@ require('hlargs').setup {
 -- KEY MAPPINGS
 
 vim.keymap.set("n", "<Enter>", "ciw")
+vim.keymap.set("n", "<C-w><space>", ":vsplit<CR>")
 
 -- Open nvim-tree
 vim.keymap.set('n', '<C-n>', ':NvimTreeFocus <CR>')
