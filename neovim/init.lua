@@ -240,8 +240,34 @@ end
 
 -- NOTE: Copilot needs to be set up before cmp
 require("copilot").setup({
-  suggestion = { enabled = false },
-  panel = { enabled = false },
+  panel = {
+    enabled = true,
+    auto_refresh = false,
+    keymap = {
+      jump_prev = "[[",
+      jump_next = "]]",
+      accept = "<leader>a",
+      refresh = "gr",
+      open = "<leader>cp"
+    },
+    layout = {
+      position = "bottom", -- | top | left | right
+      ratio = 0.4
+    },
+  },
+  suggestion = {
+    enabled = true,
+    auto_trigger = true,
+    debounce = 75,
+    keymap = {
+      accept = "<c-t>",
+      accept_word = false,
+      accept_line = false,
+      next = "<c-n>",
+      prev = "<c-p>",
+      dismiss = "<C-]>",
+    },
+  },
 })
 
 -- copilot-cmp
@@ -328,7 +354,7 @@ cmp.setup {
   },
   sources = {
     { name = "ultisnips" }, -- For ultisnips user.
-    { name = "copilot", group_index = 2 }, -- For github copilot
+    -- { name = "copilot", group_index = 2 }, -- For github copilot
     { name = "nvim_lsp" }, -- For nvim-lsp
     { name = "path" }, -- For path completion
     { name = "buffer", keyword_length = 2 }, -- For buffer word completion
@@ -362,7 +388,7 @@ cmp.setup {
       lspkind_priority.compare, -- Replaces `compare.kind` + first comparator
       compare.offset,
       compare.exact,
-      require("copilot_cmp.comparators").prioritize,
+      -- require("copilot_cmp.comparators").prioritize,
       -- compare.scopes,
       compare.score,
       compare.recently_used,
