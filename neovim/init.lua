@@ -107,7 +107,9 @@ vim.api.nvim_create_autocmd(
 -- PLUGIN SETUP
 
 -- nvim-tree
-require("nvim-tree").setup()
+require("nvim-tree").setup({
+  view = { adaptive_size = true }
+})
 
 -- nvim-dap-repl-highlights
 -- NOTE: This must be setup before nvim-treesitter.configs, otherwise
