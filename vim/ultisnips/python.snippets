@@ -818,4 +818,11 @@ endsnippet
 snippet ev "enum value" b
 `!p snip.rv = t[1].upper().replace(' ', '_')` = "$1"
 endsnippet
+
+snippet leet "leetcode docstring" b
+"""Based on $1 problem on leetcode.
+
+`!p snip.rv = "https://leetcode.com/problems/" + t[1].lower().replace(" ", "-")`
+"""
+endsnippet
 # vim:ft=snippets:
