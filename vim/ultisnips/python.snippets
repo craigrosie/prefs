@@ -726,6 +726,11 @@ def __init__(self${1}):
 	${2}
 endsnippet
 
+snippet dund "dunder method" b
+def __$1__(self$2):
+	$0
+endsnippet
+
 snippet slots "__slots__" b
 __slots__ = (${1})
 endsnippet
@@ -775,6 +780,19 @@ snippet param "@pytest.mark.parametrize" b
 		(${2}),
 	],
 )
+endsnippet
+
+snippet ptest "parametrized test" b
+@pytest.mark.parametrize(
+	("${1}", "expected"),
+	[
+		(${2}, ${3:exp_val}),
+	],
+)
+def test_${4}(${5}, expected: ${6}):
+	result = ${7:test_func}(${8})
+
+	assert result ${9:==} expected
 endsnippet
 
 snippet dataclass "@dataclass" b
