@@ -437,7 +437,7 @@ require("neotest").setup({
 })
 
 -- dap-python
-require('dap-python').setup('~/.pyenv/versions/debugpy-3.11.0/bin/python')
+require('dap-python').setup('~/.pyenv/versions/.neovenv-3.11.4/bin/python3')
 require('dap-python').test_runner = 'pytest'
 local dap = require('dap')
 
