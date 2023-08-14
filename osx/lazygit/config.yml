@@ -1,70 +1,71 @@
 gui:
-  # stuff relating to the UI
-  authorColors:
-    '*': '#59158a'
-    'Craig Rosie': 'green'
-  branchColors:
-    'cr': 'green'
-    'main': 'blue' # use a light blue for branches beginning with 'docs/'
-  commandLogSize: 8
-  commitLength:
-    show: true
-  expandFocusedSidePanel: false
-  mainPanelSplitMode: 'flexible' # one of 'horizontal' | 'flexible' | 'vertical'
-  mouseEvents: true
-  scrollHeight: 2 # how many lines you scroll by
-  scrollPastBottom: true # enable scrolling past the bottom
-  showCommandLog: true
-  showFileTree: false # for rendering changes files in a tree format
-  showIcons: true
-  showListFooter: true # for seeing the '5 of 20' message in list panels
-  showRandomTip: true
-  sidePanelWidth: 0.3333 # number from 0 to 1
-  skipStashWarning: true
-  skipUnstageLineWarning: false
-  theme:
-    activeBorderColor:
-      - green
-      - bold
-    inactiveBorderColor:
-      - white
-    lightTheme: false # For terminals with a light background
-    optionsTextColor:
-      - blue
-    selectedLineBgColor:
-      - reverse
-    selectedRangeBgColor:
-      - reverse
+    # stuff relating to the UI
+    authorColors:
+        '*': '#59158a'
+        'Craig Rosie': 'green'
+    branchColors:
+        'cr': 'green'
+        'main': 'blue' # use a light blue for branches beginning with 'docs/'
+    commandLogSize: 8
+    commitLength:
+        show: true
+    expandFocusedSidePanel: false
+    mainPanelSplitMode: 'flexible' # one of 'horizontal' | 'flexible' | 'vertical'
+    mouseEvents: true
+    nerdFontsVersion: ""
+    scrollHeight: 2 # how many lines you scroll by
+    scrollPastBottom: true # enable scrolling past the bottom
+    showCommandLog: true
+    showFileTree: true # for rendering changes files in a tree format
+    showIcons: true
+    showListFooter: true # for seeing the '5 of 20' message in list panels
+    showRandomTip: true
+    sidePanelWidth: 0.3333 # number from 0 to 1
+    skipStashWarning: true
+    skipDiscardChangeWarning: false
+    theme:
+        activeBorderColor:
+            - green
+            - bold
+        inactiveBorderColor:
+            - white
+        lightTheme: false # For terminals with a light background
+        optionsTextColor:
+            - blue
+        selectedLineBgColor:
+            - reverse
+        selectedRangeBgColor:
+            - reverse
 git:
-  autoFetch: false
-  allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium'
-  branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --'
-  commit:
-    signOff: false
-    verbose: always # one of 'default' | 'always' | 'never'
-  disableForcePushing: false
-  merging:
-    # only applicable to unix users
-    manualCommit: false
-    # extra args passed to `git merge`, e.g. --no-ff
-    args: ''
-  overrideGpg: false # prevents lazygit from spawning a separate process when using GPG
-  paging:
-    colorArg: always
-    useConfig: false
-  parseEmoji: false
-  pull:
-    mode: 'auto' # one of 'auto' | 'merge' | 'rebase' | 'ff-only', auto reads from git configuration
-  skipHookPrefix: WIP
+    autoFetch: false
+    allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium'
+    branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --'
+    commit:
+        signOff: false
+        verbose: always # one of 'default' | 'always' | 'never'
+    disableForcePushing: false
+    merging:
+        # only applicable to unix users
+        manualCommit: false
+        # extra args passed to `git merge`, e.g. --no-ff
+        args: ''
+    overrideGpg: false # prevents lazygit from spawning a separate process when using GPG
+    paging:
+        colorArg: always
+        useConfig: false
+    parseEmoji: false
+    pull:
+        mode: 'auto' # one of 'auto' | 'merge' | 'rebase' | 'ff-only', auto reads from git configuration
+    skipHookPrefix: WIP
 os:
-  edit: 'vim' # see 'Configuring File Editing' section
-  open: 'open {{filename}}'
+    edit: 'vim' # see 'Configuring File Editing' section
+    open: 'open {{filename}}'
 refresher:
-  fetchInterval: 60 # re-fetch interval in seconds
-  refreshInterval: 10 # file/submodule refresh interval in seconds
+    fetchInterval: 60 # re-fetch interval in seconds
+    refreshInterval: 10 # file/submodule refresh interval in seconds
 update:
-  days: 14 # how often an update is checked for
-  method: prompt # can be: prompt | background | never
+    days: 14 # how often an update is checked for
+    method: prompt # can be: prompt | background | never
 reporting: 'undetermined' # one of: 'on' | 'off' | 'undetermined'
 confirmOnQuit: false
 # determines whether hitting 'esc' will quit the application when there is nothing to cancel/close
@@ -72,126 +73,126 @@ quitOnTopLevelReturn: false
 disableStartupPopups: false
 notARepository: 'prompt' # one of: 'prompt' | 'create' | 'skip'
 keybinding:
-  universal:
-    appendNewline: '<a-enter>'
-    confirm-alt1: 'y'
-    confirm: '<enter>'
-    copyToClipboard: '<c-o>'
-    createPatchOptionsMenu: '<c-p>'
-    createRebaseOptionsMenu: 'm'
-    diffingMenu-alt: '<c-e>' # deprecated
-    diffingMenu: 'W'
-    edit: 'e'
-    executeCustomCommand: ':'
-    extrasMenu: '@'
-    filteringMenu: '<c-s>'
-    goInto: '<enter>'
-    gotoBottom: '>' # go to bottom of list
-    gotoTop: '<' # go to top of list
-    new: 'n'
-    nextBlock-alt: 'l' # goto the next block / panel
-    nextBlock: '<right>' # goto the next block / panel
-    nextItem-alt: 'j' # go one line down
-    nextItem: '<down>' # go one line down
-    nextMatch: 'n'
-    nextPage: '.' # go to previous page in list
-    nextScreenMode: '+'
-    nextTab: ']'
-    openFile: 'o'
-    openRecentRepos: '<c-r>'
-    optionMenu-alt1: '?' # show help menu
-    optionMenu: 'x' # show help menu
-    prevBlock-alt: 'h' # goto the previous block / panel
-    prevBlock: '<left>' # goto the previous block / panel
-    prevItem-alt: 'k' # go one line up
-    prevItem: '<up>' # go one line up
-    prevMatch: 'N'
-    prevPage: ',' # go to next page in list
-    prevScreenMode: '_'
-    prevTab: '['
-    pullFiles: 'p'
-    pushFiles: 'P'
-    quit-alt1: '<c-c>' # alternative/alias of quit
-    quit: 'q'
-    quitWithoutChangingDirectory: 'Q'
-    redo: '<c-z>'
-    refresh: 'R'
-    remove: 'd'
-    return: '<esc>' # return to previous menu, will quit if there's nowhere to return
-    scrollDownMain-alt1: '<c-j>' # main panel scroll down
-    scrollDownMain-alt2: '<c-d>' # main panel scroll down
-    scrollDownMain: '<pgdown>' # main panel scroll down
-    scrollUpMain-alt1: '<c-k>' # main panel scroll up
-    scrollUpMain-alt2: '<c-u>' # main panel scroll up
-    scrollUpMain: '<pgup>' # main panel scroll up
-    select: '<space>'
-    submitEditorText: '<enter>'
-    togglePanel: '<tab>' # goto the next panel
-    toggleWhitespaceInDiffView: '<c-w>'
-    undo: 'z'
-  status:
-    checkForUpdate: 'u'
-    recentRepos: '<enter>'
-  files:
-    amendLastCommit: 'A'
-    commitChanges: 'c'
-    commitChangesWithEditor: 'C'
-    commitChangesWithoutHook: 'w' # commit changes without pre-commit hook
-    fetch: 'f'
-    ignoreFile: 'i'
-    refreshFiles: 'r'
-    stashAllChanges: 's'
-    toggleStagedAll: 'a' # stage/unstage all
-    toggleTreeView: '`'
-    viewResetOptions: 'D'
-    viewStashOptions: 'S'
-  branches:
-    checkoutBranchByName: 'c'
-    createPullRequest: 'o'
-    fastForward: 'f' # fast-forward this branch from its upstream
-    fetchRemote: 'f'
-    forceCheckoutBranch: 'F'
-    mergeIntoCurrentBranch: 'M'
-    pushTag: 'P'
-    rebaseBranch: 'r'
-    setUpstream: 'u' # set as upstream of checked-out branch
-    viewGitFlowOptions: 'i'
-    viewPullRequestOptions: 'O'
-  commits:
-    amendToCommit: 'A'
-    checkoutCommit: '<space>'
-    cherryPickCopy: 'c'
-    cherryPickCopyRange: 'C'
-    copyCommitMessageToClipboard: '<c-y>'
-    createFixupCommit: 'F' # create fixup commit for this commit
-    markCommitAsFixup: 'f'
-    moveDownCommit: 'J' # move commit down one
-    moveUpCommit: 'K' # move commit up one
-    pasteCommits: 'v'
-    pickCommit: 'p' # pick commit (when mid-rebase)
-    renameCommit: 'r'
-    renameCommitWithEditor: 'R'
-    resetCherryPick: '<c-R>'
-    revertCommit: 't'
-    squashAboveCommits: 'S'
-    squashDown: 's'
-    tagCommit: 'T'
-    viewResetOptions: 'g'
-  stash:
-    popStash: 'g'
-  commitFiles:
-    checkoutCommitFile: 'c'
-  main:
-    pickBothHunks: 'b'
-    toggleDragSelect: 'v'
-    toggleDragSelect-alt: 'V'
-    toggleSelectHunk: 'a'
-  submodules:
-    bulkMenu: 'b'
-    init: 'i'
-    update: 'u'
+    universal:
+        appendNewline: '<a-enter>'
+        confirm-alt1: 'y'
+        confirm: '<enter>'
+        copyToClipboard: '<c-o>'
+        createPatchOptionsMenu: '<c-p>'
+        createRebaseOptionsMenu: 'm'
+        diffingMenu-alt: '<c-e>' # deprecated
+        diffingMenu: 'W'
+        edit: 'e'
+        executeCustomCommand: ':'
+        extrasMenu: '@'
+        filteringMenu: '<c-s>'
+        goInto: '<enter>'
+        gotoBottom: '>' # go to bottom of list
+        gotoTop: '<' # go to top of list
+        new: 'n'
+        nextBlock-alt: 'l' # goto the next block / panel
+        nextBlock: '<right>' # goto the next block / panel
+        nextItem-alt: 'j' # go one line down
+        nextItem: '<down>' # go one line down
+        nextMatch: 'n'
+        nextPage: '.' # go to previous page in list
+        nextScreenMode: '+'
+        nextTab: ']'
+        openFile: 'o'
+        openRecentRepos: '<c-r>'
+        optionMenu-alt1: '?' # show help menu
+        optionMenu: 'x' # show help menu
+        prevBlock-alt: 'h' # goto the previous block / panel
+        prevBlock: '<left>' # goto the previous block / panel
+        prevItem-alt: 'k' # go one line up
+        prevItem: '<up>' # go one line up
+        prevMatch: 'N'
+        prevPage: ',' # go to next page in list
+        prevScreenMode: '_'
+        prevTab: '['
+        pullFiles: 'p'
+        pushFiles: 'P'
+        quit-alt1: '<c-c>' # alternative/alias of quit
+        quit: 'q'
+        quitWithoutChangingDirectory: 'Q'
+        redo: '<c-z>'
+        refresh: 'R'
+        remove: 'd'
+        return: '<esc>' # return to previous menu, will quit if there's nowhere to return
+        scrollDownMain-alt1: '<c-j>' # main panel scroll down
+        scrollDownMain-alt2: '<c-d>' # main panel scroll down
+        scrollDownMain: '<pgdown>' # main panel scroll down
+        scrollUpMain-alt1: '<c-k>' # main panel scroll up
+        scrollUpMain-alt2: '<c-u>' # main panel scroll up
+        scrollUpMain: '<pgup>' # main panel scroll up
+        select: '<space>'
+        submitEditorText: '<enter>'
+        togglePanel: '<tab>' # goto the next panel
+        toggleWhitespaceInDiffView: '<c-w>'
+        undo: 'z'
+    status:
+        checkForUpdate: 'u'
+        recentRepos: '<enter>'
+    files:
+        amendLastCommit: 'A'
+        commitChanges: 'c'
+        commitChangesWithEditor: 'C'
+        commitChangesWithoutHook: 'w' # commit changes without pre-commit hook
+        fetch: 'f'
+        ignoreFile: 'i'
+        refreshFiles: 'r'
+        stashAllChanges: 's'
+        toggleStagedAll: 'a' # stage/unstage all
+        toggleTreeView: '`'
+        viewResetOptions: 'D'
+        viewStashOptions: 'S'
+    branches:
+        checkoutBranchByName: 'c'
+        createPullRequest: 'o'
+        fastForward: 'f' # fast-forward this branch from its upstream
+        fetchRemote: 'f'
+        forceCheckoutBranch: 'F'
+        mergeIntoCurrentBranch: 'M'
+        pushTag: 'P'
+        rebaseBranch: 'r'
+        setUpstream: 'u' # set as upstream of checked-out branch
+        viewGitFlowOptions: 'i'
+        viewPullRequestOptions: 'O'
+    commits:
+        amendToCommit: 'A'
+        checkoutCommit: '<space>'
+        cherryPickCopy: 'c'
+        cherryPickCopyRange: 'C'
+        copyCommitMessageToClipboard: '<c-y>'
+        createFixupCommit: 'F' # create fixup commit for this commit
+        markCommitAsFixup: 'f'
+        moveDownCommit: 'J' # move commit down one
+        moveUpCommit: 'K' # move commit up one
+        pasteCommits: 'v'
+        pickCommit: 'p' # pick commit (when mid-rebase)
+        renameCommit: 'r'
+        renameCommitWithEditor: 'R'
+        resetCherryPick: '<c-R>'
+        revertCommit: 't'
+        squashAboveCommits: 'S'
+        squashDown: 's'
+        tagCommit: 'T'
+        viewResetOptions: 'g'
+    stash:
+        popStash: 'g'
+    commitFiles:
+        checkoutCommitFile: 'c'
+    main:
+        pickBothHunks: 'b'
+        toggleDragSelect: 'v'
+        toggleDragSelect-alt: 'V'
+        toggleSelectHunk: 'a'
+    submodules:
+        bulkMenu: 'b'
+        init: 'i'
+        update: 'u'
 customCommands:
-  - command: 'git push --force-with-lease'
-    context: 'localBranches'
-    description: 'force push with lease'
-    key: '<c-p>'
+    - command: 'git push --force-with-lease'
+      context: 'localBranches'
+      description: 'force push with lease'
+      key: '<c-p>'
