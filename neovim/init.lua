@@ -113,7 +113,7 @@ require("nvim-tree").setup({
 
 -- nvim-dap-repl-highlights
 -- NOTE: This must be setup before nvim-treesitter.configs, otherwise
--- ensure_installed won't find the dap_repl parser won't be found
+-- ensure_installed won't find the dap_repl parser
 require('nvim-dap-repl-highlights').setup()
 
 -- treesitter
@@ -151,11 +151,11 @@ require 'nvim-treesitter.configs'.setup {
     enable = true,
   },
   -- enable treesitter playground, can helping with finding treesitter "types"
-  -- for modifying colourschems etc
+  -- for modifying colourschemes etc
   playground = {
     enable = true,
     disable = {},
-    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+    updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
     persist_queries = false, -- Whether the query persists across vim sessions
     keybindings = {
       toggle_query_editor = 'o',
@@ -353,14 +353,14 @@ cmp.setup {
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
   },
   sources = {
-    { name = "ultisnips" }, -- For ultisnips user.
+    { name = "ultisnips" },                     -- For ultisnips user.
     -- { name = "copilot", group_index = 2 }, -- For github copilot
-    { name = "nvim_lsp" }, -- For nvim-lsp
-    { name = "path" }, -- For path completion
-    { name = "buffer", keyword_length = 2 }, -- For buffer word completion
+    { name = "nvim_lsp" },                      -- For nvim-lsp
+    { name = "path" },                          -- For path completion
+    { name = "buffer",    keyword_length = 2 }, -- For buffer word completion
     { name = "omni" },
     { name = 'treesitter' },
-    { name = "emoji", insert = true }, -- emoji completion
+    { name = "emoji",     insert = true }, -- emoji completion
   },
   completion = {
     keyword_length = 1,
@@ -408,8 +408,8 @@ cmp.setup {
 cmp.setup {
   formatting = {
     format = lspkind.cmp_format({
-      mode = 'symbol', -- show only symbol annotations
-      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      mode = 'symbol',       -- show only symbol annotations
+      maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
       ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
 
       -- The function below will be called before any actual modifications from lspkind
@@ -447,29 +447,29 @@ local dap = require('dap')
 
 dap.configurations.python = {
   {
-    type = 'python';
-    request = 'launch';
-    name = "Django";
+    type = 'python',
+    request = 'launch',
+    name = "Django",
 
-    program = '${workspaceFolder}/manage.py';
-    justMyCode = false;
-    django = true;
-    args = { "start", "--frontend=none", "--noreload" };
-    console = "integratedTerminal";
+    program = '${workspaceFolder}/manage.py',
+    justMyCode = false,
+    django = true,
+    args = { "start", "--frontend=none", "--noreload" },
+    console = "integratedTerminal",
     pythonPath = function()
       return os.getenv("VIRTUAL_ENV") .. "/bin/python"
-    end;
+    end,
   },
   {
-    type = 'python';
-    request = 'launch';
-    name = "Python";
+    type = 'python',
+    request = 'launch',
+    name = "Python",
 
-    program = '${file}';
-    justMyCode = false;
+    program = '${file}',
+    justMyCode = false,
     pythonPath = function()
       return os.getenv("VIRTUAL_ENV") .. "/bin/python"
-    end;
+    end,
   },
 }
 
@@ -539,8 +539,8 @@ vim.keymap.set({ 'n', 'v' }, '<leader>gh', ':OpenInGHFile<CR>')
 
 -- goto-preview
 require("goto-preview").setup({
-  width = 150; -- Width of the floating window
-  height = 25; -- Height of the floating window
+  width = 150, -- Width of the floating window
+  height = 25, -- Height of the floating window
   post_open_hook = function(buf_handle, win_handle)
     vim.cmd("normal zt")
     -- Set a keymap that will close the floating window
@@ -625,8 +625,8 @@ require("dapui").setup({
     },
   },
   floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
+    max_height = nil,  -- These can be integers or a float between 0 and 1.
+    max_width = nil,   -- Floats will be treated as percentage of your screen.
     border = "single", -- Border style. Can be "single", "double" or "rounded"
     mappings = {
       close = { "q", "<Esc>" },
@@ -756,8 +756,8 @@ require('glance').setup({
     top_char = '―',
     bottom_char = '―',
   },
-  theme = { -- This feature might not work properly in nvim-0.7.2
-    enable = true, -- Will generate colors for the plugin based on your current colorscheme
+  theme = {          -- This feature might not work properly in nvim-0.7.2
+    enable = true,   -- Will generate colors for the plugin based on your current colorscheme
     mode = 'darken', -- 'brighten'|'darken'|'auto', 'auto' will set mode based on the brightness of your colorscheme
   },
   detached = true,
@@ -862,26 +862,26 @@ vim.api.nvim_set_keymap('n', '<leader>fk', "<cmd>lua require('fzf-lua').keymaps(
 -- neotest
 -- https://alpha2phi.medium.com/neovim-for-beginners-testing-part-2-10d4aa8f25d6
 vim.keymap.set('n', '<leader>tf', ":lua require('neotest').run.run({vim.fn.expand('%')})<cr>") -- run file
-vim.keymap.set('n', '<leader>tn', ":lua require('neotest').run.run()<cr>") -- run nearest
-vim.keymap.set('n', '<leader>ta', ":lua require('neotest').run.attach()<cr>") -- attach to nearest nearest
-vim.keymap.set('n', '<leader>ts', ":lua require('neotest').run.stop()<cr>") -- stop nearest nearest
-vim.keymap.set('n', '<leader>td', ":lua require('neotest').run.run({strategy = 'dap'})<cr>") -- debug nearest
+vim.keymap.set('n', '<leader>tn', ":lua require('neotest').run.run()<cr>")                     -- run nearest
+vim.keymap.set('n', '<leader>ta', ":lua require('neotest').run.attach()<cr>")                  -- attach to nearest nearest
+vim.keymap.set('n', '<leader>ts', ":lua require('neotest').run.stop()<cr>")                    -- stop nearest nearest
+vim.keymap.set('n', '<leader>td', ":lua require('neotest').run.run({strategy = 'dap'})<cr>")   -- debug nearest
 vim.keymap.set('n', '<leader>to', ":lua require('neotest').output.open({ enter = true })<cr>") -- show test output
-vim.keymap.set('n', '<leader>tp', ":lua require('neotest').output_panel.toggle()<cr>") -- toggle output panel
-vim.keymap.set('n', '<leader>tt', ":lua require('neotest').summary.toggle()<cr>") -- toggle test summary
+vim.keymap.set('n', '<leader>tp', ":lua require('neotest').output_panel.toggle()<cr>")         -- toggle output panel
+vim.keymap.set('n', '<leader>tt', ":lua require('neotest').summary.toggle()<cr>")              -- toggle test summary
 
 -- dap & dap-ui
 -- https://davelage.com/posts/nvim-dap-getting-started/
 vim.keymap.set('n', '<leader>db', ":lua require('dap').toggle_breakpoint()<cr>") -- toggle breakpoint
 vim.keymap.set('n', '<leader>dx', ":lua require('dap').clear_breakpoints()<cr>") -- toggle breakpoint
-vim.keymap.set('n', '<leader>dc', ":lua require('dap').continue()<cr>") -- continue
-vim.keymap.set('n', '<leader>do', ":lua require('dap').step_over()<cr>") -- step_over
-vim.keymap.set('n', '<leader>di', ":lua require('dap').step_into()<cr>") -- step into
-vim.keymap.set('n', '<leader>du', ":lua require('dap').step_out()<cr>") -- step_out
-vim.keymap.set('n', '<leader>d[', ":lua require('dap').up()<cr>") -- go up in stacktrace without stepping
-vim.keymap.set('n', '<leader>d]', ":lua require('dap').down()<cr>") -- go down in stacktrace without stepping
-vim.keymap.set('n', '<leader>dr', ":lua require('dap').run_to_cursor()<cr>") -- open repl
-vim.keymap.set('n', '<leader>dt', ":lua require('dapui').toggle()<cr>") -- toggle dap-ui
+vim.keymap.set('n', '<leader>dc', ":lua require('dap').continue()<cr>")          -- continue
+vim.keymap.set('n', '<leader>do', ":lua require('dap').step_over()<cr>")         -- step_over
+vim.keymap.set('n', '<leader>di', ":lua require('dap').step_into()<cr>")         -- step into
+vim.keymap.set('n', '<leader>du', ":lua require('dap').step_out()<cr>")          -- step_out
+vim.keymap.set('n', '<leader>d[', ":lua require('dap').up()<cr>")                -- go up in stacktrace without stepping
+vim.keymap.set('n', '<leader>d]', ":lua require('dap').down()<cr>")              -- go down in stacktrace without stepping
+vim.keymap.set('n', '<leader>dr', ":lua require('dap').run_to_cursor()<cr>")     -- open repl
+vim.keymap.set('n', '<leader>dt', ":lua require('dapui').toggle()<cr>")          -- toggle dap-ui
 
 -- vim-floaterm
 -- List floaterms using fzf
