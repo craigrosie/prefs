@@ -3,7 +3,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- pyenv virtualenv with neovim package installed
-vim.g.python3_host_prog = "/Users/craigrosie/.pyenv/versions/neovim-3.11.0/bin/python3"
+vim.g.python3_host_prog = "~/.pyenv/versions/.neovenv-3.11.4/bin/python3"
 
 require('plugins')
 
