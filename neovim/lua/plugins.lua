@@ -130,5 +130,9 @@ return require('packer').startup(function(use)
     "zbirenbaum/copilot-cmp",
   }
   use { 'm-demare/hlargs.nvim' }
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
   use('MunifTanjim/prettier.nvim')
 end)
