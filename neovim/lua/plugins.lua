@@ -130,4 +130,5 @@ return require('packer').startup(function(use)
     "zbirenbaum/copilot-cmp",
   }
   use { 'm-demare/hlargs.nvim' }
+  use('MunifTanjim/prettier.nvim')
 end)

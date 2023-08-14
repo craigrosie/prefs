@@ -481,11 +481,15 @@ null_ls.setup({
     -- formatting
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.lua_format,
+    null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.ruff,
     null_ls.builtins.formatting.taplo,
     -- linting
     null_ls.builtins.diagnostics.checkmake,
     null_ls.builtins.diagnostics.ruff,
+    null_ls.builtins.diagnostics.eslint_d.with({
+      diagnostics_format = '[eslint] #{m}\n(#{c})'
+    }),
     -- code actions
     null_ls.builtins.code_actions.gitsigns,
     null_ls.builtins.code_actions.shellcheck,
@@ -793,6 +797,27 @@ require('hlargs').setup {
     }
   },
 }
+
+-- prettier.nvim
+local prettier = require("prettier")
+
+prettier.setup({
+  bin = 'prettierd', -- or `'prettierd'` (v0.23.3+)
+  filetypes = {
+    "css",
+    "graphql",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "less",
+    "markdown",
+    "scss",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+  },
+})
 
 -- =================================================================================================
 
