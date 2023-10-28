@@ -191,6 +191,7 @@ local language_servers = {
   "dockerls",
   "docker_compose_language_service",
   "jsonls",
+  "kotlin_language_server",
   "lua_ls",
   "pyright",
   "taplo",
