@@ -924,19 +924,19 @@ vim.keymap.set('n', '<leader>dt', ":lua require('dapui').toggle()<cr>")         
 -- vim-floaterm
 -- List floaterms using fzf
 -- <C-w>l hack to ensure floaterm always opens in right split
-vim.keymap.set('n', '<leader>i', "<C-w>l<C-w>l<C-w>l:Floaterms<CR>")
+vim.keymap.set('n', '<leader>i', "<C-w>l<C-w>l<C-w>l<cmd>Floaterms<CR>")
 -- Open new floaterm with hardcoded (iterm) name
 vim.keymap.set('n', '<leader>q',
-  "<C-w>l<C-w>l<C-w>l:FloatermNew --wintype=vsplit --height=1.0 --width=120 --title=iterm --position=right --autoclose=0<CR>")
+  "<C-w>l<C-w>l<C-w>l<cmd>FloatermNew --wintype=vsplit --height=1.0 --width=120 --title=iterm --position=right --autoclose=0<CR>")
 -- Allow specifying the name of the floaterm before opening
 vim.keymap.set('n', '<leader>qn',
   "<C-w>l<C-w>l<C-w>l:FloatermNew --wintype=vsplit --height=1.0 --width=120 --position=right --autoclose=0 --title=")
 -- Shortcut to hide all floaterms
-vim.keymap.set('n', '<leader>qt', ":FloatermHide!<CR>")
+vim.keymap.set('n', '<leader>qt', "<cmd>FloatermHide!<CR>")
 -- Shortcut for killing a floaterm - allows a floaterm name to be entered before killing
 vim.keymap.set('n', '<leader>qk', ":FloatermKill")
 -- Shortcut to open lazygit in a floaterm
-vim.keymap.set('n', '<leader>qg', ":FloatermNew --title=lazygit --width=0.75 --height=0.9 lazygit<CR>")
+vim.keymap.set('n', '<leader>qg', "<cmd>FloatermNew --title=lazygit --width=0.75 --height=0.9 lazygit<CR>")
 -- Allow normal window-switching mappings from floaterm
 vim.keymap.set('t', '<C-h>', "<C-\\><C-n><C-w>h")
 vim.keymap.set('t', '<C-j>', "<C-\\><C-n><C-w>j")
