@@ -190,6 +190,7 @@ local language_servers = {
   "cmake",
   "dockerls",
   "docker_compose_language_service",
+  "emmet_language_server",
   "jsonls",
   "kotlin_language_server",
   "lua_ls",
