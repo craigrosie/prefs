@@ -104,6 +104,10 @@ vim.api.nvim_create_autocmd(
   { "BufRead" },
   { pattern = { ".aliases", ".extra", ".functions" }, command = "setlocal syntax=sh ft=sh" }
 )
+vim.api.nvim_create_autocmd(
+  { "BufRead" },
+  { pattern = { ".djlintrc" }, command = "setlocal syntax=json ft=json" }
+)
 
 -- ==================================================================================================
 
@@ -530,12 +534,19 @@ null_ls.setup({
   sources = {
     -- formatting
     null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.djlint.with({
+      filetypes = { "django", "jinja.html", "htmldjango", "jinja" },
+      extra_args = { "--configuration", vim.fn.expand("~/.djlintrc") },
+    }),
     null_ls.builtins.formatting.lua_format,
     null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.ruff,
     null_ls.builtins.formatting.taplo,
     -- linting
     null_ls.builtins.diagnostics.checkmake,
+    null_ls.builtins.diagnostics.djlint.with({
+      filetypes = { "django", "jinja.html", "htmldjango", "jinja" },
+    }),
     null_ls.builtins.diagnostics.ruff,
     null_ls.builtins.diagnostics.eslint_d.with({
       diagnostics_format = '[eslint] #{m}\n(#{c})'
