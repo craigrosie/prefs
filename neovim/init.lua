@@ -145,7 +145,6 @@ require 'nvim-treesitter.configs'.setup {
     "markdown",
     "markdown_inline",
     "python",
-    "ssh_config",
     "terraform",
     "toml",
     "tsx",
