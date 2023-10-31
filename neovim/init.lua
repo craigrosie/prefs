@@ -930,7 +930,7 @@ vim.api.nvim_set_keymap('n', '<leader>ft', "<cmd>lua require('fzf-lua').tabs()<C
 vim.api.nvim_set_keymap('n', '<leader>fg', "<cmd>lua require('fzf-lua').grep_project()<CR>",
   { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fx', ":FzfLua live_grep cwd=", { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fv', "<cmd>lua require('fzf-lua').grep_visual()<CR>",
+vim.api.nvim_set_keymap('v', '<leader>fv', "<cmd>lua require('fzf-lua').grep_visual()<CR>",
   { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fm', "<cmd>lua require('fzf-lua').resume()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fq', "<cmd>lua require('fzf-lua').quickfix()<CR>",
