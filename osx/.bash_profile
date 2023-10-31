@@ -118,4 +118,6 @@ export PIP_REQUIRE_VIRTUALENV=true
 . $(brew --prefix asdf)/libexec/asdf.sh
 . $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
 
+export RIPGREP_CONFIG_PATH="$HOME/.rgrc"
+
 echo "System online ✔︎"
