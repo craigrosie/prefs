@@ -316,6 +316,10 @@ local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint(bufnr, true)
+  end
+
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = {
@@ -348,7 +352,11 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
-local lspconfig = require("lspconfig")
+local lspconfig = require("lspconfig", {
+  inlay_hints = {
+    enable = true,
+  },
+})
 for i in pairs(language_servers) do
   local server = language_servers[i]
   lspconfig[server].setup({
