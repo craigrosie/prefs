@@ -199,4 +199,4 @@ customCommands:
     key: "<c-p>"
   - key: "<c-o>"
     context: "localBranches"
-    command: "og-pr"
+    command: "gh pr create --web"
