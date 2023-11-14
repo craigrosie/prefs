@@ -27,3 +27,19 @@ endsnippet
 snippet coauthor "Commit co-author" b
 Co-authored-by: ${1:name} <${2:name@example.com}>
 endsnippet
+
+snippet br "Prefix from git branch" b
+`!p
+import subprocess
+import re
+
+branch_re = re.compile(r"^cr\/(\w+)(-\d+)")
+cmd_result = subprocess.run(["git", "branch", "--format='%(refname:short)'"], stdout=subprocess.PIPE)
+branch = cmd_result.stdout.decode('utf-8').replace("'", "")
+
+match = branch_re.match(branch)
+if match:
+	proj = match.group(1)
+	snip.rv = f"{proj.upper()}{match.group(2)}: "
+`
+endsnippet
