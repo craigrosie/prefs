@@ -1337,6 +1337,8 @@ vim.keymap.set("n", "<leader>cc", "<leader>c_", {
 })
 vim.keymap.set("x", "<leader>c", require("osc52").copy_visual)
 
+vim.keymap.set("n", "<leader>r", ":so $MYVIMRC<CR>")
+
 -- lua
 vim.keymap.set("n", "<leader>lf", ":luafile %<CR>")
 vim.keymap.set("n", "<leader>r", ":so $MYVIMRC<CR>")
