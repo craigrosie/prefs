@@ -550,6 +550,9 @@ cmp.setup({
       name = "nvim_lsp",
     }, -- For nvim-lsp
     {
+      name = "nvim_lsp_signature_help",
+    },
+    {
       name = "path",
     }, -- For path completion
     {
@@ -624,7 +627,8 @@ cmp.setup{
   },
 }
 
-require("lsp_signature").setup()
+-- Trying cmp-nvim-lsp-signature-help instead
+-- require("lsp_signature").setup()
 
 -- neotest
 require("neotest").setup({

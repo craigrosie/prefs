@@ -251,4 +251,7 @@ return require("lazy").setup({
     "mvllow/modes.nvim",
   }, -- Too noisy
   -- use { 'andersevenrud/nvim_context_vt' }
+  {
+    "hrsh7th/cmp-nvim-lsp-signature-help",
+  },
 })
