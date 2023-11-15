@@ -511,6 +511,9 @@ cmp.setup({
     end,
 
   },
+  window = {
+    documentation = cmp.config.window.bordered(),
+  },
   mapping = cmp.mapping.preset.insert({
     ["<Tab>"] = function(fallback)
       if cmp.visible() and has_words_before() then
