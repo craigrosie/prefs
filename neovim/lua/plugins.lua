@@ -108,6 +108,9 @@ return require("lazy").setup({
   },
   {
     "voldikss/fzf-floaterm",
+    -- Pinning due to https://github.com/voldikss/fzf-floaterm/pull/5
+    -- breaking showing terminal title in fzf window
+    commit = "66a30db85a7adf573af9b8a4f3f8c4ce0a2d665e",
   },
   {
     "tpope/vim-surround",
