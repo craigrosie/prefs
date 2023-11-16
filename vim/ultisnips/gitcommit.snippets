@@ -34,7 +34,7 @@ import subprocess
 import re
 
 branch_re = re.compile(r"^cr\/(\w+)(-\d+)")
-cmd_result = subprocess.run(["git", "branch", "--format='%(refname:short)'"], stdout=subprocess.PIPE)
+cmd_result = subprocess.run(["git", "rev-parse", "--abbrev-ref", "HEAD"], stdout=subprocess.PIPE)
 branch = cmd_result.stdout.decode('utf-8').replace("'", "")
 
 match = branch_re.match(branch)
