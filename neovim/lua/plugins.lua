@@ -249,6 +249,15 @@ return require("lazy").setup({
   {
     "RRethy/vim-hexokinase",
     build = "make hexokinase",
+    ft = {
+      "html",
+      "css",
+      "javascript",
+      "typescript",
+      "typescriptreact",
+      "javascriptreact",
+      "jinja2",
+    },
   },
   {
     "chrisgrieser/nvim-spider",
