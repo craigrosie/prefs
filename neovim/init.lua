@@ -10,18 +10,8 @@ vim.g.python3_host_prog = "~/.pyenv/versions/.neovenv-3.11.5/bin/python3"
 -- Set leader key to <space>
 vim.g.mapleader = " "
 -- UltiSnips
-vim.g.UltiSnipsSnippetDirectories = {
-  "UltiSnips",
-  "custom_snippets",
-}
-vim.g.floatterm_fzf_layout = {
-  window = {
-    width = 0.6,
-    height = 0.6,
-    border = "sharp",
-    highlight = "FloatermBorder",
-  },
-}
+vim.g.UltiSnipsSnippetDirectories = { "UltiSnips", "custom_snippets" }
+vim.g.floatterm_fzf_layout = { window = { width = 0.6, height = 0.6, border = "sharp", highlight = "FloatermBorder" } }
 
 -- Some sensible defaults
 vim.o.backup = false
@@ -74,100 +64,34 @@ require("plugins")
 require("onedark").setup({
   style = "warmer",
   highlights = {
-    ["@comment"] = {
-      fg = "#595959",
-      bg = "#222222",
-    },
-    ["@preproc"] = {
-      fg = "#232326",
-      bg = "#888888",
-    },
-    ["@field"] = {
-      fg = "#dddddd",
-    },
-    ["@variable"] = {
-      fg = "#dddddd",
-    },
-    ["@number"] = {
-      fg = "#bb70d2",
-    },
-    ["@constant.builtin"] = {
-      fg = "#bb70d2",
-    },
-    ["@boolean"] = {
-      fg = "#bb70d2",
-    },
-    ["@constant"] = {
-      fg = "#bb70d2",
-    },
-    ["@string"] = {
-      fg = "$yellow",
-    },
-    ["@punctuation.bracket"] = {
-      fg = "$yellow",
-    },
-    ["@function"] = {
-      fg = "#A6E22E",
-    },
-    ["@function.builtin"] = {
-      fg = "#4DF6E8",
-    },
-    ["@function.call"] = {
-      fg = "#A6E22E",
-    },
-    ["@method"] = {
-      fg = "#A6E22E",
-    },
-    ["@constructor"] = {
-      fg = "#A6E22E",
-    },
-    ["@method.call"] = {
-      fg = "#A6E22E",
-    },
-    ["@type"] = {
-      fg = "#618b82",
-    },
-    ["@keyword.function"] = {
-      fg = "#FF0000",
-      fmt = "bold",
-    },
-    ["@keyword.return"] = {
-      fg = "#FF0000",
-      fmt = "bold",
-    },
-    ["@keyword.operator"] = {
-      fg = "#FF0000",
-      fmt = "bold",
-    },
-    ["@repeat"] = {
-      fg = "#FF0000",
-      fmt = "bold",
-    },
-    ["@conditional"] = {
-      fg = "#FF0000",
-      fmt = "bold",
-    },
-    ["@include"] = {
-      fg = "#FF0000",
-      fmt = "bold",
-    },
-    ["@parameter"] = {
-      fg = "#e88f29",
-    },
-    ["@text.diff.add"] = {
-      fg = "#08BE14",
-    },
-    ["@text.diff.delete"] = {
-      fg = "#E20505",
-    },
-    ["GlancePreviewMatch"] = {
-      fg = "#dcd7ba",
-      bg = "#484e52",
-    },
-    ["GlanceListMatch"] = {
-      fg = "#dcd7ba",
-      bg = "#484e52",
-    },
+    ["@comment"] = { fg = "#595959", bg = "#222222" },
+    ["@preproc"] = { fg = "#232326", bg = "#888888" },
+    ["@field"] = { fg = "#dddddd" },
+    ["@variable"] = { fg = "#dddddd" },
+    ["@number"] = { fg = "#bb70d2" },
+    ["@constant.builtin"] = { fg = "#bb70d2" },
+    ["@boolean"] = { fg = "#bb70d2" },
+    ["@constant"] = { fg = "#bb70d2" },
+    ["@string"] = { fg = "$yellow" },
+    ["@punctuation.bracket"] = { fg = "$yellow" },
+    ["@function"] = { fg = "#A6E22E" },
+    ["@function.builtin"] = { fg = "#4DF6E8" },
+    ["@function.call"] = { fg = "#A6E22E" },
+    ["@method"] = { fg = "#A6E22E" },
+    ["@constructor"] = { fg = "#A6E22E" },
+    ["@method.call"] = { fg = "#A6E22E" },
+    ["@type"] = { fg = "#618b82" },
+    ["@keyword.function"] = { fg = "#FF0000", fmt = "bold" },
+    ["@keyword.return"] = { fg = "#FF0000", fmt = "bold" },
+    ["@keyword.operator"] = { fg = "#FF0000", fmt = "bold" },
+    ["@repeat"] = { fg = "#FF0000", fmt = "bold" },
+    ["@conditional"] = { fg = "#FF0000", fmt = "bold" },
+    ["@include"] = { fg = "#FF0000", fmt = "bold" },
+    ["@parameter"] = { fg = "#e88f29" },
+    ["@text.diff.add"] = { fg = "#08BE14" },
+    ["@text.diff.delete"] = { fg = "#E20505" },
+    ["GlancePreviewMatch"] = { fg = "#dcd7ba", bg = "#484e52" },
+    ["GlanceListMatch"] = { fg = "#dcd7ba", bg = "#484e52" },
   },
 })
 require("onedark").load()
@@ -178,56 +102,23 @@ vim.notify = require("notify")
 -- Autocmds
 
 -- Disable line numbers in terminal
-vim.api.nvim_create_autocmd({
-  "TermOpen",
-  "TermEnter",
-}, {
-  pattern = {
-    "*",
-  },
-  command = "setlocal nonumber | setlocal signcolumn=no",
-})
+vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" },
+  { pattern = { "*" }, command = "setlocal nonumber | setlocal signcolumn=no" })
 
 -- Strip trailing whitespace on save
-vim.api.nvim_create_autocmd({
-  "BufWritePre",
-}, {
-  pattern = {
-    "*",
-  },
-  command = [[%s/\s\+$//e]],
-})
+vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*" }, command = [[%s/\s\+$//e]] })
 
 -- Enable proper syntax highlighting for custom dotfiles
-vim.api.nvim_create_autocmd({
-  "BufRead",
-}, {
-  pattern = {
-    ".aliases",
-    ".extra",
-    ".functions",
-  },
-  command = "setlocal syntax=sh ft=sh",
-})
-vim.api.nvim_create_autocmd({
-  "BufRead",
-}, {
-  pattern = {
-    ".djlintrc",
-  },
-  command = "setlocal syntax=json ft=json",
-})
+vim.api.nvim_create_autocmd({ "BufRead" },
+  { pattern = { ".aliases", ".extra", ".functions" }, command = "setlocal syntax=sh ft=sh" })
+vim.api.nvim_create_autocmd({ "BufRead" }, { pattern = { ".djlintrc" }, command = "setlocal syntax=json ft=json" })
 
 -- ==================================================================================================
 
 -- PLUGIN SETUP
 
 -- nvim-tree
-require("nvim-tree").setup({
-  view = {
-    adaptive_size = true,
-  },
-})
+require("nvim-tree").setup({ view = { adaptive_size = true } })
 
 -- nvim-dap-repl-highlights
 -- NOTE: This must be setup before nvim-treesitter.configs, otherwise
@@ -265,11 +156,7 @@ require("nvim-treesitter.configs").setup({
 
   incremental_selection = {
     enable = true,
-    keymaps = {
-      init_selection = "<Enter>",
-      node_incremental = "<Enter>",
-      node_decremental = "<BS>",
-    },
+    keymaps = { init_selection = "<Enter>", node_incremental = "<Enter>", node_decremental = "<BS>" },
   },
 
   highlight = {
@@ -284,76 +171,28 @@ require("nvim-treesitter.configs").setup({
       lookahead = true,
       keymaps = {
         -- ASSIGNMENT
-        ["a="] = {
-          query = "@assignment.outer",
-          desc = "Select outer part of assignment",
-        },
-        ["i="] = {
-          query = "@assignment.inner",
-          desc = "Select inner part of assignment",
-        },
-        ["l="] = {
-          query = "@assignment.lhs",
-          desc = "Select left hand side of assignment",
-        },
-        ["r="] = {
-          query = "@assignment.rhs",
-          desc = "Select right hand side of assignment",
-        },
+        ["a="] = { query = "@assignment.outer", desc = "Select outer part of assignment" },
+        ["i="] = { query = "@assignment.inner", desc = "Select inner part of assignment" },
+        ["l="] = { query = "@assignment.lhs", desc = "Select left hand side of assignment" },
+        ["r="] = { query = "@assignment.rhs", desc = "Select right hand side of assignment" },
         -- PARAMETER
-        ["aa"] = {
-          query = "@parameter.outer",
-          desc = "Select outer part of parameter/argument",
-        },
-        ["ia"] = {
-          query = "@parameter.inner",
-          desc = "Select inner part of parameter/argument",
-        },
+        ["aa"] = { query = "@parameter.outer", desc = "Select outer part of parameter/argument" },
+        ["ia"] = { query = "@parameter.inner", desc = "Select inner part of parameter/argument" },
         -- CONDITIONAL
-        ["ai"] = {
-          query = "@conditional.outer",
-          desc = "Select outer part of a conditional",
-        },
-        ["ii"] = {
-          query = "@conditional.inner",
-          desc = "Select inner part of a conditional",
-        },
+        ["ai"] = { query = "@conditional.outer", desc = "Select outer part of a conditional" },
+        ["ii"] = { query = "@conditional.inner", desc = "Select inner part of a conditional" },
         -- LOOP
-        ["al"] = {
-          query = "@loop.outer",
-          desc = "Select outer part of a loop",
-        },
-        ["il"] = {
-          query = "@loop.inner",
-          desc = "Select inner part of a loop",
-        },
+        ["al"] = { query = "@loop.outer", desc = "Select outer part of a loop" },
+        ["il"] = { query = "@loop.inner", desc = "Select inner part of a loop" },
         -- FUNCTION CALL
-        ["af"] = {
-          query = "@call.outer",
-          desc = "Select outer part of a function call",
-        },
-        ["if"] = {
-          query = "@call.inner",
-          desc = "Select inner part of a function call",
-        },
+        ["af"] = { query = "@call.outer", desc = "Select outer part of a function call" },
+        ["if"] = { query = "@call.inner", desc = "Select inner part of a function call" },
         -- FUNCTION
-        ["am"] = {
-          query = "@function.outer",
-          desc = "Select outer part of a function definition",
-        },
-        ["im"] = {
-          query = "@function.inner",
-          desc = "Select inner part of a function definition",
-        },
+        ["am"] = { query = "@function.outer", desc = "Select outer part of a function definition" },
+        ["im"] = { query = "@function.inner", desc = "Select inner part of a function definition" },
         -- CLASS
-        ["ac"] = {
-          query = "@class.outer",
-          desc = "Select outer part of a class",
-        },
-        ["ic"] = {
-          query = "@class.inner",
-          desc = "Select inner part of a class",
-        },
+        ["ac"] = { query = "@class.outer", desc = "Select outer part of a class" },
+        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class" },
       },
     },
     swap = {
@@ -375,114 +214,38 @@ require("nvim-treesitter.configs").setup({
       enable = true,
       set_jumps = true, -- whether to set jumps in the jumplist
       goto_next_start = {
-        ["]f"] = {
-          query = "@call.outer",
-          desc = "Next function call start",
-        },
-        ["]m"] = {
-          query = "@function.outer",
-          desc = "Next function definition start",
-        },
-        ["]c"] = {
-          query = "@class.outer",
-          desc = "Next class start",
-        },
-        ["]i"] = {
-          query = "@conditional.outer",
-          desc = "Next conditional start",
-        },
-        ["]l"] = {
-          query = "@loop.outer",
-          desc = "Next loop start",
-        },
+        ["]f"] = { query = "@call.outer", desc = "Next function call start" },
+        ["]m"] = { query = "@function.outer", desc = "Next function definition start" },
+        ["]c"] = { query = "@class.outer", desc = "Next class start" },
+        ["]i"] = { query = "@conditional.outer", desc = "Next conditional start" },
+        ["]l"] = { query = "@loop.outer", desc = "Next loop start" },
 
-        ["]s"] = {
-          query = "@scope",
-          query_group = "locals",
-          desc = "Next scope",
-        },
-        ["]z"] = {
-          query = "@fold",
-          query_group = "folds",
-          desc = "Next fold",
-        },
+        ["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
+        ["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
       },
       goto_next_end = {
-        ["]F"] = {
-          query = "@call.outer",
-          desc = "Next function call end",
-        },
-        ["]M"] = {
-          query = "@function.outer",
-          desc = "Next function definition end",
-        },
-        ["]C"] = {
-          query = "@class.outer",
-          desc = "Next class end",
-        },
-        ["]I"] = {
-          query = "@conditional.outer",
-          desc = "Next conditional end",
-        },
-        ["]L"] = {
-          query = "@loop.outer",
-          desc = "Next loop end",
-        },
+        ["]F"] = { query = "@call.outer", desc = "Next function call end" },
+        ["]M"] = { query = "@function.outer", desc = "Next function definition end" },
+        ["]C"] = { query = "@class.outer", desc = "Next class end" },
+        ["]I"] = { query = "@conditional.outer", desc = "Next conditional end" },
+        ["]L"] = { query = "@loop.outer", desc = "Next loop end" },
       },
       goto_previous_start = {
-        ["[f"] = {
-          query = "@call.outer",
-          desc = "Previous function call start",
-        },
-        ["[m"] = {
-          query = "@function.outer",
-          desc = "Previous function definition start",
-        },
-        ["[c"] = {
-          query = "@class.outer",
-          desc = "Previous class start",
-        },
-        ["[i"] = {
-          query = "@conditional.outer",
-          desc = "Previous conditional start",
-        },
-        ["[l"] = {
-          query = "@loop.outer",
-          desc = "Previous loop start",
-        },
+        ["[f"] = { query = "@call.outer", desc = "Previous function call start" },
+        ["[m"] = { query = "@function.outer", desc = "Previous function definition start" },
+        ["[c"] = { query = "@class.outer", desc = "Previous class start" },
+        ["[i"] = { query = "@conditional.outer", desc = "Previous conditional start" },
+        ["[l"] = { query = "@loop.outer", desc = "Previous loop start" },
 
-        ["[s"] = {
-          query = "@scope",
-          query_group = "locals",
-          desc = "Previous scope",
-        },
-        ["[z"] = {
-          query = "@fold",
-          query_group = "folds",
-          desc = "Previous fold",
-        },
+        ["[s"] = { query = "@scope", query_group = "locals", desc = "Previous scope" },
+        ["[z"] = { query = "@fold", query_group = "folds", desc = "Previous fold" },
       },
       goto_previous_end = {
-        ["[F"] = {
-          query = "@call.outer",
-          desc = "Previous function call end",
-        },
-        ["[M"] = {
-          query = "@function.outer",
-          desc = "Previous function definition end",
-        },
-        ["[C"] = {
-          query = "@class.outer",
-          desc = "Previous class end",
-        },
-        ["[I"] = {
-          query = "@conditional.outer",
-          desc = "Previous conditional end",
-        },
-        ["[L"] = {
-          query = "@loop.outer",
-          desc = "Previous loop end",
-        },
+        ["[F"] = { query = "@call.outer", desc = "Previous function call end" },
+        ["[M"] = { query = "@function.outer", desc = "Previous function definition end" },
+        ["[C"] = { query = "@class.outer", desc = "Previous class end" },
+        ["[I"] = { query = "@conditional.outer", desc = "Previous conditional end" },
+        ["[L"] = { query = "@loop.outer", desc = "Previous loop end" },
       },
     },
   },
@@ -490,38 +253,14 @@ require("nvim-treesitter.configs").setup({
 
 local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
 
-vim.keymap.set({
-  "n",
-  "x",
-  "o",
-}, ";", ts_repeat_move.repeat_last_move)
-vim.keymap.set({
-  "n",
-  "x",
-  "o",
-}, ",", ts_repeat_move.repeat_last_move_opposite)
+vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
 
 -- make builtin f, F, t, T also repeatable with ; and ,
-vim.keymap.set({
-  "n",
-  "x",
-  "o",
-}, "f", ts_repeat_move.builtin_f)
-vim.keymap.set({
-  "n",
-  "x",
-  "o",
-}, "F", ts_repeat_move.builtin_F)
-vim.keymap.set({
-  "n",
-  "x",
-  "o",
-}, "t", ts_repeat_move.builtin_t)
-vim.keymap.set({
-  "n",
-  "x",
-  "o",
-}, "T", ts_repeat_move.builtin_T)
+vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
+vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
+vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
+vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
 
 -- Mason
 local language_servers = {
@@ -539,17 +278,12 @@ local language_servers = {
   "yamlls",
 }
 require("mason").setup()
-require("mason-lspconfig").setup({
-  ensure_installed = language_servers,
-})
+require("mason-lspconfig").setup({ ensure_installed = language_servers })
 
 -- LSP
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = {
-  noremap = true,
-  silent = true,
-}
+local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
@@ -561,17 +295,11 @@ local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  if client.server_capabilities.inlayHintProvider then
-    vim.lsp.inlay_hint(bufnr, true)
-  end
+  if client.server_capabilities.inlayHintProvider then vim.lsp.inlay_hint(bufnr, true) end
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = {
-    noremap = true,
-    silent = true,
-    buffer = bufnr,
-  }
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
@@ -579,35 +307,22 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<C-s>", vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set("n", "<space>wl", function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
+  vim.keymap.set("n", "<space>wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
   vim.keymap.set("n", "gtd", vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, bufopts)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-  vim.keymap.set("n", "<leader>b", function()
-    vim.lsp.buf.format{
-      async = true,
-    }
-  end, bufopts)
+  vim.keymap.set("n", "<leader>b", function() vim.lsp.buf.format{ async = true } end, bufopts)
 end
 
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
-local lspconfig = require("lspconfig", {
-  inlay_hints = {
-    enable = true,
-  },
-})
+local lspconfig = require("lspconfig", { inlay_hints = { enable = true } })
 for i in pairs(language_servers) do
   local server = language_servers[i]
-  lspconfig[server].setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-  })
+  lspconfig[server].setup({ on_attach = on_attach, flags = lsp_flags })
 end
 lspconfig.emmet_language_server.setup({
   filetypes = {
@@ -639,25 +354,14 @@ lspconfig.emmet_language_server.setup({
     --- @type boolean Defaults to `false`
     showSuggestionsAsSnippets = false,
     --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
-    syntaxProfiles = {
-      tag_nl = "decide",
-      inline_break = 1,
-    },
+    syntaxProfiles = { tag_nl = "decide", inline_break = 1 },
     --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
     variables = {},
   },
 })
 lspconfig.lua_ls.setup({
   -- ... other configs
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = {
-          "vim",
-        },
-      },
-    },
-  },
+  settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 })
 
 -- NOTE: Copilot needs to be set up before cmp
@@ -665,13 +369,7 @@ require("copilot").setup({
   panel = {
     enabled = true,
     auto_refresh = false,
-    keymap = {
-      jump_prev = "[[",
-      jump_next = "]]",
-      accept = "<leader>a",
-      refresh = "gr",
-      open = "<leader>cp",
-    },
+    keymap = { jump_prev = "[[", jump_next = "]]", accept = "<leader>a", refresh = "gr", open = "<leader>cp" },
     layout = {
       position = "bottom", -- | top | left | right
       ratio = 0.4,
@@ -699,11 +397,7 @@ require("copilot_cmp").setup()
 -- from: https://raw.githubusercontent.com/jdhao/nvim-config/master/lua/config/nvim-cmp.lua
 local cmp = require("cmp")
 local lspkind = require("lspkind")
-lspkind.init({
-  symbol_map = {
-    Copilot = "",
-  },
-})
+lspkind.init({ symbol_map = { Copilot = "" } })
 
 local lspkind_priority = require("cmp-lspkind-priority")
 lspkind_priority.setup{
@@ -743,9 +437,7 @@ local compare = require("cmp.config.compare")
 local has_words_before = function()
   if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and
-           vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match(
-      "^%s*$") == nil
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
 end
 
 cmp.setup({
@@ -756,9 +448,7 @@ cmp.setup({
     end,
 
   },
-  window = {
-    documentation = cmp.config.window.bordered(),
-  },
+  window = { documentation = cmp.config.window.bordered() },
   mapping = cmp.mapping.preset.insert({
     ["<Tab>"] = function(fallback)
       if cmp.visible() and has_words_before() then
@@ -775,53 +465,25 @@ cmp.setup({
         fallback()
       end
     end,
-    ["<CR>"] = cmp.mapping.confirm{
-      select = true,
-    },
+    ["<CR>"] = cmp.mapping.confirm{ select = true },
     ["<C-e>"] = cmp.mapping.abort(),
     ["<C-q>"] = cmp.mapping.close(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
   }),
   sources = {
-    {
-      name = "ultisnips",
-    }, -- For ultisnips user.
-    {
-      name = "copilot",
-      group_index = 2,
-    }, -- For github copilot
-    {
-      name = "nvim_lsp",
-    }, -- For nvim-lsp
-    {
-      name = "nvim_lsp_signature_help",
-    },
-    {
-      name = "path",
-    }, -- For path completion
-    {
-      name = "buffer",
-      keyword_length = 2,
-    }, -- For buffer word completion
-    {
-      name = "omni",
-    },
-    {
-      name = "treesitter",
-    },
-    {
-      name = "emoji",
-      insert = true,
-    }, -- emoji completion
+    { name = "ultisnips" }, -- For ultisnips user.
+    { name = "copilot", group_index = 2 }, -- For github copilot
+    { name = "nvim_lsp" }, -- For nvim-lsp
+    { name = "nvim_lsp_signature_help" },
+    { name = "path" }, -- For path completion
+    { name = "buffer", keyword_length = 2 }, -- For buffer word completion
+    { name = "omni" },
+    { name = "treesitter" },
+    { name = "emoji", insert = true }, -- emoji completion
   },
-  completion = {
-    keyword_length = 1,
-    completeopt = "menu,noselect",
-  },
-  view = {
-    entries = "custom",
-  },
+  completion = { keyword_length = 1, completeopt = "menu,noselect" },
+  view = { entries = "custom" },
   formatting = {
     format = lspkind.cmp_format{
       mode = "symbol_text",
@@ -850,9 +512,7 @@ cmp.setup({
       compare.order,
     },
   },
-  experimental = {
-    ghost_text = true,
-  },
+  experimental = { ghost_text = true },
 })
 
 -- Setup lspkind with nvim-cmp
@@ -877,19 +537,8 @@ cmp.setup{
 
 -- neotest
 require("neotest").setup({
-  adapters = {
-    require("neotest-python")({
-      dap = {
-        justMyCode = false,
-      },
-      args = {
-        "-vv",
-      },
-    }),
-  },
-  quickfix = {
-    enabled = false,
-  },
+  adapters = { require("neotest-python")({ dap = { justMyCode = false }, args = { "-vv" } }) },
+  quickfix = { enabled = false },
 })
 
 -- dap-python
@@ -910,11 +559,7 @@ dap.configurations.python = {
     program = "${workspaceFolder}/manage.py",
     justMyCode = false,
     django = true,
-    args = {
-      "start",
-      "--frontend=none",
-      "--noreload",
-    },
+    args = { "start", "--frontend=none", "--noreload" },
     console = "integratedTerminal",
     pythonPath = function() return os.getenv("VIRTUAL_ENV") .. "/bin/python" end,
 
@@ -939,58 +584,30 @@ null_ls.setup({
     -- formatting
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.djlint.with({
-      filetypes = {
-        "django",
-        "jinja.html",
-        "htmldjango",
-        "jinja",
-      },
-      extra_args = {
-        "--configuration",
-        vim.fn.expand("~/.djlintrc"),
-      },
+      filetypes = { "django", "jinja.html", "htmldjango", "jinja" },
+      extra_args = { "--configuration", vim.fn.expand("~/.djlintrc") },
     }),
     null_ls.builtins.formatting.lua_format.with({
-      extra_args = {
-        "--config=" .. vim.fn.expand("~/.config/lua-format/config.yaml"),
-      },
+      extra_args = { "--config=" .. vim.fn.expand("~/.config/lua-format/config.yaml") },
     }),
     null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.ruff,
     null_ls.builtins.formatting.taplo, -- linting
     null_ls.builtins.diagnostics.checkmake,
-    null_ls.builtins.diagnostics.djlint.with({
-      filetypes = {
-        "django",
-        "jinja.html",
-        "htmldjango",
-        "jinja",
-      },
-    }),
+    null_ls.builtins.diagnostics.djlint.with({ filetypes = { "django", "jinja.html", "htmldjango", "jinja" } }),
     null_ls.builtins.diagnostics.ruff,
-    null_ls.builtins.diagnostics.eslint_d.with({
-      diagnostics_format = "[eslint] #{m}\n(#{c})",
-    }), -- code actions
+    null_ls.builtins.diagnostics.eslint_d.with({ diagnostics_format = "[eslint] #{m}\n(#{c})" }), -- code actions
     null_ls.builtins.code_actions.gitsigns,
     null_ls.builtins.code_actions.shellcheck,
   },
   -- format on save
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
-      vim.api.nvim_clear_autocmds({
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd({ "BufWritePre" }, {
         group = augroup,
         buffer = bufnr,
-      })
-      vim.api.nvim_create_autocmd({
-        "BufWritePre",
-      }, {
-        group = augroup,
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format({
-            bufnr = bufnr,
-          })
-        end,
+        callback = function() vim.lsp.buf.format({ bufnr = bufnr }) end,
 
       })
     end
@@ -1002,36 +619,20 @@ null_ls.setup({
 require("gitsigns").setup()
 
 -- symbols-outline.nvim
-require("symbols-outline").setup({
-  width = 20,
-  autofold_depth = 1,
-})
+require("symbols-outline").setup({ width = 20, autofold_depth = 1 })
 vim.keymap.set("n", "<leader>so", ":SymbolsOutline<CR>")
 
 -- octo
-require("octo").setup({
-  ssh_aliases = {
-    ["github.com-craigrosie"] = "github.com",
-  },
-})
+require("octo").setup({ ssh_aliases = { ["github.com-craigrosie"] = "github.com" } })
 
 -- todo-comments
-require("todo-comments").setup({
-  highlight = {
-    keyword = "wide_fg",
-  },
-})
+require("todo-comments").setup({ highlight = { keyword = "wide_fg" } })
 
 -- barbecue
-require("barbecue").setup({
-  create_autocmd = true,
-})
+require("barbecue").setup({ create_autocmd = true })
 
 -- openingh.vim
-vim.keymap.set({
-  "n",
-  "v",
-}, "<leader>gh", ":OpenInGHFile<CR>")
+vim.keymap.set({ "n", "v" }, "<leader>gh", ":OpenInGHFile<CR>")
 
 -- goto-preview
 require("goto-preview").setup({
@@ -1041,38 +642,22 @@ require("goto-preview").setup({
     vim.cmd("normal zt")
     -- Set a keymap that will close the floating window
     vim.api.nvim_buf_set_keymap(buf_handle, "n", "<Esc>",
-      ("<Cmd>call nvim_win_close(%d, v:false)<CR>"):format(win_handle), {
-        noremap = true,
-      })
+      ("<Cmd>call nvim_win_close(%d, v:false)<CR>"):format(win_handle), { noremap = true })
   end,
 
 })
-vim.api.nvim_set_keymap("n", "gpd",
-  "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", {
-    noremap = true,
-  })
-vim.api.nvim_set_keymap("n", "<c-g>",
-  "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", {
-    noremap = true,
-  })
-vim.api.nvim_set_keymap("n", "gpq",
-  "<cmd>lua require('goto-preview').close_all_win()<CR>", {
-    noremap = true,
-  })
+vim.api
+  .nvim_set_keymap("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<c-g>", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
+  { noremap = true })
+vim.api.nvim_set_keymap("n", "gpq", "<cmd>lua require('goto-preview').close_all_win()<CR>", { noremap = true })
 
 -- dap-ui
 require("dapui").setup({
-  icons = {
-    expanded = "",
-    collapsed = ">",
-    current_frame = "➜",
-  },
+  icons = { expanded = "", collapsed = ">", current_frame = "➜" },
   mappings = {
     -- Use a table to apply multiple mappings
-    expand = {
-      "<CR>",
-      "<2-LeftMouse>",
-    },
+    expand = { "<CR>", "<2-LeftMouse>" },
     open = "o",
     remove = "d",
     edit = "e",
@@ -1109,14 +694,7 @@ require("dapui").setup({
       size = 0.20,
       position = "left",
     },
-    {
-      elements = {
-        "repl",
-        "console",
-      },
-      size = 0.25,
-      position = "bottom",
-    },
+    { elements = { "repl", "console" }, size = 0.25, position = "bottom" },
   },
   controls = {
     enabled = true,
@@ -1137,16 +715,9 @@ require("dapui").setup({
     max_height = nil, -- These can be integers or a float between 0 and 1.
     max_width = nil, -- Floats will be treated as percentage of your screen.
     border = "single", -- Border style. Can be "single", "double" or "rounded"
-    mappings = {
-      close = {
-        "q",
-        "<Esc>",
-      },
-    },
+    mappings = { close = { "q", "<Esc>" } },
   },
-  windows = {
-    indent = 1,
-  },
+  windows = { indent = 1 },
   render = {
     max_type_length = nil, -- Can be integer or nil.
     max_value_lines = 100, -- Can be integer or nil.
@@ -1155,28 +726,20 @@ require("dapui").setup({
 
 -- Open dap-ui automatically
 local dap, dapui = require("dap"), require("dapui")
-dap.listeners.after.event_initialized["dapui_config"] =
-  function() dapui.open() end
+dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
 
-dap.listeners.before.event_terminated["dapui_config"] =
-  function() dapui.close() end
+dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
 
 dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
 
 -- neoscroll
 require("neoscroll").setup()
 
-require("indent_blankline").setup{
-  show_current_context = true,
-  show_current_context_start = false,
-}
+require("indent_blankline").setup{ show_current_context = true, show_current_context_start = false }
 
 -- nvim-pytrize
 require("pytrize").setup()
-vim.keymap.set("n", "gf", ":PytrizeJumpFixture<cr>", {
-  noremap = true,
-  silent = true,
-})
+vim.keymap.set("n", "gf", ":PytrizeJumpFixture<cr>", { noremap = true, silent = true })
 
 -- mini.nvim
 require("mini.ai").setup()
@@ -1196,88 +759,44 @@ require("local-highlight").setup({})
 
 -- lualine
 
-local function min_window_width(width)
-  return function() return vim.fn.winwidth(0) > width end
-end
+local function min_window_width(width) return function() return vim.fn.winwidth(0) > width end end
 
 require("lualine").setup{
   options = {
     icons_enabled = true,
     theme = "codedark",
-    component_separators = {
-      left = "",
-      right = "",
-    },
-    section_separators = {
-      left = "",
-      right = "",
-    },
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
-    },
+    component_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
+    disabled_filetypes = { statusline = {}, winbar = {} },
     ignore_focus = {},
     always_divide_middle = true,
     globalstatus = false,
-    refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
-    },
+    refresh = { statusline = 1000, tabline = 1000, winbar = 1000 },
   },
   sections = {
-    lualine_a = {
-      {
-        "mode",
-        fmt = function(str) return str:sub(1, 1) end,
-      },
-    },
+    lualine_a = { { "mode", fmt = function(str) return str:sub(1, 1) end } },
     lualine_b = {
       -- { 'branch', cond = min_window_width(80) },
       -- 'diff',
       -- 'diagnostics',
     },
-    lualine_c = {
-      {
-        "filename",
-        path = 1,
-      },
-    },
-    lualine_x = {
-      "filetype",
-    },
-    lualine_y = {
-      "progress",
-    },
-    lualine_z = {
-      "location",
-    },
+    lualine_c = { { "filename", path = 1 } },
+    lualine_x = { "filetype" },
+    lualine_y = { "progress" },
+    lualine_z = { "location" },
   },
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {
-      {
-        "filename",
-        path = 1,
-      },
-    },
-    lualine_x = {
-      "location",
-    },
+    lualine_c = { { "filename", path = 1 } },
+    lualine_x = { "location" },
     lualine_y = {},
     lualine_z = {},
   },
   tabline = {},
   winbar = {},
   inactive_winbar = {},
-  extensions = {
-    "fzf",
-    "nvim-dap-ui",
-    "nvim-tree",
-    "symbols-outline",
-    "toggleterm",
-  },
+  extensions = { "fzf", "nvim-dap-ui", "nvim-tree", "symbols-outline", "toggleterm" },
 }
 
 -- lsp-lens
@@ -1307,43 +826,18 @@ require("scrollbar").setup()
 
 -- nvim-lastplace
 require("nvim-lastplace").setup{
-  lastplace_ignore_buftype = {
-    "quickfix",
-    "nofile",
-    "help",
-    "terminal",
-  },
-  lastplace_ignore_filetype = {
-    "gitcommit",
-    "gitrebase",
-    "fzf",
-  },
+  lastplace_ignore_buftype = { "quickfix", "nofile", "help", "terminal" },
+  lastplace_ignore_filetype = { "gitcommit", "gitrebase", "fzf" },
 }
 
 -- close-buffers.nvim
-require("close_buffers").setup({
-  preserve_window_layout = {
-    "this",
-  },
-})
-vim.keymap.set("n", "<leader>cb",
-  ":lua require('close_buffers').delete({type = 'hidden'})<CR>")
+require("close_buffers").setup({ preserve_window_layout = { "this" } })
+vim.keymap.set("n", "<leader>cb", ":lua require('close_buffers').delete({type = 'hidden'})<CR>")
 
 -- hlargs.nvim
 require("hlargs").setup{
   color = "#e88f29", -- same as @parameter
-  excluded_argnames = {
-    declarations = {},
-    usages = {
-      python = {
-        "self",
-        "cls",
-      },
-      lua = {
-        "self",
-      },
-    },
-  },
+  excluded_argnames = { declarations = {}, usages = { python = { "self", "cls" }, lua = { "self" } } },
 }
 
 -- prettier.nvim
@@ -1373,38 +867,12 @@ vim.keymap.set("n", "<leader>or", ":OverseerRun<CR>")
 vim.keymap.set("n", "<leader>ot", ":OverseerTaskAction<CR>")
 
 -- nvim-spider
-require("spider").setup{
-  skipInsignificantPunctuation = true,
-}
+require("spider").setup{ skipInsignificantPunctuation = true }
 
-vim.keymap.set({
-  "n",
-  "o",
-  "x",
-}, "w", "<cmd>lua require('spider').motion('w')<CR>", {
-  desc = "Spider-w",
-})
-vim.keymap.set({
-  "n",
-  "o",
-  "x",
-}, "e", "<cmd>lua require('spider').motion('e')<CR>", {
-  desc = "Spider-e",
-})
-vim.keymap.set({
-  "n",
-  "o",
-  "x",
-}, "b", "<cmd>lua require('spider').motion('b')<CR>", {
-  desc = "Spider-b",
-})
-vim.keymap.set({
-  "n",
-  "o",
-  "x",
-}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", {
-  desc = "Spider-ge",
-})
+vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
 
 -- modes.nvim
 require("modes").setup()
@@ -1446,101 +914,47 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<leader><space>", ":noh <CR>")
 
 -- fzf-lua
-require("fzf-lua").setup({
-  lsp = {
-    async_or_timeout = true,
-  },
-})
-vim.api.nvim_set_keymap("n", "<leader>fp",
-  "<cmd>lua require('fzf-lua').git_files()<CR>", {
-    noremap = true,
-    silent = true,
-  })
+require("fzf-lua").setup({ lsp = { async_or_timeout = true } })
+vim.api.nvim_set_keymap("n", "<leader>fp", "<cmd>lua require('fzf-lua').git_files()<CR>",
+  { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>ff",
   "<cmd>lua require('fzf-lua').files({ cwd_prompt = false, prompt = 'Files❯ ' })<CR>",
-  {
-    noremap = true,
-    silent = true,
-  })
-vim.api.nvim_set_keymap("n", "<leader>fr",
-  "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", {
-    noremap = true,
-    silent = true,
-  })
-vim.api.nvim_set_keymap("n", "<leader>ft",
-  "<cmd>lua require('fzf-lua').tabs()<CR>", {
-    noremap = true,
-    silent = true,
-  })
-vim.api.nvim_set_keymap("n", "<leader>fg",
-  "<cmd>lua require('fzf-lua').grep_project()<CR>", {
-    noremap = true,
-    silent = true,
-  })
-vim.api.nvim_set_keymap("n", "<leader>fn",
-  "<cmd>lua require('fzf-lua').live_grep_glob()<CR>", {
-    noremap = true,
-    silent = true,
-  })
-vim.api.nvim_set_keymap("n", "<leader>fx", ":FzfLua live_grep cwd=", {
-  noremap = true,
-})
-vim.api.nvim_set_keymap("v", "<leader>fv",
-  "<cmd>lua require('fzf-lua').grep_visual()<CR>", {
-    noremap = true,
-    silent = true,
-  })
-vim.api.nvim_set_keymap("n", "<leader>fm",
-  "<cmd>lua require('fzf-lua').resume()<CR>", {
-    noremap = true,
-    silent = true,
-  })
-vim.api.nvim_set_keymap("n", "<leader>fq",
-  "<cmd>lua require('fzf-lua').quickfix()<CR>", {
-    noremap = true,
-    silent = true,
-  })
-vim.api.nvim_set_keymap("n", "<leader>fl",
-  "<cmd>lua require('fzf-lua').loclist()<CR>", {
-    noremap = true,
-    silent = true,
-  })
-vim.api.nvim_set_keymap("n", "<leader>flr",
-  "<cmd>lua require('fzf-lua').lsp_references()<CR>", {
-    noremap = true,
-    silent = true,
-  })
-vim.api.nvim_set_keymap("n", "<leader>fli",
-  "<cmd>lua require('fzf-lua').lsp_incoming_calls()<CR>", {
-    noremap = true,
-    silent = true,
-  })
-vim.api.nvim_set_keymap("n", "<leader>fld",
-  "<cmd>lua require('fzf-lua').lsp_definitions()<CR>", {
-    noremap = true,
-    silent = true,
-  })
-vim.api.nvim_set_keymap("n", "<leader>fk",
-  "<cmd>lua require('fzf-lua').keymaps()<CR>", {
-    noremap = true,
-    silent = true,
-  })
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>fr", "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>",
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ft", "<cmd>lua require('fzf-lua').tabs()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>fg", "<cmd>lua require('fzf-lua').grep_project()<CR>",
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>fn", "<cmd>lua require('fzf-lua').live_grep_glob()<CR>",
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>fx", ":FzfLua live_grep cwd=", { noremap = true })
+vim.api.nvim_set_keymap("v", "<leader>fv", "<cmd>lua require('fzf-lua').grep_visual()<CR>",
+  { noremap = true, silent = true })
+vim.api
+  .nvim_set_keymap("n", "<leader>fm", "<cmd>lua require('fzf-lua').resume()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>fq", "<cmd>lua require('fzf-lua').quickfix()<CR>",
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>fl", "<cmd>lua require('fzf-lua').loclist()<CR>",
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>flr", "<cmd>lua require('fzf-lua').lsp_references()<CR>",
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>fli", "<cmd>lua require('fzf-lua').lsp_incoming_calls()<CR>",
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>fld", "<cmd>lua require('fzf-lua').lsp_definitions()<CR>",
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>fk", "<cmd>lua require('fzf-lua').keymaps()<CR>",
+  { noremap = true, silent = true })
 
 -- neotest
 -- https://alpha2phi.medium.com/neovim-for-beginners-testing-part-2-10d4aa8f25d6
-vim.keymap.set("n", "<leader>tf",
-  ":lua require('neotest').run.run({vim.fn.expand('%')})<cr>") -- run file
+vim.keymap.set("n", "<leader>tf", ":lua require('neotest').run.run({vim.fn.expand('%')})<cr>") -- run file
 vim.keymap.set("n", "<leader>tn", ":lua require('neotest').run.run()<cr>") -- run nearest
 vim.keymap.set("n", "<leader>ta", ":lua require('neotest').run.attach()<cr>") -- attach to nearest nearest
 vim.keymap.set("n", "<leader>ts", ":lua require('neotest').run.stop()<cr>") -- stop nearest nearest
-vim.keymap.set("n", "<leader>td",
-  ":lua require('neotest').run.run({strategy = 'dap'})<cr>") -- debug nearest
-vim.keymap.set("n", "<leader>to",
-  ":lua require('neotest').output.open({ enter = true })<cr>") -- show test output
-vim.keymap.set("n", "<leader>tp",
-  ":lua require('neotest').output_panel.toggle()<cr>") -- toggle output panel
-vim.keymap
-  .set("n", "<leader>tt", ":lua require('neotest').summary.toggle()<cr>") -- toggle test summary
+vim.keymap.set("n", "<leader>td", ":lua require('neotest').run.run({strategy = 'dap'})<cr>") -- debug nearest
+vim.keymap.set("n", "<leader>to", ":lua require('neotest').output.open({ enter = true })<cr>") -- show test output
+vim.keymap.set("n", "<leader>tp", ":lua require('neotest').output_panel.toggle()<cr>") -- toggle output panel
+vim.keymap.set("n", "<leader>tt", ":lua require('neotest').summary.toggle()<cr>") -- toggle test summary
 
 -- dap & dap-ui
 -- https://davelage.com/posts/nvim-dap-getting-started/
@@ -1571,8 +985,7 @@ vim.keymap.set("n", "<leader>qt", "<cmd>FloatermHide!<CR>")
 -- Shortcut for killing a floaterm - allows a floaterm name to be entered before killing
 vim.keymap.set("n", "<leader>qk", ":FloatermKill")
 -- Shortcut to open lazygit in a floaterm
-vim.keymap.set("n", "<leader>qg",
-  "<cmd>FloatermNew --title=lazygit --width=0.75 --height=0.9 lazygit<CR>")
+vim.keymap.set("n", "<leader>qg", "<cmd>FloatermNew --title=lazygit --width=0.75 --height=0.9 lazygit<CR>")
 -- Allow normal window-switching mappings from floaterm
 vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
 vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
@@ -1581,12 +994,8 @@ vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
 vim.keymap.set("t", "<C-e>", "<C-\\><C-n>")
 
 -- nvim-osc52
-vim.keymap.set("n", "<leader>c", require("osc52").copy_operator, {
-  expr = true,
-})
-vim.keymap.set("n", "<leader>cc", "<leader>c_", {
-  remap = true,
-})
+vim.keymap.set("n", "<leader>c", require("osc52").copy_operator, { expr = true })
+vim.keymap.set("n", "<leader>cc", "<leader>c_", { remap = true })
 vim.keymap.set("x", "<leader>c", require("osc52").copy_visual)
 
 vim.keymap.set("n", "<leader>r", ":so $MYVIMRC<CR>")
