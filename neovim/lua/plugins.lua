@@ -137,7 +137,9 @@ return require("lazy").setup({
     ft = { "html", "css", "javascript", "typescript", "typescriptreact", "javascriptreact", "jinja2" },
   },
   { "chrisgrieser/nvim-spider" },
-  { "mvllow/modes.nvim" }, -- Too noisy
+  { "mvllow/modes.nvim" },
+  -- Too noisy
   -- use { 'andersevenrud/nvim_context_vt' }
   { "hrsh7th/cmp-nvim-lsp-signature-help" },
+  { "rmagatti/auto-session" },
 })
