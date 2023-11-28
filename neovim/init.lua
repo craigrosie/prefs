@@ -97,6 +97,8 @@ require("onedark").setup({
 require("onedark").load()
 
 -- Set nvim-notify as default notification handler
+require("notify").setup({ max_width = 50, render = "wrapped-compact" })
+
 vim.notify = require("notify")
 -- ==================================================================================================
 -- Autocmds
