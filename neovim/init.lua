@@ -894,6 +894,7 @@ require("auto-session").setup({
   auto_session_use_git_branch = nil,
   -- the configs below are lua only
   bypass_session_save_file_types = nil,
+  pre_save_cmds = { "FloatermKill!", "OutlineClose", "NvimTreeClose", "lua vim.notify.dismiss()" },
 })
 
 -- =================================================================================================
