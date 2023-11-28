@@ -1023,3 +1023,17 @@ vim.keymap.set("n", "<leader>r", ":so $MYVIMRC<CR>")
 -- lua
 vim.keymap.set("n", "<leader>lf", ":luafile %<CR>")
 vim.keymap.set("n", "<leader>r", ":so $MYVIMRC<CR>")
+
+-- indent while remaining in visual mode
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
+
+-- keep cursor centered
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll downwards" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll upwards" })
+vim.keymap.set("n", "n", "nzzzv", { desc = "Next result" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous result" })
+vim.keymap.set("n", "<C-o>", "<C-o>zz", { desc = "Previous result" })
+
+-- execute macro over a visual region.
+vim.keymap.set("x", "@", function() return ":norm @" .. vim.fn.getcharstr() .. "<cr>" end, { expr = true })
