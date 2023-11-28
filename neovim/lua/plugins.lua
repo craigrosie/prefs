@@ -80,7 +80,6 @@ return require("lazy").setup({
     commit = "66a30db85a7adf573af9b8a4f3f8c4ce0a2d665e",
   },
   { "tpope/vim-surround" },
-  { "simrat39/symbols-outline.nvim" },
   { "lewis6991/gitsigns.nvim" },
   {
     "pwntester/octo.nvim",
@@ -142,4 +141,5 @@ return require("lazy").setup({
   -- use { 'andersevenrud/nvim_context_vt' }
   { "hrsh7th/cmp-nvim-lsp-signature-help" },
   { "rmagatti/auto-session" },
+  { "hedyhli/outline.nvim" },
 })

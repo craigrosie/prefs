@@ -620,9 +620,13 @@ null_ls.setup({
 -- gitsigns
 require("gitsigns").setup()
 
--- symbols-outline.nvim
-require("symbols-outline").setup({ width = 20, autofold_depth = 1 })
-vim.keymap.set("n", "<leader>so", ":SymbolsOutline<CR>")
+-- outline.nvim
+require("outline").setup({
+  outline_window = { width = 25 },
+  symbol_folding = { autofold_depth = 1 },
+  preview_window = { border = "rounded", live = true },
+  keymaps = { close = {} },
+})
 
 -- octo
 require("octo").setup({ ssh_aliases = { ["github.com-craigrosie"] = "github.com" } })
@@ -798,7 +802,7 @@ require("lualine").setup{
   tabline = {},
   winbar = {},
   inactive_winbar = {},
-  extensions = { "fzf", "nvim-dap-ui", "nvim-tree", "symbols-outline", "toggleterm" },
+  extensions = { "fzf", "nvim-dap-ui", "nvim-tree", "toggleterm" },
 }
 
 -- lsp-lens
