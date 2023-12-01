@@ -115,6 +115,9 @@ vim.api.nvim_create_autocmd({ "BufRead" },
   { pattern = { ".aliases", ".extra", ".functions" }, command = "setlocal syntax=sh ft=sh" })
 vim.api.nvim_create_autocmd({ "BufRead" }, { pattern = { ".djlintrc" }, command = "setlocal syntax=json ft=json" })
 
+-- Prevent weird wrapping after opening ( in comments in python files
+vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "python" }, command = "setlocal indentkeys-=o" })
+
 -- ==================================================================================================
 
 -- PLUGIN SETUP
