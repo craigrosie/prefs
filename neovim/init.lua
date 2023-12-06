@@ -625,11 +625,12 @@ require("gitsigns").setup()
 
 -- outline.nvim
 require("outline").setup({
-  outline_window = { width = 25 },
+  outline_window = { width = 80, relative_width = false },
   symbol_folding = { autofold_depth = 1 },
   preview_window = { border = "rounded", live = true },
   keymaps = { close = {} },
 })
+vim.api.nvim_set_keymap("n", "<leader>ol", ":Outline<CR>", { noremap = true, silent = true })
 
 -- octo
 require("octo").setup({ ssh_aliases = { ["github.com-craigrosie"] = "github.com" } })
