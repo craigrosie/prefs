@@ -144,3 +144,5 @@
 	updateRefs = true
 [commit]
 	verbose = true
+[includeif "gitdir:~/github/"]
+	path = ~/github/.gitconfig
