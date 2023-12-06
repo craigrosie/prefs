@@ -142,4 +142,10 @@ return require("lazy").setup({
   { "hrsh7th/cmp-nvim-lsp-signature-help" },
   { "rmagatti/auto-session" },
   { "hedyhli/outline.nvim" },
+  {
+    "stevearc/oil.nvim",
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
 })
