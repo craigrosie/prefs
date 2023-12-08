@@ -152,6 +152,7 @@ require("nvim-treesitter.configs").setup({
     "markdown",
     "markdown_inline",
     "python",
+    "regex",
     "terraform",
     "toml",
     "tsx",
