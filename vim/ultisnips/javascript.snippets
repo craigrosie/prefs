@@ -1,0 +1,56 @@
+snippet fcom "Functional component" b
+const ${1:name} = ${2:async }($3) => {
+	$4
+	return (
+		$5
+	);
+};
+endsnippet
+
+snippet exd "export default" b
+export default $1;
+endsnippet
+
+snippet imp "import" b
+import $1 from "$2";
+endsnippet
+
+snippet limp "local import" b
+import $1 from "./$2";
+endsnippet
+
+snippet use "hook" b
+const [$1] = use$2($3);
+endsnippet
+
+snippet usestate "useState hook" b
+const [$1, set`!p snip.rv = t[1][0].upper() + t[1][1:] if t[1] else t[1]`] = useState(${2:""});
+endsnippet
+
+snippet if "if" b
+if ($1) {
+	$0
+}
+endsnippet
+
+snippet ifn "if not" b
+if (!$1) {
+	$0
+}
+endsnippet
+
+snippet elif "else if"
+else if ($1) {
+	$0
+}
+endsnippet
+
+snippet af "async function" b
+async function ${1:name}(${2:args}) {
+	$3
+}$0
+endsnippet
+
+snippet arr "inline arrow func" i
+($1) => $2
+endsnippet
