@@ -1,0 +1,12 @@
+let mapleader = " "
+
+" moving between splits
+nmap <c-h> <c-w>h
+nmap <c-l> <c-w>l
+nmap <leader>wk <c-w>k
+nmap <leader>wj <c-w>j
+nmap <leader>wv <c-w>v
+nmap <leader>ws <c-w>s
+nmap <leader>wc <c-w>c
+nmap <leader>wm :action HideAllWindows<CR>
+nmap <leader>wz :action ToggleDistractionFreeMode<CR>

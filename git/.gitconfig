@@ -142,6 +142,7 @@
 	autoSetupRemote = true
 [rebase]
 	updateRefs = true
+  autoStash = true
 [commit]
 	verbose = true
 [includeif "gitdir:~/github/"]
