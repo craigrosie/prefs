@@ -811,6 +811,10 @@ snippet todo "todo comment" b
 # TODO: $0
 endsnippet
 
+snippet note "note comment" b
+# NOTE: $0
+endsnippet
+
 snippet factory "fixture factory" b
 @pytest.fixture
 def ${1:my}_factory(${2}) -> Callable[..., ${3}]:
@@ -846,5 +850,15 @@ endsnippet
 
 snippet asr "assert result" b
 assert ${1:result} == ${2:expected}
+endsnippet
+
+global !p
+import uuid
+def generate_uuid():
+	return str(uuid.uuid4())
+endglobal
+
+snippet uuid "UUIDv4" w
+`!p if not snip.c: snip.rv = '"' + generate_uuid() + '"'`
 endsnippet
 # vim:ft=snippets:
