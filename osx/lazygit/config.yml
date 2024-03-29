@@ -1,3 +1,4 @@
+promptToReturnFromSubprocess: false
 gui:
   # stuff relating to the UI
   authorColors:
@@ -13,7 +14,7 @@ gui:
   expandFocusedSidePanel: false
   mainPanelSplitMode: "flexible" # one of 'horizontal' | 'flexible' | 'vertical'
   mouseEvents: true
-  nerdFontsVersion: ""
+  nerdFontsVersion: "3"
   scrollHeight: 2 # how many lines you scroll by
   scrollPastBottom: true # enable scrolling past the bottom
   showCommandLog: true
