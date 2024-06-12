@@ -363,3 +363,15 @@ function nvimvenv() {
         command nvim "$@"
     fi
 }
+
+dkill() {
+    local containers=$(docker ps --format '{{.ID}} - {{.Names}}' | fzf -m)
+
+    if [ -n "$containers" ]; then
+        containers=$(echo "$containers" | awk '{print $1}')
+        echo "Killing selected containers: $containers"
+        docker kill $containers
+    else
+        echo "No containers selected."
+    fi
+}
