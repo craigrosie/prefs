@@ -61,7 +61,7 @@ eval "$(fasd --init auto)"
 # Enable normal names for coreutils tools
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
-export PATH="/opt/homebrew//opt/gnu-tar/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
 
 # Enable gnu get-opt
 export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
