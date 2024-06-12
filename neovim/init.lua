@@ -280,7 +280,6 @@ local language_servers = {
   "kotlin_language_server",
   "lua_ls",
   "pyright",
-  "taplo",
   "tsserver",
   "yamlls",
 }
@@ -601,7 +600,6 @@ null_ls.setup({
     }),
     null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.ruff,
-    null_ls.builtins.formatting.taplo, -- linting
     null_ls.builtins.diagnostics.checkmake,
     null_ls.builtins.diagnostics.djlint.with({ filetypes = { "django", "jinja.html", "htmldjango", "jinja" } }),
     null_ls.builtins.diagnostics.ruff,
