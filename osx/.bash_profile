@@ -1,3 +1,4 @@
+ulimit -n 10240;
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
