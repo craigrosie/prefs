@@ -745,7 +745,7 @@ dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close()
 dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
 
 -- neoscroll
-require("neoscroll").setup()
+require("neoscroll").setup({ mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "zt", "zz", "zb" } })
 
 require("indent_blankline").setup{ show_current_context = true, show_current_context_start = false }
 
