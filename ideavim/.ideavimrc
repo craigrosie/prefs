@@ -1,12 +1,72 @@
 let mapleader = " "
 
+set showmode
+set scrolloff=5
+set incsearch
+set ideajoin
+
 " moving between splits
+" move to the left
 nmap <c-h> <c-w>h
+" move to the right
 nmap <c-l> <c-w>l
-nmap <leader>wk <c-w>k
-nmap <leader>wj <c-w>j
+" move up
+nmap <c-k> <c-w>k
+" move down
+nmap <c-j> <c-w>j
+" open vertical split
 nmap <leader>wv <c-w>v
+" open horizontal split
 nmap <leader>ws <c-w>s
+" close split"
 nmap <leader>wc <c-w>c
-nmap <leader>wm :action HideAllWindows<CR>
-nmap <leader>wz :action ToggleDistractionFreeMode<CR>
+" hide all sidebars
+nmap <leader>wm <Action>(HideAllWindows)
+" toggle distraction free mode
+nmap <leader>wz <Action>(ToggleDistractionFreeMode)
+
+" IDE actions
+" nmap <CR>            :action RecentFiles<CR>
+" nmap <c-i>           :action Forward<CR>
+" nmap <c-o>           :action Back<CR>
+" nmap <leader>'       :action ActivateTerminalToolWindow<CR>
+" nmap <leader><Space> :action GotoAction<CR>
+" nmap <leader><tab>   :action RecentFiles<CR>
+" nmap <leader>aa      :action $SelectAll<CR>
+" nmap <leader>al      :actionlist<CR>
+" nmap <leader>bb      :action RecentFiles<CR>
+" Similar to `outline` plugin in neovim
+nmap <leader>ol      <Action>(ActivateStructureToolWindow)
+" nmap <leader>bu      :action ReopenClosedTab<CR>
+" nmap <leader>cc      :action GotoClass<CR>
+" nmap <leader>dD      :action DebugClass<CR>
+" Start debugger
+nmap <leader>dc      <Action>(Debug)
+" nmap <leader>e      :action ShowErrorDescription<CR>
+" nmap <leader>fT      :action SelectInProjectView<CR>
+" nmap <leader>fb      :action ShowBookmarks<CR>
+" nmap <leader>fd      :action SmartSearchAction<CR>
+" Search everywhere
+nmap <leader>fg      <Action>(SearchEverywhere)
+" nmap <leader>fs      :action SaveAll<CR>
+" Activate file explorer
+nmap <c-n>           <Action>(ActivateProjectToolWindow)
+" nmap <leader>im      :action ImplementMethods<CR>
+" Methods/classes popup
+nmap <leader>fr      <Action>(FileStructurePopup)
+" nmap <leader>jj      :action AceAction<CR>
+" nmap <leader>jl      :action AceLineAction<CR>
+" nmap <leader>m=      :action ReformatCode<CR>
+" nmap <leader>rR      :action RunClass<CR>
+" nmap <leader>rr      :action Run<CR>
+" nmap <leader>ss      :action Stop<CR>
+nmap <leader>tb      <Action>(ToggleBookmark)
+nmap <leader>db      <Action>(ToggleLineBreakpoint)
+nmap gd              <Action>(GotoDeclaration)
+" nmap gh              :action QuickJavaDoc<CR>
+" nmap gr              :action FindUsages<CR>
+nmap gr              <Action>(FindUsages)
+nmap gs              <Action>(GotoSymbol)
+
+" Reload .ideavimrc
+nmap <leader>R :source ~/.ideavimrc<CR>
