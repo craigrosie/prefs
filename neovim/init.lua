@@ -698,10 +698,10 @@ require("dapui").setup({
     {
       elements = {
         -- Elements can be strings or table with id and size keys.
-        "scopes",
-        "breakpoints",
-        "stacks",
-        "watches",
+        { id = "scopes", size = 0.50 },
+        { id = "watches", size = 0.30 },
+        { id = "breakpoints", size = 0.10 },
+        { id = "stacks", size = 0.10 },
       },
       size = 0.20,
       position = "left",
