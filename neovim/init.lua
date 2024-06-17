@@ -571,9 +571,29 @@ local dap = require("dap")
 
 dap.configurations.python = {
   {
+    name = "Docker",
+    type = "python",
+    request = "attach",
+
+    mode = "remote",
+    cwd = vim.fn.getcwd(),
+    -- justMyCode = false,
+    connect = { host = "0.0.0.0", port = 9999 },
+    pathMappings = { { localRoot = vim.fn.getcwd(), remoteRoot = "/app" } },
+  },
+  {
+    name = "Python",
     type = "python",
     request = "launch",
+
+    program = "${file}",
+    justMyCode = false,
+    pythonPath = function() return os.getenv("VIRTUAL_ENV") .. "/bin/python" end,
+  },
+  {
     name = "Django",
+    type = "python",
+    request = "launch",
 
     program = "${workspaceFolder}/manage.py",
     justMyCode = false,
@@ -581,17 +601,6 @@ dap.configurations.python = {
     args = { "start", "--frontend=none", "--noreload" },
     console = "integratedTerminal",
     pythonPath = function() return os.getenv("VIRTUAL_ENV") .. "/bin/python" end,
-
-  },
-  {
-    type = "python",
-    request = "launch",
-    name = "Python",
-
-    program = "${file}",
-    justMyCode = false,
-    pythonPath = function() return os.getenv("VIRTUAL_ENV") .. "/bin/python" end,
-
   },
 }
 
