@@ -644,6 +644,7 @@ null_ls.setup({
 
 -- gitsigns
 require("gitsigns").setup()
+vim.api.nvim_set_keymap("n", "<leader>h", ":Gitsigns preview_hunk_inline", { noremap = true, silent = true })
 
 -- outline.nvim
 require("outline").setup({
