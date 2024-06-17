@@ -921,6 +921,10 @@ require("auto-session").setup({
 require("oil").setup({ view_options = { show_hidden = true }, float = { max_width = 120, max_height = 70 } })
 vim.keymap.set("n", "<C-t>", ":Oil --float<CR>")
 
+
+-- ts-error-translator.nvim
+require("ts-error-translator").setup()
+
 -- =================================================================================================
 
 -- KEY MAPPINGS

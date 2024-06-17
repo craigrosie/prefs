@@ -151,4 +151,5 @@ return require("lazy").setup({
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
+  { "dmmulroy/ts-error-translator.nvim" },
 })
