@@ -1,0 +1,72 @@
+snippet kw "object entry" b
+$1 : $2,$0
+endsnippet
+
+snippet kwt "type entry" b
+$1 : $2;$0
+endsnippet
+
+snippet exi "export interface" b
+export interface $1 {
+	$0
+}
+endsnippet
+
+snippet exf "export function" b
+export const ${1:funcName} = (${2:params}): ${3:return} => {
+  $0
+}
+endsnippet
+
+snippet throw "throw new error" b
+throw new $1("$2");$0
+endsnippet
+
+snippet iface "interface" b
+interface I$1 {
+	$0
+}
+endsnippet
+
+global !p
+def gen_interface_props(snip):
+	result = ""
+
+	type_map = {
+		"s": "string",
+		"n": "number"
+	}
+
+	props = snip.v.text.strip().split(",")
+
+	for prop in props:
+		name, type_ = prop.split(":")
+		is_arr = type_.endswith("[]")
+
+		result += name + ": "
+
+		check_type = type_ if not is_arr else type_.replace("[]", "")
+		mapped_type = type_map.get(check_type)
+
+		if mapped_type is None:
+			result += check_type
+		else:
+			result += mapped_type
+
+		if is_arr:
+			result += "[]"
+
+		result += ";\n"
+
+	return result
+
+endglobal
+
+snippet doi "generate interface props" b
+	`!p snip.rv = gen_interface_props(snip)`
+endsnippet
+
+
+# snippet test "export interface"
+# <tag>${VISUAL:inside}</tag>
+# endsnippet
