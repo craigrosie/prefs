@@ -1007,7 +1007,6 @@ vim.keymap.set("n", "<leader>tt", ":lua require('neotest').summary.toggle()<cr>"
 -- dap & dap-ui
 -- https://davelage.com/posts/nvim-dap-getting-started/
 vim.keymap.set("n", "<leader>db", ":lua require('dap').toggle_breakpoint()<cr>") -- toggle breakpoint
-vim.keymap.set("n", "<leader>dx", ":lua require('dap').clear_breakpoints()<cr>") -- toggle breakpoint
 vim.keymap.set("n", "<leader>dc", ":lua require('dap').continue()<cr>") -- continue
 vim.keymap.set("n", "<leader>do", ":lua require('dap').step_over()<cr>") -- step_over
 vim.keymap.set("n", "<leader>di", ":lua require('dap').step_into()<cr>") -- step into
@@ -1015,7 +1014,10 @@ vim.keymap.set("n", "<leader>du", ":lua require('dap').step_out()<cr>") -- step_
 vim.keymap.set("n", "<leader>d[", ":lua require('dap').up()<cr>") -- go up in stacktrace without stepping
 vim.keymap.set("n", "<leader>d]", ":lua require('dap').down()<cr>") -- go down in stacktrace without stepping
 vim.keymap.set("n", "<leader>dr", ":lua require('dap').run_to_cursor()<cr>") -- open repl
-vim.keymap.set("n", "<leader>de", ":lua require('dap').terminate()<cr>") -- terminate (exit)
+vim.keymap.set("n", "<leader>dx", function()
+  dap.terminate()
+  dapui.close()
+end) -- terminate (exit)
 vim.keymap.set("n", "<leader>dt", ":lua require('dapui').toggle()<cr>") -- toggle dap-ui
 
 -- vim-floaterm
