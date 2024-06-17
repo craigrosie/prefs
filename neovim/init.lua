@@ -1063,5 +1063,8 @@ vim.keymap.set("n", "n", "nzzzv", { desc = "Next result" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous result" })
 vim.keymap.set("n", "<C-o>", "<C-o>zz", { desc = "Previous result" })
 
+-- pasting shouldn't overwrite register
+vim.keymap.set("v", "p", "\"_dP", { desc = "Previous result", silent = true })
+
 -- execute macro over a visual region.
 vim.keymap.set("x", "@", function() return ":norm @" .. vim.fn.getcharstr() .. "<cr>" end, { expr = true })
