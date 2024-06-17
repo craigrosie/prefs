@@ -139,7 +139,6 @@ return require("lazy").setup({
     build = "make hexokinase",
     ft = { "html", "css", "javascript", "typescript", "typescriptreact", "javascriptreact", "jinja2", "lua" },
   },
-  { "chrisgrieser/nvim-spider" },
   { "mvllow/modes.nvim" },
   -- Too noisy
   -- use { 'andersevenrud/nvim_context_vt' }
