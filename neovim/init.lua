@@ -871,6 +871,7 @@ vim.keymap.set("n", "<leader>cb", ":lua require('close_buffers').delete({type = 
 require("hlargs").setup{
   color = "#e88f29", -- same as @parameter
   excluded_argnames = { declarations = {}, usages = { python = { "self", "cls" }, lua = { "self" } } },
+  hl_priority = 10000,
 }
 
 -- prettier.nvim
