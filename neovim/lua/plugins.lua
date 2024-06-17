@@ -38,7 +38,7 @@ return require("lazy").setup({
   {
     "ibhagwan/fzf-lua",
     dependencies = {
-      "kyazdani42/nvim-web-devicons", -- optional, for file icons
+      "nvim-tree/nvim-web-devicons", -- optional, for file icons
     },
   },
   {
@@ -87,7 +87,7 @@ return require("lazy").setup({
   { "lewis6991/gitsigns.nvim" },
   {
     "pwntester/octo.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim", "kyazdani42/nvim-web-devicons" },
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim", "nvim-tree/nvim-web-devicons" },
   },
   { "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim" },
   {
@@ -95,7 +95,7 @@ return require("lazy").setup({
     dependencies = {
       "neovim/nvim-lspconfig",
       "smiteshp/nvim-navic",
-      "kyazdani42/nvim-web-devicons", -- optional
+      "nvim-tree/nvim-web-devicons", -- optional
     },
   },
   { "almo7aya/openingh.nvim" },
@@ -111,7 +111,7 @@ return require("lazy").setup({
   { "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
   { "theHamsta/nvim-dap-virtual-text" },
   { "tzachar/local-highlight.nvim" },
-  { "nvim-lualine/lualine.nvim", dependencies = { "kyazdani42/nvim-web-devicons", lazy = true } },
+  { "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons", lazy = true } },
   { "VidocqH/lsp-lens.nvim" },
   { "dnlhc/glance.nvim" },
   { "petertriho/nvim-scrollbar" },
