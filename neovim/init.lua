@@ -93,6 +93,7 @@ require("onedarkpro").setup({
     ["@odp.interpolation.python"] = { fg = "#d19f43" },
     ["@punctuation.special.tsx"] = { fg = "#d19f43" },
     TermCursor = { bg = "#eeeeee" },
+    LspInlayHint = { fg = "#909497" },
   },
 })
 vim.cmd("colorscheme onedark_vivid")
@@ -301,7 +302,12 @@ local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  if client.server_capabilities.inlayHintProvider then vim.lsp.inlay_hint(bufnr, true) end
+  if client.server_capabilities.inlayHintProvider then
+    vim.g.inlay_hints_visible = true
+    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+  else
+    print("no inlay hints available")
+  end
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -325,10 +331,12 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
-local lspconfig = require("lspconfig", { inlay_hints = { enable = true } })
+local lspconfig = require("lspconfig")
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 for i in pairs(language_servers) do
   local server = language_servers[i]
-  lspconfig[server].setup({ on_attach = on_attach, flags = lsp_flags })
+  lspconfig[server].setup({ on_attach = on_attach, flags = lsp_flags, capabilities = capabilities })
 end
 lspconfig.emmet_language_server.setup({
   filetypes = {
