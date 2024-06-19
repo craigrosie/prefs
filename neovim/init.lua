@@ -3,7 +3,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- pyenv virtualenv with neovim package installed
-vim.g.python3_host_prog = "~/.pyenv/versions/.neovenv-3.11.5/bin/python3"
+vim.g.python3_host_prog = "~/.pyenv/versions/.neovenv-3.11.4/bin/python3"
 
 -- This must come before the `plugins` file is loaded, so that the leader key
 -- is set before lazy.nvim is loaded
@@ -118,7 +118,7 @@ vim.api.nvim_create_autocmd({ "BufRead" },
 vim.api.nvim_create_autocmd({ "BufRead" }, { pattern = { ".djlintrc" }, command = "setlocal syntax=json ft=json" })
 
 -- Prevent weird wrapping after opening ( in comments in python files
-vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "python" }, command = "setlocal indentkeys-=o" })
+-- vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "python" }, command = "setlocal indentkeys-=o" })
 
 -- ==================================================================================================
 
@@ -161,6 +161,8 @@ require("nvim-treesitter.configs").setup({
     "typescript",
     "yaml",
   },
+
+  indent = { enable = true },
 
   incremental_selection = {
     enable = true,
@@ -274,6 +276,7 @@ vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
 
 -- Mason
 local language_servers = {
+  -- "basedpyright",
   "bashls",
   "cmake",
   "dockerls",
@@ -380,41 +383,50 @@ lspconfig.lua_ls.setup({
   -- ... other configs
   settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 })
+-- lspconfig.basedpyright.setup({
+--
+-- })
 
 -- NOTE: Copilot needs to be set up before cmp
-require("copilot").setup({
-  panel = {
-    enabled = true,
-    auto_refresh = false,
-    keymap = { jump_prev = "[[", jump_next = "]]", accept = "<leader>a", refresh = "gr", open = "<leader>cp" },
-    layout = {
-      position = "bottom", -- | top | left | right
-      ratio = 0.4,
-    },
-  },
-  suggestion = {
-    enabled = true,
-    auto_trigger = true,
-    debounce = 75,
-    keymap = {
-      accept = "<c-t>",
-      accept_word = false,
-      accept_line = false,
-      next = "<c-n>",
-      prev = "<c-p>",
-      dismiss = "<C-]>",
-    },
-  },
-})
+-- require("copilot").setup({
+--   panel = {
+--     enabled = true,
+--     auto_refresh = false,
+--     keymap = {
+--       jump_prev = "[[",
+--       jump_next = "]]",
+--       accept = "<leader>a",
+--       refresh = "gr",
+--       open = "<leader>cp"
+--     },
+--     layout = {
+--       position = "bottom", -- | top | left | right
+--       ratio = 0.4
+--     },
+--   },
+--   suggestion = {
+--     enabled = true,
+--     auto_trigger = true,
+--     debounce = 75,
+--     keymap = {
+--       accept = "<c-t>",
+--       accept_word = false,
+--       accept_line = false,
+--       next = "<c-n>",
+--       prev = "<c-p>",
+--       dismiss = "<C-]>",
+--     },
+--   },
+-- })
 
 -- copilot-cmp
-require("copilot_cmp").setup()
+-- require("copilot_cmp").setup()
 
 -- nvm-cmp
 -- from: https://raw.githubusercontent.com/jdhao/nvim-config/master/lua/config/nvim-cmp.lua
 local cmp = require("cmp")
 local lspkind = require("lspkind")
-lspkind.init({ symbol_map = { Copilot = "" } })
+-- lspkind.init({ symbol_map = { Copilot = "" } })
 
 local lspkind_priority = require("cmp-lspkind-priority")
 lspkind_priority.setup{
@@ -514,6 +526,7 @@ cmp.setup({
         omni = "[Omni]",
       },
     },
+
   },
   sorting = {
     comparators = {
@@ -529,7 +542,7 @@ cmp.setup({
       compare.order,
     },
   },
-  experimental = { ghost_text = true },
+  -- experimental = { ghost_text = true },
 })
 
 -- Setup lspkind with nvim-cmp
@@ -555,13 +568,13 @@ cmp.setup{
 -- neotest
 require("neotest").setup({
   adapters = {
-    require("neotest-python")({ dap = { justMyCode = false }, args = { "-vv" }, pytest_discover_instances = true }),
+    require("neotest-python")({ dap = { justMyCode = false }, args = { "-vv" }, pytest_discover_instances = false }),
   },
   quickfix = { enabled = false },
 })
 
 -- dap-python
-require("dap-python").setup("~/.pyenv/versions/.neovenv-3.11.5/bin/python3")
+require("dap-python").setup("~/.pyenv/versions/.neovenv-3.11.4/bin/python3")
 require("dap-python").test_runner = "pytest"
 local dap = require("dap")
 
@@ -610,7 +623,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
   sources = {
     -- formatting
-    null_ls.builtins.formatting.black,
+    -- null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.djlint.with({
       filetypes = { "django", "jinja.html", "htmldjango", "jinja" },
       extra_args = { "--configuration", vim.fn.expand("~/.djlintrc") },
@@ -920,7 +933,6 @@ require("auto-session").setup({
 -- oil.nvim
 require("oil").setup({ view_options = { show_hidden = true }, float = { max_width = 120, max_height = 70 } })
 vim.keymap.set("n", "<C-t>", ":Oil --float<CR>")
-
 
 -- ts-error-translator.nvim
 require("ts-error-translator").setup()
