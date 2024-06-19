@@ -1,3 +1,15 @@
 snippet use "use plugin" b
 use { '${1:plugin/name}' }$0
 endsnippet
+
+snippet mod "lazy.nvim module" b
+return {
+	'${1:plugin/name}',
+	event = '${2:VeryLazy}',
+	dependencies = {
+		$3
+	},
+	opts = ${4:{}},
+	keys = ${5:{}},
+}
+endsnippet
