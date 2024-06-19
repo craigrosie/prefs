@@ -13,12 +13,15 @@ return {
     toggleterm_manager.setup({
       mappings = {
         i = {
-          ['<CR>'] = { action = actions.create_and_name_term, exit_on_action = true },
+          ['<C-t>'] = { action = actions.create_and_name_term, exit_on_action = true },
           ['<C-d>'] = { action = actions.delete_term, exit_on_action = false },
+          ['<CR>'] = { action = actions.toggle_term, exit_on_action = true },
         },
         n = {
-          ['<CR>'] = { action = actions.create_and_name_term, exit_on_action = true },
-          ['x'] = { action = actions.delete_term, exit_on_action = false },
+          ['<C-t>'] = { action = actions.create_and_name_term, exit_on_action = true },
+          ['<C-d>'] = { action = actions.delete_term, exit_on_action = false },
+          ['<C-r>'] = { action = actions.rename_term, exit_on_action = false },
+          ['<CR>'] = { action = actions.toggle_term, exit_on_action = true },
         },
       },
     })

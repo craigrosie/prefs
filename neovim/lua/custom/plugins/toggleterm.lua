@@ -1,13 +1,6 @@
 return {
   'akinsho/toggleterm.nvim',
   event = 'VeryLazy',
-  -- Optional dependency
-  -- dependencies = {
-  --   'nvim-neotest/nvim-nio',
-  --   'nvim-lua/plenary.nvim',
-  --   'nvim-treesitter/nvim-treesitter',
-  --   'nvim-neotest/neotest-python',
-  -- },
   opts = function()
     -- Enable navigation while in a toggleterm
     vim.keymap.set('t', '<C-h>', '<C-\\><C-n><C-w>h')
@@ -30,21 +23,32 @@ return {
       lazygit:toggle()
     end
 
-    vim.api.nvim_set_keymap('n', '<leader>qg', '<cmd>lua _lazygit_toggle()<CR>', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap(
+      'n',
+      '<leader>qg',
+      '<cmd>lua _lazygit_toggle()<CR>',
+      { desc = 'Toggle lazygit', noremap = true, silent = true }
+    )
+
+    function _close_all_toggleterms()
+      local terms = require('toggleterm.terminal')
+
+      local terminals = terms.get_all()
+
+      for _, term in pairs(terminals) do
+        term:close()
+      end
+    end
+    vim.api.nvim_set_keymap(
+      'n',
+      '<leader>qt',
+      '<cmd>lua _close_all_toggleterms()<CR>',
+      { desc = 'Close all toggleterms', noremap = true, silent = true }
+    )
 
     return {
       direction = 'vertical',
       size = 120,
     }
   end,
-  -- keys = {
-  --   { '<leader>tf', ":lua require('neotest').run.run({vim.fn.expand('%')})<cr>", desc = 'test [f]ile' },
-  --   { '<leader>tn', ":lua require('neotest').run.run()<cr>", desc = 'test [n]earest' },
-  --   { '<leader>ta', ":lua require('neotest').run.attach()<cr>", desc = '[a]ttach' },
-  --   { '<leader>ts', ":lua require('neotest').run.stop()<cr>", desc = '[s]top' },
-  --   { '<leader>td', ":lua require('neotest').run.run({strategy = 'dap'})<cr>", desc = '[d]ebug' },
-  --   { '<leader>to', ":lua require('neotest').output.open({enter = true})<cr>", desc = '[o]utput' },
-  --   { '<leader>tp', ":lua require('neotest').output_panel.toggle({enter = true})<cr>", desc = 'output [p]anel' },
-  --   { '<leader>tt', ":lua require('neotest').summary.toggle()<cr>", desc = 'summary [t]oggle' },
-  -- },
 }
