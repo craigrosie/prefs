@@ -1,6 +1,6 @@
 return {
   'jedrzejboczar/possession.nvim',
-  -- Don't enable lazy loading or autoload doesn't work
+  -- NOTE: Don't enable lazy loading or autoload doesn't work
   lazy = false,
   dependencies = {
     'nvim-lua/plenary.nvim',
@@ -15,8 +15,11 @@ return {
       cwd = true,
     },
     autoload = {
-      cwd = true,
+      -- NOTE: Disable cwd autoload because it breaks using nvim to write commit messages
+      cwd = false,
     },
   },
-  keys = {},
+  keys = {
+    { '<leader>pl', ':PossessionLoadCwd<cr>', desc = '[P]ossession[L]oadCwd' },
+  },
 }
