@@ -118,7 +118,7 @@ vim.api.nvim_create_autocmd({ "BufRead" },
 vim.api.nvim_create_autocmd({ "BufRead" }, { pattern = { ".djlintrc" }, command = "setlocal syntax=json ft=json" })
 
 -- Prevent weird wrapping after opening ( in comments in python files
-vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "python" }, command = "setlocal indentkeys-=o" })
+-- vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "python" }, command = "setlocal indentkeys-=o" })
 
 -- ==================================================================================================
 
@@ -272,23 +272,6 @@ vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
 vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
 vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
 
--- Mason
-local language_servers = {
-  "bashls",
-  "cmake",
-  "dockerls",
-  "docker_compose_language_service",
-  "emmet_language_server",
-  "jsonls",
-  "kotlin_language_server",
-  "lua_ls",
-  "pyright",
-  "tsserver",
-  "yamlls",
-}
-require("mason").setup()
-require("mason-lspconfig").setup({ ensure_installed = language_servers })
-
 -- LSP
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -329,6 +312,26 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
   vim.keymap.set("n", "<leader>b", function() vim.lsp.buf.format{ async = true } end, bufopts)
 end
+
+-- Mason
+local language_servers = {
+  "basedpyright",
+  "bashls",
+  "cmake",
+  "cssls",
+  "dockerls",
+  "docker_compose_language_service",
+  "emmet_language_server",
+  "jsonls",
+  "kotlin_language_server",
+  "lua_ls",
+  -- "pyright",
+  "taplo",
+  -- "tsserver",
+  "yamlls",
+}
+require("mason").setup()
+require("mason-lspconfig").setup({ ensure_installed = language_servers })
 
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
@@ -482,7 +485,18 @@ cmp.setup({
         fallback()
       end
     end,
-    ["<CR>"] = cmp.mapping.confirm{ select = true },
+    -- ["<CR>"] = cmp.mapping.confirm{ select = true },
+    ["<CR>"] = cmp.mapping({
+      i = function(fallback)
+        if cmp.visible() and cmp.get_active_entry() then
+          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+        else
+          fallback()
+        end
+      end,
+      s = cmp.mapping.confirm({ select = true }),
+      c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+    }),
     ["<C-e>"] = cmp.mapping.abort(),
     ["<C-q>"] = cmp.mapping.close(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -555,9 +569,10 @@ cmp.setup{
 -- neotest
 require("neotest").setup({
   adapters = {
-    require("neotest-python")({ dap = { justMyCode = false }, args = { "-vv" }, pytest_discover_instances = true }),
+    require("neotest-python")({ dap = { justMyCode = false }, args = { "-vv" }, pytest_discover_instances = false }),
   },
   quickfix = { enabled = false },
+  -- log_level = vim.log.levels.DEBUG,
 })
 
 -- dap-python
@@ -611,10 +626,10 @@ null_ls.setup({
   sources = {
     -- formatting
     null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.djlint.with({
-      filetypes = { "django", "jinja.html", "htmldjango", "jinja" },
-      extra_args = { "--configuration", vim.fn.expand("~/.djlintrc") },
-    }),
+    -- null_ls.builtins.formatting.djlint.with({
+    --   filetypes = { "django", "jinja.html", "htmldjango", "jinja" },
+    --   extra_args = { "--configuration", vim.fn.expand("~/.djlintrc") },
+    -- }),
     null_ls.builtins.formatting.lua_format.with({
       extra_args = { "--config=" .. vim.fn.expand("~/.config/lua-format/config.yaml") },
     }),
@@ -634,8 +649,11 @@ null_ls.setup({
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
         group = augroup,
         buffer = bufnr,
-        callback = function() vim.lsp.buf.format({ bufnr = bufnr }) end,
-
+        callback = function()
+          local ft = vim.api.nvim_get_option_value("filetype", {})
+          -- write an if statement to check if `ft` is in {"yaml", "markdown", "toml"}
+          if ft ~= "yaml" and ft ~= "markdown" and ft ~= "toml" then vim.lsp.buf.format({ bufnr = bufnr }) end
+        end,
       })
     end
   end,
@@ -656,7 +674,11 @@ require("outline").setup({
 vim.api.nvim_set_keymap("n", "<leader>ol", ":Outline<CR>", { noremap = true, silent = true })
 
 -- octo
-require("octo").setup({ ssh_aliases = { ["github.com-craigrosie"] = "github.com" } })
+require("octo").setup({
+  ssh_aliases = { ["github.com-craigrosie"] = "github.com", ["github.com-zoe"] = "github.com" },
+  picker = "fzf-lua",
+  picker_config = { use_emoji = true },
+})
 
 -- todo-comments
 require("todo-comments").setup({ highlight = { keyword = "wide_fg" } })
@@ -777,7 +799,8 @@ vim.keymap.set("n", "gf", ":PytrizeJumpFixture<cr>", { noremap = true, silent = 
 -- mini.nvim
 require("mini.ai").setup()
 require("mini.comment").setup()
-require("mini.pairs").setup()
+-- I find this more annoying than useful
+-- require("mini.pairs").setup()
 -- require('mini.statusline').setup()
 require("mini.surround").setup()
 
@@ -833,7 +856,13 @@ require("lualine").setup{
 }
 
 -- lsp-lens
-require("lsp-lens").setup({})
+-- require("lsp-lens").setup({
+--   sections = {
+--     definition = function(count) return "Def: " .. count end,
+--     references = function(count) return "Ref: " .. count end,
+--     implements = function(count) return "Imp: " .. count end,
+--   },
+-- })
 
 -- glance
 require("glance").setup({
@@ -891,7 +920,7 @@ prettier.setup({
     "scss",
     "typescript",
     "typescriptreact",
-    "yaml",
+    -- "yaml",
   },
 })
 
@@ -921,9 +950,82 @@ require("auto-session").setup({
 require("oil").setup({ view_options = { show_hidden = true }, float = { max_width = 120, max_height = 70 } })
 vim.keymap.set("n", "<C-t>", ":Oil --float<CR>")
 
+-- typescript-tools.nvim
+require("typescript-tools").setup({
+  on_attach = on_attach,
+  settings = {
+    code_lens = "off",
+    tsserver_plugins = {
+      -- for TypeScript v4.9+
+      "@styled/typescript-styled-plugin",
+      -- or for older TypeScript versions
+      -- "typescript-styled-plugin",
+    },
+  },
+})
+
+-- CopilotChat.nvim
+local copilot_prompts = {
+  -- Code related prompts
+  Explain = "Please explain how the following code works.",
+  Review = "Please review the following code and provide suggestions for improvement.",
+  Tests = "Please explain how the selected code works, then generate unit tests for it.",
+  Refactor = "Please refactor the following code to improve its clarity and readability.",
+  FixCode = "Please fix the following code to make it work as intended.",
+  FixError = "Please explain the error in the following text and provide a solution.",
+  BetterNamings = "Please provide better names for the following variables and functions.",
+  Documentation = "Please provide documentation for the following code.",
+  -- Text related prompts
+  Summarize = "Please summarize the following text.",
+  Spelling = "Please correct any grammar and spelling errors in the following text.",
+  Wording = "Please improve the grammar and wording of the following text.",
+  Concise = "Please rewrite the following text to make it more concise.",
+}
+
+local chat = require("CopilotChat")
+local select = require("CopilotChat.select")
+chat.setup({ prompts = copilot_prompts })
+
+vim.api.nvim_create_user_command("CopilotChatInline", function(args)
+  chat.ask(args.args, {
+    selection = select.visual,
+    window = { layout = "float", relative = "cursor", width = 1, height = 0.4, row = 1 },
+  })
+end, { nargs = "*", range = true })
+
+vim.keymap.set({ "n", "v" }, "<leader>cc", ":CopilotChatToggle<CR>", { desc = "Copilot chat toggle window" })
+vim.keymap.set({ "n", "v" }, "<leader>cd", ":CopilotChatDocs<CR>", { desc = "Copilot chat docs" })
+vim.keymap.set({ "n", "v" }, "<leader>ce", ":CopilotChatExplain<CR>", { desc = "Copilot chat explain" })
+vim.keymap.set({ "n", "v" }, "<leader>cf", ":CopilotChatFix<CR>", { desc = "Copilot chat fix" })
+vim.keymap.set({ "n", "v" }, "<leader>ci", ":CopilotChatFixDiagnostic<CR>", { desc = "Copilot chat fix diagnostic" })
+vim.keymap.set({ "n", "v" }, "<leader>cl", ":CopilotChatInline<CR>", { desc = "Copilot chat inline" })
+vim.keymap.set({ "n", "v" }, "<leader>co", ":CopilotChatOptimize<CR>", { desc = "Copilot chat optimize" })
+vim.keymap.set({ "n", "v" }, "<leader>cr", ":CopilotChatRefactor<CR>", { desc = "Copilot chat refactor" })
+vim.keymap.set({ "n", "v" }, "<leader>ct", ":CopilotChatTests<CR>", { desc = "Copilot chat tests" })
 
 -- ts-error-translator.nvim
 require("ts-error-translator").setup()
+
+-- noice.nvim
+require("noice").setup({
+  messages = { enabled = false },
+  lsp = {
+    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+    override = {
+      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+      ["vim.lsp.util.stylize_markdown"] = true,
+      ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+    },
+  },
+  -- you can enable a preset for easier configuration
+  presets = {
+    bottom_search = true, -- use a classic bottom cmdline for search
+    command_palette = true, -- position the cmdline and popupmenu together
+    long_message_to_split = true, -- long messages will be sent to a split
+    inc_rename = false, -- enables an input dialog for inc-rename.nvim
+    lsp_doc_border = false, -- add a border to hover docs and signature help
+  },
+})
 
 -- =================================================================================================
 
@@ -1045,7 +1147,7 @@ vim.keymap.set("t", "<C-e>", "<C-\\><C-n>")
 
 -- nvim-osc52
 vim.keymap.set("n", "<leader>c", require("osc52").copy_operator, { expr = true })
-vim.keymap.set("n", "<leader>cc", "<leader>c_", { remap = true })
+-- vim.keymap.set("n", "<leader>cc", "<leader>c_", { remap = true })
 vim.keymap.set("x", "<leader>c", require("osc52").copy_visual)
 
 -- lua
