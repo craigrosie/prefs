@@ -91,7 +91,7 @@ export GOROOT="$(brew --prefix golang)/libexec"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
-export EDITOR=`command -v vim`
+export EDITOR=nvim
 
 # Automate ssh-agent startup
 # https://superuser.com/questions/1152833/save-identities-added-by-ssh-add-so-they-persist

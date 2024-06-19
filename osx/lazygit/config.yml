@@ -60,7 +60,7 @@ git:
     mode: "auto" # one of 'auto' | 'merge' | 'rebase' | 'ff-only', auto reads from git configuration
   skipHookPrefix: WIP
 os:
-  edit: "vim" # see 'Configuring File Editing' section
+  edit: "nvim" # see 'Configuring File Editing' section
   open: "open {{filename}}"
 refresher:
   fetchInterval: 60 # re-fetch interval in seconds
