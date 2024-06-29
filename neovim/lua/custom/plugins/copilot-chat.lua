@@ -1,6 +1,6 @@
 return {
   'CopilotC-Nvim/CopilotChat.nvim',
-  enable = vim.g.is_work_env_set,
+  enabled = vim.g.is_work_env_set,
   event = 'VeryLazy',
   dependencies = {
     'zbirenbaum/copilot.lua',

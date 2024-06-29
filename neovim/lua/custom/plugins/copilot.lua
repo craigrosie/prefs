@@ -1,6 +1,6 @@
 return {
   'zbirenbaum/copilot.lua',
-  enable = vim.g.is_work_env_set,
+  enabled = vim.g.is_work_env_set,
   event = 'InsertEnter',
   dependencies = {
     'zbirenbaum/copilot-cmp',
