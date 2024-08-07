@@ -6,6 +6,6 @@ return {
     enable = false,
   },
   keys = {
-    { '<leader>l', ':LspLensToggle<cr>', desc = '[l]sp lens toggle' },
+    { '<leader>ll', ':LspLensToggle<cr>', desc = '[l]sp lens toggle' },
   },
 }
