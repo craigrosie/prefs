@@ -53,7 +53,7 @@ vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Previous result' })
 vim.keymap.set('n', '<C-o>', '<C-o>zz', { desc = 'Jump back' })
 vim.keymap.set('n', '<C-i>', '<C-i>zz', { desc = 'Jump forward' })
 
-vim.keymap.set('n', '<C-w>t', ':tab split', { desc = 'Open current buffer in new tab' })
+vim.keymap.set('n', '<C-w>t', ':tab split<cr>', { desc = 'Open current buffer in new tab' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
