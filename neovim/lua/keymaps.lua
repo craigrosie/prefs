@@ -55,6 +55,9 @@ vim.keymap.set('n', '<C-i>', '<C-i>zz', { desc = 'Jump forward' })
 
 vim.keymap.set('n', '<C-w>t', ':tab split<cr>', { desc = 'Open current buffer in new tab' })
 
+vim.keymap.set('n', 'j', 'gj', { desc = 'Move linewise even on wrapped lines' })
+vim.keymap.set('n', 'k', 'gk', { desc = 'Move linewise even on wrapped lines' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
