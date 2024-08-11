@@ -76,6 +76,9 @@ vim.opt.expandtab = true
 
 vim.wo.wrap = false
 
+-- Set maximum number of items in completion menu
+vim.opt.pumheight = 15
+
 -- set Ultisnips directory
 vim.g.UltiSnipsSnippetDirectories = { 'UltiSnips', 'custom_snippets' }
 -- trigger snippet expansion
