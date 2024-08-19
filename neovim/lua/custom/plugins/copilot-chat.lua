@@ -48,7 +48,7 @@ return {
           insert = '<C-x>',
         },
         submit_prompt = {
-          normal = '<CR>',
+          normal = '<S-CR>',
           insert = '<C-m>',
         },
         accept_diff = {
