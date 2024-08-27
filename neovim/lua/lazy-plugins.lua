@@ -89,6 +89,12 @@ require('lazy').setup({
       lazy = '💤 ',
     },
   },
+  -- Disable change detection because changes aren't actually reloaded, and it's
+  -- extremely annoying.
+  change_detection = {
+    enabled = false,
+    notify = false,
+  },
 })
 
 -- vim: ts=2 sts=2 sw=2 et
