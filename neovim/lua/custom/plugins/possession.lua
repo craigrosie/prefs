@@ -14,10 +14,8 @@ return {
       current = true,
       cwd = true,
     },
-    autoload = {
-      -- NOTE: Disable cwd autoload because it breaks using nvim to write commit messages
-      cwd = false,
-    },
+    -- NOTE: Disable cwd autoload because it breaks using nvim to write commit messages
+    autoload = false,
   },
   keys = {
     { '<leader>pl', ':PossessionLoadCwd<cr>', desc = '[P]ossession[L]oadCwd' },
