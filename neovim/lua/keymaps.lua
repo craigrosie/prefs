@@ -58,6 +58,15 @@ vim.keymap.set('n', '<C-w>t', ':tab split<cr>', { desc = 'Open current buffer in
 vim.keymap.set('n', 'j', 'gj', { desc = 'Move linewise even on wrapped lines' })
 vim.keymap.set('n', 'k', 'gk', { desc = 'Move linewise even on wrapped lines' })
 
+local function toggle_diagnostics()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end
 
+vim.keymap.set(
+  'n',
+  '<leader>xd',
+  toggle_diagnostics,
+  { noremap = true, silent = true, desc = 'Toggle vim diagnostics' }
+)
 
 -- vim: ts=2 sts=2 sw=2 et
