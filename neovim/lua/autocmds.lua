@@ -23,3 +23,12 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     -- vim.bo.shiftwidth = 2
   end,
 })
+
+-- Set filetype to bash for .envrc files
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '.envrc*',
+  callback = function()
+    vim.bo.filetype = 'bash'
+    vim.bo.syntax = 'bash'
+  end,
+})
