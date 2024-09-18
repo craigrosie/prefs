@@ -34,6 +34,7 @@ return {
     chat.setup({
       prompts = copilot_prompts,
       auto_insert_mode = true,
+      auto_follow_cursor = false,
       show_help = false,
       mappings = {
         complete = {
