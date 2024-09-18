@@ -137,10 +137,10 @@ return {
         {
           elements = {
             -- Elements can be strings or table with id and size keys.
-            { id = 'scopes', size = 0.50 },
-            { id = 'watches', size = 0.30 },
+            { id = 'scopes', size = 0.40 },
+            { id = 'watches', size = 0.25 },
             { id = 'breakpoints', size = 0.10 },
-            { id = 'stacks', size = 0.10 },
+            { id = 'stacks', size = 0.20 },
           },
           size = 0.20,
           position = 'left',
