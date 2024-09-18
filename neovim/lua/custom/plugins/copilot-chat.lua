@@ -75,7 +75,7 @@ return {
       local _, end_line = unpack(vim.fn.getpos("'>"))
       chat.ask(args.args, {
         selection = select.visual,
-        window = { layout = 'horizontal', relative = 'editor', width = 1, height = 0.3 },
+        window = { layout = 'horizontal', relative = 'editor', width = 1, height = 0.4 },
       })
     end, { nargs = '*', range = true })
   end,
