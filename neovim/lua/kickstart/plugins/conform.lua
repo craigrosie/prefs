@@ -38,6 +38,7 @@ return {
         typescript = { 'prettierd' },
         typescriptreact = { 'prettierd' },
         sh = { 'shellcheck' },
+        yaml = { 'yamlfmt' },
         --dbt = {'sqlfmt'}
         ['*'] = { 'codespell' },
         -- Conform can also run multiple formatters sequentially

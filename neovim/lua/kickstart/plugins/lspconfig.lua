@@ -245,6 +245,7 @@ return {
         'shellcheck',
         'eslint_d',
         'prettierd',
+        'yamlfmt',
       })
       require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
 
