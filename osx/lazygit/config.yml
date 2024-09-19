@@ -53,8 +53,9 @@ git:
     args: ""
   overrideGpg: false # prevents lazygit from spawning a separate process when using GPG
   paging:
-    colorArg: always
-    useConfig: false
+    # colorArg: always
+    # useConfig: false
+    externalDiffCommand: difft --color=always --display=inline --syntax-highlight=on --tab-width=2
   parseEmoji: false
   pull:
     mode: "auto" # one of 'auto' | 'merge' | 'rebase' | 'ff-only', auto reads from git configuration
