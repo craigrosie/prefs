@@ -89,4 +89,7 @@ vim.g.UltiSnipsJumpForwardTrigger = '<c-j>'
 vim.g.UltiSnipsJumpBackwardTrigger = '<c-k>'
 vim.keymap.set('n', '<leader>u', ':call UltiSnips#RefreshSnippets()<CR>')
 
+-- for deleted lines in diffview
+vim.opt.fillchars:append({ diff = '╱' })
+
 -- vim: ts=2 sts=2 sw=2 et
