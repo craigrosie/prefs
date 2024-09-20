@@ -1,6 +1,8 @@
+local utils = require('utils')
+
 return {
   'zbirenbaum/copilot.lua',
-  enabled = vim.g.is_work_env_set,
+  enabled = utils.is_plugin_enabled('NVIM_ENABLE_COPILOT'),
   event = 'InsertEnter',
   dependencies = {
     'zbirenbaum/copilot-cmp',

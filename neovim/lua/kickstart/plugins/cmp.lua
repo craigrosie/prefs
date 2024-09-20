@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 return {
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -73,7 +75,7 @@ return {
         cmp.config.compare.order,
       }
       -- Conditionally add copilot stuff
-      if vim.g.is_work_env_set then
+      if utils.is_plugin_enabled('NVIM_ENABLE_COPILOT_CHAT') then
         table.insert(sources, 2, { name = 'copilot' })
         table.insert(sources, 1, { require('copilot_cmp.comparators').prioritize })
       end

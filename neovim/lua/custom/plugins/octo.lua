@@ -1,6 +1,8 @@
+local utils = require('utils')
+
 return {
   'pwntester/octo.nvim',
-  enabled = vim.g.is_work_env_set,
+  enabled = utils.is_plugin_enabled('NVIM_ENABLE_OCTO'),
   event = 'VeryLazy',
   dependencies = {
     'nvim-lua/plenary.nvim',
