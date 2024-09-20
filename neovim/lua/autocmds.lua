@@ -32,3 +32,18 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     vim.bo.syntax = 'bash'
   end,
 })
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = {
+    '.aliases',
+    '.bash_profile',
+    '.bashrc',
+    '.extra',
+    '.functions',
+    '.sensible',
+  },
+  callback = function()
+    vim.bo.filetype = 'bash'
+    vim.bo.syntax = 'bash'
+  end,
+})
