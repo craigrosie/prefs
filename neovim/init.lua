@@ -93,13 +93,6 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
--- Check if IS_WORK env variable is set
-local function is_work_env_set()
-  return os.getenv('IS_WORK') ~= nil
-end
--- store the result so it can be used to conditionally enable plugins
-vim.g.is_work_env_set = is_work_env_set()
-
 -- [[ Setting options ]]
 require('options')
 
