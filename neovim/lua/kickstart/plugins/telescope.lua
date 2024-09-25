@@ -84,6 +84,10 @@ return {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
+          smart_open = {
+            match_algorithm = 'fzf',
+            disable_devicons = false,
+          },
         },
       })
 
@@ -114,7 +118,6 @@ return {
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader>s:', builtin.command_history, { desc = '[S]earch [:]Command History' })
       vim.keymap.set('n', '<leader>s/', builtin.search_history, { desc = '[S]earch [/]Search History' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
