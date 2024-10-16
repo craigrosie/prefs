@@ -20,7 +20,7 @@ return {
     },
   },
   keys = {
-    { '<leader>q', ":lua require('quicker').toggle()", desc = 'Toggle [q]uickfix' },
-    { '<leader>l', ":lua require('quicker').toggle({ loclist = true })", desc = 'Toggle [l]loclist' },
+    { '<leader>q', ":lua require('quicker').toggle()<CR>", desc = 'Toggle [q]uickfix' },
+    { '<leader>l', ":lua require('quicker').toggle({ loclist = true })<CR>", desc = 'Toggle [l]loclist' },
   },
 }
