@@ -52,12 +52,14 @@ return {
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+      local actions = require('telescope.actions')
       require('telescope').setup({
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
         defaults = {
           mappings = {
+            -- i = { ['<c-enter>'] = 'to_fuzzy_refine' },
             i = {
               ['<c-a>'] = actions.toggle_all,
               ['<c-f>'] = actions.send_selected_to_qflist + actions.open_qflist,
@@ -71,6 +73,9 @@ return {
           },
         },
         pickers = {
+          find_files = {
+            hidden = true,
+          },
           lsp_document_symbols = {
             symbol_width = 80,
             show_line = true,
@@ -100,6 +105,13 @@ return {
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>si', function()
+        builtin.find_files({
+          no_ignore = true,
+          no_ignore_parent = true,
+          file_ignore_patterns = { 'node_modules/', '.git/', 'dist/', 'build/', '.next/' },
+        })
+      end, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sc', builtin.grep_string, { desc = '[S]earch [C]urrent Word' })
       vim.keymap.set('n', '<leader>st', function()
@@ -110,6 +122,7 @@ return {
       vim.keymap.set(
         'n',
         '<leader>sw',
+        -- builtin.lsp_dynamic_workspace_symbols({ shorten_path = true }),
         builtin.lsp_dynamic_workspace_symbols,
         { desc = '[S]earch by lsp workspace symbols' }
       )

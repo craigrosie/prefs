@@ -118,7 +118,14 @@ export PIP_REQUIRE_VIRTUALENV=true
 # ASDF (https://github.com/asdf-vm/asdf)
 . $(brew --prefix asdf)/libexec/asdf.sh
 . $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+. ~/.asdf/plugins/java/set-java-home.bash
+
+export PATH=$PATH:/opt/homebrew/Cellar/postgresql@16/16.1_1/bin/
 
 export RIPGREP_CONFIG_PATH="$HOME/.rgrc"
 
+# Set up direnv hook
+eval "$(direnv hook bash)"
+
 echo "System online ✔︎"
+. "$HOME/.cargo/env"

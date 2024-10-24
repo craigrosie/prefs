@@ -793,6 +793,10 @@ def ${1}(${2}):
 	return ${4}
 endsnippet
 
+snippet usef "usefixtures" b
+@pytest.mark.usefixtures("${1}")
+endsnippet
+
 snippet param "@pytest.mark.parametrize" b
 @pytest.mark.parametrize(
 	("${1}"),
@@ -880,5 +884,14 @@ endglobal
 
 snippet uuid "UUIDv4" w
 `!p if not snip.c: snip.rv = '"' + generate_uuid() + '"'`
+endsnippet
+
+snippet exc "Exception subclass" b
+class $1Exception(${2:Exception}):
+	${4:pass}
+endsnippet
+
+snippet inst "instance check" b
+assert isinstance($1, $2)$0
 endsnippet
 # vim:ft=snippets:

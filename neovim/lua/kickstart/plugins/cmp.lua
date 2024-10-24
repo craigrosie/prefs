@@ -58,7 +58,7 @@ return {
         { name = 'nvim_lsp_signature_help' },
         { name = 'path' },
         { name = 'buffer', keyword_length = 2 },
-        { name = 'luasnip' },
+        -- { name = 'luasnip' },
         { name = 'path' },
       }
       local comparators = {
@@ -116,11 +116,37 @@ return {
             'i',
             's', --[[ "c" (to enable the mapping in command mode) ]]
           }),
-          ['<CR>'] = cmp.mapping.confirm({ select = true }),
+          ['<CR>'] = cmp.mapping({
+            i = function(fallback)
+              if cmp.visible() and cmp.get_active_entry() then
+                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+              else
+                fallback()
+              end
+            end,
+            s = cmp.mapping.confirm({ select = true }),
+            -- c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+            c = function(fallback)
+              if cmp.visible() and cmp.get_active_entry() then
+                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+              else
+                fallback()
+              end
+            end,
+          }),
         },
         completion = { completeopt = 'menu,menuone,noselect' },
 
         formatting = {
+          -- format = function(entry, vim_item)
+          --   vim_item.menu = ({
+          --     nvim_lsp = '[LSP]',
+          --     ultisnips = '[UltiSnips]',
+          --     buffer = '[Buffer]',
+          --     path = '[Path]',
+          --   })[entry.source.name]
+          --   return vim_item
+          -- end,
           format = lspkind.cmp_format({
             mode = 'symbol_text', -- show only symbol annotations
             maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)

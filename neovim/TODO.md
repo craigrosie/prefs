@@ -15,3 +15,4 @@
 [x] prettier
 [ ] modes? (line colour per mode)
 [x] open in gh
+[ ] set up nvim remote to get lazygit<->nvim integration working properly

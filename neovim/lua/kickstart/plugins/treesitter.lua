@@ -37,6 +37,7 @@ return {
           'markdown_inline',
           'python',
           'regex',
+          'styled',
           'terraform',
           'toml',
           'tsx',

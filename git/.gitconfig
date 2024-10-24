@@ -149,3 +149,7 @@
 	verbose = true
 [includeif "gitdir:~/github/"]
 	path = ~/github/.gitconfig
+[includeif "gitdir:~/zoe/"]
+	path = ~/zoe/.gitconfig
+[safe]
+	directory = /dbt

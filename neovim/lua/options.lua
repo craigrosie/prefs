@@ -9,7 +9,7 @@
 -- running a test
 vim.opt.sessionoptions = vim.opt.sessionoptions - 'buffers'
 
-vim.g.python3_host_prog = '~/.pyenv/versions/.neovenv-3.11.4/bin/python3'
+vim.g.python3_host_prog = '~/.pyenv/versions/.neovenv-3.11.5/bin/python3'
 
 -- Make line numbers default
 vim.opt.number = true

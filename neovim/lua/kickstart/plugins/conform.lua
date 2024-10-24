@@ -15,6 +15,10 @@ return {
     opts = {
       notify_on_error = true,
       format_on_save = function(bufnr)
+        local ignore_filetypes = { 'yaml' }
+        if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
+          return
+        end
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
