@@ -40,3 +40,14 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     vim.bo.syntax = 'bash'
   end,
 })
+
+-- Start git commits at start of line, and insert mode if message is empty
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'gitcommit',
+  callback = function()
+    vim.wo.spell = true
+    if vim.fn.getline(1) == '' then
+      vim.cmd('startinsert!')
+    end
+  end,
+})
