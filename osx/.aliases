@@ -163,6 +163,9 @@ alias eshrug="echo \"¯\\\\\_(ツ)\_/¯\" | pbcopy"
 # Copy .ignore file to current dir
 alias cpignore="cp ~/github/prefs/osx/.ignore ."
 
+# Copy Python direnv sample to current dir
+alias cppde="cp ~/github/prefs/direnv/python/.envrc.sample .envrc"
+
 # Better PATH printing
 alias pathy="env | grep -E "^PATH=" | sed 's/PATH=//g' | tr : '\n' | sort | uniq"
 
