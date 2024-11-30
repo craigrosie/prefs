@@ -237,7 +237,12 @@ return {
 
     vim.keymap.set('v', '<leader>cl', "<cmd>'<,'>CodeCompanion<cr>", { desc = '[c]odecompanion in[l]ine prompt' })
     vim.keymap.set('v', '<leader>cf', '<cmd>CodeCompanion /lsp<cr>', { desc = '[c]odecompanion [f]ix diagnostics' })
-    vim.keymap.set('v', '<leader>ca', '<cmd>CodeCompanionAdd<cr>', { desc = '[c]odecompanion add selection to chat' })
+    vim.keymap.set(
+      'v',
+      '<leader>ca',
+      '<cmd>CodeCompanionChat Add<cr>',
+      { desc = '[c]odecompanion add selection to chat' }
+    )
     vim.keymap.set(
       { 'n', 'v' },
       '<leader>cc',
