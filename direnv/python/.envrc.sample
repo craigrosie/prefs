@@ -1,2 +1,2 @@
-test -d .venv || uv venv --python $(cat .python-version-default)
+test -d .venv || uv venv --python $(cat .python-version)
 source .venv/bin/activate
