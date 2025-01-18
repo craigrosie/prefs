@@ -20,6 +20,7 @@ return {
   keys = {
     { '<leader>gr', ':Glance references<cr>', desc = '[g]lance [r]eferences' },
     { '<leader>gd', ':Glance definitions<cr>', desc = '[g]lance [d]definitions' },
-    { '<leader>gt', ':Glance type_definitions<cr>', desc = '[g]lance [t]yp_definitions' },
+    { '<leader>gt', ':Glance type_definitions<cr>', desc = '[g]lance [t]ype_definitions' },
+    { '<leader>gi', ':Glance implementations<cr>', desc = '[g]lance [i]mplementations' },
   },
 }
