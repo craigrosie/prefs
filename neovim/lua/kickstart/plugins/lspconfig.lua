@@ -189,11 +189,11 @@ return {
             --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
             preferences = {},
             --- @type boolean Defaults to `true`
-            showAbbreviationSuggestions = true,
+            showAbbreviationSuggestions = false,
             --- @type "always" | "never" Defaults to `"always"`
-            showExpandedAbbreviation = 'always',
+            showExpandedAbbreviation = 'never',
             --- @type boolean Defaults to `false`
-            showSuggestionsAsSnippets = false,
+            showSuggestionsAsSnippets = true,
             --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
             syntaxProfiles = { tag_nl = 'decide', inline_break = 1 },
             --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
