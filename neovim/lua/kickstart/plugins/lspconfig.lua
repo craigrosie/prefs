@@ -253,7 +253,13 @@ return {
             },
           },
         },
-        tsserver = {},
+        -- NOTE: Don't install typescript-language-server (ts_ls) through Mason,
+        -- as it will also attach as an LSP alongside typescript-tools.nvim, which
+        -- causes duplicates in nvim-cmp.
+        -- Had to install typescript-language-server via
+        -- `npm install -g typescript`
+        -- ts_ls = {},
+        -- tsserver = {},
         yamlls = {},
       }
 
