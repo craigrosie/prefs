@@ -1,7 +1,7 @@
 # This prompt inspired by gf3, sindresorhus, alrra, and mathiasbynens.
 # but customized to me. <3
 
-default_username='craigrosie'
+default_username='craig'
 
 
 
@@ -80,14 +80,17 @@ set_prompts() {
 
 
     function prompt_venv() {
+        local venvName=""
         if test ! -z "$VIRTUAL_ENV" ; then
-            venvName=" (`basename \"$VIRTUAL_ENV\"`)"
+            venvName=$(basename "$VIRTUAL_ENV")
+            if [ "$venvName" = ".venv" ] && test -f ".python-version"; then
+                venvName="$venvName-$(head -n1 .python-version)"
+            fi
+            venvName="($venvName)"
         elif test -f ".python-version"; then
-            venvName=" ($(head -n1 .python-version))"
-        else
-            venvName=""
+            venvName="($(head -n1 .python-version))"
         fi
-        echo $venvName ""
+        echo "$venvName "
     }
 
 
