@@ -11,18 +11,19 @@ gui:
   commandLogSize: 8
   commitLength:
     show: true
-  expandFocusedSidePanel: false
+  expandFocusedSidePanel: true
   mainPanelSplitMode: "flexible" # one of 'horizontal' | 'flexible' | 'vertical'
   mouseEvents: true
   nerdFontsVersion: "3"
   scrollHeight: 2 # how many lines you scroll by
   scrollPastBottom: true # enable scrolling past the bottom
   showCommandLog: true
+  showDivergenceFromBaseBranch: arrowAndNumber
   showFileTree: true # for rendering changes files in a tree format
   showIcons: true
   showListFooter: true # for seeing the '5 of 20' message in list panels
   showRandomTip: true
-  sidePanelWidth: 0.3333 # number from 0 to 1
+  sidePanelWidth: 0.20 # number from 0 to 1
   skipStashWarning: true
   skipDiscardChangeWarning: false
   theme:
@@ -55,7 +56,8 @@ git:
   paging:
     # colorArg: always
     # useConfig: false
-    externalDiffCommand: difft --color=always --display=inline --syntax-highlight=on --tab-width=2
+    pager: delta --dark --paging=never --side-by-side
+    # externalDiffCommand: difft --color=always --display=inline --syntax-highlight=on --tab-width=2
   parseEmoji: false
   pull:
     mode: "auto" # one of 'auto' | 'merge' | 'rebase' | 'ff-only', auto reads from git configuration
@@ -86,7 +88,7 @@ keybinding:
     diffingMenu-alt: "<c-e>" # deprecated
     diffingMenu: "W"
     edit: "e"
-    executeCustomCommand: ":"
+    executeShellCommand: ":"
     extrasMenu: "@"
     filteringMenu: "<c-s>"
     goInto: "<enter>"
@@ -195,10 +197,13 @@ keybinding:
     init: "i"
     update: "u"
 customCommands:
-  - command: "git push --force-with-lease"
+  - key: "<c-p>"
+    command: "git push --force-with-lease"
     context: "localBranches"
     description: "force push with lease"
-    key: "<c-p>"
-  - key: "<c-o>"
-    context: "localBranches"
+  - key: "<c-w>"
     command: "gh pr create --web"
+    context: "localBranches"
+  - key: "<c-g>"
+    context: "localBranches"
+    command: "gh pr view --web"
