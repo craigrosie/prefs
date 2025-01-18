@@ -54,7 +54,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 # Enable fasd
-eval "$(fasd --init auto)"
+eval "$(fasd --init bash-hook bash-ccomp bash-ccomp-install posix-alias posix-hook)"
 
 # Enable normal names for coreutils tools
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
