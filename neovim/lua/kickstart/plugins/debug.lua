@@ -17,6 +17,10 @@ return {
 
     -- Add your own debuggers here
     'mfussenegger/nvim-dap-python',
+    {
+      'debugloop/layers.nvim',
+      opts = {}, -- see :help Layers.config
+    },
   },
   config = function()
     local dap = require('dap')
@@ -155,6 +159,108 @@ return {
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
+
+    DEBUG_MODE = Layers.mode.new() -- global, accessible from anywhere
+    DEBUG_MODE:auto_show_help()
+
+    dap.listeners.after.event_initialized['debug_mode'] = function()
+      DEBUG_MODE:activate()
+    end
+    dap.listeners.before.event_terminated['debug_mode'] = function()
+      DEBUG_MODE:deactivate()
+    end
+    -- having both handlers seems to cause an error with layers attempting to be
+    -- deactivated twice
+    -- dap.listeners.before.event_exited['debug_mode'] = function()
+    --   DEBUG_MODE:deactivate()
+    -- end
+
+    DEBUG_MODE:keymaps({
+      n = {
+        {
+          'o',
+          function()
+            dap.step_over()
+          end,
+          { desc = 'step over' },
+        },
+        {
+          'c',
+          function()
+            dap.continue()
+          end,
+          { desc = 'continue' },
+        },
+        {
+          'i',
+          function()
+            dap.step_into()
+          end,
+          { desc = 'step into' },
+        },
+        {
+          'u',
+          function()
+            dap.step_out()
+          end,
+          { desc = 'step out' },
+        },
+        {
+          'b',
+          function()
+            dap.toggle_breakpoint()
+          end,
+          { desc = 'toggle breakpoint' },
+        },
+        {
+          '[',
+          function()
+            dap.up()
+          end,
+          { desc = 'up' },
+        },
+        {
+          ']',
+          function()
+            dap.down()
+          end,
+          { desc = 'down' },
+        },
+        {
+          'r',
+          function()
+            dap.run_to_cursor()
+          end,
+          { desc = 'down' },
+        },
+        {
+          'B',
+          function()
+            dap.toggle_breakpoint(vim.fn.input('Breakpoint condition: '))
+          end,
+          { desc = 'conditional breakpoint' },
+        },
+        {
+          'x',
+          function()
+            dap.terminate()
+          end,
+          { desc = 'terminate' },
+        },
+        { -- this acts as a way to leave debug mode without quitting the debugger
+          '<esc>',
+          function()
+            DEBUG_MODE:deactivate()
+          end,
+          { desc = 'exit' },
+        },
+        -- and so on...
+      },
+    })
+
+    vim.keymap.set('n', '<leader>dm', function()
+      DEBUG_MODE:activate()
+    end, { desc = 'Activate layers [d]ebug [m]ode' })
 
     vim.fn.sign_define('DapBreakpoint', { text = '', texthl = '', linehl = '', numhl = '' })
   end,
