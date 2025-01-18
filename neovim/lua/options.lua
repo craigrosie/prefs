@@ -79,16 +79,6 @@ vim.wo.wrap = false
 -- Set maximum number of items in completion menu
 vim.opt.pumheight = 15
 
--- set Ultisnips directory
-vim.g.UltiSnipsSnippetDirectories = { 'UltiSnips', 'custom_snippets' }
--- trigger snippet expansion
-vim.g.UltiSnipsExpandTrigger = '<c-e>'
--- shortcut to go to next position
-vim.g.UltiSnipsJumpForwardTrigger = '<c-j>'
--- shortcut to go to previous position
-vim.g.UltiSnipsJumpBackwardTrigger = '<c-k>'
-vim.keymap.set('n', '<leader>u', ':call UltiSnips#RefreshSnippets()<CR>')
-
 -- for deleted lines in diffview
 vim.opt.fillchars:append({ diff = '╱' })
 
