@@ -53,9 +53,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Enable jenv shims & autocomplete
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
-# Enable thefuck alias
-eval "$(thefuck --alias)"
-
 # Enable fasd
 eval "$(fasd --init auto)"
 
