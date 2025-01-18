@@ -25,19 +25,21 @@ return {
         }
       end,
       formatters_by_ft = {
+        go = { 'goimports', 'gofumpt' },
+        javascript = { 'prettierd' },
+        javascriptreact = { 'prettierd' },
         lua = { 'stylua' },
         python = function(bufnr)
           if require('conform').get_formatter_info('ruff_format', bufnr).available then
-            return { 'ruff_format' }
+            -- TODO: add ruff_fix / ruff_organize_imports
+            return { 'ruff_format', 'ruff_organize_imports' }
           else
             return { 'isort', 'black' }
           end
         end,
-        javascript = { 'prettierd' },
-        javascriptreact = { 'prettierd' },
+        sh = { 'shellcheck' },
         typescript = { 'prettierd' },
         typescriptreact = { 'prettierd' },
-        sh = { 'shellcheck' },
         yaml = { 'yamlfmt' },
         --dbt = {'sqlfmt'}
         ['*'] = { 'codespell' },
