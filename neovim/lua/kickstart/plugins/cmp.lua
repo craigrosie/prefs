@@ -136,7 +136,8 @@ return {
           comparators = comparators,
         },
         -- might conflict with copilot.vim's preview
-        experimental = { ghost_text = true },
+        -- definitely clashes with emmet_language_server
+        -- experimental = { ghost_text = true },
       })
       -- `/` cmdline setup.
       cmp.setup.cmdline('/', {
