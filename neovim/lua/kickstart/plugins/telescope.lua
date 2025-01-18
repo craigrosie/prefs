@@ -52,16 +52,18 @@ return {
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+      local actions = require('telescope.actions')
+
       require('telescope').setup({
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
-        --
         defaults = {
           mappings = {
             i = {
               ['<c-a>'] = actions.toggle_all,
               ['<c-f>'] = actions.send_selected_to_qflist + actions.open_qflist,
               ['<c-q>'] = false,
+              ['<c-\\>'] = actions.to_fuzzy_refine,
             },
             n = {
               ['<c-a>'] = actions.toggle_all,
@@ -71,6 +73,9 @@ return {
           },
         },
         pickers = {
+          find_files = {
+            hidden = true,
+          },
           lsp_document_symbols = {
             symbol_width = 80,
             show_line = true,
@@ -99,7 +104,17 @@ return {
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>si', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>sf', function()
+        builtin.find_files({
+          no_ignore = true,
+          no_ignore_parent = true,
+          file_ignore_patterns = { 'node_modules/', '.git/', 'dist/', 'build/', '.next/' },
+        })
+      end, { desc = '[S]earch []' })
+      vim.keymap.set('n', '<leader>sb', function()
+        builtin.buffers({ only_cwd = true, sort_mru = true })
+      end, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sc', builtin.grep_string, { desc = '[S]earch [C]urrent Word' })
       vim.keymap.set('n', '<leader>st', function()
@@ -115,7 +130,9 @@ return {
       )
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-      vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+      vim.keymap.set('n', '<leader>s.', function()
+        builtin.oldfiles({ only_cwd = true })
+      end, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader>s:', builtin.command_history, { desc = '[S]earch [:]Command History' })
       vim.keymap.set('n', '<leader>s/', builtin.search_history, { desc = '[S]earch [/]Search History' })
 
@@ -125,6 +142,10 @@ return {
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown({
           -- winblend = 10,
           previewer = false,
+          layout_config = {
+            width = 0.25,
+            height = 0.3,
+          },
         }))
       end, { desc = '[/] Fuzzily search in current buffer' })
 
