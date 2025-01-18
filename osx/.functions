@@ -359,6 +359,10 @@ function nvimvenv() {
         source "$VIRTUAL_ENV/bin/activate"
         command nvim "$@"
         deactivate
+    elif [[ -f "./.venv/bin/activate" ]]; then
+        source "./.venv/bin/activate"
+        command nvim "$@"
+        deactivate
     else
         command nvim "$@"
     fi
