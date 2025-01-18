@@ -41,16 +41,6 @@ return {
           require('mason-nvim-dap').default_setup(config)
         end,
         python = function(config)
-          config.adapters = {
-            type = 'executable',
-            -- TODO: move this to variable
-            command = vim.fn.expand('~/.pyenv/versions/.neovenv-3.11.4/bin/python3'),
-            args = {
-              '-m',
-              'debugpy.adapter',
-            },
-          }
-
           config.configurations = {
             {
               name = 'Docker',
@@ -115,6 +105,9 @@ return {
     vim.keymap.set('n', '<leader>dB', function()
       dap.set_breakpoint(vim.fn.input('[B]reakpoint condition: '))
     end, { desc = 'Debug: Set Breakpoint' })
+    vim.keymap.set('n', '<leader>d?', function()
+      dapui.eval(nil, { enter = true })
+    end, { desc = 'UI Eval' })
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
