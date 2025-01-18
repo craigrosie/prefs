@@ -16,17 +16,18 @@ return {
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/cmp-path',
       'f3fora/cmp-spell',
-      'SirVer/ultisnips',
-      'quangnguyen30192/cmp-nvim-ultisnips',
       'onsails/lspkind.nvim',
+      'saadparwaiz1/cmp_luasnip',
     },
     config = function()
       -- See `:help cmp`
       local cmp = require('cmp')
       local lspkind = require('lspkind')
+      local luasnip = require('luasnip')
+      luasnip.config.setup({})
 
       local sources = {
-        { name = 'ultisnips' },
+        { name = 'luasnip' },
         { name = 'nvim_lsp' },
         { name = 'nvim_lsp_signature_help' },
         { name = 'path' },
@@ -61,9 +62,10 @@ return {
         return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match('^%s*$') == nil
       end
       cmp.setup({
+        preselect = cmp.PreselectMode.None,
         snippet = {
           expand = function(args)
-            vim.fn['UltiSnips#Anon'](args.body)
+            luasnip.lsp_expand(args.body)
           end,
         },
         -- recommended configuration for <Tab> people:
@@ -91,13 +93,16 @@ return {
           ['<CR>'] = cmp.mapping({
             i = function(fallback)
               if cmp.visible() and cmp.get_active_entry() then
-                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+                if luasnip.expandable() then
+                  luasnip.expand()
+                else
+                  cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+                end
               else
                 fallback()
               end
             end,
             s = cmp.mapping.confirm({ select = true }),
-            -- c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
             c = function(fallback)
               if cmp.visible() and cmp.get_active_entry() then
                 cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
