@@ -11,12 +11,18 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
     'nvim-neotest/neotest-python',
+    'fredrikaverpil/neotest-golang',
+    'leoluz/nvim-dap-go', -- required by neotest-golang
   },
   opts = function()
+    local neotest_golang = require('neotest-golang')
     local neotest_python = require('neotest-python')
 
     return {
       adapters = {
+        neotest_golang({
+          dap_go_enabled = true, -- use nvim-dap-go
+        }),
         neotest_python({
           dap = { justMyCode = false },
           args = { '-vv' },
