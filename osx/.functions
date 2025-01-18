@@ -368,7 +368,7 @@ function nvimvenv() {
     fi
 }
 
-dkill() {
+function dkill() {
     local containers=$(docker ps --format '{{.ID}} - {{.Names}}' | fzf -m)
 
     if [ -n "$containers" ]; then
