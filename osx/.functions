@@ -379,3 +379,9 @@ dkill() {
         echo "No containers selected."
     fi
 }
+
+function pyinit() {
+    cp ~/github/prefs/direnv/python/.envrc.sample .envrc
+    cp ~/github/prefs/pyright/pyrightconfig.json .pyrightconfig.json
+    direnv allow
+}
