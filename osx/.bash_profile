@@ -39,13 +39,13 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
 # Enable pyenv shims & autocomplete
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which pyenv > /dev/null; then eval "$(pyenv init --path)"; fi
-
-# Enable pyenv-virtualenv auto-activation
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+# if which pyenv > /dev/null; then eval "$(pyenv init --path)"; fi
+#
+# # Enable pyenv-virtualenv auto-activation
+# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # Enable rbenv shims & autocomplete
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -117,5 +117,14 @@ export PIP_REQUIRE_VIRTUALENV=true
 . $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
 
 export RIPGREP_CONFIG_PATH="$HOME/.rgrc"
+
+# For python uv
+source "$HOME/.cargo/env"
+eval "$(uv generate-shell-completion bash)"
+
+eval "$(direnv hook bash)"
+
+# uv tools
+export PATH="/Users/craig/.local/bin:$PATH"
 
 echo "System online ✔︎"
