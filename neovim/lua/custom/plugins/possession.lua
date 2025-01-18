@@ -1,5 +1,6 @@
 return {
   'jedrzejboczar/possession.nvim',
+  enabled = false,
   -- NOTE: Don't enable lazy loading or autoload doesn't work
   lazy = false,
   dependencies = {
