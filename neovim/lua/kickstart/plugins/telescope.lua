@@ -29,6 +29,12 @@ return {
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      {
+        'nvim-telescope/telescope-live-grep-args.nvim',
+        -- This will not install any breaking changes.
+        -- For major updates, this must be adjusted manually.
+        version = '^1.0.0',
+      },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -53,8 +59,9 @@ return {
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
       local actions = require('telescope.actions')
+      local telescope = require('telescope')
 
-      require('telescope').setup({
+      telescope.setup({
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         defaults = {
@@ -97,8 +104,9 @@ return {
       })
 
       -- Enable Telescope extensions if they are installed
-      pcall(require('telescope').load_extension, 'fzf')
-      pcall(require('telescope').load_extension, 'ui-select')
+      pcall(telescope.load_extension, 'fzf')
+      pcall(telescope.load_extension, 'ui-select')
+      pcall(telescope.load_extension, 'live_grep_args')
 
       -- See `:help telescope.builtin`
       local builtin = require('telescope.builtin')
@@ -120,7 +128,13 @@ return {
       vim.keymap.set('n', '<leader>st', function()
         builtin.grep_string({ word_match = '-w', only_sort_text = true, search = '' })
       end, { desc = '[S]earch Fuzzy [T]ext' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+      vim.keymap.set('n', '<leader>s_', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+      vim.keymap.set(
+        'n',
+        '<leader>sg',
+        telescope.extensions.live_grep_args.live_grep_args,
+        { desc = '[S]earch by [G]rep' }
+      )
       vim.keymap.set('n', '<leader>sl', builtin.lsp_document_symbols, { desc = '[S]earch by [l]sp document symbols' })
       vim.keymap.set(
         'n',
