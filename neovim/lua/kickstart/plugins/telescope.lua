@@ -60,6 +60,7 @@ return {
       -- See `:help telescope` and `:help telescope.setup()`
       local actions = require('telescope.actions')
       local telescope = require('telescope')
+      local lga_actions = require('telescope-live-grep-args.actions')
 
       telescope.setup({
         -- You can put your default mappings / updates / etc. in here
@@ -100,6 +101,16 @@ return {
             match_algorithm = 'fzf',
             disable_devicons = false,
           },
+          live_grep_args = {
+            auto_quoting = true,
+            mappings = {
+              i = {
+                ['<C-k>'] = lga_actions.quote_prompt(),
+                ['<C-h>'] = lga_actions.quote_prompt({ postfix = ' --hidden ' }),
+                ['<C-\\>'] = actions.to_fuzzy_refine,
+              },
+            },
+          },
         },
       })
 
@@ -128,13 +139,18 @@ return {
       vim.keymap.set('n', '<leader>st', function()
         builtin.grep_string({ word_match = '-w', only_sort_text = true, search = '' })
       end, { desc = '[S]earch Fuzzy [T]ext' })
-      vim.keymap.set('n', '<leader>s_', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set(
-        'n',
-        '<leader>sg',
-        telescope.extensions.live_grep_args.live_grep_args,
-        { desc = '[S]earch by [G]rep' }
-      )
+      vim.keymap.set('n', '<leader>s_', function()
+        builtin.live_grep({
+          additional_args = { '--hidden' },
+          file_ignore_patterns = { 'node_modules', '.git', '.venv' },
+        })
+      end, { desc = '[S]earch by [G]rep' })
+      vim.keymap.set('n', '<leader>sg', function()
+        telescope.extensions.live_grep_args.live_grep_args({
+          additional_args = { '--hidden' },
+          file_ignore_patterns = { 'node_modules', '.git', '.venv' },
+        })
+      end, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sl', builtin.lsp_document_symbols, { desc = '[S]earch by [l]sp document symbols' })
       vim.keymap.set(
         'n',

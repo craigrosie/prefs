@@ -14,7 +14,7 @@ endsnippet
 
 snippet exf "export function" b
 export const ${1:funcName} = (${2:params}): ${3:return} => {
-  $0
+	$0
 }
 endsnippet
 
@@ -66,7 +66,37 @@ snippet doi "generate interface props" b
 	`!p snip.rv = gen_interface_props(snip)`
 endsnippet
 
+snippet afunc "async function" b
+async ${1:funcName}(${2:params}) {
+	$0
+}
+endsnippet
+
+# REACT 
+
+snippet usestate "useState" b
+const [${1:state}, set${1/(.*)/\u$1/}] = useState(${2:initialState})
+endsnippet
+
+# PLAYWRIGHT
+
+snippet desc "test.describe" b
+test.describe("$1", () => {
+	$0
+});
+endsnippet
+
+snippet step "test.step" b
+await test.step('$1', async () => {
+	${2:${VISUAL}}
+})
+endsnippet
+
+snippet exp "expect()" b
+expect($1)$0
+endsnippet
 
 # snippet test "export interface"
 # <tag>${VISUAL:inside}</tag>
 # endsnippet
+# vim:ft=snippets tabstop=2 shiftwidth=2:

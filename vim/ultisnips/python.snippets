@@ -400,8 +400,8 @@ endsnippet
 # 	${3:pass}
 
 
-# note: reflected operands and augmented arithmeitc assignements have been
-# intentionally ommited to reduce verbosity.
+# note: reflected operands and augmented arithmeitc assignments have been
+# intentionally omitted to reduce verbosity.
 snippet numeric "methods for emulating a numeric type" b
 def __add__(self, other):
 	${1:pass}
@@ -490,17 +490,6 @@ endsnippet
 
 snippet deff
 def ${1:fname}($2) -> $3:
-	$0
-endsnippet
-
-snippet ptest
-@pytest.mark.parametrize(
-	("${1}"),
-	[
-		(${2}),
-	],
-)
-def test_$3() -> None:
 	$0
 endsnippet
 
@@ -793,6 +782,10 @@ def ${1}(${2}):
 	return ${4}
 endsnippet
 
+snippet usef "usefixtures" b
+@pytest.mark.usefixtures("${1}")
+endsnippet
+
 snippet param "@pytest.mark.parametrize" b
 @pytest.mark.parametrize(
 	("${1}"),
@@ -880,5 +873,14 @@ endglobal
 
 snippet uuid "UUIDv4" w
 `!p if not snip.c: snip.rv = '"' + generate_uuid() + '"'`
+endsnippet
+
+snippet exc "Exception subclass" b
+class $1Exception(${2:Exception}):
+	${4:pass}
+endsnippet
+
+snippet inst "instance check" b
+assert isinstance($1, $2)$0
 endsnippet
 # vim:ft=snippets:
