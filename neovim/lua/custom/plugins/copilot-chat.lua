@@ -30,14 +30,13 @@ return {
     local chat = require('CopilotChat')
     local select = require('CopilotChat.select')
 
-    -- Registers copilot-chat source and enables it for copilot-chat filetype (so copilot chat window)
-    require('CopilotChat.integrations.cmp').setup()
-
     chat.setup({
       prompts = copilot_prompts,
       auto_insert_mode = true,
       auto_follow_cursor = false,
       show_help = false,
+      -- Registers copilot-chat source and enables it for copilot-chat filetype (so copilot chat window)
+      chat_autocomplete = true,
       mappings = {
         complete = {
           insert = '',
@@ -64,10 +63,10 @@ return {
         show_diff = {
           normal = 'gd',
         },
-        show_system_prompt = {
+        show_info = {
           normal = 'gp',
         },
-        show_user_selection = {
+        show_context = {
           normal = 'gs',
         },
       },
