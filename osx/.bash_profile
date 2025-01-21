@@ -68,7 +68,7 @@ export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
 export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH";
 
 # Enable fzf auto-completion & key bindings
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+eval "$(fzf --bash)"
 
 # Setting ag as the default source for fzf
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
