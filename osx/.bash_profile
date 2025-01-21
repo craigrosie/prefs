@@ -97,16 +97,18 @@ export EDITOR=nvim
 # Enable github cli autocompletion
 eval "$(gh completion -s bash)"
 
-# Enable kubectl autocompletion
-source <(kubectl completion bash)
-# Enable it for k alias
-complete -F __start_kubectl k
+# Enable kubectl autocompletion (if installed)
+if command -v kubectl &> /dev/null; then
+    source <(kubectl completion bash)
+    # Enable it for k alias
+    complete -F __start_kubectl k
 
-# Enable kube-ps1 (https://github.com/jonmosco/kube-ps1)
-source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
-export KUBE_PS1_SYMBOL_ENABLE=false
-export KUBE_PS1_CTX_COLOR=26  # blue
-export KUBE_PS1_NS_COLOR=172  # orange
+    # Enable kube-ps1 (https://github.com/jonmosco/kube-ps1)
+    source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
+    export KUBE_PS1_SYMBOL_ENABLE=false
+    export KUBE_PS1_CTX_COLOR=26  # blue
+    export KUBE_PS1_NS_COLOR=172  # orange
+fi
 
 # Prevent pip from installing packages outside of a virtualenv
 # https://switowski.com/blog/disable-pip-outside-of-virtual-environments
