@@ -119,7 +119,6 @@ export PIP_REQUIRE_VIRTUALENV=true
 export RIPGREP_CONFIG_PATH="$HOME/.rgrc"
 
 # For python uv
-source "$HOME/.cargo/env"
 eval "$(uv generate-shell-completion bash)"
 
 eval "$(direnv hook bash)"
