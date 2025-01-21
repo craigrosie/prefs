@@ -1,0 +1,5 @@
+cursor-style-blink = false
+font-family = "FiraCode Nerd Font Mono"
+link-url = true
+scrollback-limit = 100000
+theme = tokyonight_night
