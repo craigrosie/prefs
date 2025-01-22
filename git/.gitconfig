@@ -149,3 +149,5 @@
 	verbose = true
 [includeif "gitdir:~/github/"]
 	path = ~/github/.gitconfig
+[includeif "gitdir:~/work/"]
+	path = ~/work/.gitconfig
