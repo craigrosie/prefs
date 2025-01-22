@@ -139,6 +139,57 @@ return {
       desc = 'if not equal',
     }
   ),
+  -- Switch
+  s(
+    'swi',
+    fmta(
+      [[
+      switch <1> {
+      case <2>:
+        <3>
+      }
+      ]],
+      {
+        i(1, 'val'),
+        i(2, 'case'),
+        i(3, '// code'),
+      },
+      {
+        desc = 'switch',
+      }
+    )
+  ),
+  s(
+    'case',
+    fmta(
+      [[
+      case <1>:
+        <2>
+      ]],
+      {
+        i(1, 'case'),
+        i(2, '// code'),
+      },
+      {
+        desc = 'case',
+      }
+    )
+  ),
+  s(
+    'def',
+    fmta(
+      [[
+      default:
+        <1>
+      ]],
+      {
+        i(1, '// code'),
+      },
+      {
+        desc = 'default case',
+      }
+    )
+  ),
   -- Loops
   s(
     'for',
@@ -332,7 +383,8 @@ return {
     fmta(
       [[
     func Test<1>(t *testing.T) {
-      <2>got := <3>
+      <2>
+      got := <3>
       want := <4>
 
       if <5> {
@@ -362,13 +414,23 @@ return {
       [[
       func <1>(t testing.TB, <2>) {
         t.Helper()
+
         <3>
       }
       ]],
       {
         i(1, 'helperName'),
         i(2),
-        i(3),
+        d(3, function(_, snip)
+          local selected_text = snip.env.SELECT_RAW
+          if selected_text and #selected_text > 0 then
+            -- If there is selected text, insert it directly
+            return ls.sn(nil, t(selected_text))
+          else
+            -- If no selected text, provide a placeholder insert node
+            return ls.sn(nil, i(1, '\t// Helper code'))
+          end
+        end, {}),
       },
       {}
     ),
@@ -382,6 +444,7 @@ return {
       [[
       <1> := func(t testing.TB, <2>) {
         t.Helper()
+
         <3>
       }
       ]],
