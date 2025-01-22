@@ -1,5 +1,8 @@
 cursor-style-blink = false
 font-family = "FiraCode Nerd Font Mono"
+font-thicken = true
 link-url = true
 scrollback-limit = 100000
+shell-integration-features = no-cursor
 theme = tokyonight_night
+
