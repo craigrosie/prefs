@@ -183,7 +183,7 @@ return {
                   '1. Only use idiomatic code and best practices for the language.',
                   '2. Suggest improvements to the code.',
                   '3. Favour deep modules/functions, based on principles of "A Philosophy of Software Design" by John Ousterhout.',
-                  '4. Suggest better names for variables, functions or classes, if appropriate.',
+                  '4. Suggest better names for variables, functions, interfaces or classes, if appropriate.',
                   '5. Suggest better abstractions, if appropriate.',
                   '6. Suggest better error handling, if appropriate.',
                   '7. Look out for typos or spelling mistakes.',
