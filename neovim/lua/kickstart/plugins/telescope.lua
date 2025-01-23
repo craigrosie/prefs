@@ -119,18 +119,36 @@ return {
       pcall(telescope.load_extension, 'ui-select')
       pcall(telescope.load_extension, 'live_grep_args')
 
+      local file_ignore_patterns = {
+        -- osx
+        '.DS_Store',
+        -- git
+        '.git/',
+        -- build
+        'dist/',
+        'build/',
+        -- node
+        'node_modules/',
+        '.next/',
+        -- python
+        '.venv/',
+        '.ruff_cache/',
+        '.mypy_cache/',
+        '.hypothesis/',
+        '%.pyc',
+      }
+
       -- See `:help telescope.builtin`
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>si', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>sf', function()
         builtin.find_files({
           no_ignore = true,
           no_ignore_parent = true,
-          file_ignore_patterns = { 'node_modules/', '.git/', 'dist/', 'build/', '.next/' },
+          file_ignore_patterns = file_ignore_patterns,
         })
-      end, { desc = '[S]earch []' })
+      end, { desc = '[S]earch [f]iles' })
       vim.keymap.set('n', '<leader>sb', function()
         builtin.buffers({ only_cwd = true, sort_mru = true })
       end, { desc = '[S]earch Recent Files ("." for repeat)' })
@@ -148,7 +166,7 @@ return {
       vim.keymap.set('n', '<leader>sg', function()
         telescope.extensions.live_grep_args.live_grep_args({
           additional_args = { '--hidden' },
-          file_ignore_patterns = { 'node_modules', '.git', '.venv' },
+          file_ignore_patterns = file_ignore_patterns,
         })
       end, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sl', builtin.lsp_document_symbols, { desc = '[S]earch by [l]sp document symbols' })
