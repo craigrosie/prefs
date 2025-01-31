@@ -40,6 +40,7 @@ return {
             close = {
               n = '<C-c>',
               i = '<C-c>',
+              },
             },
             stop = {
               modes = {
@@ -155,10 +156,7 @@ return {
                   '6. Suggest better error handling, if appropriate.',
                   "7. Only make suggestions if you are confident that they actually improve the code. Don't suggest changes just for the sake of it.",
                   '',
-                  '```%s',
-                  '%s',
-                  '```',
-                }, context.filetype, context.filetype, code)
+                }, context.filetype, context.filetype)
               end,
               opts = {
                 contains_code = true,
