@@ -90,25 +90,25 @@ return {
     fmta(
       [=[
       s(
-        '<1>',
+        '<a>',
         fmta(
           [[
-          <2>
+          <b>
           ]],
           {
-            <3>
-          },
-          {
-            desc = '<4>',
+            <c>
           }
-        )
+        ),
+        {
+          desc = '<d>',
+        }
       ),
       ]=],
       {
-        i(1, 'trigger'),
-        i(2, 'content'),
-        i(3, 'nodes'),
-        i(4, 'description'),
+        a = i(1, 'trigger'),
+        b = i(2, 'content'),
+        c = c(3, { i('nodes'), t('repeat_duplicates = true') }),
+        d = i(4, 'description'),
       },
       {}
     ),
