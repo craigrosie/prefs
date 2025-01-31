@@ -122,20 +122,20 @@ return {
 
       local file_ignore_patterns = {
         -- osx
-        '.DS_Store',
+        '%.DS_Store',
         -- git
-        '.git/',
+        '%.git/',
         -- build
         'dist/',
         'build/',
         -- node
         'node_modules/',
-        '.next/',
+        '%.next/',
         -- python
-        '.venv/',
-        '.ruff_cache/',
-        '.mypy_cache/',
-        '.hypothesis/',
+        '%.venv/',
+        '%.ruff_cache/',
+        '%.mypy_cache/',
+        '%.hypothesis/',
         '%.pyc',
       }
 
