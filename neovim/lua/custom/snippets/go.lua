@@ -41,14 +41,13 @@ return {
     'app',
     fmta(
       [[
-      <1> = append(<2>, <3>)
+      <a> = append(<a>, <b>)
       ]],
       {
-        i(1, 'slice'),
-        rep(1),
-        i(2, 'val'),
+        a = i(1, 'slice'),
+        b = i(2, 'val'),
       },
-      {}
+      { repeat_duplicates = true }
     ),
     {
       desc = 'append',
@@ -62,7 +61,7 @@ return {
       fmt.Sprintf("<1>", <2>)
       ]],
       {
-        i(1, 'format string'),
+        i(1, 'fmt string'),
         i(2, 'args'),
       }
     ),
@@ -75,22 +74,19 @@ return {
     'mok',
     fmta(
       [[
-      <1>, <2> := <3>[<4>]
-      if !<6> {
-        <5>
+      <a>, <b> := <c>[<d>]
+      if !<b> {
+        <e>
       }
       ]],
       {
-        i(1, 'val'),
-        i(2, 'ok'),
-        i(3, 'm'),
-        i(4, 'key'),
-        -- Have to put these out of order for some unknown reason
-        -- If the rep() node comes before the last i(), the snippet raises an error
-        -- when being saved
-        i(5, '// code'),
-        rep(2),
-      }
+        a = i(1, 'val'),
+        b = i(2, 'ok'),
+        c = i(3, 'm'),
+        d = i(4, 'key'),
+        e = i(5, '// code'),
+      },
+      { repeat_duplicates = true }
     ),
     {
       desc = 'Check if map access is ok',
@@ -98,45 +94,25 @@ return {
   ),
   -- Conditionals
   s(
-    'ife',
+    'if',
     fmt(
       [[
-      if <1> == <2> {
-        <3>
+      if <a> <b> <c> {
+        <d>
       }
       ]],
       {
-        i(1, 'a'),
-        i(2, 'b'),
-        i(3),
+        a = i(1, 'a'),
+        b = c(2, { t('=='), t('!=') }),
+        c = i(3, 'b'),
+        d = i(4),
       },
       {
         delimiters = '<>',
       }
     ),
     {
-      desc = 'if equal',
-    }
-  ),
-  s(
-    'ifne',
-    fmt(
-      [[
-      if <1> != <2> {
-        <3>
-      }
-      ]],
-      {
-        i(1, 'a'),
-        i(2, 'b'),
-        i(3),
-      },
-      {
-        delimiters = '<>',
-      }
-    ),
-    {
-      desc = 'if not equal',
+      desc = 'if',
     }
   ),
   -- Switch
@@ -153,11 +129,11 @@ return {
         i(1, 'val'),
         i(2, 'case'),
         i(3, '// code'),
-      },
-      {
-        desc = 'switch',
       }
-    )
+    ),
+    {
+      desc = 'switch',
+    }
   ),
   s(
     'case',
@@ -169,11 +145,11 @@ return {
       {
         i(1, 'case'),
         i(2, '// code'),
-      },
-      {
-        desc = 'case',
       }
-    )
+    ),
+    {
+      desc = 'case',
+    }
   ),
   s(
     'def',
@@ -184,29 +160,32 @@ return {
       ]],
       {
         i(1, '// code'),
-      },
-      {
-        desc = 'default case',
       }
-    )
+    ),
+    {
+      desc = 'default case',
+    }
   ),
   -- Loops
   s(
     'for',
     fmta(
       [[
-      for <1> := <2>; <3>; <4> {
-        <5>
+      for <a> := <b>; <a> <c> <d>; <a><e> {
+        <f>
       }
       ]],
       {
-        i(1, 'i'),
-        i(2, '0'),
-        i(3, 'i < 10'),
-        i(4, 'i++'),
-        i(5),
+        a = i(1, 'i'),
+        b = i(2, '0'),
+        c = c(3, { t('<'), t('>'), t('<='), t('>=') }),
+        d = i(4, '10'),
+        e = c(5, { t('++'), t('--') }),
+        f = i(6),
       },
-      {}
+      {
+        repeat_duplicates = true,
+      }
     ),
     {
       desc = 'for loop',
@@ -221,7 +200,7 @@ return {
       }
       ]],
       {
-        i(1, '_'),
+        i(1, 'idx'),
         i(2, 'el'),
         i(3, 'obj'),
         i(4, '// body'),
@@ -249,6 +228,26 @@ return {
     ),
     {
       desc = 'struct',
+    }
+  ),
+  s(
+    'new',
+    fmta(
+      [[
+      func New<1>() *<1> {
+        return &<1>{<2>}
+      }
+      ]],
+      {
+        i(1, 'Type'),
+        i(2),
+      },
+      {
+        repeat_duplicates = true,
+      }
+    ),
+    {
+      desc = 'constructor',
     }
   ),
   -- Interfaces
@@ -282,10 +281,18 @@ return {
       {
         i(1, 'Name'),
         i(2, 'args'),
-        i(3, 'returnType'),
+        c(3, {
+          sn(nil, { r(1, 'returnType') }),
+          sn(nil, { t('('), r(1, 'returnType'), t(')') }),
+        }),
         i(4),
       },
-      {}
+      {
+        stored = {
+          -- key passed to restoreNodes.
+          ['returnType'] = i(1),
+        },
+      }
     ),
     {
       desc = 'function',
@@ -301,10 +308,18 @@ return {
       ]],
       {
         i(1, 'args'),
-        i(2, 'returnType'),
+        c(2, {
+          sn(nil, { r(1, 'returnType') }),
+          sn(nil, { t('('), r(1, 'returnType'), t(')') }),
+        }),
         i(3),
       },
-      {}
+      {
+        stored = {
+          -- key passed to restoreNodes.
+          ['returnType'] = i(1),
+        },
+      }
     ),
     {
       desc = 'function inline',
@@ -314,12 +329,12 @@ return {
     'm',
     fmta(
       [[
-      func (<1> <2>) <3>(<4>) <5> {
-        <6>
+      func (<a> <b>) <c>(<d>) <e> {
+        <f>
       }
       ]],
       {
-        d(1, function(args)
+        a = d(1, function(args)
           local receiver_type = args[1][1]
 
           local idx = 1
@@ -333,16 +348,100 @@ return {
           end
           return ls.sn(nil, t('r'))
         end, { 2 }),
-        i(2, 'Type'),
-        i(3, 'method'),
-        i(4, 'args'),
-        i(5, 'returnType'),
-        i(6),
+        b = i(2, 'Type'),
+        c = i(3, 'method'),
+        d = i(4, 'args'),
+        e = c(5, {
+          sn(nil, { r(1, 'returnType') }),
+          sn(nil, { t('('), r(1, 'returnType'), t(')') }),
+        }),
+        f = i(6),
       },
       {}
     ),
     {
       desc = 'method',
+    }
+  ),
+  s(
+    'main',
+    fmta(
+      [[
+      func main() {
+        <1>
+      }
+      ]],
+      {
+        i(1),
+      },
+      {
+        desc = 'main',
+      }
+    )
+  ),
+  -- Channels
+  s(
+    'rec',
+    fmta(
+      [[
+      <<-<1>
+      ]],
+      {
+        i(1, 'ch'),
+      },
+      {}
+    ),
+    {
+      desc = 'channel receive',
+    }
+  ),
+  s(
+    'send',
+    fmta(
+      [[
+      <1> <<- <2>
+      ]],
+      {
+        i(1, 'ch'),
+        i(2, 'val'),
+      }
+    ),
+    {
+      desc = 'send into channel',
+    }
+  ),
+  -- Goroutines
+  s(
+    'goi',
+    fmta(
+      [[
+      go func() {
+        <1>
+      }()
+      ]],
+      {
+        i(1),
+      },
+      {
+        desc = 'go inline func',
+      }
+    )
+  ),
+  s(
+    'sel',
+    fmta(
+      [[
+      select {
+      <1>
+      }
+      ]],
+      {
+        i(1),
+      },
+      {}
+    ),
+    {
+      desc = 'select',
     }
   ),
   -- Errors
@@ -366,11 +465,15 @@ return {
     'terrf',
     fmta(
       [[
-      t.Errorf("got %q want %q", <1>, <2>)
+      t.Errorf("<1> <2> <3> <4>", <5>, <6>)
       ]],
       {
         i(1, 'got'),
-        i(2, 'want'),
+        i(2, '%q'),
+        i(3, 'want'),
+        i(4, '%q'),
+        i(5, 'got'),
+        i(6, 'want'),
       },
       {}
     ),
@@ -382,16 +485,16 @@ return {
     'test',
     fmta(
       [[
-    func Test<1>(t *testing.T) {
-      <2>
-      got := <3>
-      want := <4>
+      func Test<1>(t *testing.T) {
+        <2>
+        got := <3>
+        want := <4>
 
-      if <5> {
-        t.Errorf("got %<6> want %<7>", got, want<8>)
+        if <5> {
+          t.Errorf("got %<6> want %<7>", got, want<8>)
+        }
       }
-    }
-    ]],
+      ]],
       {
         i(1, 'Name'),
         i(2),
@@ -464,7 +567,7 @@ return {
     fmta(
       [[
       if <1> != <2> {
-        t.Errorf("got %<3> want %<4>", <5>, <6>)
+        t.Errorf("got %<3> want %<4>", <1>, <2>)
       }
       ]],
       {
@@ -472,13 +575,33 @@ return {
         i(2, 'want'),
         i(3, 'q'),
         i(4, 'q'),
-        rep(1),
-        rep(2),
       },
-      {}
+      { repeat_duplicates = true }
     ),
     {
       desc = 'got want check',
+    }
+  ),
+  s(
+    'refl',
+    fmta(
+      [[
+      if !reflect.DeepEqual(<1>, <2>) {
+        t.Errorf("<3> %<4> <5> %<6>", <1>, <2>)
+      }
+      ]],
+      {
+        i(1, 'got'),
+        i(2, 'want'),
+        i(3, 'got'),
+        i(4, 'q'),
+        i(5, 'want'),
+        i(6, 'q'),
+      },
+      { repeat_duplicates = true }
+    ),
+    {
+      desc = 'reflect.DeepEqual check',
     }
   ),
   s(
@@ -491,8 +614,8 @@ return {
         <3>
       }
 
-      for <4>, <5> := range <6> {
-        <7>
+      for <4>, <5> := range <1> {
+        <6>
       }
       ]],
       {
@@ -501,10 +624,9 @@ return {
         i(3, 'values'),
         i(4, '_'),
         i(5, 'tt'),
-        rep(1),
-        i(7, '// Test code'),
+        i(6, '// Test code'),
       },
-      {}
+      { repeat_duplicates = true }
     ),
     {
       desc = 'table driven test',
@@ -542,19 +664,40 @@ return {
     fmta(
       [[
       func Benchmark<1>(b *testing.B) {
+        <2>
         for i := 0; i << b.N; i++ {
-          <2>
+          <3>
         }
       }
       ]],
       {
         i(1, 'Name'),
-        i(2, 'UnderTest()'),
+        i(2),
+        i(3, 'UnderTest()'),
       },
       {}
     ),
     {
-      desc = 'test func',
+      desc = 'benchmark',
+    }
+  ),
+  -- Locks
+  s(
+    'mulu',
+    fmta(
+      [[
+      <1>.Lock()
+      defer <1>.Unlock()
+      ]],
+      {
+        i(1, 'mu'),
+      },
+      {
+        repeat_duplicates = true,
+      }
+    ),
+    {
+      desc = 'description',
     }
   ),
 }
