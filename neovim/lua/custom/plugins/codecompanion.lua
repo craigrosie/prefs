@@ -64,6 +64,7 @@ return {
       },
       display = {
         chat = {
+          intro_message = '',
           window = {
             layout = 'horizontal',
             width = 1,
