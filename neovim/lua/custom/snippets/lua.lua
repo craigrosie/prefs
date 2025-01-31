@@ -97,18 +97,22 @@ return {
           ]],
           {
             <c>
+          },
+          {
+            <d>
           }
         ),
         {
-          desc = '<d>',
+          desc = '<e>',
         }
       ),
       ]=],
       {
         a = i(1, 'trigger'),
         b = i(2, 'content'),
-        c = c(3, { i('nodes'), t('repeat_duplicates = true') }),
-        d = i(4, 'description'),
+        c = i(3, 'nodes'),
+        d = c(4, { t(''), t('repeat_duplicates = true') }),
+        e = i(5, 'description'),
       },
       {}
     ),
