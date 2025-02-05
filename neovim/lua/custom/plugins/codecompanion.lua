@@ -1,4 +1,4 @@
-local utils = require('utils')
+local helpers = require('helpers')
 
 local format_lines = function(prompt_lines, ...)
   local arguments = { ... }
@@ -23,7 +23,7 @@ end
 
 return {
   'olimorris/codecompanion.nvim',
-  enabled = utils.is_plugin_enabled('NVIM_ENABLE_CODE_COMPANION'),
+  enabled = helpers.is_plugin_enabled('NVIM_ENABLE_CODE_COMPANION'),
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',

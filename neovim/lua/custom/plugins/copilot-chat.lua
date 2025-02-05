@@ -1,8 +1,8 @@
-local utils = require('utils')
+local helpers = require('helpers')
 
 return {
   'CopilotC-Nvim/CopilotChat.nvim',
-  enabled = utils.is_plugin_enabled('NVIM_ENABLE_COPILOT_CHAT'),
+  enabled = helpers.is_plugin_enabled('NVIM_ENABLE_COPILOT_CHAT'),
   event = 'VeryLazy',
   dependencies = {
     'zbirenbaum/copilot.lua',

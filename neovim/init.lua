@@ -102,6 +102,9 @@ require('autocmds')
 -- [[ Basic Keymaps ]]
 require('keymaps')
 
+-- [[ Custom utils ]]
+require('utils')
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 require('lazy-bootstrap')
 

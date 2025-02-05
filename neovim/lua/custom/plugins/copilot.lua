@@ -1,8 +1,8 @@
-local utils = require('utils')
+local helpers = require('helpers')
 
 return {
   'zbirenbaum/copilot.lua',
-  enabled = utils.is_plugin_enabled('NVIM_ENABLE_COPILOT'),
+  enabled = helpers.is_plugin_enabled('NVIM_ENABLE_COPILOT'),
   event = 'InsertEnter',
   dependencies = {
     'zbirenbaum/copilot-cmp',

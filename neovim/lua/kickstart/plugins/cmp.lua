@@ -1,4 +1,4 @@
-local utils = require('utils')
+local helpers = require('helpers')
 
 return {
   { -- Autocompletion
@@ -49,7 +49,7 @@ return {
         cmp.config.compare.order,
       }
       -- Conditionally add copilot stuff
-      if utils.is_plugin_enabled('NVIM_ENABLE_COPILOT_CHAT') then
+      if helpers.is_plugin_enabled('NVIM_ENABLE_COPILOT_CHAT') then
         table.insert(sources, 2, { name = 'copilot' })
         table.insert(sources, 1, { require('copilot_cmp.comparators').prioritize })
       end
