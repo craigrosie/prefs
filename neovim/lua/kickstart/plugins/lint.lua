@@ -3,6 +3,8 @@ return {
   event = { 'BufReadPre', 'BufNewFile' },
   config = function()
     local lint = require('lint')
+    local golangcilint = lint.linters.golangcilint
+    golangcilint.args = { 'run', '--allow-parallel-runners', '--out-format', 'json' }
     lint.linters_by_ft = {
       -- markdown = { 'markdownlint', 'vale' },
       dockerfile = { 'hadolint' },
