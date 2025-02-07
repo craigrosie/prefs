@@ -1,5 +1,7 @@
 return {
   'maxandron/goplements.nvim',
   ft = 'go',
-  opts = {},
+  opts = {
+    display_package = true,
+  },
 }
