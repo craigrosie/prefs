@@ -19,6 +19,19 @@ local types = require('luasnip.util.types')
 local conds = require('luasnip.extras.conditions')
 local conds_expand = require('luasnip.extras.conditions.expand')
 
+local vis_or_default = function(default_text)
+  return function(_, snip)
+    local selected_text = snip.env.SELECT_RAW
+    if selected_text and #selected_text > 0 then
+      -- If there is selected text, insert it directly
+      return ls.sn(nil, t(selected_text))
+    else
+      -- If no selected text, provide a placeholder insert node
+      return ls.sn(nil, i(1, default_text))
+    end
+  end
+end
+
 return {
   -- Utils
   s(
@@ -203,7 +216,7 @@ return {
         i(1, 'idx'),
         i(2, 'el'),
         i(3, 'obj'),
-        i(4, '// body'),
+        d(4, vis_or_default('// Code'), {}),
       },
       {}
     ),
@@ -662,16 +675,7 @@ return {
       ]],
       {
         i(1, 'description'),
-        d(2, function(_, snip)
-          local selected_text = snip.env.SELECT_RAW
-          if selected_text and #selected_text > 0 then
-            -- If there is selected text, insert it directly
-            return ls.sn(nil, t(selected_text))
-          else
-            -- If no selected text, provide a placeholder insert node
-            return ls.sn(nil, i(1, '\t// Test code'))
-          end
-        end, {}),
+        d(2, vis_or_default('// Code'), {}),
       },
       {}
     ),
