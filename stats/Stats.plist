@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Battery_state</key>
+	<false/>
+	<key>CPU_mini_alignment</key>
+	<string>left</string>
+	<key>CPU_mini_color</key>
+	<string>utilization</string>
+	<key>Clock_state</key>
+	<false/>
+	<key>Disk_state</key>
+	<false/>
+	<key>LaunchAtLoginNext</key>
+	<true/>
+	<key>NSNavPanelExpandedSizeForSaveMode</key>
+	<string>{800, 448}</string>
+	<key>NSStatusItem Preferred Position CPU_mini</key>
+	<real>390</real>
+	<key>NSStatusItem Preferred Position Network_speed</key>
+	<real>429</real>
+	<key>NSStatusItem Preferred Position RAM_mini</key>
+	<real>315</real>
+	<key>NSStatusItem Restore Position Clock_sensors</key>
+	<integer>955</integer>
+	<key>NSToolbar Configuration eu.exelban.Stats.Settings.Toolbar</key>
+	<dict>
+		<key>TB Display Mode</key>
+		<integer>1</integer>
+		<key>TB Icon Size Mode</key>
+		<integer>1</integer>
+		<key>TB Is Shown</key>
+		<true/>
+		<key>TB Size Mode</key>
+		<integer>1</integer>
+	</dict>
+	<key>NSWindow Frame NSNavPanelAutosaveName</key>
+	<string>500 507 800 448 0 0 1800 1125 </string>
+	<key>Network_base</key>
+	<string>byte</string>
+	<key>Network_speed_displayValue</key>
+	<string>oi</string>
+	<key>Network_speed_icon</key>
+	<string>arrows</string>
+	<key>Network_speed_iconAlignment</key>
+	<string>right</string>
+	<key>Network_speed_mode</key>
+	<string>twoRows</string>
+	<key>Network_speed_value</key>
+	<true/>
+	<key>Network_speed_valueAlignment</key>
+	<string>right</string>
+	<key>Network_speed_valueColor</key>
+	<string>none</string>
+	<key>RAM_mini_color</key>
+	<string>pressure</string>
+	<key>runAtLoginInitialized</key>
+	<true/>
+	<key>setupProcess</key>
+	<true/>
+	<key>support_ts</key>
+	<integer>1737474785</integer>
+	<key>telemetry</key>
+	<false/>
+	<key>telemetry_id</key>
+	<string>7863E615-169A-4F1C-BBC3-A03DD2881F4F</string>
+	<key>updater_check_ts</key>
+	<integer>1739354478</integer>
+	<key>version</key>
+	<string>2.11.30</string>
+</dict>
+</plist>
