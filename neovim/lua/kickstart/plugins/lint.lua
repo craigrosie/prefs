@@ -28,6 +28,8 @@ return {
         -- hides errors if linters are not installed, however, this could mask hidden issues
         -- require('lint').try_lint(nil, { ignore_errors = true })
         require('lint').try_lint()
+        -- Run codespell for all filetypes
+        require('lint').try_lint('codespell')
       end,
     })
   end,
