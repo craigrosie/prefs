@@ -211,6 +211,26 @@ return {
       desc = 'for range',
     }
   ),
+  s(
+    'while',
+    fmta(
+      [[
+      for <1> <2> <3> {
+        <4>
+      }
+      ]],
+      {
+        i(1, 'i'),
+        c(2, { t('>'), t('<'), t('>='), t('<=') }),
+        i(3, '0'),
+        i(4),
+      },
+      {}
+    ),
+    {
+      desc = 'for "while" loop',
+    }
+  ),
   -- Structs
   s(
     'st',
@@ -698,6 +718,37 @@ return {
     ),
     {
       desc = 'description',
+    }
+  ),
+  -- Comments
+  s(
+    'todo',
+    fmta(
+      [[
+      // TODO: <1>
+      ]],
+      {
+        i(1, 'description'),
+      },
+      {}
+    ),
+    {
+      desc = 'todo comment',
+    }
+  ),
+  s(
+    'note',
+    fmta(
+      [[
+      // NOTE: <1>
+      ]],
+      {
+        i(1, 'description'),
+      },
+      {}
+    ),
+    {
+      desc = 'note comment',
     }
   ),
 }
