@@ -1,5 +1,6 @@
 return {
   'mawkler/refjump.nvim',
+  event = 'LspAttach',
   keys = { ']r', '[r' },
   opts = {
     keymaps = {
