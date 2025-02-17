@@ -93,6 +93,7 @@ return {
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
           map('<C-w>d', '<Cmd>vsp<CR><Cmd>lua vim.lsp.buf.definition()<CR>', 'Go to [D]efinition in vsplit')
+          map('<C-w>x', '<Cmd>sp<CR><Cmd>lua vim.lsp.buf.definition()<CR>', 'Go to [D]efinition in hsplit')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
