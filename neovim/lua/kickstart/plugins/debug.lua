@@ -108,6 +108,7 @@ return {
     vim.keymap.set('n', '<leader>d]', dap.down, { desc = 'Debug: down ]' })
     vim.keymap.set('n', '<leader>dr', dap.run_to_cursor, { desc = 'Debug: [r]un to cursor' })
     vim.keymap.set('n', '<leader>dt', dap.terminate, { desc = 'Debug: [t]erminate' })
+    vim.keymap.set('n', '<leader>dx', dapui.close, { desc = 'Debug: close [x]' })
     vim.keymap.set('n', '<leader>dB', function()
       dap.set_breakpoint(vim.fn.input('[B]reakpoint condition: '))
     end, { desc = 'Debug: Set Breakpoint' })
