@@ -21,10 +21,16 @@ return {
       'debugloop/layers.nvim',
       opts = {}, -- see :help Layers.config
     },
+
+    'theHamsta/nvim-dap-virtual-text',
   },
   config = function()
     local dap = require('dap')
     local dapui = require('dapui')
+
+    require('nvim-dap-virtual-text').setup({
+      virt_text_pos = 'eol',
+    })
 
     require('mason-nvim-dap').setup({
       -- Makes a best effort to setup the various debuggers with
