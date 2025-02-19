@@ -28,6 +28,7 @@ return {
           'gowork',
           'gosum',
           'git_config',
+          'git_rebase',
           'gitcommit',
           'gitignore',
           'html',
