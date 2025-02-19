@@ -5,7 +5,8 @@ export PATH="$HOME/bin:$PATH";
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{sensible,path,bash_prompt,exports,aliases,functions,extra,fzf-git.sh}; do
+# If cannot use starship prompt, add bash_prompt here
+for file in ~/.{sensible,path,exports,aliases,functions,extra,fzf-git.sh}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
@@ -127,5 +128,7 @@ eval "$(direnv hook bash)"
 
 # uv tools
 export PATH="/Users/craig/.local/bin:$PATH"
+
+eval "$(starship init bash)"
 
 echo "System online ✔︎"
