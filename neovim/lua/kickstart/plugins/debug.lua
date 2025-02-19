@@ -141,15 +141,22 @@ return {
         {
           elements = {
             -- Elements can be strings or table with id and size keys.
-            { id = 'scopes', size = 0.40 },
-            { id = 'watches', size = 0.25 },
+            { id = 'scopes', size = 0.50 },
+            { id = 'watches', size = 0.10 },
             { id = 'breakpoints', size = 0.10 },
-            { id = 'stacks', size = 0.20 },
+            { id = 'stacks', size = 0.30 },
           },
           size = 0.20,
           position = 'left',
         },
-        { elements = { 'repl', 'console' }, size = 0.25, position = 'bottom' },
+        {
+          elements = {
+            { id = 'repl', size = 0.80 },
+            { id = 'console', size = 0.20 },
+          },
+          size = 0.25,
+          position = 'bottom',
+        },
       },
     })
 
