@@ -115,8 +115,8 @@ fi
 export PIP_REQUIRE_VIRTUALENV=true
 
 # ASDF (https://github.com/asdf-vm/asdf)
-. $(brew --prefix asdf)/libexec/asdf.sh
-. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+export ASDF_DATA_DIR="$HOME/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
 export RIPGREP_CONFIG_PATH="$HOME/.rgrc"
 
