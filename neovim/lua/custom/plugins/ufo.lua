@@ -5,20 +5,25 @@ return {
     'kevinhwang91/promise-async',
   },
   config = function()
-    vim.o.foldcolumn = '1' -- '0' is not bad
-    vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+    vim.o.foldcolumn = '1'
+    vim.o.foldlevel = 99
     vim.o.foldlevelstart = 99
     vim.o.foldenable = true
 
-    -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-    vim.keymap.set('n', ';R', require('ufo').openAllFolds)
-    vim.keymap.set('n', ';M', require('ufo').closeAllFolds)
-    vim.keymap.set('n', ';r', require('ufo').openFoldsExceptKinds)
-    vim.keymap.set('n', ';m', require('ufo').closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
-    vim.keymap.set('n', ';k', require('ufo').peekFoldedLinesUnderCursor)
-    vim.keymap.set('n', ';a', 'za', { desc = 'Toggle fold under cursor' })
-    vim.keymap.set('n', ';A', 'zA', { desc = 'Toggle all folds under cursor' })
-    vim.keymap.set({ 'n', 'v' }, ';f', 'zf', { desc = 'Create fold' })
+    vim.keymap.set('n', '<leader>uR', require('ufo').openAllFolds, { desc = 'Open all folds' })
+    vim.keymap.set('n', '<leader>uM', require('ufo').closeAllFolds, { desc = 'Close all folds' })
+    vim.keymap.set('n', '<leader>ur', require('ufo').openFoldsExceptKinds, { desc = 'Open all folds except kinds' })
+    vim.keymap.set('n', '<leader>um', require('ufo').closeFoldsWith, { desc = 'Close all folds with' }) -- closeAllFolds == closeFoldsWith(0)
+    vim.keymap.set(
+      'n',
+      '<leader>uk',
+      require('ufo').peekFoldedLinesUnderCursor,
+      { desc = 'Peek folded lines under cursor' }
+    )
+    vim.keymap.set('n', '<leader>ua', 'za', { desc = 'Toggle fold under cursor' })
+    vim.keymap.set('n', '<leader>uA', 'zA', { desc = 'Toggle all folds under cursor' })
+    vim.keymap.set({ 'n', 'v' }, '<leader>uf', 'zf', { desc = 'Create fold' })
+    vim.keymap.set('n', '<leader>ud', 'zd', { desc = 'Delete fold' })
 
     local filetypeMap = {
       lua = { 'indent' },
