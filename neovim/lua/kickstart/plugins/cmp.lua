@@ -33,7 +33,6 @@ return {
         { name = 'nvim_lsp_signature_help' },
         { name = 'path' },
         { name = 'buffer', keyword_length = 2 },
-        { name = 'path' },
       }
       local comparators = {
         -- Below is the default comparator list and order for nvim-cmp
