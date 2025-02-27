@@ -227,6 +227,7 @@ return {
                 rangeVariableTypes = true,
               },
               analyses = {
+                modernize = true,
                 nilness = true,
                 unusedparams = true,
                 unusedwrite = true,
