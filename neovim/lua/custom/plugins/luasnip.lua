@@ -24,7 +24,7 @@ return {
         ls.change_choice(1)
       end
     end, { silent = true })
-    vim.keymap.set({ 'n' }, '<leader>u', function()
+    vim.keymap.set({ 'n' }, '<leader>ls', function()
       loaders.edit_snippet_files({
         edit = function(fn)
           vim.cmd('vsplit ' .. fn)
