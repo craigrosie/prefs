@@ -51,3 +51,16 @@ vim.api.nvim_create_autocmd('FileType', {
     end
   end,
 })
+
+-- For heirarchy.nvim
+vim.api.nvim_create_augroup('Hierarchy', { clear = true })
+vim.api.nvim_create_autocmd({ 'LspAttach' }, {
+  group = 'Hierarchy',
+  desc = 'Set up the :FunctionReferences user command',
+  callback = function()
+    local opts = {
+      depth = 3,
+    }
+    require('hierarchy').setup(opts)
+  end,
+})

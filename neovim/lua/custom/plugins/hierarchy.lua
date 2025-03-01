@@ -1,0 +1,3 @@
+return {
+  'lafarr/hierarchy.nvim',
+}
