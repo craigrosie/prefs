@@ -37,21 +37,28 @@ return {
       show_help = false,
       -- Registers copilot-chat source and enables it for copilot-chat filetype (so copilot chat window)
       chat_autocomplete = true,
+      window = {
+        layout = 'horizontal',
+        relative = 'editor',
+        width = 1,
+        height = 0.4,
+      },
+      question_header = '# Me',
       mappings = {
         complete = {
-          insert = '',
+          insert = '<Tab>',
         },
         close = {
-          normal = 'q',
-          insert = '<C-c>',
+          normal = '<leader>gx',
+          insert = '<C-9>',
         },
         reset = {
-          normal = '<C-x>',
-          insert = '<C-x>',
+          normal = 'gx',
+          insert = '',
         },
         submit_prompt = {
-          normal = '<S-CR>',
-          insert = '<C-m>',
+          normal = '<C-s',
+          insert = '<C-s>',
         },
         accept_diff = {
           normal = '<C-y>',
@@ -81,18 +88,18 @@ return {
     end, { nargs = '*', range = true })
   end,
   keys = {
-    { '<leader>cc', ':CopilotChatToggle<cr>', mode = { 'n', 'v' }, desc = '[C]opilot [c]hat toggle window' },
-    { '<leader>cd', ':CopilotChatDocs<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat [d]ocs' },
-    { '<leader>ce', ':CopilotChatExplain<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat [e]xplain' },
-    { '<leader>cf', ':CopilotChatFix<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat [f]ix' },
-    { '<leader>ci', ':CopilotChatFixDiagnostic<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat fix d[i]agnostic' },
-    { '<leader>cl', ':CopilotChatSplit<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat sp[l]it' },
-    { '<leader>co', ':CopilotChatOptimize<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat [o]ptimize' },
-    { '<leader>cr', ':CopilotChatRefactor<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat [r]efactor' },
-    { '<leader>ct', ':CopilotChatTests<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat [t]ests' },
+    { '<leader>ac', ':CopilotChatToggle<cr>', mode = { 'n', 'v' }, desc = '[C]opilot [c]hat toggle window' },
+    { '<leader>ad', ':CopilotChatDocs<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat [d]ocs' },
+    { '<leader>ae', ':CopilotChatExplain<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat [e]xplain' },
+    { '<leader>af', ':CopilotChatFix<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat [f]ix' },
+    { '<leader>ai', ':CopilotChatFixDiagnostic<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat fix d[i]agnostic' },
+    { '<leader>al', ':CopilotChatSplit<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat sp[l]it' },
+    { '<leader>ao', ':CopilotChatOptimize<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat [o]ptimize' },
+    { '<leader>ar', ':CopilotChatRefactor<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat [r]efactor' },
+    { '<leader>at', ':CopilotChatTests<cr>', mode = { 'n', 'v' }, desc = '[C]opilot chat [t]ests' },
     -- Show help actions with telescope - doesn't seem to work
     {
-      '<leader>ch',
+      '<leader>ah',
       function()
         local actions = require('CopilotChat.actions')
         require('CopilotChat.integrations.telescope').pick(actions.help_actions())
@@ -101,7 +108,8 @@ return {
     },
     -- Show prompts actions with telescope
     {
-      '<leader>cp',
+      mode = { 'n', 'v' },
+      '<leader>am',
       function()
         local actions = require('CopilotChat.actions')
         require('CopilotChat.integrations.telescope').pick(actions.prompt_actions())
