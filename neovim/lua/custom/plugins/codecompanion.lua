@@ -48,6 +48,16 @@ return {
               },
             },
           },
+          roles = {
+            llm = function(adapter)
+              return string.format(
+                '  %s%s',
+                adapter.formatted_name,
+                adapter.parameters.model and ' (' .. adapter.parameters.model .. ')' or ''
+              )
+            end,
+            user = '  Me',
+          },
         },
         inline = {
           adapter = 'copilot',
