@@ -102,6 +102,9 @@ require('autocmds')
 -- [[ Basic Keymaps ]]
 require('keymaps')
 
+-- [[ Custom commands ]]
+require('commands')
+
 -- [[ Custom utils ]]
 require('utils')
 
