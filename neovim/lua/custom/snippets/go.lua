@@ -128,6 +128,39 @@ return {
       desc = 'if',
     }
   ),
+  -- Comparisons
+  s(
+    'eq',
+    fmta(
+      [[
+      <1> == <2>
+      ]],
+      {
+        i(1),
+        i(2),
+      },
+      {}
+    ),
+    {
+      desc = 'equal',
+    }
+  ),
+  s(
+    'neq',
+    fmta(
+      [[
+      <1> != <2>
+      ]],
+      {
+        i(1),
+        i(2),
+      },
+      {}
+    ),
+    {
+      desc = 'equal',
+    }
+  ),
   -- Switch
   s(
     'swi',
@@ -753,6 +786,21 @@ return {
     ),
     {
       desc = 'note comment',
+    }
+  ),
+  s(
+    'warn',
+    fmta(
+      [[
+      // WARN: <1>
+      ]],
+      {
+        i(1, 'description'),
+      },
+      {}
+    ),
+    {
+      desc = 'warn comment',
     }
   ),
 }
