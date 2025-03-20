@@ -70,12 +70,16 @@ return {
             i = {
               ['<c-a>'] = actions.toggle_all,
               ['<c-f>'] = actions.send_selected_to_qflist + actions.open_qflist,
+              ['<c-j>'] = actions.move_selection_next,
+              ['<c-k>'] = actions.move_selection_previous,
               ['<c-q>'] = false,
               ['<c-\\>'] = actions.to_fuzzy_refine,
             },
             n = {
               ['<c-a>'] = actions.toggle_all,
               ['<c-f>'] = actions.send_selected_to_qflist + actions.open_qflist,
+              ['<c-j>'] = actions.move_selection_next,
+              ['<c-k>'] = actions.move_selection_previous,
               ['<c-q>'] = false,
             },
           },
@@ -105,7 +109,7 @@ return {
             auto_quoting = true,
             mappings = {
               i = {
-                ['<C-k>'] = lga_actions.quote_prompt(),
+                ['<C-s>'] = lga_actions.quote_prompt(),
                 ['<C-h>'] = lga_actions.quote_prompt({ postfix = ' --hidden ' }),
                 ['<C-g>'] = lga_actions.quote_prompt({ postfix = ' --iglob ' }),
                 ['<C-\\>'] = actions.to_fuzzy_refine,
