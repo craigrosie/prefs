@@ -19,7 +19,7 @@ return {
       -- Make tokyonight colours a bit more vibrant
       on_colors = function(colors)
         local hsluv = require('tokyonight.hsluv')
-        local multiplier = 2.0
+        local multiplier = 1.2
 
         for k, v in pairs(colors) do
           if type(v) == 'string' and v ~= 'NONE' then
@@ -46,6 +46,14 @@ return {
             end
           end
         end
+      end,
+      on_highlights = function(hl, c)
+        hl['@property'] = { fg = '#30b5a1', bold = true }
+        hl['@variable.member'] = { fg = '#30b5a1' }
+        hl['@lsp.type.namespace.go'] = { fg = '#e0c268' }
+        -- Better highlighting for folds and fold virtual text suffix
+        hl['Folded'] = { fg = c.red, bg = c.bg }
+        hl['MoreMsg'] = { fg = c.red, bg = c.fg_gutter }
       end,
     },
   },
