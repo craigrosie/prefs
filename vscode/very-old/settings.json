@@ -1,0 +1,85 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontFamily": "Fira Code",
+    "editor.fontSize": 14,
+    "editor.fontLigatures": true,
+    "editor.rulers": [
+        80,
+        100
+    ],
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": false
+    },
+    "files.insertFinalNewline": true,
+    "workbench.colorTheme": "Chromodynamics",
+    "workbench.iconTheme": "vscode-icons",
+    "docker.enableLinting": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                ",",
+                ","
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": [
+                ":"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.showCommands",
+                    "args": []
+                }
+            ]
+        }
+    ],
+    "python.venvPath": "~/.pyenv/versions/",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "${env.VIRTUAL_ENV}/bin/flake8",
+    "python.unitTest.pyTestPath": "${env.VIRTUAL_ENV}/bin/py.test",
+    "python.unitTest.pyTestArgs": [
+        "--flake8",
+        "--cov",
+        "."
+    ],
+    "python.pythonPath": "${env.VIRTUAL_ENV}/bin/python",
+    "python.linting.flake8Args": [],
+    "terminal.external.osxExec": "iTerm.app",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/__pycache__": true,
+        "**/.cache": true,
+        "**/.coverage": true,
+        "**/*sublime-*": true,
+        "**/.python-version": true,
+        "**/*.egg-info": true,
+        "**/*.class": true,
+        "**/venv": true
+    },
+    "editor.cursorStyle": "underline",
+    "window.zoomLevel": 0,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "editor.cursorBlinking": "phase",
+    "files.trimTrailingWhitespace": true,
+    "editor.minimap.enabled": false,
+    "editor.lineNumbers": "relative",
+    "files.associations": {
+        "*.bq": "sql",
+        "*.in": "pip-requirements"
+    }
+}

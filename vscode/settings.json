@@ -1,214 +1,35 @@
 {
-    "files.exclude": {
-        "**/__pycache__": true,
-        "**/*.pyc": true,
-        "**/*.pyo": true,
-        ".git": true,
-        ".coverage": true,
-        ".coverage.*": true,
-        ".mypy_cache": true,
-        ".pytest_cache": true,
-        ".venv": true,
-        "dist": true,
-        "docs/_build": true,
+    "chat.editor.fontSize": 13,
+    "chat.fontSize": 14,
+    "chat.agent.maxRequests": 100,
+    "chat.tools.terminal.autoApprove": {
+        "go": true,
+        "gofmt": true,
+        "git fetch": true,
+        "git rev-parse": true
     },
-    "files.watcherExclude": {
-        "**/.mypy_cache": true,
-        "**/.venv": true,
-        "**/docs/_build": true,
-    },
-    "autoDocstring.docstringFormat": "google-notypes",
+    "chat.useNestedAgentsMdFiles": true,
+    "chat.viewSessions.enabled": false,
+    "editor.fontFamily": "Jetbrains Mono",
+    "editor.fontLigatures": true,
     "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
     "editor.rulers": [
-        79,
+        88,
         120
     ],
-    "editor.tabSize": 4,
     "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "python.formatting.provider": "black",
-    "python.linting.flake8Enabled": true,
-    "python.linting.mypyEnabled": true,
-    "remote.containers.defaultExtensions": [
-        "bungcip.better-toml",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "njpwerner.autodocstring",
-        "nickmillerdev.pytest-fixtures",
-        "eamodio.gitlens",
-        "ms-azuretools.vscode-docker",
-        "fabiospampinato.vscode-terminals",
-    ],
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[python]": {
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": true,
-        },
-    },
-    "workbench.colorTheme": "Chromodynamics",
-    "vim.cursorStylePerMode.insert": "underline",
-    "editor.minimap.enabled": false,
-    "editor.fontFamily": "Fira Code",
-    "editor.fontLigatures": true,
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "<Leader>",
-                "<Space>"
-            ],
-            "commands": [
-                ":noh"
-            ]
-        },
-    ],
-    "terminal.external.osxExec": "iTerm.app",
-    "editor.fontSize": 14,
-    "vim.leader": "<Space>",
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "<Leader>",
-                "r"
-            ],
-            "commands": [
-                "workbench.action.gotoSymbol",
-            ]
-        },
-        {
-            "before": [
-                "<Leader>",
-                "q"
-            ],
-            "commands": [
-                "editor.action.openDeclarationToTheSide",
-            ]
-        },
-        {
-            "before": [
-                "<Leader>",
-                "p"
-            ],
-            "commands": [
-                "workbench.action.quickOpen",
-            ]
-        },
-        {
-            "before": [
-                "g",
-                "r"
-            ],
-            "commands": [
-                "editor.action.goToReferences",
-            ]
-        },
-        {
-            "before": [
-                "g",
-                "s"
-            ],
-            "commands": [
-                "editor.action.openDeclarationToTheSide",
-            ]
-        }
-    ],
-    "debug.console.fontSize": 14,
-    "terminal.integrated.fontSize": 13,
-    "editor.cursorSurroundingLines": 2,
-    "workbench.colorCustomizations": {
-        "tab.activeBorder": "#cb7204",
-        "tab.unfocusedActiveBorder": "#000000"
-    },
-    "gitlens.currentLine.enabled": false,
-    "gitlens.hovers.currentLine.over": "line",
-    "gitlens.codeLens.enabled": false,
-    "gitlens.statusBar.enabled": false,
-    "gitlens.codeLens.recentChange.enabled": false,
-    "gitlens.hovers.enabled": false,
-    "python.linting.mypyCategorySeverity.note": "Warning",
-    "terminal.integrated.scrollback": 50000,
-    "editor.stickyScroll.enabled": true,
-    "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            {
-                "scope": "meta.function-call.generic.python",
-                "settings": {
-                    "foreground": "#A6E22E",
-                }
-            },
-            {
-                "scope": "support.type.python",
-                "settings": {
-                    "foreground": "#A6E22E",
-                }
-            },
-            {
-                "scope": "meta.function",
-                "settings": {
-                    "foreground": "#618b82"
-                }
-            },
-            {
-                "scope": "variable.language.special.self.python",
-                "settings": {
-                    "foreground": "#e88f29"
-                }
-            },
-            {
-                "scope": "variable.parameter.function.language.special.self.python",
-                "settings": {
-                    "foreground": "#e88f29"
-                }
-            },
-            {
-                "scope": "constant.other.caps.python",
-                "settings": {
-                    "fontStyle": "italic"
-                }
-            },
-            {
-                "scope": "storage.type.function.python",
-                "settings": {
-                    "foreground": "#ec0909",
-                    "fontStyle": "bold"
-                }
-            },
-            {
-                "scope": "keyword.control.flow.python",
-                "settings": {
-                    "foreground": "#ec0909",
-                    "fontStyle": "bold"
-                }
-            },
-            {
-                "scope": "storage.type.class.python",
-                "settings": {
-                    "foreground": "#ec0909",
-                    "fontStyle": "bold"
-                }
-            },
-            {
-                "scope": "source.python",
-                "settings": {
-                    "foreground": "#c6c2c2",
-                }
-            },
-        ]
-    },
-    "remote.SSH.defaultExtensions": [
-        "stuart.unique-window-colors",
-        "ms-python.python"
-    ],
-    "workbench.editor.enablePreviewFromQuickOpen": true,
-    "workbench.editor.closeEmptyGroups": false,
-    "workbench.editor.navigationScope": "editorGroup",
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "explorer.autoReveal": false,
+    "github.copilot.chat.agent.thinkingTool": true,
+    "github.copilot.chat.codesearch.enabled": true,
+    "github.copilot.chat.enableRetryAfterFilteredResponse": true,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "go.lintTool": "golangci-lint-v2",
+    "go.showWelcome": false,
+    "go.survey.prompt": false,
+    "go.toolsManagement.autoUpdate": true,
+    "terminal.external.osxExec": "Ghostty.app",
+    "workbench.colorTheme": "Tokyo Night",
+    "workbench.tree.indent": 12,
 }

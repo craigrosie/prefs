@@ -1,85 +1,214 @@
-// Place your settings in this file to overwrite the default settings
 {
-    "editor.fontFamily": "Fira Code",
-    "editor.fontSize": 14,
-    "editor.fontLigatures": true,
-    "editor.rulers": [
-        80,
-        100
-    ],
-    "editor.quickSuggestions": {
-        "other": true,
-        "comments": true,
-        "strings": false
-    },
-    "files.insertFinalNewline": true,
-    "workbench.colorTheme": "Chromodynamics",
-    "workbench.iconTheme": "vscode-icons",
-    "docker.enableLinting": true,
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                ",",
-                ","
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "vim.otherModesKeyBindingsNonRecursive": [
-        {
-            "before": [
-                ":"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.showCommands",
-                    "args": []
-                }
-            ]
-        }
-    ],
-    "python.venvPath": "~/.pyenv/versions/",
-    "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Path": "${env.VIRTUAL_ENV}/bin/flake8",
-    "python.unitTest.pyTestPath": "${env.VIRTUAL_ENV}/bin/py.test",
-    "python.unitTest.pyTestArgs": [
-        "--flake8",
-        "--cov",
-        "."
-    ],
-    "python.pythonPath": "${env.VIRTUAL_ENV}/bin/python",
-    "python.linting.flake8Args": [],
-    "terminal.external.osxExec": "iTerm.app",
     "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/*.pyc": true,
         "**/__pycache__": true,
-        "**/.cache": true,
-        "**/.coverage": true,
-        "**/*sublime-*": true,
-        "**/.python-version": true,
-        "**/*.egg-info": true,
-        "**/*.class": true,
-        "**/venv": true
+        "**/*.pyc": true,
+        "**/*.pyo": true,
+        ".git": true,
+        ".coverage": true,
+        ".coverage.*": true,
+        ".mypy_cache": true,
+        ".pytest_cache": true,
+        ".venv": true,
+        "dist": true,
+        "docs/_build": true,
     },
-    "editor.cursorStyle": "underline",
-    "window.zoomLevel": 0,
-    "workbench.editor.enablePreview": false,
-    "workbench.editor.enablePreviewFromQuickOpen": false,
-    "editor.cursorBlinking": "phase",
-    "files.trimTrailingWhitespace": true,
+    "files.watcherExclude": {
+        "**/.mypy_cache": true,
+        "**/.venv": true,
+        "**/docs/_build": true,
+    },
+    "autoDocstring.docstringFormat": "google-notypes",
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+        79,
+        120
+    ],
+    "editor.tabSize": 4,
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "python.formatting.provider": "black",
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": true,
+    "remote.containers.defaultExtensions": [
+        "bungcip.better-toml",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "njpwerner.autodocstring",
+        "nickmillerdev.pytest-fixtures",
+        "eamodio.gitlens",
+        "ms-azuretools.vscode-docker",
+        "fabiospampinato.vscode-terminals",
+    ],
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+        },
+    },
+    "workbench.colorTheme": "Chromodynamics",
+    "vim.cursorStylePerMode.insert": "underline",
     "editor.minimap.enabled": false,
-    "editor.lineNumbers": "relative",
-    "files.associations": {
-        "*.bq": "sql",
-        "*.in": "pip-requirements"
-    }
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<Leader>",
+                "<Space>"
+            ],
+            "commands": [
+                ":noh"
+            ]
+        },
+    ],
+    "terminal.external.osxExec": "iTerm.app",
+    "editor.fontSize": 14,
+    "vim.leader": "<Space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<Leader>",
+                "r"
+            ],
+            "commands": [
+                "workbench.action.gotoSymbol",
+            ]
+        },
+        {
+            "before": [
+                "<Leader>",
+                "q"
+            ],
+            "commands": [
+                "editor.action.openDeclarationToTheSide",
+            ]
+        },
+        {
+            "before": [
+                "<Leader>",
+                "p"
+            ],
+            "commands": [
+                "workbench.action.quickOpen",
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.goToReferences",
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "s"
+            ],
+            "commands": [
+                "editor.action.openDeclarationToTheSide",
+            ]
+        }
+    ],
+    "debug.console.fontSize": 14,
+    "terminal.integrated.fontSize": 13,
+    "editor.cursorSurroundingLines": 2,
+    "workbench.colorCustomizations": {
+        "tab.activeBorder": "#cb7204",
+        "tab.unfocusedActiveBorder": "#000000"
+    },
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.codeLens.enabled": false,
+    "gitlens.statusBar.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+    "gitlens.hovers.enabled": false,
+    "python.linting.mypyCategorySeverity.note": "Warning",
+    "terminal.integrated.scrollback": 50000,
+    "editor.stickyScroll.enabled": true,
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "meta.function-call.generic.python",
+                "settings": {
+                    "foreground": "#A6E22E",
+                }
+            },
+            {
+                "scope": "support.type.python",
+                "settings": {
+                    "foreground": "#A6E22E",
+                }
+            },
+            {
+                "scope": "meta.function",
+                "settings": {
+                    "foreground": "#618b82"
+                }
+            },
+            {
+                "scope": "variable.language.special.self.python",
+                "settings": {
+                    "foreground": "#e88f29"
+                }
+            },
+            {
+                "scope": "variable.parameter.function.language.special.self.python",
+                "settings": {
+                    "foreground": "#e88f29"
+                }
+            },
+            {
+                "scope": "constant.other.caps.python",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": "storage.type.function.python",
+                "settings": {
+                    "foreground": "#ec0909",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": "keyword.control.flow.python",
+                "settings": {
+                    "foreground": "#ec0909",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": "storage.type.class.python",
+                "settings": {
+                    "foreground": "#ec0909",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": "source.python",
+                "settings": {
+                    "foreground": "#c6c2c2",
+                }
+            },
+        ]
+    },
+    "remote.SSH.defaultExtensions": [
+        "stuart.unique-window-colors",
+        "ms-python.python"
+    ],
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "workbench.editor.closeEmptyGroups": false,
+    "workbench.editor.navigationScope": "editorGroup",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "explorer.autoReveal": false,
 }
