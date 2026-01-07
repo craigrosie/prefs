@@ -10,7 +10,7 @@ return {
     local loaders = require('luasnip.loaders')
 
     vim.keymap.set({ 'i' }, '<C-e>', function()
-      ls.expand()
+      ls.expand({})
     end, { silent = true })
     vim.keymap.set({ 'i', 's' }, '<C-j>', function()
       ls.jump(1)
@@ -33,7 +33,7 @@ return {
       })
     end, { silent = true })
 
-    require('luasnip.loaders.from_lua').load({ paths = './lua/custom/snippets' })
+    require('luasnip.loaders.from_lua').load({ paths = { './lua/custom/snippets' } })
 
     ls.config.set_config({
       history = true, -- Remember last snippet
