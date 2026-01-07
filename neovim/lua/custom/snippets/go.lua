@@ -512,6 +512,25 @@ return {
   ),
   -- Errors
   s(
+    'iferr',
+    fmta(
+      [[
+      if <1> != nil {
+        return <2>fmt.Errorf("<3>: %w", err)
+      }
+      ]],
+      {
+        i(1, 'err'),
+        c(2, { t(''), t('nil, '), t('0, '), t('"", ') }),
+        i(3, 'description'),
+      },
+      {}
+    ),
+    {
+      desc = 'if err',
+    }
+  ),
+  s(
     'errn',
     fmta(
       [[
@@ -801,6 +820,26 @@ return {
     ),
     {
       desc = 'warn comment',
+    }
+  ),
+  -- Feature Flag
+  s(
+    'ff',
+    fmta(
+      [[
+      if fs.Bool(<a>, "<b>") {
+        <c>
+      }
+      ]],
+      {
+        a = c(1, { t('ctx'), t('context.Background()') }),
+        b = i(2, 'feature flag name'),
+        c = i(3),
+      },
+      {}
+    ),
+    {
+      desc = 'feature flag',
     }
   ),
 }
