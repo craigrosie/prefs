@@ -4,6 +4,6 @@ font-thicken = true
 link-url = true
 scrollback-limit = 100000
 shell-integration-features = no-cursor
-theme = tokyonight_night
+theme = TokyoNight Night
 
 keybind = super+t=unbind
