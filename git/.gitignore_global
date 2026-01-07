@@ -73,7 +73,7 @@ venv/
 # SonarLint #
 #############
 .sonarlint
-build/
+/build/
 
 # Vim #
 #######
@@ -88,3 +88,10 @@ build/
 # Misc files #
 ##############
 misc/
+
+# AI #
+######
+.github/copilot-instructions.md
+CHATS/
+PLANS/
+
