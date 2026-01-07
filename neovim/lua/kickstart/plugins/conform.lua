@@ -50,6 +50,11 @@ return {
         -- is found.
         -- javascript = { { "prettierd", "prettier" } },
       },
+      formatters = {
+        yamlfmt = {
+          prepend_args = { '-conf', vim.fn.expand('~/.config/yamlfmt/.yamlfmt.yaml') },
+        },
+      },
     },
   },
 }
