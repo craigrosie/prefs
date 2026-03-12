@@ -1,7 +1,12 @@
-[sublime files]
-prefs.sublime-*
+# vim
 vim/.vim/bundle
 vim/.vim/backups
 vim/.vim/swaps
 vim/.vim/undo
 vim/.vim/black
+
+# agentsync
+agentsync/agentsync
+
+# ai
+ai/dist/
