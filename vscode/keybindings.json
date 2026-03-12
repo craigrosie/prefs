@@ -15,5 +15,101 @@
     {
         "key": "ctrl+j",
         "command": "workbench.action.navigateDown"
-    }
+    },
+    {
+        "key": "cmd+b",
+        "command": "editor.action.goToImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus"
+    },
+    {
+        "key": "cmd+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "cmd+f12",
+        "command": "-editor.action.goToImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus"
+    },
+    {
+        "key": "ctrl+w d",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.splitEditor",
+                "editor.action.revealDefinition",
+            ]
+        }
+    },
+    {
+        "key": "shift+cmd+r",
+        "command": "-rerunSearchEditorSearch",
+        "when": "inSearchEditor"
+    },
+    {
+        "key": "shift+cmd+r",
+        "command": "editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "f2",
+        "command": "-editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    // {
+    //     "key": "g r",
+    //     "command": "editor.action.goToReferences",
+    //     "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    // },
+    {
+        "key": "shift+f12",
+        "command": "-editor.action.goToReferences",
+        "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "] r",
+        "command": "references-view.next",
+        "when": "reference-list.hasResult && references-view.canNavigate"
+    },
+    {
+        "key": "f4",
+        "command": "-references-view.next",
+        "when": "reference-list.hasResult && references-view.canNavigate"
+    },
+    {
+        "key": "[ r",
+        "command": "references-view.prev",
+        "when": "reference-list.hasResult && references-view.canNavigate"
+    },
+    {
+        "key": "shift+f4",
+        "command": "-references-view.prev",
+        "when": "reference-list.hasResult && references-view.canNavigate"
+    },
+    {
+        "key": "ctrl+cmd+t",
+        "command": "terminal.focus"
+    },
+    {
+        "key": "ctrl+cmd+p",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "ctrl+cmd+a",
+        "command": "workbench.panel.chat.view.copilot.focus"
+    },
+    //     {
+    //         "key": "g d",
+    //         "command": "editor.action.revealDefinition",
+    //         "when": "editorHasDefinitionProvider && editorTextFocus"
+    //     },
+    //     {
+    //         "key": "f12",
+    //         "command": "-editor.action.revealDefinition",
+    //         "when": "editorHasDefinitionProvider && editorTextFocus"
+    //     },
+    //     {
+    //         "key": "cmd+up",
+    //         "command": "-editor.action.goToTopHover",
+    //         "when": "editorHoverFocused"
+    //     },
 ]
