@@ -33,13 +33,17 @@ return {
   },
   config = function()
     require('codecompanion').setup({
+      opts = {
+        log_level = 'DEBUG',
+      },
       strategies = {
         chat = {
           adapter = 'copilot',
           keymaps = {
             close = {
-              n = '<C-c>',
-              i = '<C-c>',
+              modes = {
+                n = '<leader>gx',
+                i = '<C-9>',
               },
             },
             stop = {
@@ -77,9 +81,9 @@ return {
         chat = {
           intro_message = '',
           window = {
-            layout = 'horizontal',
-            width = 1,
-            height = 0.4,
+            layout = 'vertical',
+            width = 120,
+            height = 1,
           },
         },
       },
@@ -122,11 +126,15 @@ return {
           },
           prompts = {
             {
+              role = 'system',
+              content = 'You are an expert at following the Conventional Commit specification.',
+            },
+            {
               role = 'user',
               content = function()
                 -- return string.format(
                 return format_lines({
-                  'You are an expert at following the Conventional Commit specification. Given the git diff listed below, please generate a commit message for me:',
+                  'Given the git diff listed below, please generate a commit message for me:',
                   '',
                   '```diff',
                   '%s',
@@ -151,10 +159,8 @@ return {
           },
           prompts = {
             {
-              role = 'user',
+              role = 'system',
               content = function(context)
-                local code = require('codecompanion.helpers.actions').get_code(context.start_line, context.end_line)
-
                 return format_lines({
                   'I want you to act as a senior %s developer. I want you to review the selected code, then suggest improvements and provide feedback. Please consider the following points:',
                   '',
@@ -164,9 +170,26 @@ return {
                   '4. Suggest better names for variables, functions or classes, if appropriate.',
                   '5. Suggest better abstractions, if appropriate.',
                   '6. Suggest better error handling, if appropriate.',
-                  "7. Only make suggestions if you are confident that they actually improve the code. Don't suggest changes just for the sake of it.",
+                  '7. Look out for typos or spelling mistakes.',
+                  "8. Only make suggestions if you are confident that they actually improve the code. Don't suggest changes just for the sake of it.",
+                  '9. Look out for any secrets or sensitive data that might be exposed in the code. If you find any, please let me know so I can remove them.',
                   '',
-                }, context.filetype, context.filetype)
+                }, context.filetype)
+              end,
+            },
+            {
+              role = 'user',
+              content = function(context)
+                local code = require('codecompanion.helpers.actions').get_code(context.start_line, context.end_line)
+
+                return format_lines({
+                  'Here id the code you need to review:',
+                  '',
+                  '```%s',
+                  '%s',
+                  '```',
+                  '',
+                }, context.filetype, code)
               end,
               opts = {
                 contains_code = true,
@@ -179,6 +202,53 @@ return {
           description = 'Review PR code',
           opts = {
             index = 11,
+            default_prompt = true,
+            auto_submit = true,
+            adapter = {
+              name = 'copilot',
+              model = 'claude-sonnet-4',
+            },
+          },
+          prompts = {
+            {
+              role = 'system',
+              content = function(context)
+                return format_lines({
+                  'I want you to act as a senior %s developer. I want you to review the selected code as if you were reviewing a pull request, then suggest improvements and provide feedback. Please consider the following points:',
+                  '',
+                  '1. Only use idiomatic code and best practices for the language.',
+                  '2. Suggest improvements to the code.',
+                  '3. Favour deep modules/functions, based on principles of "A Philosophy of Software Design" by John Ousterhout.',
+                  '4. Suggest better names for variables, functions, interfaces or classes, if appropriate.',
+                  '5. Suggest better abstractions, if appropriate.',
+                  '6. Suggest better error handling, if appropriate.',
+                  '7. Look out for typos or spelling mistakes.',
+                  '8. Look out for any secrets or sensitive data that might be exposed in the code. If you find any, please let me know so I can remove them.',
+                  "9. Only make suggestions if you are confident that they actually improve the code. Don't suggest changes just for the sake of it.",
+                }, context.filetype)
+              end,
+            },
+            {
+              role = 'user',
+              content = function()
+                return format_lines({
+                  'Here is the code you need to review, in git diff format:',
+                  '```diff',
+                  '%s',
+                  '```',
+                }, vim.fn.system('git diff -U10 origin/main...HEAD'))
+              end,
+              opts = {
+                contains_code = true,
+              },
+            },
+          },
+        },
+        ['Review diff code'] = {
+          strategy = 'chat',
+          description = 'Review diff code',
+          opts = {
+            index = 12,
             default_prompt = true,
             auto_submit = true,
           },
@@ -201,7 +271,7 @@ return {
                   '```diff',
                   '%s',
                   '```',
-                }, vim.fn.system('git diff origin/main...HEAD'))
+                }, vim.fn.system('git diff --staged'))
               end,
               opts = {
                 contains_code = true,
@@ -213,16 +283,16 @@ return {
           strategy = 'chat',
           description = 'Generate a PR description',
           opts = {
-            index = 12,
+            index = 13,
             default_prompt = true,
             auto_submit = true,
           },
           prompts = {
             {
               role = 'user',
-              content = function()
+              content = function(context)
                 return format_lines({
-                  'I want you to act as a senior developer. I want you to generate a pull request description for the changes you have made. Please consider the following points:',
+                  'I want you to act as a %s senior developer. I want you to generate a pull request description for the changes you have made. Please consider the following points:',
                   '',
                   'Your task is to generate a very concise and structured pull request description based on the provided diffs. It must be easy to parse for reviewers.',
                   'The description should always include:',
@@ -233,7 +303,7 @@ return {
                   '```diff',
                   '%s',
                   '```',
-                }, vim.fn.system('git diff origin/main...HEAD'))
+                }, context.filetype, vim.fn.system('git diff origin/main...HEAD'))
               end,
               opts = {
                 contains_code = true,
