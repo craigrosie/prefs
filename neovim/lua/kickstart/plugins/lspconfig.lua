@@ -59,9 +59,6 @@ return {
           -- map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
           map('gd', function()
             require('telescope.builtin').lsp_definitions()
-            vim.defer_fn(function()
-              vim.cmd('normal! zt') -- Move the definition to the top after jumping
-            end, 100) -- Add a slight delay to allow Telescope to process the jump
           end, '[G]oto [D]efinition')
 
           -- Find references for the word under your cursor.
