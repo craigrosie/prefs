@@ -18,7 +18,7 @@ end
 vim.api.nvim_create_user_command('ToggleCodeWrap', toggle_code_wrap, {})
 vim.keymap.set(
   'n',
-  '<leader>w',
+  '<leader>cw',
   ':ToggleCodeWrap<CR>',
   { desc = 'Toggle code [w]rapping', noremap = true, silent = true }
 )
