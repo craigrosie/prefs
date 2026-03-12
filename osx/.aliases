@@ -204,3 +204,5 @@ alias vim="nvimvenv"
 alias oldvim="command vim"
 
 alias nvim="nvimvenv"
+
+alias ci="code-insiders"
