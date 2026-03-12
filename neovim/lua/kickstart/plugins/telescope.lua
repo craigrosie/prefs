@@ -89,7 +89,7 @@ return {
             hidden = true,
           },
           lsp_document_symbols = {
-            symbol_width = 80,
+            symbol_width = 50,
             show_line = true,
           },
           lsp_dynamic_workspace_symbols = {
@@ -131,7 +131,7 @@ return {
         '%.git/',
         -- build
         'dist/',
-        'build/',
+        '^build/',
         -- node
         'node_modules/',
         '%.next/',
