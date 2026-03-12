@@ -1,15 +1,30 @@
 {
+    "accessibility.signals.chatRequestSent": {
+        "sound": "off"
+    },
+    "chat.agent.maxRequests": 999,
+    "chat.checkpoints.showFileChanges": true,
+    "chat.customAgentInSubagent.enabled": true,
     "chat.editor.fontSize": 13,
     "chat.fontSize": 14,
-    "chat.agent.maxRequests": 100,
+    "chat.restoreLastPanelSession": true,
     "chat.tools.terminal.autoApprove": {
         "go": true,
         "gofmt": true,
         "git fetch": true,
-        "git rev-parse": true
+        "git rev-parse": true,
+        "jira": true,
+        "acli": true,
+        "git checkout": true
     },
+    "chat.tools.terminal.outputLocation": "chat",
     "chat.useNestedAgentsMdFiles": true,
-    "chat.viewSessions.enabled": false,
+    "copilotInsights.statusBar.showName": true,
+    "copilotInsights.progressBarMode": "used",
+    "copilotInsights.statusBar.showNumericalQuota": true,
+    "copilotInsights.statusBarStyle": "detailed-original",
+    "copilotInsights.statusBar.showVisualIndicator": true,
+    "editor.accessibilitySupport": "off",
     "editor.fontFamily": "Jetbrains Mono",
     "editor.fontLigatures": true,
     "editor.formatOnSave": true,
@@ -18,16 +33,174 @@
         88,
         120
     ],
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
     "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "github.copilot.chat.codesearch.enabled": true,
+    "github.copilot.chat.copilotMemory.enabled": true,
+    "github.copilot.chat.searchSubagent.enabled": true,
     "github.copilot.nextEditSuggestions.enabled": true,
     "go.lintTool": "golangci-lint-v2",
     "go.showWelcome": false,
     "go.survey.prompt": false,
     "go.toolsManagement.autoUpdate": true,
+    "inlineChat.defaultModel": "GPT-4o (copilot)",
     "terminal.external.osxExec": "Ghostty.app",
-    "workbench.colorTheme": "Tokyo Night",
+    "workbench.colorTheme": "Experimental Dark",
     "workbench.tree.indent": 12,
+    // vim keybindings
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "g",
+                "i"
+            ],
+            "commands": [
+                "editor.action.goToImplementation"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "d"
+            ],
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.goToReferences"
+            ]
+        },
+    ],
+    // Tokyo Night theme customizations
+    "editor.tokenColorCustomizations": {
+        "[Tokyo Night]": { // or "[Tokyo Night Storm]"
+            "textMateRules": [
+                {
+                    "scope": [
+                        "entity.name.function"
+                    ],
+                    "settings": {
+                        "foreground": "#739ef9",
+                    }
+                },
+                {
+                    "scope": [
+                        "variable.parameter"
+                    ],
+                    "settings": {
+                        "foreground": "#E6AD4F",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": [
+                        "entity.name",
+                        "variable"
+                    ],
+                    "settings": {
+                        "foreground": "#dde1f0",
+                    }
+                },
+                {
+                    "scope": [
+                        "constant.language"
+                    ],
+                    "settings": {
+                        "foreground": "#f78928",
+                    }
+                },
+                {
+                    "scope": [
+                        "keyword.function.go",
+                        "keyword.control.go"
+                    ],
+                    "settings": {
+                        "foreground": "#BB9AF7",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": [
+                        "comment.line.double-slash.go",
+                    ],
+                    "settings": {
+                        "foreground": "#7a81a1",
+                    }
+                },
+                {
+                    "scope": [
+                        "entity.name.import.go",
+                    ],
+                    "settings": {
+                        "foreground": "#97D04F",
+                    }
+                },
+            ]
+        },
+    },
+    "workbench.colorCustomizations": {
+        "[Tokyo Night]": {
+            "foreground": "#959cbd",
+            "panelTitle.activeBorder": "#3d59a1",
+            "panelTitle.activeForeground": "#bdc7f0",
+            "panelTitle.inactiveForeground": "#959cbd",
+            "tab.activeForeground": "#bdc7f0",
+            "tab.inactiveForeground": "#959cbd",
+            "breadcrumb.foreground": "#959cbd",
+            "breadcrumb.focusForeground": "#bdc7f0",
+            "breadcrumb.activeSelectionForeground": "#bdc7f0",
+            "statusBar.foreground": "#bdc7f0",
+            "list.focusForeground": "#bdc7f0",
+            "list.hoverForeground": "#bdc7f0",
+            "list.activeSelectionForeground": "#bdc7f0",
+            "list.inactiveSelectionForeground": "#bdc7f0",
+            "list.inactiveSelectionBackground": "#202330",
+            "sideBar.foreground": "#959cbd",
+            "dropdown.foreground": "#959cbd",
+            "menu.foreground": "#bdc7f0",
+            "menubar.selectionForeground": "#bdc7f0",
+            "input.foreground": "#959cbd",
+            "input.placeholderForeground": "#959cbd",
+            "activityBar.foreground": "#bdc7f0",
+            "activityBar.inactiveForeground": "#787c99",
+            "gitDecoration.ignoredResourceForeground": "#696d87",
+        },
+    },
+    "workbench.startupEditor": "agentSessionsWelcomePage",
+    "editor.allowVariableFonts": false,
+    "chat.tools.terminal.sandbox.network": {
+        "allowedDomains": [
+            "az-aviva.atlassian.net",
+            "api.github.com",
+            "github.com",
+        ],
+    },
+    "chat.tools.terminal.sandbox.macFileSystem": {
+        "allowRead": [
+            ".",
+            "~/Library/Caches/go-build/",
+            "/tmp/"
+        ],
+        "denyRead": [],
+        "allowWrite": [
+            ".",
+            "~/Library/Caches/go-build/",
+            "/tmp/",
+        ],
+        "denyWrite": []
+    },
+    "workbench.iconTheme": "vscode-icons",
+    "editor.aiStats.enabled": false,
+    "workbench.activityBar.compact": true,
+    "chat.viewSessions.orientation": "stacked"
 }
