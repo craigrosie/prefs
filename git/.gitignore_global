@@ -92,6 +92,8 @@ misc/
 # AI #
 ######
 .github/copilot-instructions.md
+.github/instructions/
 CHATS/
 PLANS/
+pdfs/
 
