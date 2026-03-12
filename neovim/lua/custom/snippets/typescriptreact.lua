@@ -35,4 +35,22 @@ return {
       desc = 'todo',
     }
   ),
+  s(
+    'state',
+    fmta(
+      [[
+      const [<1>, set<1>] = useState(<2>);
+      ]],
+      {
+        i(1),
+        i(2),
+      },
+      {
+        repeat_duplicates = true,
+      }
+    ),
+    {
+      desc = 'useState',
+    }
+  ),
 }
