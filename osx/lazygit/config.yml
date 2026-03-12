@@ -12,6 +12,7 @@ gui:
   commitLength:
     show: true
   expandFocusedSidePanel: true
+  useHunkModeInStagingView: false
   mainPanelSplitMode: "flexible" # one of 'horizontal' | 'flexible' | 'vertical'
   mouseEvents: true
   nerdFontsVersion: "3"
@@ -41,7 +42,6 @@ gui:
       - reverse
 git:
   autoFetch: false
-  allBranchesLogCmd: "git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium"
   branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --"
   commit:
     signOff: false
@@ -53,15 +53,17 @@ git:
     # extra args passed to `git merge`, e.g. --no-ff
     args: ""
   overrideGpg: false # prevents lazygit from spawning a separate process when using GPG
-  paging:
-    # colorArg: always
-    # useConfig: false
-    pager: delta --dark --paging=never --side-by-side
-    # externalDiffCommand: difft --color=always --display=inline --syntax-highlight=on --tab-width=2
+  pagers:
+    - # colorArg: always
+      # useConfig: false
+      pager: delta --dark --paging=never --side-by-side
+      # externalDiffCommand: difft --color=always --display=inline --syntax-highlight=on --tab-width=2
   parseEmoji: false
   pull:
     mode: "auto" # one of 'auto' | 'merge' | 'rebase' | 'ff-only', auto reads from git configuration
   skipHookPrefix: WIP
+  allBranchesLogCmds:
+    - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
 os:
   edit: "nvim" # see 'Configuring File Editing' section
   open: "open {{filename}}"
