@@ -6,7 +6,11 @@ local function get_code_reference()
   -- Get the relative file path from the project root
   local file = vim.fn.expand('%:p')
   local root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
+  local root_name = vim.fn.fnamemodify(root, ':t')
   local rel_path = path:new(file):make_relative(root)
+
+  -- Include the project root directory name in the file path
+  local project_path = root_name .. '/' .. rel_path
 
   -- Get the current line number and line content
   local line_num = api.nvim_win_get_cursor(0)[1]
@@ -34,7 +38,7 @@ local function get_code_reference()
   end
 
   -- Format and copy result
-  local reference = string.format('%s:%s:%d\n%s', rel_path, func_name, line_num, line_content)
+  local reference = string.format('%s:%s:%d\n%s', project_path, func_name, line_num, line_content)
   vim.fn.setreg('+', reference)
   print('Copied code ref!')
 end
