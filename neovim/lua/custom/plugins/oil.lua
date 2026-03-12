@@ -6,7 +6,7 @@ return {
   },
   opts = {
     view_options = { show_hidden = true },
-    float = { max_width = 120, max_height = 70 },
+    float = { max_width = 240, max_height = 70 },
   },
   keys = {
     { '<C-t>', ':Oil --float<CR>', desc = 'Oil' },
