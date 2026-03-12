@@ -82,4 +82,13 @@ vim.opt.pumheight = 15
 -- for deleted lines in diffview
 vim.opt.fillchars:append({ diff = '╱' })
 
+vim.diagnostic.config({
+  virtual_text = {
+    source = true, -- Or "if_many"
+  },
+  float = {
+    source = true, -- Or "if_many"
+  },
+})
+
 -- vim: ts=2 sts=2 sw=2 et
