@@ -99,6 +99,15 @@ return {
               else
                 fallback()
               end
+              -- if cmp.visible() and cmp.get_active_entry() then
+              --   if luasnip.expandable() then
+              --     luasnip.expand()
+              --   else
+              --     cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+              --   end
+              -- else
+              --   fallback()
+              -- end
             end,
             s = cmp.mapping.confirm({ select = true }),
             c = function(fallback)
