@@ -7,3 +7,5 @@ shell-integration-features = no-cursor
 theme = TokyoNight Night
 
 keybind = super+t=unbind
+# Enable multiline prompts in OpenCode
+keybind = shift+enter=text:\x1b\r
