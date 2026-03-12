@@ -1,5 +1,7 @@
 return {
   'andrewferrier/wrapping.nvim',
   event = 'VeryLazy',
-  config = true,
+  opts = {
+    softener = { markdown = true }, -- Always use soft (visual) wrap for markdown
+  },
 }
