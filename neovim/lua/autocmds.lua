@@ -52,7 +52,22 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- For heirarchy.nvim
+-- Run agentsync after saving any agent source file
+vim.api.nvim_create_autocmd('BufWritePost', {
+  desc = 'Run agentsync when an ai/agents markdown file is saved',
+  group = vim.api.nvim_create_augroup('agentsync', { clear = true }),
+  pattern = '*/ai/agents/*/*.md',
+  callback = function()
+    local result = vim.system({ 'agentsync' }, { text = true }):wait()
+    if result.code ~= 0 then
+      vim.notify('agentsync failed:\n' .. (result.stderr or ''), vim.log.levels.ERROR)
+    else
+      vim.notify('agentsync: done', vim.log.levels.INFO)
+    end
+  end,
+})
+
+-- For hierarchy.nvim
 vim.api.nvim_create_augroup('Hierarchy', { clear = true })
 vim.api.nvim_create_autocmd({ 'LspAttach' }, {
   group = 'Hierarchy',
