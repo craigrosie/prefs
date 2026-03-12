@@ -74,8 +74,8 @@ return {
               ['l='] = { query = '@assignment.lhs', desc = 'Select left hand side of assignment' },
               ['r='] = { query = '@assignment.rhs', desc = 'Select right hand side of assignment' },
               -- PARAMETER
-              ['aa'] = { query = '@parameter.outer', desc = 'Select outer part of parameter/argument' },
-              ['ia'] = { query = '@parameter.inner', desc = 'Select inner part of parameter/argument' },
+              ['ap'] = { query = '@parameter.outer', desc = 'Select [a]round [p]arameter' },
+              ['ip'] = { query = '@parameter.inner', desc = 'Select [i]nside [p]arameter' },
               -- CONDITIONAL
               ['ai'] = { query = '@conditional.outer', desc = 'Select outer part of a conditional' },
               ['ii'] = { query = '@conditional.inner', desc = 'Select inner part of a conditional' },
@@ -97,15 +97,15 @@ return {
             enable = true,
             swap_next = {
               -- swap parameter with next
-              ['<leader>na'] = '@parameter.inner',
+              ['<leader>np'] = '@parameter.inner',
               -- swap function with next
-              ['<leader>nm'] = '@function.outer',
+              ['<leader>nf'] = '@function.outer',
             },
             swap_previous = {
               -- swap parameter with next
-              ['<leader>pa'] = '@parameter.inner',
+              ['<leader>pp'] = '@parameter.inner',
               -- swap function with next
-              ['<leader>pm'] = '@function.outer',
+              ['<leader>pf'] = '@function.outer',
             },
           },
           move = {
