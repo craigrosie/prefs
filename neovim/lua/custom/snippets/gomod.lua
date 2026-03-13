@@ -29,8 +29,8 @@ return {
       replace <1> =>> <2>
       ]],
       {
-        i(1, 'original'),
-        i(2, 'replacement'),
+        i(1, 'original (github)'),
+        i(2, 'replacement (local)'),
       },
       {}
     ),
