@@ -93,8 +93,8 @@ return {
             show_line = true,
           },
           lsp_dynamic_workspace_symbols = {
-            fname_width = 80,
-            symbol_width = 80,
+            fname_width = 50,
+            symbol_width = 50,
           },
         },
         extensions = {
