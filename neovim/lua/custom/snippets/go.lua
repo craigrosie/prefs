@@ -105,6 +105,27 @@ return {
       desc = 'Check if map access is ok',
     }
   ),
+  s(
+    'moki',
+    fmta(
+      [[
+      if <a>, <b> := <c>[<d>]; <b> {
+        <e>
+      }
+      ]],
+      {
+        a = i(1, 'val'),
+        b = i(2, 'ok'),
+        c = i(3, 'm'),
+        d = i(4, 'key'),
+        e = i(5, '// code'),
+      },
+      { repeat_duplicates = true }
+    ),
+    {
+      desc = 'Check if map access is ok inline',
+    }
+  ),
   -- Conditionals
   s(
     'if',
@@ -158,7 +179,24 @@ return {
       {}
     ),
     {
-      desc = 'equal',
+      desc = 'not equal',
+    }
+  ),
+  s(
+    'iferr',
+    fmta(
+      [[
+      if err != nil {
+        <1>
+      }
+      ]],
+      {
+        i(1, 'return err'),
+      },
+      {}
+    ),
+    {
+      desc = 'if err != nil',
     }
   ),
   -- Switch
