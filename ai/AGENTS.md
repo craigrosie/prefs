@@ -1,6 +1,6 @@
-## AI Agent and Skill Definitions
+## AI Agent, Command, and Skill Definitions
 
-Agent source files live under `ai/agents/<name>/` and skills under `ai/skills/<name>/`. The `ai/dist/` directory contains generated output — do not edit files there directly.
+Agent source files live under `ai/agents/<name>/`, command source files under `ai/commands/<name>/`, and skills under `ai/skills/<name>/`. The `ai/dist/` directory contains generated output — do not edit files there directly.
 
 ### Editing agents
 
@@ -10,9 +10,17 @@ Each agent directory contains up to three files:
 - `copilot.md` — GitHub Copilot frontmatter. **Do not edit unless explicitly instructed by the user.**
 - `opencode.md` — OpenCode frontmatter. **Do not edit unless explicitly instructed by the user.**
 
+### Editing commands
+
+Each command directory under `ai/commands/<name>/` follows the same structure as agents:
+
+- `body.md` — the command instructions. This is the file to edit when changing what a command does.
+- `copilot.md` — GitHub Copilot frontmatter. **Do not edit unless explicitly instructed by the user.**
+- `opencode.md` — OpenCode frontmatter. **Do not edit unless explicitly instructed by the user.**
+
 ### Syncing changes
 
-After modifying any agent (`body.md`), skill (`SKILL.md`), or this `AGENTS.md` file, run:
+After modifying any agent, command, or skill (`body.md`), or this `AGENTS.md` file, run:
 
 ```
 agentsync
