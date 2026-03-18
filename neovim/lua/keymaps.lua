@@ -174,4 +174,20 @@ end
 
 vim.keymap.set('n', '<leader>nl', split_args_to_newlines, { desc = '[N]ew [L]ines - split args onto separate lines' })
 
+-- Open the GitHub page for the Neovim plugin under the cursor (owner/repo format)
+local function open_plugin_github()
+  -- Expand the WORD under the cursor (contiguous non-whitespace characters)
+  local word = vim.fn.expand '<cWORD>'
+  -- Strip any surrounding quotes, commas, or braces that may wrap the spec string
+  word = word:match "['\"]?([%w%-%.]+/[%w%-%.]+)['\"]?" or word
+  if not word:match '^[%w%-%.]+/[%w%-%.]+$' then
+    vim.notify('No plugin (owner/repo) found under cursor', vim.log.levels.WARN)
+    return
+  end
+  local url = 'https://github.com/' .. word
+  vim.ui.open(url)
+end
+
+vim.keymap.set('n', '<leader>gp', open_plugin_github, { desc = 'Open [G]itHub [P]lugin page' })
+
 -- vim: ts=2 sts=2 sw=2 et
