@@ -109,7 +109,9 @@ local function split_args_to_newlines()
   if not open_pos then
     open_pos = line:find('(', col, true)
   end
-  if not open_pos then return end
+  if not open_pos then
+    return
+  end
 
   -- Find the matching closing ')'
   depth = 0
@@ -126,14 +128,16 @@ local function split_args_to_newlines()
       end
     end
   end
-  if not close_pos then return end
+  if not close_pos then
+    return
+  end
 
   local before = line:sub(1, open_pos - 1)
   local args_str = line:sub(open_pos + 1, close_pos - 1)
   local after = line:sub(close_pos + 1)
 
   -- Use line's leading whitespace + one shiftwidth for arg indent
-  local indent = before:match '^(%s*)'
+  local indent = before:match('^(%s*)')
   local sw = (vim.o.shiftwidth > 0) and vim.o.shiftwidth or vim.o.tabstop
   local arg_indent = indent .. string.rep(' ', sw)
 
@@ -150,17 +154,23 @@ local function split_args_to_newlines()
       d = d - 1
       current = current .. c
     elseif c == ',' and d == 0 then
-      local trimmed = current:match '^%s*(.-)%s*$'
-      if trimmed ~= '' then table.insert(args, trimmed) end
+      local trimmed = current:match('^%s*(.-)%s*$')
+      if trimmed ~= '' then
+        table.insert(args, trimmed)
+      end
       current = ''
     else
       current = current .. c
     end
   end
-  local last = current:match '^%s*(.-)%s*$'
-  if last ~= '' then table.insert(args, last) end
+  local last = current:match('^%s*(.-)%s*$')
+  if last ~= '' then
+    table.insert(args, last)
+  end
 
-  if #args == 0 then return end
+  if #args == 0 then
+    return
+  end
 
   -- Build replacement lines
   local new_lines = { before .. '(' }
@@ -177,10 +187,10 @@ vim.keymap.set('n', '<leader>nl', split_args_to_newlines, { desc = '[N]ew [L]ine
 -- Open the GitHub page for the Neovim plugin under the cursor (owner/repo format)
 local function open_plugin_github()
   -- Expand the WORD under the cursor (contiguous non-whitespace characters)
-  local word = vim.fn.expand '<cWORD>'
+  local word = vim.fn.expand('<cWORD>')
   -- Strip any surrounding quotes, commas, or braces that may wrap the spec string
-  word = word:match "['\"]?([%w%-%.]+/[%w%-%.]+)['\"]?" or word
-  if not word:match '^[%w%-%.]+/[%w%-%.]+$' then
+  word = word:match('[\'"]?([%w%-%.]+/[%w%-%.]+)[\'"]?') or word
+  if not word:match('^[%w%-%.]+/[%w%-%.]+$') then
     vim.notify('No plugin (owner/repo) found under cursor', vim.log.levels.WARN)
     return
   end
