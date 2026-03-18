@@ -1,5 +1,5 @@
-// agentsync assembles GitHub Copilot and OpenCode agent files from a
-// shared source layout.
+// agentsync assembles GitHub Copilot and OpenCode agent and command files
+// from a shared source layout.
 //
 // Each agent lives in its own subdirectory under ai/agents/:
 //
@@ -8,13 +8,25 @@
 //	    copilot.md    — GitHub Copilot frontmatter only (optional)
 //	    opencode.md   — OpenCode frontmatter only (optional)
 //
+// Commands follow the same layout under ai/commands/:
+//
+//	ai/commands/<name>/
+//	    body.md       — the command instructions (no frontmatter)
+//	    copilot.md    — GitHub Copilot frontmatter only (optional)
+//	    opencode.md   — OpenCode frontmatter only (optional)
+//
 // The script concatenates the appropriate frontmatter file with body.md
 // and writes the result to the platform-specific output directory:
 //
-//	Copilot  → ai/dist/copilot/<name>.agent.md
-//	OpenCode → ai/dist/opencode/<name>.md
+//	Agents:
+//	  Copilot  → ai/dist/copilot/agents/<name>.agent.md
+//	  OpenCode → ai/dist/opencode/agents/<name>.md
 //
-// At least one of copilot.md or opencode.md must exist per agent.
+//	Commands:
+//	  Copilot  → ai/dist/copilot/commands/<name>.prompt.md
+//	  OpenCode → ai/dist/opencode/commands/<name>.md
+//
+// At least one of copilot.md or opencode.md must exist per agent/command.
 // body.md is always required. A warning is printed for any missing
 // optional file; the corresponding output is simply skipped.
 //
@@ -26,10 +38,12 @@
 //
 //	--dry-run             print what would be written without writing anything
 //	--source <dir>        source agents directory (default: ai/agents relative to repo root)
-//	--out-copilot <dir>   output directory for Copilot files (default: ai/dist/copilot relative to repo root)
-//	--out-opencode <dir>  output directory for OpenCode files (default: ai/dist/opencode relative to repo root)
-//	--skills              also create symlinks for skills into ~/.config/opencode/skills/
-//	--agents              also symlink generated files into ~/.copilot/agents/ and ~/.config/opencode/agents/
+//	--commands-source <dir> source commands directory (default: ai/commands relative to repo root)
+//	--out-copilot <dir>   output base directory for Copilot files (default: ai/dist/copilot relative to repo root)
+//	--out-opencode <dir>  output base directory for OpenCode files (default: ai/dist/opencode relative to repo root)
+//	--skills              also symlink ai/skills/ → ~/.config/opencode/skills/ and ~/.copilot/skills/
+//	--agents              also symlink generated agent files into ~/.copilot/agents/ and ~/.config/opencode/agents/
+//	--commands            also symlink generated command files into ~/.copilot/commands/ and ~/.config/opencode/commands/
 //	--rules               also symlink ai/global-rules.md → ~/work/AGENTS.md
 package main
 
@@ -45,10 +59,12 @@ import (
 func main() {
 	dryRun := flag.Bool("dry-run", false, "Print what would be written without writing any files")
 	sourceDir := flag.String("source", "", "Source agents directory (default: ai/agents relative to repo root)")
-	outCopilot := flag.String("out-copilot", "", "Output directory for Copilot files (default: ai/dist/copilot relative to repo root)")
-	outOpencode := flag.String("out-opencode", "", "Output directory for OpenCode files (default: ai/dist/opencode relative to repo root)")
+	commandsSourceDir := flag.String("commands-source", "", "Source commands directory (default: ai/commands relative to repo root)")
+	outCopilot := flag.String("out-copilot", "", "Output base directory for Copilot files (default: ai/dist/copilot relative to repo root)")
+	outOpencode := flag.String("out-opencode", "", "Output base directory for OpenCode files (default: ai/dist/opencode relative to repo root)")
 	syncSkills := flag.Bool("skills", false, "Also create symlinks for skills into ~/.config/opencode/skills/")
 	syncAgents := flag.Bool("agents", false, "Also symlink generated agent files into ~/.copilot/agents/ and ~/.config/opencode/agents/")
+	syncCommands := flag.Bool("commands", false, "Also symlink generated command files into ~/.copilot/commands/ and ~/.config/opencode/commands/")
 	syncRules := flag.Bool("rules", false, "Also symlink ai/AGENTS.md → ~/.config/opencode/AGENTS.md and ~/.claude/CLAUDE.md")
 	flag.Parse()
 
@@ -62,6 +78,11 @@ func main() {
 		src = filepath.Join(repoRoot, "ai", "agents")
 	}
 
+	cmdSrc := *commandsSourceDir
+	if cmdSrc == "" {
+		cmdSrc = filepath.Join(repoRoot, "ai", "commands")
+	}
+
 	copilotOut := *outCopilot
 	if copilotOut == "" {
 		copilotOut = filepath.Join(repoRoot, "ai", "dist", "copilot")
@@ -72,13 +93,18 @@ func main() {
 		opencodeOut = filepath.Join(repoRoot, "ai", "dist", "opencode")
 	}
 
+	copilotAgentsOut := filepath.Join(copilotOut, "agents")
+	opencodeAgentsOut := filepath.Join(opencodeOut, "agents")
+	copilotCommandsOut := filepath.Join(copilotOut, "commands")
+	opencodeCommandsOut := filepath.Join(opencodeOut, "commands")
+
 	entries, err := os.ReadDir(src)
 	if err != nil {
 		fatalf("could not read source directory %q: %v\n", src, err)
 	}
 
 	if !*dryRun {
-		for _, dir := range []string{copilotOut, opencodeOut} {
+		for _, dir := range []string{copilotAgentsOut, opencodeAgentsOut, copilotCommandsOut, opencodeCommandsOut} {
 			if err := os.MkdirAll(dir, 0o755); err != nil {
 				fatalf("could not create output directory %q: %v\n", dir, err)
 			}
@@ -93,7 +119,7 @@ func main() {
 		}
 
 		agentDir := filepath.Join(src, entry.Name())
-		result, err := processAgent(agentDir, entry.Name(), copilotOut, opencodeOut, *dryRun)
+		result, err := processAgent(agentDir, entry.Name(), copilotAgentsOut, opencodeAgentsOut, *dryRun)
 		processed++
 		written += result.written
 		if err != nil {
@@ -102,7 +128,39 @@ func main() {
 		}
 	}
 
-	fmt.Printf("\ndone: %d agents processed, %d files written, %d agents skipped\n", processed, written, skipped)
+	fmt.Printf("\nagents: %d processed, %d files written, %d skipped\n", processed, written, skipped)
+
+	// Process commands.
+	cmdEntries, err := os.ReadDir(cmdSrc)
+	if err != nil {
+		if !errors.Is(err, os.ErrNotExist) {
+			fatalf("could not read commands source directory %q: %v\n", cmdSrc, err)
+		}
+		// Commands directory doesn't exist — that's fine, just skip.
+		fmt.Println("commands: source directory not found, skipping")
+	} else {
+		var cmdProcessed, cmdWritten, cmdSkipped int
+
+		for _, entry := range cmdEntries {
+			if !entry.IsDir() {
+				continue
+			}
+
+			cmdDir := filepath.Join(cmdSrc, entry.Name())
+			result, err := processCommand(cmdDir, entry.Name(), copilotCommandsOut, opencodeCommandsOut, *dryRun)
+			cmdProcessed++
+			cmdWritten += result.written
+			if err != nil {
+				warnf("%s: %v\n", entry.Name(), err)
+				cmdSkipped++
+			}
+		}
+
+		fmt.Printf("commands: %d processed, %d files written, %d skipped\n", cmdProcessed, cmdWritten, cmdSkipped)
+		written += cmdWritten
+	}
+
+	fmt.Printf("\ndone: %d total files written\n", written)
 
 	if *syncSkills {
 		syncSkillsDir(repoRoot, *dryRun)
@@ -113,8 +171,18 @@ func main() {
 		if err != nil {
 			warnf("agents sync: could not determine home directory: %v\n", err)
 		} else {
-			symlinkDir(copilotOut, filepath.Join(home, ".copilot", "agents"), *dryRun)
-			symlinkDir(opencodeOut, filepath.Join(home, ".config", "opencode", "agents"), *dryRun)
+			symlinkDir(copilotAgentsOut, filepath.Join(home, ".copilot", "agents"), *dryRun)
+			symlinkDir(opencodeAgentsOut, filepath.Join(home, ".config", "opencode", "agents"), *dryRun)
+		}
+	}
+
+	if *syncCommands {
+		home, err := os.UserHomeDir()
+		if err != nil {
+			warnf("commands sync: could not determine home directory: %v\n", err)
+		} else {
+			symlinkDir(copilotCommandsOut, filepath.Join(home, ".copilot", "commands"), *dryRun)
+			symlinkDir(opencodeCommandsOut, filepath.Join(home, ".config", "opencode", "commands"), *dryRun)
 		}
 	}
 
@@ -133,10 +201,29 @@ type processResult struct {
 // both frontmatter files absent). Missing individual frontmatter files
 // produce warnings but are not fatal.
 func processAgent(agentDir, name, copilotOut, opencodeOut string, dryRun bool) (processResult, error) {
+	return processEntry(agentDir, name, copilotOut, opencodeOut, dryRun, agentNaming)
+}
+
+// processCommand handles a single command directory. It follows the same
+// assembly logic as agents but uses plain .md naming for both platforms.
+func processCommand(cmdDir, name, copilotOut, opencodeOut string, dryRun bool) (processResult, error) {
+	return processEntry(cmdDir, name, copilotOut, opencodeOut, dryRun, commandNaming)
+}
+
+// namingFunc returns the output filename for a given entry name.
+type namingFunc func(name string) string
+
+func agentNaming(name string) string   { return name + ".agent.md" }
+func commandNaming(name string) string { return name + ".prompt.md" }
+
+// processEntry handles a single agent or command directory. It reads body.md
+// plus whichever of copilot.md / opencode.md exist, and writes the assembled
+// output files using the provided naming function to determine filenames.
+func processEntry(entryDir, name, copilotOut, opencodeOut string, dryRun bool, copilotName namingFunc) (processResult, error) {
 	var result processResult
 
 	// body.md is always required.
-	bodyPath := filepath.Join(agentDir, "body.md")
+	bodyPath := filepath.Join(entryDir, "body.md")
 	body, err := os.ReadFile(bodyPath)
 	if err != nil {
 		if errors.Is(err, os.ErrNotExist) {
@@ -145,8 +232,8 @@ func processAgent(agentDir, name, copilotOut, opencodeOut string, dryRun bool) (
 		return result, fmt.Errorf("could not read body.md: %w", err)
 	}
 
-	copilotFM, copilotErr := readFile(filepath.Join(agentDir, "copilot.md"))
-	opencodeFM, opencodeErr := readFile(filepath.Join(agentDir, "opencode.md"))
+	copilotFM, copilotErr := readFile(filepath.Join(entryDir, "copilot.md"))
+	opencodeFM, opencodeErr := readFile(filepath.Join(entryDir, "opencode.md"))
 
 	// Both missing is a hard error — nothing to do.
 	if errors.Is(copilotErr, os.ErrNotExist) && errors.Is(opencodeErr, os.ErrNotExist) {
@@ -170,7 +257,7 @@ func processAgent(agentDir, name, copilotOut, opencodeOut string, dryRun bool) (
 
 	// Write Copilot output.
 	if copilotErr == nil {
-		outPath := filepath.Join(copilotOut, name+".agent.md")
+		outPath := filepath.Join(copilotOut, copilotName(name))
 		assembled := assembleMD(copilotFM, bodyStr)
 		if err := writeFile(outPath, assembled, dryRun); err != nil {
 			warnf("%s: could not write Copilot output: %v\n", name, err)
@@ -262,8 +349,11 @@ func symlinkDir(src, dst string, dryRun bool) {
 	fmt.Printf("symlinked: %s -> %s\n", dst, src)
 }
 
-// syncSkillsDir creates symlinks in ~/.config/opencode/skills/ pointing to
-// each skill directory under ai/skills/.
+// syncSkillsDir symlinks the entire ai/skills/ directory into the
+// platform-specific skills locations:
+//
+//	OpenCode → ~/.config/opencode/skills/
+//	Copilot  → ~/.copilot/skills/
 func syncSkillsDir(repoRoot string, dryRun bool) {
 	skillsSrc := filepath.Join(repoRoot, "ai", "skills")
 	home, err := os.UserHomeDir()
@@ -271,46 +361,41 @@ func syncSkillsDir(repoRoot string, dryRun bool) {
 		warnf("skills sync: could not determine home directory: %v\n", err)
 		return
 	}
-	skillsDst := filepath.Join(home, ".config", "opencode", "skills")
 
-	entries, err := os.ReadDir(skillsSrc)
-	if err != nil {
-		warnf("skills sync: could not read %q: %v\n", skillsSrc, err)
-		return
+	dsts := []string{
+		filepath.Join(home, ".config", "opencode", "skills"),
+		filepath.Join(home, ".copilot", "skills"),
 	}
 
-	if !dryRun {
-		if err := os.MkdirAll(skillsDst, 0o755); err != nil {
-			warnf("skills sync: could not create %q: %v\n", skillsDst, err)
-			return
-		}
-	}
-
-	for _, entry := range entries {
-		if !entry.IsDir() {
-			continue
-		}
-		src := filepath.Join(skillsSrc, entry.Name())
-		dst := filepath.Join(skillsDst, entry.Name())
-
+	for _, dst := range dsts {
 		if dryRun {
-			fmt.Printf("[dry-run] would symlink: %s -> %s\n", dst, src)
+			if _, err := os.Lstat(dst); err == nil {
+				fmt.Printf("[dry-run] symlink already exists, skipping: %s\n", dst)
+			} else {
+				fmt.Printf("[dry-run] would symlink: %s -> %s\n", dst, skillsSrc)
+			}
 			continue
 		}
 
-		// Remove existing symlink or directory at destination.
+		// Remove whatever exists at the destination (symlink, real dir, file)
+		// so we can replace it with the whole-directory symlink.
 		if _, err := os.Lstat(dst); err == nil {
-			if err := os.Remove(dst); err != nil {
+			if err := os.RemoveAll(dst); err != nil {
 				warnf("skills sync: could not remove existing %q: %v\n", dst, err)
 				continue
 			}
 		}
 
-		if err := os.Symlink(src, dst); err != nil {
-			warnf("skills sync: could not create symlink %q -> %q: %v\n", dst, src, err)
+		if err := os.MkdirAll(filepath.Dir(dst), 0o755); err != nil {
+			warnf("skills sync: could not create parent of %q: %v\n", dst, err)
 			continue
 		}
-		fmt.Printf("symlinked: %s -> %s\n", dst, src)
+
+		if err := os.Symlink(skillsSrc, dst); err != nil {
+			warnf("skills sync: could not create symlink %q -> %q: %v\n", dst, skillsSrc, err)
+			continue
+		}
+		fmt.Printf("symlinked: %s -> %s\n", dst, skillsSrc)
 	}
 }
 
