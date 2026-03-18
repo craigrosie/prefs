@@ -1,5 +1,5 @@
-// agentsync assembles GitHub Copilot and OpenCode agent and command files
-// from a shared source layout.
+// agentsync assembles GitHub Copilot, OpenCode, and Claude agent and command
+// files from a shared source layout.
 //
 // Each agent lives in its own subdirectory under ai/agents/:
 //
@@ -7,6 +7,7 @@
 //	    body.md       — the agent instructions (no frontmatter)
 //	    copilot.md    — GitHub Copilot frontmatter only (optional)
 //	    opencode.md   — OpenCode frontmatter only (optional)
+//	    claude.md     — Claude Code frontmatter only (optional)
 //
 // Commands follow the same layout under ai/commands/:
 //
@@ -14,6 +15,7 @@
 //	    body.md       — the command instructions (no frontmatter)
 //	    copilot.md    — GitHub Copilot frontmatter only (optional)
 //	    opencode.md   — OpenCode frontmatter only (optional)
+//	    claude.md     — Claude Code frontmatter only (optional)
 //
 // The script concatenates the appropriate frontmatter file with body.md
 // and writes the result to the platform-specific output directory:
@@ -21,14 +23,16 @@
 //	Agents:
 //	  Copilot  → ai/dist/copilot/agents/<name>.agent.md
 //	  OpenCode → ai/dist/opencode/agents/<name>.md
+//	  Claude   → ai/dist/claude/agents/<name>.md
 //
 //	Commands:
 //	  Copilot  → ai/dist/copilot/commands/<name>.prompt.md
 //	  OpenCode → ai/dist/opencode/commands/<name>.md
+//	  Claude   → ai/dist/claude/commands/<name>.md
 //
-// At least one of copilot.md or opencode.md must exist per agent/command.
-// body.md is always required. A warning is printed for any missing
-// optional file; the corresponding output is simply skipped.
+// At least one of copilot.md, opencode.md, or claude.md must exist per
+// agent/command. body.md is always required. A warning is printed for any
+// missing optional file; the corresponding output is simply skipped.
 //
 // Usage:
 //
@@ -41,9 +45,10 @@
 //	--commands-source <dir> source commands directory (default: ai/commands relative to repo root)
 //	--out-copilot <dir>   output base directory for Copilot files (default: ai/dist/copilot relative to repo root)
 //	--out-opencode <dir>  output base directory for OpenCode files (default: ai/dist/opencode relative to repo root)
+//	--out-claude <dir>    output base directory for Claude files (default: ai/dist/claude relative to repo root)
 //	--skills              also symlink ai/skills/ → ~/.config/opencode/skills/ and ~/.copilot/skills/
-//	--agents              also symlink generated agent files into ~/.copilot/agents/ and ~/.config/opencode/agents/
-//	--commands            also symlink generated command files into ~/.copilot/commands/ and ~/.config/opencode/commands/
+//	--agents              also symlink generated agent files into ~/.copilot/agents/, ~/.config/opencode/agents/, and ~/.claude/agents/
+//	--commands            also symlink generated command files into ~/.copilot/commands/, ~/.config/opencode/commands/, and ~/.claude/commands/
 //	--rules               also symlink ai/global-rules.md → ~/work/AGENTS.md
 package main
 
@@ -62,9 +67,10 @@ func main() {
 	commandsSourceDir := flag.String("commands-source", "", "Source commands directory (default: ai/commands relative to repo root)")
 	outCopilot := flag.String("out-copilot", "", "Output base directory for Copilot files (default: ai/dist/copilot relative to repo root)")
 	outOpencode := flag.String("out-opencode", "", "Output base directory for OpenCode files (default: ai/dist/opencode relative to repo root)")
-	syncSkills := flag.Bool("skills", false, "Also create symlinks for skills into ~/.config/opencode/skills/")
-	syncAgents := flag.Bool("agents", false, "Also symlink generated agent files into ~/.copilot/agents/ and ~/.config/opencode/agents/")
-	syncCommands := flag.Bool("commands", false, "Also symlink generated command files into ~/.copilot/commands/ and ~/.config/opencode/commands/")
+	outClaude := flag.String("out-claude", "", "Output base directory for Claude files (default: ai/dist/claude relative to repo root)")
+	syncSkills := flag.Bool("skills", false, "Also symlink ai/skills/ into ~/.config/opencode/skills/ and ~/.copilot/skills/")
+	syncAgents := flag.Bool("agents", false, "Also symlink generated agent files into ~/.copilot/agents/, ~/.config/opencode/agents/, and ~/.claude/agents/")
+	syncCommands := flag.Bool("commands", false, "Also symlink generated command files into ~/.copilot/commands/, ~/.config/opencode/commands/, and ~/.claude/commands/")
 	syncRules := flag.Bool("rules", false, "Also symlink ai/AGENTS.md → ~/.config/opencode/AGENTS.md and ~/.claude/CLAUDE.md")
 	flag.Parse()
 
@@ -93,10 +99,17 @@ func main() {
 		opencodeOut = filepath.Join(repoRoot, "ai", "dist", "opencode")
 	}
 
+	claudeOut := *outClaude
+	if claudeOut == "" {
+		claudeOut = filepath.Join(repoRoot, "ai", "dist", "claude")
+	}
+
 	copilotAgentsOut := filepath.Join(copilotOut, "agents")
 	opencodeAgentsOut := filepath.Join(opencodeOut, "agents")
+	claudeAgentsOut := filepath.Join(claudeOut, "agents")
 	copilotCommandsOut := filepath.Join(copilotOut, "commands")
 	opencodeCommandsOut := filepath.Join(opencodeOut, "commands")
+	claudeCommandsOut := filepath.Join(claudeOut, "commands")
 
 	entries, err := os.ReadDir(src)
 	if err != nil {
@@ -104,7 +117,7 @@ func main() {
 	}
 
 	if !*dryRun {
-		for _, dir := range []string{copilotAgentsOut, opencodeAgentsOut, copilotCommandsOut, opencodeCommandsOut} {
+		for _, dir := range []string{copilotAgentsOut, opencodeAgentsOut, claudeAgentsOut, copilotCommandsOut, opencodeCommandsOut, claudeCommandsOut} {
 			if err := os.MkdirAll(dir, 0o755); err != nil {
 				fatalf("could not create output directory %q: %v\n", dir, err)
 			}
@@ -119,7 +132,7 @@ func main() {
 		}
 
 		agentDir := filepath.Join(src, entry.Name())
-		result, err := processAgent(agentDir, entry.Name(), copilotAgentsOut, opencodeAgentsOut, *dryRun)
+		result, err := processAgent(agentDir, entry.Name(), copilotAgentsOut, opencodeAgentsOut, claudeAgentsOut, *dryRun)
 		processed++
 		written += result.written
 		if err != nil {
@@ -147,7 +160,7 @@ func main() {
 			}
 
 			cmdDir := filepath.Join(cmdSrc, entry.Name())
-			result, err := processCommand(cmdDir, entry.Name(), copilotCommandsOut, opencodeCommandsOut, *dryRun)
+			result, err := processCommand(cmdDir, entry.Name(), copilotCommandsOut, opencodeCommandsOut, claudeCommandsOut, *dryRun)
 			cmdProcessed++
 			cmdWritten += result.written
 			if err != nil {
@@ -173,6 +186,7 @@ func main() {
 		} else {
 			symlinkDir(copilotAgentsOut, filepath.Join(home, ".copilot", "agents"), *dryRun)
 			symlinkDir(opencodeAgentsOut, filepath.Join(home, ".config", "opencode", "agents"), *dryRun)
+			symlinkDir(claudeAgentsOut, filepath.Join(home, ".claude", "agents"), *dryRun)
 		}
 	}
 
@@ -183,6 +197,7 @@ func main() {
 		} else {
 			symlinkDir(copilotCommandsOut, filepath.Join(home, ".copilot", "commands"), *dryRun)
 			symlinkDir(opencodeCommandsOut, filepath.Join(home, ".config", "opencode", "commands"), *dryRun)
+			symlinkDir(claudeCommandsOut, filepath.Join(home, ".claude", "commands"), *dryRun)
 		}
 	}
 
@@ -196,18 +211,18 @@ type processResult struct {
 }
 
 // processAgent handles a single agent directory. It reads body.md plus
-// whichever of copilot.md / opencode.md exist, and writes the assembled
-// output files. Returns an error only for fatal problems (e.g. missing body,
-// both frontmatter files absent). Missing individual frontmatter files
-// produce warnings but are not fatal.
-func processAgent(agentDir, name, copilotOut, opencodeOut string, dryRun bool) (processResult, error) {
-	return processEntry(agentDir, name, copilotOut, opencodeOut, dryRun, agentNaming)
+// whichever of copilot.md / opencode.md / claude.md exist, and writes the
+// assembled output files. Returns an error only for fatal problems (e.g.
+// missing body, all frontmatter files absent). Missing individual frontmatter
+// files produce warnings but are not fatal.
+func processAgent(agentDir, name, copilotOut, opencodeOut, claudeOut string, dryRun bool) (processResult, error) {
+	return processEntry(agentDir, name, copilotOut, opencodeOut, claudeOut, dryRun, agentNaming)
 }
 
 // processCommand handles a single command directory. It follows the same
 // assembly logic as agents but uses plain .md naming for both platforms.
-func processCommand(cmdDir, name, copilotOut, opencodeOut string, dryRun bool) (processResult, error) {
-	return processEntry(cmdDir, name, copilotOut, opencodeOut, dryRun, commandNaming)
+func processCommand(cmdDir, name, copilotOut, opencodeOut, claudeOut string, dryRun bool) (processResult, error) {
+	return processEntry(cmdDir, name, copilotOut, opencodeOut, claudeOut, dryRun, commandNaming)
 }
 
 // namingFunc returns the output filename for a given entry name.
@@ -217,9 +232,10 @@ func agentNaming(name string) string   { return name + ".agent.md" }
 func commandNaming(name string) string { return name + ".prompt.md" }
 
 // processEntry handles a single agent or command directory. It reads body.md
-// plus whichever of copilot.md / opencode.md exist, and writes the assembled
-// output files using the provided naming function to determine filenames.
-func processEntry(entryDir, name, copilotOut, opencodeOut string, dryRun bool, copilotName namingFunc) (processResult, error) {
+// plus whichever of copilot.md / opencode.md / claude.md exist, and writes
+// the assembled output files using the provided naming function to determine
+// filenames.
+func processEntry(entryDir, name, copilotOut, opencodeOut, claudeOut string, dryRun bool, copilotName namingFunc) (processResult, error) {
 	var result processResult
 
 	// body.md is always required.
@@ -234,10 +250,11 @@ func processEntry(entryDir, name, copilotOut, opencodeOut string, dryRun bool, c
 
 	copilotFM, copilotErr := readFile(filepath.Join(entryDir, "copilot.md"))
 	opencodeFM, opencodeErr := readFile(filepath.Join(entryDir, "opencode.md"))
+	claudeFM, claudeErr := readFile(filepath.Join(entryDir, "claude.md"))
 
-	// Both missing is a hard error — nothing to do.
-	if errors.Is(copilotErr, os.ErrNotExist) && errors.Is(opencodeErr, os.ErrNotExist) {
-		return result, fmt.Errorf("both copilot.md and opencode.md are missing")
+	// All three missing is a hard error — nothing to do.
+	if errors.Is(copilotErr, os.ErrNotExist) && errors.Is(opencodeErr, os.ErrNotExist) && errors.Is(claudeErr, os.ErrNotExist) {
+		return result, fmt.Errorf("copilot.md, opencode.md, and claude.md are all missing")
 	}
 
 	// Warn about individual missing or unreadable files.
@@ -251,6 +268,12 @@ func processEntry(entryDir, name, copilotOut, opencodeOut string, dryRun bool, c
 		warnf("%s: opencode.md not found, skipping OpenCode output\n", name)
 	} else if opencodeErr != nil {
 		warnf("%s: could not read opencode.md: %v — skipping OpenCode output\n", name, opencodeErr)
+	}
+
+	if errors.Is(claudeErr, os.ErrNotExist) {
+		warnf("%s: claude.md not found, skipping Claude output\n", name)
+	} else if claudeErr != nil {
+		warnf("%s: could not read claude.md: %v — skipping Claude output\n", name, claudeErr)
 	}
 
 	bodyStr := strings.TrimRight(string(body), "\n") + "\n"
@@ -272,6 +295,17 @@ func processEntry(entryDir, name, copilotOut, opencodeOut string, dryRun bool, c
 		assembled := assembleMD(opencodeFM, bodyStr)
 		if err := writeFile(outPath, assembled, dryRun); err != nil {
 			warnf("%s: could not write OpenCode output: %v\n", name, err)
+		} else {
+			result.written++
+		}
+	}
+
+	// Write Claude output.
+	if claudeErr == nil {
+		outPath := filepath.Join(claudeOut, name+".md")
+		assembled := assembleMD(claudeFM, bodyStr)
+		if err := writeFile(outPath, assembled, dryRun); err != nil {
+			warnf("%s: could not write Claude output: %v\n", name, err)
 		} else {
 			result.written++
 		}
