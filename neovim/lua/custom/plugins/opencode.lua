@@ -57,6 +57,7 @@ return {
           ['<esc>'] = false, -- Close UI windows
           ['<C-c>'] = { 'cancel' }, -- Cancel opencode request while it is running
           -- ['~'] = { 'mention_file', mode = 'i' }, -- Pick a file and add to context. See File Mentions section
+          ['~'] = false, -- Pick a file and add to context. See File Mentions section
           ['@'] = { 'mention', mode = 'i' }, -- Insert mention (file/agent)
           ['/'] = { 'slash_commands', mode = 'i' }, -- Pick a command to run in the input window
           ['#'] = { 'context_items', mode = 'i' }, -- Manage context items (current file, selection, diagnostics, mentioned files)
@@ -186,16 +187,16 @@ return {
         },
         diagnostics = {
           info = false, -- Include diagnostics info in the context (default to false
-          warning = true, -- Include diagnostics warnings in the context
-          error = true, -- Include diagnostics errors in the context
+          warning = false, -- Include diagnostics warnings in the context
+          error = false, -- Include diagnostics errors in the context
           only_closest = false, -- If true, only diagnostics for cursor/selection
         },
         current_file = {
-          enabled = true, -- Include current file path and content in the context
+          enabled = false, -- Include current file path and content in the context
           show_full_path = true,
         },
         files = {
-          enabled = true,
+          enabled = false,
           show_full_path = true,
         },
         selection = {
