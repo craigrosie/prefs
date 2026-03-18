@@ -52,11 +52,11 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Run agentsync after saving any agent source file
+-- Run agentsync after saving any source file under ai/
 vim.api.nvim_create_autocmd('BufWritePost', {
-  desc = 'Run agentsync when an ai/agents markdown file is saved',
+  desc = 'Run agentsync when any ai/ markdown file is saved',
   group = vim.api.nvim_create_augroup('agentsync', { clear = true }),
-  pattern = '*/ai/agents/*/*.md',
+  pattern = '*/ai/**/*.md',
   callback = function()
     local result = vim.system({ 'agentsync' }, { text = true }):wait()
     if result.code ~= 0 then
