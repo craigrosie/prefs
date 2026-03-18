@@ -29,6 +29,7 @@ return {
         javascript = { 'prettierd' },
         javascriptreact = { 'prettierd' },
         lua = { 'stylua' },
+        markdown = { 'trim_whitespace' },
         python = function(bufnr)
           if require('conform').get_formatter_info('ruff_format', bufnr).available then
             -- TODO: add ruff_fix / ruff_organize_imports
