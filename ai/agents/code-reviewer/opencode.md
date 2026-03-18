@@ -1,5 +1,5 @@
 ---
-description: Reviews a GitHub PR checked out in a worktree, then answers follow-up questions.
+description: Reviews code, then answers follow-up questions.
 mode: subagent
 tools:
   bash: true
