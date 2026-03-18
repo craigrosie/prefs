@@ -202,5 +202,8 @@
     "workbench.iconTheme": "vscode-icons",
     "editor.aiStats.enabled": false,
     "workbench.activityBar.compact": true,
-    "chat.viewSessions.orientation": "stacked"
+    "chat.viewSessions.orientation": "stacked",
+    "chat.promptFilesLocations": {
+        "~/.copilot/prompts": true
+    }
 }
