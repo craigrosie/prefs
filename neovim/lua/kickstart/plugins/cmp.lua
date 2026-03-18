@@ -3,7 +3,7 @@ local helpers = require('helpers')
 return {
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
+    event = { 'InsertEnter', 'CmdlineEnter' },
     dependencies = {
       -- Adds other completion capabilities.
       --  nvim-cmp does not ship with all sources by default. They are split
@@ -15,6 +15,7 @@ return {
       'hrsh7th/cmp-emoji',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
       'f3fora/cmp-spell',
       'onsails/lspkind.nvim',
       'saadparwaiz1/cmp_luasnip',
@@ -156,15 +157,22 @@ return {
 
       -- `:` cmdline setup.
       cmp.setup.cmdline(':', {
-        -- NOTE: this breaks autocomplete after the first completion
-        -- in commandline mode, I have no idea why
-        -- mapping = cmp.mapping.preset.cmdline(),
+        mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
           { name = 'path' },
         }, {
           { name = 'cmdline' },
         }),
         matching = { disallow_symbol_nonprefix_matching = false },
+      })
+
+      -- Workaround for cmp-cmdline bug where completion breaks after the
+      -- first use. Resetting cmdline completion state on CmdlineLeave
+      -- prevents the issue. See: https://github.com/hrsh7th/cmp-cmdline/issues/86
+      vim.api.nvim_create_autocmd('CmdlineLeave', {
+        callback = function()
+          cmp.close()
+        end,
       })
     end,
   },
