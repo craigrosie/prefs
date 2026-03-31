@@ -3,8 +3,8 @@ return {
   lazy = true,
   cmd = { 'Outline', 'OutlineOpen' },
   keys = {
-    { '<leader>oo', '<cmd>OutlineOpen<CR>', desc = 'Outline [o]pen' },
-    { '<leader>or', '<cmd>OutlineRefresh<CR>', desc = 'Outline [r]efresh' },
+    { '<leader>lo', '<cmd>OutlineOpen<CR>', desc = 'Outline [o]pen' },
+    { '<leader>lr', '<cmd>OutlineRefresh<CR>', desc = 'Outline [r]efresh' },
   },
   opts = {
     outline_window = {
