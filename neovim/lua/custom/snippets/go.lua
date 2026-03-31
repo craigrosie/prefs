@@ -182,23 +182,6 @@ return {
       desc = 'not equal',
     }
   ),
-  s(
-    'iferr',
-    fmta(
-      [[
-      if err != nil {
-        <1>
-      }
-      ]],
-      {
-        i(1, 'return err'),
-      },
-      {}
-    ),
-    {
-      desc = 'if err != nil',
-    }
-  ),
   -- Switch
   s(
     'swi',
