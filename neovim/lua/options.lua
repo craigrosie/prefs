@@ -3,12 +3,6 @@
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
--- Prevent Possession from trying to save hidden buffers
--- Without this, Possession throws and error and fails to save
--- the session if the Neotest Output Panel has been opened by
--- running a test
-vim.opt.sessionoptions = vim.opt.sessionoptions - 'buffers'
-
 vim.g.python3_host_prog = '~/.pynvim/.venv/bin/python3'
 
 -- Make line numbers default
