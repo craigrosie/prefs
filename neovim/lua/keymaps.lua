@@ -48,8 +48,6 @@ vim.keymap.set('v', '>', '>gv', { desc = '> indent' })
 vim.keymap.set('x', 'p', '"_dP', { desc = 'Paste without overwriting register' })
 
 -- keep cursor centered
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll downwards' })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll upwards' })
 vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Next result' })
 vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Previous result' })
 vim.keymap.set('n', '<C-o>', '<C-o>zz', { desc = 'Jump back' })
