@@ -183,7 +183,7 @@ return {
                 local code = require('codecompanion.helpers.actions').get_code(context.start_line, context.end_line)
 
                 return format_lines({
-                  'Here id the code you need to review:',
+                  'Here is the code you need to review:',
                   '',
                   '```%s',
                   '%s',
