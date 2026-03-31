@@ -73,19 +73,4 @@ return {
       desc = 'conventional commit message',
     }
   ),
-  s(
-    'nv',
-    fmta(
-      [[
-      q
-      ]],
-      {
-        nodes,
-      },
-      {}
-    ),
-    {
-      desc = 'description',
-    }
-  ),
 }
