@@ -43,13 +43,13 @@ return {
       require('nvim-treesitter-textobjects.swap').swap_previous('@parameter.inner')
     end)
 
-    return {
+    require('nvim-treesitter-textobjects').setup({
       move = {
         set_jumps = true, -- whether to set jumps in the jumplist
       },
       select = {
         lookahead = true,
       },
-    }
+    })
   end,
 }
