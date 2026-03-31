@@ -9,7 +9,6 @@ return {
       --  nvim-cmp does not ship with all sources by default. They are split
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-emoji',
@@ -56,7 +55,7 @@ return {
 
       -- Recommended by copilot-cmp
       local has_words_before = function()
-        if vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt' then
+        if vim.vo[0].buftype == 'prompt' then
           return false
         end
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
