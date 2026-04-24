@@ -50,7 +50,8 @@ return {
       name: <1>
       description: <2>
       model: <3>
-      tools: [<4>]
+      permission:
+        <4>
       ---
       
       <5>
@@ -66,6 +67,47 @@ return {
     ),
     {
       desc = 'agent',
+    }
+  ),
+  s(
+    'perms',
+    fmta(
+      [[
+      bash: <1>
+      codesearch: <2>
+      doom_loop: <3>
+      edit: <4>
+      external_directory: <5>
+      glob: <6>
+      grep: <7>
+      lsp: <8>
+      question: <9>
+      read: <10>
+      skill: <11>
+      task: <12>
+      webfetch: <13>
+      websearch: <14>
+      ]],
+      {
+        c(1, { t('allow'), t('ask'), t('deny'), t('') }),
+        c(2, { t('allow'), t('ask'), t('deny'), t('') }),
+        c(3, { t('allow'), t('ask'), t('deny'), t('') }),
+        c(4, { t('allow'), t('ask'), t('deny'), t('') }),
+        c(5, { t('allow'), t('ask'), t('deny'), t('') }),
+        c(6, { t('allow'), t('ask'), t('deny'), t('') }),
+        c(7, { t('allow'), t('ask'), t('deny'), t('') }),
+        c(8, { t('allow'), t('ask'), t('deny'), t('') }),
+        c(9, { t('allow'), t('ask'), t('deny'), t('') }),
+        c(10, { t('allow'), t('ask'), t('deny'), t('') }),
+        c(11, { t('allow'), t('ask'), t('deny'), t('') }),
+        c(12, { t('allow'), t('ask'), t('deny'), t('') }),
+        c(13, { t('allow'), t('ask'), t('deny'), t('') }),
+        c(14, { t('allow'), t('ask'), t('deny'), t('') }),
+      },
+      {}
+    ),
+    {
+      desc = 'agent permissions',
     }
   ),
 }
