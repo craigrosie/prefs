@@ -65,7 +65,7 @@ git:
   allBranchesLogCmds:
     - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
 os:
-  edit: "nvim" # see 'Configuring File Editing' section
+  # edit: "nvim" # this is set in snacks.lua neovim config
   open: "open {{filename}}"
 refresher:
   fetchInterval: 60 # re-fetch interval in seconds

@@ -49,7 +49,7 @@
     "go.toolsManagement.autoUpdate": true,
     "inlineChat.defaultModel": "GPT-4o (copilot)",
     "terminal.external.osxExec": "Ghostty.app",
-    "workbench.colorTheme": "Experimental Dark",
+    "workbench.colorTheme": "Dark Modern",
     "workbench.tree.indent": 12,
     // vim keybindings
     "vim.normalModeKeyBindings": [
@@ -178,14 +178,20 @@
     },
     "workbench.startupEditor": "agentSessionsWelcomePage",
     "editor.allowVariableFonts": false,
-    "chat.tools.terminal.sandbox.network": {
-        "allowedDomains": [
-            "az-aviva.atlassian.net",
-            "api.github.com",
-            "github.com",
-        ],
+    "workbench.iconTheme": "vscode-icons",
+    "editor.aiStats.enabled": false,
+    "workbench.activityBar.compact": true,
+    "chat.viewSessions.orientation": "stacked",
+    "chat.promptFilesLocations": {
+        "~/.copilot/prompts": true
     },
-    "chat.tools.terminal.sandbox.macFileSystem": {
+    "inlineChat.enableV2": false,
+    "chat.agent.sandboxNetwork.allowedDomains": [
+        "az-aviva.atlassian.net",
+        "api.github.com",
+        "github.com"
+    ],
+    "chat.agent.sandboxFileSystem.mac": {
         "allowRead": [
             ".",
             "~/Library/Caches/go-build/",
@@ -195,15 +201,8 @@
         "allowWrite": [
             ".",
             "~/Library/Caches/go-build/",
-            "/tmp/",
+            "/tmp/"
         ],
         "denyWrite": []
-    },
-    "workbench.iconTheme": "vscode-icons",
-    "editor.aiStats.enabled": false,
-    "workbench.activityBar.compact": true,
-    "chat.viewSessions.orientation": "stacked",
-    "chat.promptFilesLocations": {
-        "~/.copilot/prompts": true
     }
 }

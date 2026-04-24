@@ -9,27 +9,6 @@ return {
     vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l')
     vim.keymap.set('t', '<C-e>', '<C-\\><C-n>')
 
-    -- lazygit
-    local Terminal = require('toggleterm.terminal').Terminal
-    local lazygit = Terminal:new({
-      cmd = 'lazygit',
-      display_name = 'lazygit',
-      direction = 'float',
-      close_on_exit = true,
-      hidden = true,
-    })
-
-    function _lazygit_toggle()
-      lazygit:toggle()
-    end
-
-    vim.api.nvim_set_keymap(
-      'n',
-      '<leader>qg',
-      '<cmd>lua _lazygit_toggle()<CR>',
-      { desc = 'Toggle lazygit', noremap = true, silent = true }
-    )
-
     function _close_all_toggleterms()
       local terms = require('toggleterm.terminal')
 
