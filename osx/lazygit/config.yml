@@ -179,7 +179,7 @@ keybinding:
     pickCommit: "p" # pick commit (when mid-rebase)
     renameCommit: "r"
     renameCommitWithEditor: "R"
-    resetCherryPick: "<c-R>"
+    resetCherryPick: "<c-r>"
     revertCommit: "t"
     squashAboveCommits: "S"
     squashDown: "s"
