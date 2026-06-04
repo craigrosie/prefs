@@ -54,6 +54,7 @@ return {
         -- Better highlighting for folds and fold virtual text suffix
         hl['Folded'] = { fg = c.red, bg = c.bg }
         hl['MoreMsg'] = { fg = c.red, bg = c.fg_gutter }
+        hl['Comment'] = { fg = '#7B86B3', bg = c.bg }
       end,
     },
   },
