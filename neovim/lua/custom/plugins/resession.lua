@@ -2,7 +2,7 @@ return {
   'stevearc/resession.nvim',
   config = function()
     local resession = require('resession')
-    resession.setup()
+    resession.setup({})
 
     vim.api.nvim_create_autocmd('VimEnter', {
       callback = function()
@@ -16,6 +16,14 @@ return {
     })
     vim.api.nvim_create_autocmd('VimLeavePre', {
       callback = function()
+        -- Close hidden buffers before saving so they don't persist across sessions
+        for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+          if vim.api.nvim_buf_is_valid(bufnr) and vim.bo[bufnr].buflisted then
+            if #vim.fn.win_findbuf(bufnr) == 0 then
+              vim.api.nvim_buf_delete(bufnr, {})
+            end
+          end
+        end
         resession.save(vim.fn.getcwd(), { dir = 'dirsession', notify = false })
       end,
     })
