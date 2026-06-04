@@ -82,43 +82,65 @@ vim.keymap.set(
 )
 
 -- Split function arguments onto separate lines
-local function split_args_to_newlines()
+local function split_args_to_newlines_impl()
   local line = vim.api.nvim_get_current_line()
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
   row = row - 1 -- make 0-indexed for nvim_buf_set_lines
   col = col + 1 -- make 1-indexed for Lua string operations
 
-  -- Scan backward from cursor to find the nearest un-closed '('
+  -- Bracket pairs to support
+  local open_chars = { ['('] = ')', ['{'] = '}' }
+  local close_chars = { [')'] = '(', ['}'] = '{' }
+
+  -- Scan backward from cursor to find the nearest un-closed '(' or '{'
   local open_pos = nil
-  local depth = 0
+  local depth_paren = 0
+  local depth_brace = 0
   for i = col, 1, -1 do
     local c = line:sub(i, i)
     if c == ')' then
-      depth = depth + 1
+      depth_paren = depth_paren + 1
     elseif c == '(' then
-      if depth == 0 then
+      if depth_paren == 0 then
         open_pos = i
         break
       end
-      depth = depth - 1
+      depth_paren = depth_paren - 1
+    elseif c == '}' then
+      depth_brace = depth_brace + 1
+    elseif c == '{' then
+      if depth_brace == 0 then
+        open_pos = i
+        break
+      end
+      depth_brace = depth_brace - 1
     end
   end
-  -- Fallback: first '(' after cursor position
+  -- Fallback: first '(' or '{' after cursor position
   if not open_pos then
-    open_pos = line:find('(', col, true)
+    local p = line:find('(', col, true)
+    local b = line:find('{', col, true)
+    if p and b then
+      open_pos = math.min(p, b)
+    else
+      open_pos = p or b
+    end
   end
   if not open_pos then
     return
   end
 
-  -- Find the matching closing ')'
-  depth = 0
+  local open_char = line:sub(open_pos, open_pos)
+  local close_char = open_chars[open_char]
+
+  -- Find the matching closing bracket
+  local depth = 0
   local close_pos = nil
   for i = open_pos, #line do
     local c = line:sub(i, i)
-    if c == '(' then
+    if c == open_char then
       depth = depth + 1
-    elseif c == ')' then
+    elseif c == close_char then
       depth = depth - 1
       if depth == 0 then
         close_pos = i
@@ -171,16 +193,28 @@ local function split_args_to_newlines()
   end
 
   -- Build replacement lines
-  local new_lines = { before .. '(' }
+  local new_lines = { before .. open_char }
   for _, arg in ipairs(args) do
     table.insert(new_lines, arg_indent .. arg .. ',')
   end
-  table.insert(new_lines, indent .. ')' .. after)
+  table.insert(new_lines, indent .. close_char .. after)
 
   vim.api.nvim_buf_set_lines(0, row, row + 1, false, new_lines)
 end
 
-vim.keymap.set('n', '<leader>nl', split_args_to_newlines, { desc = '[N]ew [L]ines - split args onto separate lines' })
+local function split_args_to_newlines_op(_)
+  split_args_to_newlines_impl()
+end
+
+local function split_args_to_newlines()
+  vim.o.operatorfunc = "v:lua.require'keymaps'.split_args_to_newlines_op"
+  -- Can't use v:lua for operatorfunc in all versions; use a global wrapper
+  _G._split_args_to_newlines_op = split_args_to_newlines_op
+  vim.o.operatorfunc = 'v:lua._split_args_to_newlines_op'
+  return 'g@l'
+end
+
+vim.keymap.set('n', '<leader>nl', split_args_to_newlines, { expr = true, desc = '[N]ew [L]ines - split args onto separate lines' })
 
 -- Open the GitHub page for the Neovim plugin under the cursor (owner/repo format)
 local function open_plugin_github()
