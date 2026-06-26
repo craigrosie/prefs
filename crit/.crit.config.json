@@ -1,0 +1,20 @@
+{
+  "port": 0,
+  "no_open": false,
+  "share_url": "",
+  "quiet": false,
+  "output": "",
+  "author": "",
+  "base_branch": "",
+  "ignore_patterns": [
+    "*.lock",
+    "*.min.js",
+    "*.min.css",
+    ".crit.json",
+    ".crit/"
+  ],
+  "no_integration_check": false,
+  "no_update_check": false,
+  "agent_cmd": "",
+  "cleanup_on_approve": true
+}
