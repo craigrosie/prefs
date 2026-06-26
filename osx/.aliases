@@ -180,13 +180,6 @@ alias less="less -FRX"
 
 alias help="tldr"
 
-alias ktx="kubectx"
-
-alias kns="kubens"
-
-alias k="kubectl"
-complete -F __start_kubectl k
-
 # Format json in clipboard
 alias jf="pbpaste | jq | pbcopy"
 
