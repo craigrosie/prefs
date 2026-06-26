@@ -98,3 +98,12 @@ PLANS/
 pdfs/
 .worktrees/
 
+# understand-anything #
+#######################
+# https://github.com/Lum1104/Understand-Anything
+.understand-anything/
+
+# codegraph #
+#############
+# https://github.com/colbymchenry/codegraph
+.codegraph/
