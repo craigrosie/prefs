@@ -14,9 +14,9 @@ return {
     npairs.setup({})
 
     npairs.add_rules({
-      -- Fix triple backticks in codecompanion chat buffer
-      Rule('```', '```', { 'codecompanion' }):with_pair(cond.not_before_char('`', 3)),
-      Rule('```.*$', '```', { 'codecompanion' }):only_cr():use_regex(true),
+      -- Fix triple backticks in codecompanion & opencode chat buffer
+      Rule('```', '```', { 'codecompanion', 'opencode' }):with_pair(cond.not_before_char('`', 3)),
+      Rule('```.*$', '```', { 'codecompanion', 'opencode' }):only_cr():use_regex(true),
     })
     -- If you want to automatically add `(` after selecting a function or method
     local cmp_autopairs = require('nvim-autopairs.completion.cmp')
