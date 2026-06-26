@@ -129,6 +129,12 @@ return {
           tools = {
             show_output = true, -- Show tools output [diffs, cmd output, etc.] (default: true)
             show_reasoning_output = true, -- Show reasoning/thinking steps output (default: true)
+            use_folds = false, -- Use folds for tool output (default: true)
+            -- folding_threshold = 25, -- Number of lines to show before folding when show_output is true (default: 25)
+            -- fold_exclude = { -- Tools that should never be folded (default: sequential-thinking)
+            --   'bash', -- built-in tool name (exact match)
+            --   { server = 'sequential-thinking', tool = 'sequentialthinking' }, -- MCP tool (server + tool match)
+            -- },
           },
           rendering = {
             markdown_debounce_ms = 250, -- Debounce time for markdown rendering on new data (default: 250ms)
@@ -147,6 +153,7 @@ return {
         },
         picker = {
           snacks_layout = nil, -- `layout` opts to pass to Snacks.picker.pick({ layout = ... })
+          include_paths = { 'PLANS' },
         },
         completion = {
           file_sources = {
