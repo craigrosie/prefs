@@ -186,12 +186,7 @@
         "~/.copilot/prompts": true
     },
     "inlineChat.enableV2": false,
-    "chat.agent.sandboxNetwork.allowedDomains": [
-        "az-aviva.atlassian.net",
-        "api.github.com",
-        "github.com"
-    ],
-    "chat.agent.sandboxFileSystem.mac": {
+    "chat.agent.sandbox.fileSystem.mac": {
         "allowRead": [
             ".",
             "~/Library/Caches/go-build/",
@@ -204,5 +199,11 @@
             "/tmp/"
         ],
         "denyWrite": []
-    }
+    },
+    "chat.agent.sandbox.enabled": "on",
+    "chat.agent.allowedNetworkDomains": [
+        "az-aviva.atlassian.net",
+        "api.github.com",
+        "github.com"
+    ]
 }
