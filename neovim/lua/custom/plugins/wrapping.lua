@@ -1,7 +1,9 @@
 return {
   'andrewferrier/wrapping.nvim',
   event = 'VeryLazy',
-  opts = {
-    softener = { markdown = true }, -- Always use soft (visual) wrap for markdown
-  },
+  config = function()
+    require('wrapping').setup({
+      softener = { markdown = true }, -- Always use soft (visual) wrap for markdown
+    })
+  end,
 }
