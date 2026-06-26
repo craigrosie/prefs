@@ -56,14 +56,23 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('BufWritePost', {
   desc = 'Run agentsync when any ai/ markdown file is saved',
   group = vim.api.nvim_create_augroup('agentsync', { clear = true }),
-  pattern = '*/ai/**/*.md',
-  callback = function()
-    local result = vim.system({ 'agentsync' }, { text = true }):wait()
+  pattern = {
+    vim.fn.expand('~') .. '/github/agentsync/agents/**/*.md',
+    vim.fn.expand('~') .. '/github/agentsync/commands/**/*.md',
+    vim.fn.expand('~') .. '/github/agentsync/skills/**/*.md',
+    vim.fn.expand('~') .. '/github/agentsync/global-rules.md',
+  },
+  callback = function(ev)
+    local repo_root = vim.fs.root(ev.file, { '.git' })
+    if not repo_root then
+      vim.notify('agentsync: could not find repo root', vim.log.levels.WARN)
+      return
+    end
+    local result = vim.system({ 'agentsync' }, { text = true, cwd = repo_root }):wait()
     if result.code ~= 0 then
       vim.notify('agentsync failed:\n' .. (result.stderr or ''), vim.log.levels.ERROR)
     else
       vim.notify('agentsync: done', vim.log.levels.INFO)
     end
   end,
-})
 })
