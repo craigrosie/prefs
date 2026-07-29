@@ -232,4 +232,51 @@ end
 
 vim.keymap.set('n', '<leader>gp', open_plugin_github, { desc = 'Open [G]itHub [P]lugin page' })
 
+-- Open LaunchDarkly feature flag page
+local function open_launchdarkly_flag(flag_name)
+  local url = 'https://app.launchdarkly.com/projects/default/flags/'
+    .. flag_name
+    .. '/targeting?env=test&env=staging&env=production&selected-env=test'
+  vim.ui.open(url)
+end
+
+local function ld_flag_normal()
+  -- Grab text inside surrounding double quotes
+  local flag = vim.fn.expand('<cword>')
+  -- Try to get the text inside double quotes using a search
+  local line = vim.api.nvim_get_current_line()
+  local col = vim.api.nvim_win_get_cursor(0)[2] + 1 -- 1-indexed
+  -- Find the double-quoted string containing the cursor
+  local s, e, match = nil, 0, nil
+  while true do
+    s, e, match = line:find('"([^"]*)"', e + 1)
+    if not s then
+      break
+    end
+    if col >= s and col <= e then
+      flag = match
+      break
+    end
+  end
+  if not flag or flag == '' then
+    vim.notify('No flag name found under cursor', vim.log.levels.WARN)
+    return
+  end
+  open_launchdarkly_flag(flag)
+end
+
+local function ld_flag_visual()
+  -- Exit visual mode so marks are set
+  vim.cmd('noautocmd normal! "vy')
+  local flag = vim.fn.getreg('v')
+  if not flag or flag == '' then
+    vim.notify('No visual selection', vim.log.levels.WARN)
+    return
+  end
+  open_launchdarkly_flag(flag)
+end
+
+vim.keymap.set('n', '<leader>ld', ld_flag_normal, { desc = 'Open [L]aunch[D]arkly flag page' })
+vim.keymap.set('v', '<leader>ld', ld_flag_visual, { desc = 'Open [L]aunch[D]arkly flag page' })
+
 -- vim: ts=2 sts=2 sw=2 et

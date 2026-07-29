@@ -1,0 +1,9 @@
+export NVIM_ENABLE_COPILOT=true
+export NVIM_ENABLE_COPILOT_CHAT=false
+export NVIM_ENABLE_CODE_COMPANION=false
+export NVIM_ENABLE_OPENCODE=true
+
+# Fix "rootless docker not found" on colima
+# https://azverde.slack.com/archives/C07RBPRKT40/p1742550226140359?thread_ts=1742550061.425539&cid=C07RBPRKT40
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE="/var/run/docker.sock"
+export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock"

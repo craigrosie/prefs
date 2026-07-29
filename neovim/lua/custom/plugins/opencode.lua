@@ -1,7 +1,9 @@
 local helpers = require('helpers')
 
 return {
-  'sudo-tee/opencode.nvim',
+  -- 'sudo-tee/opencode.nvim',
+  -- -- 'craigrosie/opencode.nvim',
+  dir = '/Users/craigrosieadmin/github/opencode.nvim',
   enabled = helpers.is_plugin_enabled('NVIM_ENABLE_OPENCODE'),
   config = function()
     require('opencode').setup({

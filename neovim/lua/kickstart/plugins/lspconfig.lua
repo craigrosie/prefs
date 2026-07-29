@@ -164,7 +164,7 @@ return {
         --
         basedpyright = {},
         bashls = {},
-        cmake = {},
+        -- cmake = {},
         dockerls = {},
         docker_compose_language_service = {},
         emmet_language_server = {

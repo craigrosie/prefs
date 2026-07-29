@@ -124,7 +124,7 @@ return {
         end
 
         -- Auto-install missing parsers (async, no-op if already installed)
-        ts.install({ lang })
+        -- ts.install({ lang })
       end,
     })
   end,
