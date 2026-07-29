@@ -107,3 +107,8 @@ pdfs/
 #############
 # https://github.com/colbymchenry/codegraph
 .codegraph/
+
+# superpowers #
+###############
+# https://github.com/obra/superpowers
+docs/superpowers/
