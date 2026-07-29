@@ -50,7 +50,30 @@ tar -czf ~/nvim-share.tar.gz \
 This ~1.5 GB blob contains `lazy/` (all plugins), `mason/` (LSP
 servers/formatters), and the compiled treesitter parsers.
 
-Copy `~/nvim-share.tar.gz` to the new laptop (AirDrop, scp, USB, etc.).
+Copy `~/nvim-share.tar.gz` to the new laptop (AirDrop, scp, etc.).
+
+### If you can't transfer the file in one go
+
+Split the archive into smaller chunks (e.g. 200 MB each):
+
+```bash
+split -b 200m ~/nvim-share.tar.gz ~/nvim-share.tar.gz.part-
+```
+
+This produces files named `nvim-share.tar.gz.part-aa`, `nvim-share.tar.gz.part-ab`, etc.
+Transfer each part individually (email, Slack, cloud storage upload, whatever your limit allows).
+
+On the new laptop, reassemble before extracting:
+
+```bash
+cat ~/nvim-share.tar.gz.part-* > ~/nvim-share.tar.gz
+```
+
+Then continue from step 5 as normal. You can verify the reassembled file isn't corrupt with:
+
+```bash
+gzip -t ~/nvim-share.tar.gz && echo "OK"
+```
 
 ## On the new laptop
 
